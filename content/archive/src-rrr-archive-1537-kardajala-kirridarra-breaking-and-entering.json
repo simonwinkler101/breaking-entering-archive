@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1537-kardajala-kirridarra-breaking-and-entering",
+  "artist": "Kardajala Kirridarra",
+  "title": "Kardajala Kirridarra - Breaking and Entering",
+  "kind": "Interview",
+  "date": "20 July 2017",
+  "dateKey": "2017-07-20",
+  "year": 2017,
+  "duration": "33:05",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1537-kardajala-kirridarra-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1537-kardajala-kirridarra-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1537-kardajala-kirridarra-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "33:05",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

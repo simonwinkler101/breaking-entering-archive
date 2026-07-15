@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1256-peaches-breaking-and-entering",
+  "artist": "Peaches",
+  "title": "Peaches - Breaking and entering",
+  "kind": "Interview",
+  "date": "8 October 2015",
+  "dateKey": "2015-10-08",
+  "year": 2015,
+  "duration": "21:08",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1256-peaches-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1256-peaches-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1256-peaches-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "21:08",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

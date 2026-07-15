@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-oz8WoO98CZA",
+  "artist": "Gang Gang Dance",
+  "title": "Gang Gang Dance interview on 3RRR",
+  "kind": "Interview",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "12:29",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=oz8WoO98CZA",
+  "summary": "",
+  "tags": [
+    "interview",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-oz8WoO98CZA",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=oz8WoO98CZA",
+      "access": "Public",
+      "duration": "12:29",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

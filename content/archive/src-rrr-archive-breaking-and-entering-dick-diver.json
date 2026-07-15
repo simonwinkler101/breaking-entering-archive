@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-breaking-and-entering-dick-diver",
+  "artist": "Dick Diver",
+  "title": "Breaking and Entering: Dick Diver",
+  "kind": "Interview",
+  "date": "22 May 2025",
+  "dateKey": "2025-05-22",
+  "year": 2025,
+  "duration": "20:00",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-dick-diver",
+  "summary": "Two of the members from Dick Diver – Steph Hughes and Al Montfort – delve into their feelings of anticipation regarding their upcoming shows at the Thornbury Theatre, sharing details of the line up and potential future gigs! They also discuss the experience of being reunited with the band and playing together again, 10 years after their last album release, while also reminising on their time in the music industry over the years.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-breaking-and-entering-dick-diver",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-dick-diver",
+      "access": "RRR subscriber",
+      "duration": "20:00",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-channel-tres-breaking-and-entering",
+  "artist": "Channel Tres",
+  "title": "Channel Tres - Breaking and Entering",
+  "kind": "Interview",
+  "date": "18 July 2019",
+  "dateKey": "2019-07-18",
+  "year": 2019,
+  "duration": "18:20",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/channel-tres-breaking-and-entering",
+  "summary": "Channel Tres joins Simon in the studio to chat about his Australian tour, musical influences and creative process. Fresh from the release of his 2019 single 'Sexy Black Timberlake', Channel Tres reflects on his music career to date and drops some news on an upcoming release.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-channel-tres-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/channel-tres-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "18:20",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

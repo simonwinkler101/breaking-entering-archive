@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1392-friendships-breaking-entering",
+  "artist": "Friendships",
+  "title": "Friendships - Breaking and Entering",
+  "kind": "Interview",
+  "date": "27 October 2016",
+  "dateKey": "2016-10-27",
+  "year": 2016,
+  "duration": "21:19",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1392-friendships-breaking-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1392-friendships-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1392-friendships-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "21:19",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

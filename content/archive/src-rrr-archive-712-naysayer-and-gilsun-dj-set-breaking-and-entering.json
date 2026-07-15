@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+  "artist": "Naysayer and Gilsun (DJ Set)",
+  "title": "Naysayer and Gilsun (DJ Set) - Breaking and Entering",
+  "kind": "Guest mix",
+  "date": "19 March 2012",
+  "dateKey": "2012-03-19",
+  "year": 2012,
+  "duration": "29:26",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "guest mix",
+    "dj culture",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "29:26",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

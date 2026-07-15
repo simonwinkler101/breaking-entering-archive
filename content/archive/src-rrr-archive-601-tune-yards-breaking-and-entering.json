@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-601-tune-yards-breaking-and-entering",
+  "artist": "Tune-Yards",
+  "title": "Tune-Yards - Breaking and Entering",
+  "kind": "Interview",
+  "date": "16 January 2012",
+  "dateKey": "2012-01-16",
+  "year": 2012,
+  "duration": "21:26",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/601-tune-yards-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-601-tune-yards-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/601-tune-yards-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "21:26",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-545-rucl-live-to-air-on-breaking-entering",
+  "artist": "RuCL - Live to Air",
+  "title": "RuCL - Live to Air on Breaking and Entering",
+  "kind": "Live",
+  "date": "14 November 2011",
+  "dateKey": "2011-11-14",
+  "year": 2011,
+  "duration": "37:37",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/545-rucl-live-to-air-on-breaking-entering",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-545-rucl-live-to-air-on-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/545-rucl-live-to-air-on-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "37:37",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

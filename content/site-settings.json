@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "title": "Breaking and Entering Archive",
+    "description": "An index of interviews, guest mixes and live sessions from Breaking and Entering."
+  },
+  "wordmark": {
+    "lineOne": "Breaking and",
+    "lineTwo": "Entering",
+    "label": "Archive",
+    "homeLabel": "Breaking and Entering Archive, home"
+  },
+  "hero": {
+    "eyebrow": "Lauren Taylor + Simon Winkler / 3RRR 102.7FM",
+    "introduction": "index of interviews, guest mixes and live sessions.",
+    "searchPlaceholder": "Search artists, years, subjects or formats",
+    "browseLabel": "Browse the full index"
+  },
+  "featured": {
+    "visible": true,
+    "entryId": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
+    "label": "Featured guest mix",
+    "volume": "Volume 02",
+    "kicker": "Breaking and Entering / Guest Mix",
+    "linkLabel": "Listen on Mixcloud"
+  },
+  "footer": {
+    "text": "2026 / 3RRR / Brunswick East, Naarm–Melbourne",
+    "backToTopLabel": "Back to top"
+  },
+  "layout": {
+    "pageSize": 40
+  }
+}

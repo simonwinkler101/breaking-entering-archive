@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-bill-callahan",
+  "artist": "Bill Callahan",
+  "title": "Creation: Bill Callahan talks about his latest release 'Gold Record' with Lauren and Simon on Breaking and Entering",
+  "kind": "Interview",
+  "date": "17 September 2020",
+  "dateKey": "2020-09-17",
+  "year": 2020,
+  "duration": "42:42",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/bill-callahan",
+  "summary": "American singer-songwriter Bill Callahan contemplates family, cars, nostalgia and his new album Gold Record with Lauren Taylor and Simon Winkler on Breaking and Entering. He muses on the topic of how creating a family is similar to creating artistic works: \"it's kind of paying tribute to creation when we create\".",
+  "tags": [
+    "interview",
+    "subscriber archive",
+    "songwriting"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-bill-callahan",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/bill-callahan",
+      "access": "RRR subscriber",
+      "duration": "42:42",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

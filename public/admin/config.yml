@@ -1,0 +1,167 @@
+backend:
+  name: github
+  repo: simonwinkler101/breaking-entering-archive
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+editor:
+  preview: false
+
+collections:
+  - name: archive
+    label: Archive entries
+    label_singular: Archive entry
+    folder: content/archive
+    create: true
+    delete: true
+    extension: json
+    format: json
+    identifier_field: id
+    slug: "{{fields.id}}"
+    summary: "{{artist}} — {{title}}"
+    sortable_fields: [artist, kind, dateKey]
+    view_filters:
+      - { label: Interviews, field: kind, pattern: Interview }
+      - { label: Guest mixes, field: kind, pattern: Guest mix }
+      - { label: Live, field: kind, pattern: Live }
+      - { label: Transcribed, field: transcript, pattern: ".+" }
+    fields:
+      - label: ID
+        name: id
+        widget: string
+        hint: "A unique lowercase slug; use letters, numbers and hyphens only. Do not change after publishing."
+        pattern: ["^[a-z0-9][a-z0-9._-]*$", "Use only letters, numbers, dots, underscores and hyphens."]
+      - { label: Artist, name: artist, widget: string }
+      - { label: Entry title, name: title, widget: string }
+      - label: Format
+        name: kind
+        widget: select
+        options: [Interview, Guest mix, Live, Special program]
+      - { label: Display date, name: date, widget: string, required: false, hint: "For example: 23 October 2025" }
+      - { label: Sort date, name: dateKey, widget: datetime, required: false, format: "YYYY-MM-DD", time_format: false }
+      - { label: Year, name: year, widget: number, required: false, value_type: int, min: 1900, max: 2100 }
+      - { label: Duration, name: duration, widget: string, required: false }
+      - { label: Presented by, name: presenters, widget: string, required: false }
+      - { label: Summary, name: summary, widget: text, required: false }
+      - label: Transcript
+        name: transcript
+        widget: text
+        required: false
+        hint: "Paste the complete transcript here. Leaving this blank hides the transcript marker and reader. Separate paragraphs with a blank line."
+      - label: Subjects
+        name: tags
+        widget: list
+        required: true
+        allow_add: true
+        field: { label: Subject, name: tag, widget: string }
+      - label: Manually related entries
+        name: relatedIds
+        widget: relation
+        required: false
+        multiple: true
+        collection: archive
+        search_fields: [artist, title, tags]
+        display_fields: [artist, title]
+        value_field: id
+        hint: "Optional. The site also finds same-artist and subject connections automatically."
+      - label: Access
+        name: access
+        widget: select
+        options: [Public, RRR subscriber, Availability varies]
+      - { label: Primary source label, name: source, widget: string }
+      - { label: Primary link, name: href, widget: string, pattern: ["^https?://", "Enter a complete http or https link."] }
+      - label: Sources
+        name: sources
+        widget: list
+        required: true
+        summary: "{{fields.label}}"
+        fields:
+          - { label: Source ID, name: id, widget: string }
+          - { label: Label, name: label, widget: string }
+          - { label: Link, name: href, widget: string, pattern: ["^https?://", "Enter a complete http or https link."] }
+          - label: Access
+            name: access
+            widget: select
+            options: [Public, RRR subscriber, Availability varies]
+          - { label: Duration, name: duration, widget: string, required: false }
+          - { label: Verification note, name: status, widget: string, required: false }
+
+  - name: archive_structure
+    label: Archive structure
+    files:
+      - label: Related-entry groups
+        name: associations
+        file: content/archive-associations.json
+        fields:
+          - label: Groups
+            name: groups
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Internal label, name: label, widget: string, hint: "Used by the association engine but not printed on the public site." }
+              - label: Entries
+                name: entryIds
+                widget: relation
+                multiple: true
+                collection: archive
+                search_fields: [artist, title, tags]
+                display_fields: [artist, title]
+                value_field: id
+
+  - name: site
+    label: Site settings
+    files:
+      - label: Text and layout
+        name: settings
+        file: content/site-settings.json
+        fields:
+          - label: Search metadata
+            name: metadata
+            widget: object
+            fields:
+              - { label: Site title, name: title, widget: string }
+              - { label: Site description, name: description, widget: text }
+          - label: Wordmark
+            name: wordmark
+            widget: object
+            fields:
+              - { label: First line, name: lineOne, widget: string }
+              - { label: Second line, name: lineTwo, widget: string }
+              - { label: Small label, name: label, widget: string }
+              - { label: Home link description, name: homeLabel, widget: string }
+          - label: Introduction and search
+            name: hero
+            widget: object
+            fields:
+              - { label: Eyebrow, name: eyebrow, widget: string }
+              - { label: Introduction, name: introduction, widget: string }
+              - { label: Search prompt, name: searchPlaceholder, widget: string }
+              - { label: Browse link, name: browseLabel, widget: string }
+          - label: Featured mix
+            name: featured
+            widget: object
+            fields:
+              - { label: Show featured card, name: visible, widget: boolean, default: true }
+              - label: Featured entry
+                name: entryId
+                widget: relation
+                collection: archive
+                search_fields: [artist, title]
+                display_fields: [artist, title]
+                value_field: id
+              - { label: Label, name: label, widget: string }
+              - { label: Volume, name: volume, widget: string }
+              - { label: Kicker, name: kicker, widget: string }
+              - { label: Link label, name: linkLabel, widget: string }
+          - label: Archive layout
+            name: layout
+            widget: object
+            fields:
+              - { label: Entries shown per page, name: pageSize, widget: number, value_type: int, min: 12, max: 100 }
+          - label: Footer
+            name: footer
+            widget: object
+            fields:
+              - { label: Footer text, name: text, widget: string }
+              - { label: Back-to-top label, name: backToTopLabel, widget: string }

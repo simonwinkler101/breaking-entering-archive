@@ -1,0 +1,30 @@
+{
+  "id": "src-youtube-BwghaaoFRtw",
+  "artist": "Cate Le Bon",
+  "title": "Cate Le Bon - We Might Revolve (Live at 3RRR)",
+  "kind": "Live",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "4:19",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=BwghaaoFRtw",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-BwghaaoFRtw",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=BwghaaoFRtw",
+      "access": "Public",
+      "duration": "4:19",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

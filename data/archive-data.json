@@ -1,0 +1,4995 @@
+{
+  "metadata": {
+    "researchSnapshot": "2026-07-15",
+    "sourceRecordCount": 181,
+    "itemCount": 160,
+    "dateUnconfirmedCount": 22,
+    "subscriberOnlyItemCount": 97,
+    "kindCounts": {
+      "Interview": 123,
+      "Special program": 3,
+      "Guest mix": 10,
+      "Live": 24
+    },
+    "recoveryLeadCount": 12,
+    "scopeNote": "Publicly discoverable interviews, guest mixes, live sessions and special programs. Subscriber-gated audio is catalogued but not copied."
+  },
+  "entries": [
+    {
+      "id": "src-rrr-segment-breaking-entering-now-or-never-with-elise-peyronnet",
+      "artist": "Elise Peyronnet",
+      "title": "Breaking and Entering: Now or Never with Elise Peyronnet",
+      "kind": "Interview",
+      "date": "2 July 2026",
+      "dateKey": "2026-07-02",
+      "year": 2026,
+      "duration": "19:09",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-now-or-never-with-elise-peyronnet",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-entering-now-or-never-with-elise-peyronnet",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-now-or-never-with-elise-peyronnet",
+          "access": "Public",
+          "duration": "19:09",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid",
+      "artist": "Acopia",
+      "title": "Breaking and Entering: Acopia on Friendship, Transience, and the Things Left Unsaid",
+      "kind": "Interview",
+      "date": "18 June 2026",
+      "dateKey": "2026-06-18",
+      "year": 2026,
+      "duration": "1:16:56",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid",
+          "access": "Public",
+          "duration": "1:16:56",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-jazmine-mary-on-art-inner-critics-and-radical-acts",
+      "artist": "Jazmine Mary",
+      "title": "Breaking and Entering: Jazmine Mary on Art, Inner Critics and Radical Acts",
+      "kind": "Interview",
+      "date": "11 June 2026",
+      "dateKey": "2026-06-11",
+      "year": 2026,
+      "duration": "17:55",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jazmine-mary-on-art-inner-critics-and-radical-acts",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-jazmine-mary-on-art-inner-critics-and-radical-acts",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jazmine-mary-on-art-inner-critics-and-radical-acts",
+          "access": "Public",
+          "duration": "17:55",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-daniel-avery-returns-with-a-tremor",
+      "artist": "Daniel Avery",
+      "title": "Breaking and Entering: Daniel Avery Returns With a Tremor",
+      "kind": "Interview",
+      "date": "28 May 2026",
+      "dateKey": "2026-05-28",
+      "year": 2026,
+      "duration": "18:02",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-daniel-avery-returns-with-a-tremor",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-daniel-avery-returns-with-a-tremor",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-daniel-avery-returns-with-a-tremor",
+          "access": "Public",
+          "duration": "18:02",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+      "artist": "Byron Scullin & Robin Fox / MESS",
+      "title": "Breaking and Entering: Melbourne's Gym For Synths MESS Celebrates 10 Years",
+      "kind": "Interview",
+      "date": "7 May 2026",
+      "dateKey": "2026-05-07",
+      "year": 2026,
+      "duration": "25:58",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+      "summary": "MESS (Melbourne Electronic Sound Studio) celebrates its 10th anniversary this year! Co-founders Byron Scullin and Robin Fox join Lauren in the studio to reflect on the creation of their \"living museum\". Located in Federation Square, MESS houses a significant collection of new and historic electronic instruments and preserves them for use by musicians from all over the world.",
+      "tags": [
+        "interview",
+        "melbourne",
+        "electronic"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+          "access": "Public",
+          "duration": "25:58",
+          "status": "Confirmed RRR segment page"
+        },
+        {
+          "id": "src-rrr-archive-breaking-and-entering-byron-scullin-robin-fox",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-byron-scullin-robin-fox",
+          "access": "Public",
+          "duration": "26:56",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "final-show",
+      "artist": "Lauren Taylor & Simon Winkler",
+      "title": "Simon Winkler’s Final Show",
+      "kind": "Special program",
+      "date": "30 April 2026",
+      "dateKey": "2026-04-30",
+      "year": 2026,
+      "duration": "3:00:00",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-simon-winklers-final-show",
+      "summary": "A three-hour look back across eighteen years of Breaking and Entering, with friends of the program reflecting on the show, Triple R and Simon’s contribution to Melbourne music culture.",
+      "tags": [
+        "special program",
+        "history",
+        "radio",
+        "melbourne",
+        "retrospective"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-simon-winklers-final-show",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-simon-winklers-final-show",
+          "access": "Public",
+          "duration": "3:00:00",
+          "status": "Confirmed RRR segment page"
+        },
+        {
+          "id": "src-rrr-archive-breaking-and-entering-simons-final-episode",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-simons-final-episode",
+          "access": "Public",
+          "duration": "2:49:28",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "carla-dal-forno",
+      "artist": "Carla dal Forno",
+      "title": "Confession and the Stillness of Castlemaine",
+      "kind": "Interview",
+      "date": "23 April 2026",
+      "dateKey": "2026-04-23",
+      "year": 2026,
+      "duration": "12:25",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-carla-dal-forno-on-her-new-record-confession-and-the-stillness-of-castlemaine",
+      "summary": "Carla dal Forno discusses her fourth solo album, moving from the city to Castlemaine, recording in a disused hospital and the relationship between sound, place and stillness.",
+      "tags": [
+        "interview",
+        "post-punk",
+        "castlemaine",
+        "songwriting",
+        "art"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-carla-dal-forno-on-her-new-record-confession-and-the-stillness-of-castlemaine",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-carla-dal-forno-on-her-new-record-confession-and-the-stillness-of-castlemaine",
+          "access": "Public",
+          "duration": "12:25",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-simons-departure-announcement",
+      "artist": "Simon's Departure Announcement",
+      "title": "Breaking And Entering: Simon's Departure Announcement",
+      "kind": "Special program",
+      "date": "26 March 2026",
+      "dateKey": "2026-03-26",
+      "year": 2026,
+      "duration": "2:51:19",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-simons-departure-announcement",
+      "summary": "After 18 years, Simon Winkler announces his departure as co-host of Breaking And Entering",
+      "tags": [
+        "special program",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-simons-departure-announcement",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-simons-departure-announcement",
+          "access": "RRR subscriber",
+          "duration": "2:51:19",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "exek",
+      "artist": "EXEK",
+      "title": "Prove The Mountains Move",
+      "kind": "Interview",
+      "date": "12 March 2026",
+      "dateKey": "2026-03-12",
+      "year": 2026,
+      "duration": "28:52",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-exek-prove-the-mountains-move",
+      "summary": "Albert Wolski speaks about EXEK’s experimental writing methods, field recordings, film scores and the making of the band’s DFA-released album Prove The Mountains Move.",
+      "tags": [
+        "interview",
+        "experimental",
+        "post-punk",
+        "field recordings",
+        "dfa"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-exek-prove-the-mountains-move",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-exek-prove-the-mountains-move",
+          "access": "Public",
+          "duration": "28:52",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "francois-k",
+      "artist": "François K",
+      "title": "The Endurance of François K",
+      "kind": "Interview",
+      "date": "26 February 2026",
+      "dateKey": "2026-02-26",
+      "year": 2026,
+      "duration": "15:20",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-francois-k",
+      "summary": "A conversation about late-1970s New York, the dancefloor as a space for community and François Kevorkian’s contemporary work reconstructing classic recordings live.",
+      "tags": [
+        "interview",
+        "dance music",
+        "new york",
+        "dj culture",
+        "community"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-francois-k",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-francois-k",
+          "access": "Public",
+          "duration": "15:20",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "nabihah-iqbal",
+      "artist": "Nabihah Iqbal",
+      "title": "Special Guest Mix and Current Favourites",
+      "kind": "Guest mix",
+      "date": "26 February 2026",
+      "dateKey": "2026-02-26",
+      "year": 2026,
+      "duration": "35:39",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-nabihah-iqbal-special-guest-mix-and-current-favourites",
+      "summary": "Nabihah Iqbal joins Lauren and Simon to talk about travel, literature and work on a new record before taking over the studio for a special guest mix.",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "literature",
+        "dj",
+        "london"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-nabihah-iqbal-special-guest-mix-and-current-favourites",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-nabihah-iqbal-special-guest-mix-and-current-favourites",
+          "access": "Public",
+          "duration": "35:39",
+          "status": "Confirmed RRR segment page"
+        },
+        {
+          "id": "src-rrr-archive-breaking-and-entering-nabihah-iqbal-special-guest-mix-and-current-favourites",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-nabihah-iqbal-special-guest-mix-and-current-favourites",
+          "access": "Public",
+          "duration": "45:31",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "ok-eg",
+      "artist": "OK EG",
+      "title": "Launch GEKO + Live Guest Mix",
+      "kind": "Guest mix",
+      "date": "12 February 2026",
+      "dateKey": "2026-02-12",
+      "year": 2026,
+      "duration": "43:38",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-ok-eg-launch-geko",
+      "summary": "Lauren Squire and Matthew Wilson mark a decade of OK EG, introduce their new label GEKO and discuss a sound shaped by bush rave, European techno and the environments around them.",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "electronic",
+        "techno",
+        "naarm",
+        "geko"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-ok-eg-launch-geko",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-ok-eg-launch-geko",
+          "access": "Public",
+          "duration": "43:38",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "th-blisks",
+      "artist": "Th Blisks",
+      "title": "Return of the Australian Trio",
+      "kind": "Interview",
+      "date": "29 January 2026",
+      "dateKey": "2026-01-29",
+      "year": 2026,
+      "duration": "19:19",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-th-blisks-reminisce-on-elixa-and-how-so",
+      "summary": "Amelia Besseny, Cooper Bowman and Yuta Matsumura revisit the group’s earlier records and discuss their free-form approach, trip-hop atmosphere and changing creative chemistry.",
+      "tags": [
+        "interview",
+        "trip-hop",
+        "efficient space",
+        "australian music"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-th-blisks-reminisce-on-elixa-and-how-so",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-th-blisks-reminisce-on-elixa-and-how-so",
+          "access": "Public",
+          "duration": "19:19",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-dry-cleaning-on-their-latest-album-secret-love",
+      "artist": "Dry Cleaning",
+      "title": "Breaking And Entering: Dry Cleaning On Their Latest Album 'Secret Love'",
+      "kind": "Interview",
+      "date": "22 January 2026",
+      "dateKey": "2026-01-22",
+      "year": 2026,
+      "duration": "18:29",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-dry-cleaning-on-their-latest-album-secret-love",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-dry-cleaning-on-their-latest-album-secret-love",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-dry-cleaning-on-their-latest-album-secret-love",
+          "access": "Public",
+          "duration": "18:29",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-Rvh5V9hc-0c",
+      "artist": "DRMNGNOW",
+      "title": "DRMNGNOW - Pray (Live at Triple R)",
+      "kind": "Live",
+      "date": "7 January 2026",
+      "dateKey": "2026-01-07",
+      "year": 2026,
+      "duration": "3:19",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=Rvh5V9hc-0c",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-Rvh5V9hc-0c",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=Rvh5V9hc-0c",
+          "access": "Public",
+          "duration": "3:19",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-live-at-rrr-drmgnow",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/live-at-rrr-drmgnow",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
+      "artist": "Breaking and Entering",
+      "title": "RISING: Breaking and Entering - 'Stars Align' End of Year Mix",
+      "kind": "Guest mix",
+      "date": "2 December 2025",
+      "dateKey": "2025-12-02",
+      "year": 2025,
+      "duration": "",
+      "presenters": "",
+      "source": "Mixcloud",
+      "href": "https://www.mixcloud.com/breakingandentering/rising-breaking-and-entering-stars-align-end-of-year-mix/",
+      "summary": "Lauren Taylor and Simon Winkler close out 2025 with Stars Align, a warm, wide-ranging end-of-year mix made for RISING.",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "mixcloud"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
+          "label": "Mixcloud",
+          "href": "https://www.mixcloud.com/breakingandentering/rising-breaking-and-entering-stars-align-end-of-year-mix/",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed public landing page"
+        }
+      ]
+    },
+    {
+      "id": "hydroplane",
+      "artist": "Hydroplane",
+      "title": "The First New Album in Two Decades",
+      "kind": "Interview",
+      "date": "6 November 2025",
+      "dateKey": "2025-11-06",
+      "year": 2025,
+      "duration": "25:43",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-hydroplanes-first-new-album-in-two-decades",
+      "summary": "Kerrie Bolton, Andrew Withycombe and Bart Cummings discuss reuniting to make A Place In My Memory Is All I Have To Claim, their first Hydroplane album in twenty years.",
+      "tags": [
+        "interview",
+        "indie pop",
+        "reunion",
+        "melbourne",
+        "efficient space"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-hydroplanes-first-new-album-in-two-decades",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-hydroplanes-first-new-album-in-two-decades",
+          "access": "Public",
+          "duration": "25:43",
+          "status": "Confirmed RRR segment page"
+        },
+        {
+          "id": "src-rrr-archive-breaking-and-entering-hydroplane",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-hydroplane",
+          "access": "RRR subscriber",
+          "duration": "21:16",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "king-gizzard",
+      "artist": "King Gizzard & The Lizard Wizard",
+      "title": "Embracing the Rave",
+      "kind": "Interview",
+      "date": "23 October 2025",
+      "dateKey": "2025-10-23",
+      "year": 2025,
+      "duration": "36:23",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-king-gizzard-and-the-lizard-wizard-in-studio",
+      "summary": "Stu Mackenzie and Joey Walker discuss the band’s improvised modular rave set, upcoming orchestral performances and the possibilities opened by playing without a fixed script.",
+      "tags": [
+        "interview",
+        "electronic",
+        "live music",
+        "modular",
+        "melbourne"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-king-gizzard-and-the-lizard-wizard-in-studio",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-king-gizzard-and-the-lizard-wizard-in-studio",
+          "access": "Public",
+          "duration": "36:23",
+          "status": "Confirmed RRR segment page"
+        },
+        {
+          "id": "src-rrr-archive-breaking-entering-king-gizzard",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-entering-king-gizzard",
+          "access": "RRR subscriber",
+          "duration": "26:34",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "mark-ronson",
+      "artist": "Mark Ronson",
+      "title": "Night People and ’90s New York",
+      "kind": "Interview",
+      "date": "23 October 2025",
+      "dateKey": "2025-10-23",
+      "year": 2025,
+      "duration": "23:14",
+      "presenters": "Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-mark-ronson-on-night-people-and-90s-nyc",
+      "summary": "Mark Ronson looks back on becoming a DJ in 1990s New York, carrying records across the city and learning in rooms shaped by hip-hop history.",
+      "tags": [
+        "interview",
+        "dj culture",
+        "hip-hop",
+        "new york",
+        "books"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-mark-ronson-on-night-people-and-90s-nyc",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-mark-ronson-on-night-people-and-90s-nyc",
+          "access": "Public",
+          "duration": "23:14",
+          "status": "Confirmed RRR segment page"
+        },
+        {
+          "id": "src-rrr-archive-breaking-entering-mark-ronson",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-entering-mark-ronson",
+          "access": "RRR subscriber",
+          "duration": "13:32",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "cate-le-bon",
+      "artist": "Cate Le Bon",
+      "title": "Michelangelo Dying",
+      "kind": "Interview",
+      "date": "2 October 2025",
+      "dateKey": "2025-10-02",
+      "year": 2025,
+      "duration": "21:22",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-cate-le-bon-returns-with-michelangelo-dying",
+      "summary": "Cate Le Bon speaks with Lauren and Simon about heartbreak, experimentation, drone music and treating an album as a physical presence.",
+      "tags": [
+        "interview",
+        "songwriting",
+        "drone",
+        "experimental",
+        "welsh music"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-entering-cate-le-bon-returns-with-michelangelo-dying",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-cate-le-bon-returns-with-michelangelo-dying",
+          "access": "Public",
+          "duration": "21:22",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "harvey-sutherland",
+      "artist": "Harvey Sutherland",
+      "title": "Debt + Exclusive DJ Mix",
+      "kind": "Guest mix",
+      "date": "25 September 2025",
+      "dateKey": "2025-09-25",
+      "year": 2025,
+      "duration": "42:56",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-harvey-sutherland-debt",
+      "summary": "Harvey Sutherland discusses the financial and emotional realities of sustaining a creative practice, then performs an exclusive mix featuring unreleased material.",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "electronic",
+        "synths",
+        "creative practice"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-harvey-sutherland-debt",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-harvey-sutherland-debt",
+          "access": "Public",
+          "duration": "42:56",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "mac-demarco",
+      "artist": "Mac DeMarco",
+      "title": "Back to Basics",
+      "kind": "Interview",
+      "date": "14 August 2025",
+      "dateKey": "2025-08-14",
+      "year": 2025,
+      "duration": "21:28",
+      "presenters": "Lauren Taylor",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-mac-demarco-back-to-basics",
+      "summary": "Mac DeMarco talks with Lauren about stripping his music back to guitar and drums, instinctive recording, home and searching for the human inside a song.",
+      "tags": [
+        "interview",
+        "songwriting",
+        "guitar",
+        "canada",
+        "recording"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-mac-demarco-back-to-basics",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-mac-demarco-back-to-basics",
+          "access": "Public",
+          "duration": "21:28",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-altogether-stranger-lael-neale",
+      "artist": "Lael Neale",
+      "title": "Breaking and Entering: Lael Neale's Altogether Stranger",
+      "kind": "Interview",
+      "date": "7 August 2025",
+      "dateKey": "2025-08-07",
+      "year": 2025,
+      "duration": "22:45",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-altogether-stranger-lael-neale",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-altogether-stranger-lael-neale",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-altogether-stranger-lael-neale",
+          "access": "Public",
+          "duration": "22:45",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "jess-ribeiro",
+      "artist": "Jess Ribeiro",
+      "title": "The New Mix Tape",
+      "kind": "Interview",
+      "date": "17 July 2025",
+      "dateKey": "2025-07-17",
+      "year": 2025,
+      "duration": "10:14",
+      "presenters": "Lauren Taylor & Simon Winkler",
+      "source": "Triple R",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jess-ribeiros-new-mix-tape",
+      "summary": "Jess Ribeiro joins Lauren and Simon to discuss Mix Tape, a collection of B-sides and demos assembled from a period when time and momentum felt fragmented.",
+      "tags": [
+        "interview",
+        "songwriting",
+        "demos",
+        "australian music"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-jess-ribeiros-new-mix-tape",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jess-ribeiros-new-mix-tape",
+          "access": "Public",
+          "duration": "10:14",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-cut-copys-euphoric-return",
+      "artist": "Cut Copy",
+      "title": "Breaking and Entering: Cut Copy's Euphoric Return",
+      "kind": "Interview",
+      "date": "10 July 2025",
+      "dateKey": "2025-07-10",
+      "year": 2025,
+      "duration": "14:56",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/cut-copys-euphoric-return",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-cut-copys-euphoric-return",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/cut-copys-euphoric-return",
+          "access": "Public",
+          "duration": "14:56",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-WnPndt_3IBg",
+      "artist": "Jessica Pratt",
+      "title": "Live at RRR: Jessica Pratt",
+      "kind": "Live",
+      "date": "4 June 2025",
+      "dateKey": "2025-06-04",
+      "year": 2025,
+      "duration": "",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=WnPndt_3IBg",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-WnPndt_3IBg",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=WnPndt_3IBg",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-live-at-rrr-jessica-pratt",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/live-at-rrr-jessica-pratt",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-dick-diver",
+      "artist": "Dick Diver",
+      "title": "Breaking and Entering: Dick Diver",
+      "kind": "Interview",
+      "date": "22 May 2025",
+      "dateKey": "2025-05-22",
+      "year": 2025,
+      "duration": "20:00",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-dick-diver",
+      "summary": "Two of the members from Dick Diver – Steph Hughes and Al Montfort – delve into their feelings of anticipation regarding their upcoming shows at the Thornbury Theatre, sharing details of the line up and potential future gigs! They also discuss the experience of being reunited with the band and playing together again, 10 years after their last album release, while also reminising on their time in the music industry over the years.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-dick-diver",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-dick-diver",
+          "access": "RRR subscriber",
+          "duration": "20:00",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-guy-blackman-and-ben-oconnor-on-chapter-musics-iconic-catalog-and-their-final-releases",
+      "artist": "Guy Blackman and Ben O’Connor On Chapter Music’s Iconic Catalog and Their Final Releases",
+      "title": "Breaking And Entering: Guy Blackman and Ben O’Connor On Chapter Music’s Iconic Catalog and Their Final Releases",
+      "kind": "Interview",
+      "date": "22 May 2025",
+      "dateKey": "2025-05-22",
+      "year": 2025,
+      "duration": "29:06",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-guy-blackman-and-ben-oconnor-on-chapter-musics-iconic-catalog-and-their-final-releases",
+      "summary": "After 30 years and over 200 releases, beloved independent label Chapter Music are releasing their final new records. Founder, Guy Blackman and co-founder, Ben O’Connor, take a look back on the label’s evolution from their DIY beginnings at RTRFM in Perth to their latest release with Teether & Kuya Neil. Listen in to hear Guy and Ben open up about the different scenes the label’s adapted to and the legacy that Chapter Music will leave.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-guy-blackman-and-ben-oconnor-on-chapter-musics-iconic-catalog-and-their-final-releases",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-guy-blackman-and-ben-oconnor-on-chapter-musics-iconic-catalog-and-their-final-releases",
+          "access": "RRR subscriber",
+          "duration": "29:06",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-pulling-back-the-curtain-on-yearn-iv",
+      "artist": "Pulling Back The Curtain On YEARN IV",
+      "title": "Breaking And Entering: Pulling Back The Curtain On YEARN IV",
+      "kind": "Interview",
+      "date": "8 May 2025",
+      "dateKey": "2025-05-08",
+      "year": 2025,
+      "duration": "15:21",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-pulling-back-the-curtain-on-yearn-iv",
+      "summary": "One half of the duo behind Triple R’s Album of the Week in May of 2025, Kuya Neil, dropped into the studio on the release week of his and Teether’s collaborative album, YEARN IV. Kuya Neil talks about the behind the scenes of writing the album and its contrast in recording from the duo’s two previously released mixtapes. While the two performing producers have always drawn influence from genres like electronica and metal, Kuya Neil talks about how this time they went down to the Mornington Peninsula to intentionally slow down and refine their sound.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "electronic"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-pulling-back-the-curtain-on-yearn-iv",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-pulling-back-the-curtain-on-yearn-iv",
+          "access": "RRR subscriber",
+          "duration": "15:21",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-ripple-effect-band-on-the-importance-of-storytelling",
+      "artist": "Ripple Effect Band On The Importance Of Storytelling",
+      "title": "Breaking And Entering: Ripple Effect Band On The Importance Of Storytelling",
+      "kind": "Interview",
+      "date": "1 May 2025",
+      "dateKey": "2025-05-01",
+      "year": 2025,
+      "duration": "23:41",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-ripple-effect-band-on-the-importance-of-storytelling",
+      "summary": "Ripple Effect Band members Jodie Kell and Rachel Thomas stopped by the studio to talk with Lauren and Simon about songwriting in the now-endangered language of their people, their home on Arnhem Land and how they came to be the critically acclaimed all woman rock band.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "songwriting"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-ripple-effect-band-on-the-importance-of-storytelling",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-ripple-effect-band-on-the-importance-of-storytelling",
+          "access": "RRR subscriber",
+          "duration": "23:41",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-cat-power-reflects-on-bob-dylans-influence",
+      "artist": "Cat Power Reflects On Bob Dylan’s Influence",
+      "title": "Breaking And Entering: Cat Power Reflects On Bob Dylan’s Influence",
+      "kind": "Interview",
+      "date": "20 February 2025",
+      "dateKey": "2025-02-20",
+      "year": 2025,
+      "duration": "34:55",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-cat-power-reflects-on-bob-dylans-influence",
+      "summary": "Ahead of her tour, Cat Power Sings Dylan, acclaimed American singer-songwriter Cat Power talks in retrospect about her lifelong admiration of Bob Dylan. She chats to Simon and Lauren about how growing up listening to Bob Dylan’s music fostered her songwriting style and how songs like ‘Mr Tambourine Man’ introduced to her a blend of punk's raw lyricism with softer melodies.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "songwriting"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-cat-power-reflects-on-bob-dylans-influence",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-cat-power-reflects-on-bob-dylans-influence",
+          "access": "RRR subscriber",
+          "duration": "34:55",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-jamie-xx",
+      "artist": "Jamie xx",
+      "title": "Breaking and Entering: Jamie xx",
+      "kind": "Interview",
+      "date": "5 December 2024",
+      "dateKey": "2024-12-05",
+      "year": 2024,
+      "duration": "18:58",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-jamie-xx",
+      "summary": "During the Melbourne portion of his Australian tour, Jamie xx joins Simon and Lauren on Breaking and Entering to chat about his latest record In Waves, as well as his collaborators and more.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "melbourne"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-jamie-xx",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-jamie-xx",
+          "access": "RRR subscriber",
+          "duration": "18:58",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-fever-ray",
+      "artist": "Fever Ray",
+      "title": "Breaking and Entering: Fever Ray",
+      "kind": "Interview",
+      "date": "9 May 2024",
+      "dateKey": "2024-05-09",
+      "year": 2024,
+      "duration": "24:44",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-fever-ray",
+      "summary": "Simon and Lauren are joined on the line for a special interview with Swedish music royalty - producer & songwriter Karin Dreijer aka Fever Ray.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "songwriting"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-fever-ray",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-fever-ray",
+          "access": "RRR subscriber",
+          "duration": "24:44",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-JwPDfZp6vg4",
+      "artist": "Charlotte Adigéry & Bolis Pupul",
+      "title": "Ceci n'est pas un cliché / Thank You (Live at Triple R)",
+      "kind": "Live",
+      "date": "15 March 2024",
+      "dateKey": "2024-03-15",
+      "year": 2024,
+      "duration": "12:01",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=JwPDfZp6vg4",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-JwPDfZp6vg4",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=JwPDfZp6vg4",
+          "access": "Public",
+          "duration": "12:01",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-live-at-rrr-charlotte-adigery-bolis-pupul",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/live-at-rrr-charlotte-adigery-bolis-pupul",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-weyes-blood",
+      "artist": "Weyes Blood",
+      "title": "Breaking And Entering: Weyes Blood",
+      "kind": "Interview",
+      "date": "25 May 2023",
+      "dateKey": "2023-05-25",
+      "year": 2023,
+      "duration": "26:53",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-weyes-blood",
+      "summary": "Natalie Mering aka Weyes Blood is bringing her doomsday dream-pop to Australia this June. Ahead of her tour and two headlining shows at RISING, Natalie joins Lauren for a wide-ranging conversation on Breaking And Entering.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-weyes-blood",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-weyes-blood",
+          "access": "RRR subscriber",
+          "duration": "26:53",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-segment-breaking-and-entering-jen-clohers-emotional-path-of-self-discovery",
+      "artist": "Jen Cloher",
+      "title": "Breaking And Entering: Jen Cloher's Emotional Path Of Self Discovery",
+      "kind": "Interview",
+      "date": "30 March 2023",
+      "dateKey": "2023-03-30",
+      "year": 2023,
+      "duration": "27:12",
+      "presenters": "",
+      "source": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jen-clohers-emotional-path-of-self-discovery",
+      "summary": "",
+      "tags": [
+        "interview"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-rrr-segment-breaking-and-entering-jen-clohers-emotional-path-of-self-discovery",
+          "label": "Triple R segment",
+          "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jen-clohers-emotional-path-of-self-discovery",
+          "access": "Public",
+          "duration": "27:12",
+          "status": "Confirmed RRR segment page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-karen-marks",
+      "artist": "Karen Marks",
+      "title": "Breaking And Entering: Karen Marks",
+      "kind": "Interview",
+      "date": "23 March 2023",
+      "dateKey": "2023-03-23",
+      "year": 2023,
+      "duration": "26:17",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-karen-marks",
+      "summary": "Karen Marks joins Lauren on Breaking And Entering to discuss Karen’s former RRR show, the underground 80s music scene in Melbourne, and what to expect from her premiere show.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "melbourne"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-karen-marks",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-karen-marks",
+          "access": "RRR subscriber",
+          "duration": "26:17",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1622-perfume-genius-breaking-and-entering",
+      "artist": "Perfume Genius",
+      "title": "Perfume Genius - Breaking and Entering",
+      "kind": "Interview",
+      "date": "1 March 2023",
+      "dateKey": "2023-03-01",
+      "year": 2023,
+      "duration": "7:24",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1622-perfume-genius-breaking-and-entering",
+      "summary": "Last year Perfume Genius released his fourth album, No Shape, to great acclaim. He is currently in Australia for a national tour, and he joins Breaking and Entering to chat about the unexplainable and sometimes magical elements of his songwriting and performing.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "songwriting"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1622-perfume-genius-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1622-perfume-genius-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "7:24",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-cNIzg_MbDY8",
+      "artist": "Wet Leg",
+      "title": "Wet Leg - Being In Love (Live at Triple R)",
+      "kind": "Live",
+      "date": "23 February 2023",
+      "dateKey": "2023-02-23",
+      "year": 2023,
+      "duration": "2:18",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=cNIzg_MbDY8",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-cNIzg_MbDY8",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=cNIzg_MbDY8",
+          "access": "Public",
+          "duration": "2:18",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-live-at-rrr-wet-leg",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/live-at-rrr-wet-leg",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube--g0CfBy8nCg",
+      "artist": "m8riarchy",
+      "title": "Live at RRR: m8riarchy (Live Stream)",
+      "kind": "Live",
+      "date": "28 March 2022",
+      "dateKey": "2022-03-28",
+      "year": 2022,
+      "duration": "26:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=-g0CfBy8nCg",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube--g0CfBy8nCg",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=-g0CfBy8nCg",
+          "access": "Public",
+          "duration": "26:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-m8riarchy-live-during-breaking-and-entering",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/m8riarchy-live-during-breaking-and-entering",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-_lg2a29vVwU",
+      "artist": "The Orbweavers",
+      "title": "Live at RRR: The Orbweavers (Live Stream)",
+      "kind": "Live",
+      "date": "28 March 2022",
+      "dateKey": "2022-03-28",
+      "year": 2022,
+      "duration": "43:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=_lg2a29vVwU",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-_lg2a29vVwU",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=_lg2a29vVwU",
+          "access": "Public",
+          "duration": "43:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-the-orbweavers-live-during-breaking-and-entering",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/the-orbweavers-live-during-breaking-and-entering",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-JXCVuAhmL4g",
+      "artist": "Lady Lash",
+      "title": "Live at RRR: Lady Lash (Live Stream)",
+      "kind": "Live",
+      "date": "10 February 2022",
+      "dateKey": "2022-02-10",
+      "year": 2022,
+      "duration": "30:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=JXCVuAhmL4g",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-JXCVuAhmL4g",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=JXCVuAhmL4g",
+          "access": "Public",
+          "duration": "30:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-lady-lash-live-during-breaking-and-entering",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/lady-lash-live-during-breaking-and-entering",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-M5spicazD2s",
+      "artist": "Teether & Kuya Neil",
+      "title": "Live at RRR: Teether & Kuya Neil (Live Stream)",
+      "kind": "Live",
+      "date": "16 November 2021",
+      "dateKey": "2021-11-16",
+      "year": 2021,
+      "duration": "37:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=M5spicazD2s",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-M5spicazD2s",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=M5spicazD2s",
+          "access": "Public",
+          "duration": "37:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-teether-kuya-neil-live-on-breaking-and-entering",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/teether-kuya-neil-live-on-breaking-and-entering",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-yfbQjCtRIFA",
+      "artist": "Cong Josie",
+      "title": "Live at RRR: Cong Josie (Live Stream)",
+      "kind": "Live",
+      "date": "21 September 2021",
+      "dateKey": "2021-09-21",
+      "year": 2021,
+      "duration": "42:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=yfbQjCtRIFA",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-yfbQjCtRIFA",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=yfbQjCtRIFA",
+          "access": "Public",
+          "duration": "42:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-cong-josie-live-during-breaking-and-entering",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/cong-josie-live-during-breaking-and-entering",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-julia-jacklin-and-rvg-on-their-cover-of-bjorks-army-of-me",
+      "artist": "Julia Jacklin and RVG on their cover of Bjork's \"Army of Me\"",
+      "title": "Breaking And Entering: Julia Jacklin and RVG on their cover of Bjork's \"Army of Me\"",
+      "kind": "Interview",
+      "date": "27 May 2021",
+      "dateKey": "2021-05-27",
+      "year": 2021,
+      "duration": "19:44",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-julia-jacklin-and-rvg-on-their-cover-of-bjorks-army-of-me",
+      "summary": "Host Simon Winkler talks to Julia Jacklin and Romy Vager from Melbourne's RVG, about their new collaborative cover of Bjork's legendary track \"Army of Me\".",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "melbourne"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-julia-jacklin-and-rvg-on-their-cover-of-bjorks-army-of-me",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-julia-jacklin-and-rvg-on-their-cover-of-bjorks-army-of-me",
+          "access": "RRR subscriber",
+          "duration": "19:44",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-4fEbIQZp-Mw",
+      "artist": "Snowy Band",
+      "title": "Live at RRR: Snowy Band (Live Stream)",
+      "kind": "Live",
+      "date": "22 April 2021",
+      "dateKey": "2021-04-22",
+      "year": 2021,
+      "duration": "29:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=4fEbIQZp-Mw",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-4fEbIQZp-Mw",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=4fEbIQZp-Mw",
+          "access": "Public",
+          "duration": "29:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-snowy-band-live-during-breaking-and-entering--1",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/snowy-band-live-during-breaking-and-entering--1",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-perfume-genius-on-using-remixes-as-therapy",
+      "artist": "Perfume Genius On Using Remixes As Therapy",
+      "title": "Breaking and Entering: Perfume Genius On Using Remixes As Therapy",
+      "kind": "Guest mix",
+      "date": "11 March 2021",
+      "dateKey": "2021-03-11",
+      "year": 2021,
+      "duration": "23:38",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-perfume-genius-on-using-remixes-as-therapy",
+      "summary": "Mike Hadreas’s ever-morphing pop project Perfume Genius released his fifth album Set My Heart On Fire Immediately last year. Like each album before it, Set My Heart builds and expands on the Perfume Genius sound, upping both the drama and the musical complexity. In keeping with his ever-evolving sound, Mike has just released his first remix album, IMMEDIATELY Remixes, and he calls into Breaking And Entering to explain the origin of the project.",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-breaking-and-entering-perfume-genius-on-using-remixes-as-therapy",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-perfume-genius-on-using-remixes-as-therapy",
+          "access": "RRR subscriber",
+          "duration": "23:38",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-5g9wnMNogb0",
+      "artist": "Hachiku",
+      "title": "Live at RRR: Hachiku (Live Stream)",
+      "kind": "Live",
+      "date": "16 December 2020",
+      "dateKey": "2020-12-16",
+      "year": 2020,
+      "duration": "43:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=5g9wnMNogb0",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-5g9wnMNogb0",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=5g9wnMNogb0",
+          "access": "Public",
+          "duration": "43:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-hachiku-on-breaking-and-entering",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/hachiku-on-breaking-and-entering",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-beverly-glenn-copeland",
+      "artist": "Beverly Glenn-Copeland",
+      "title": "Breaking And Entering: Beverly Glenn-Copeland On Music And Re-discovery",
+      "kind": "Interview",
+      "date": "26 November 2020",
+      "dateKey": "2020-11-26",
+      "year": 2020,
+      "duration": "39:46",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/beverly-glenn-copeland",
+      "summary": "Underground icon Beverly Glenn-Copeland has had an extraordinary career spanning over 40 years. He joins Simon and Lauren to reflect on his new retrospective compilation, Transmissions: The Music Of Beverly Glenn-Copeland. Drawing on Buddhist thought, he says that the music that connects most with others was often created beyond his abilities as an artist and he believes that it was transmitted to him by a higher means he labels the “universal broadcasting system”.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-beverly-glenn-copeland",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/beverly-glenn-copeland",
+          "access": "RRR subscriber",
+          "duration": "39:46",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-bill-callahan",
+      "artist": "Bill Callahan",
+      "title": "Creation: Bill Callahan talks about his latest release 'Gold Record' with Lauren and Simon on Breaking and Entering",
+      "kind": "Interview",
+      "date": "17 September 2020",
+      "dateKey": "2020-09-17",
+      "year": 2020,
+      "duration": "42:42",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/bill-callahan",
+      "summary": "American singer-songwriter Bill Callahan contemplates family, cars, nostalgia and his new album Gold Record with Lauren Taylor and Simon Winkler on Breaking and Entering. He muses on the topic of how creating a family is similar to creating artistic works: \"it's kind of paying tribute to creation when we create\".",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "songwriting"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-bill-callahan",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/bill-callahan",
+          "access": "RRR subscriber",
+          "duration": "42:42",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-mickearls",
+      "artist": "Mick Earls / Use No Hooks",
+      "title": "Minimalist Principles: Simon Winkler talks to Mick Earls of 'Use No Hooks' on Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 March 2020",
+      "dateKey": "2020-03-21",
+      "year": 2020,
+      "duration": "31:28",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/mickearls",
+      "summary": "Simon Winkler talks to Mick Earls, one of the founding members of the iconic disco punk band \"Use No Hooks.\" \"Use No Hooks\" were a funky outfit who took pains to avoid commercial success. Earls says the band is a product of its time, its place, cheap inner suburban living, and the ideology of minimalism.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-mickearls",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/mickearls",
+          "access": "RRR subscriber",
+          "duration": "31:28",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-eddy-current-suppression-ring-breaking-and-entering",
+      "artist": "Eddy Current Suppression Ring",
+      "title": "The return of Eddy Current Suppression Ring on Breaking and Entering",
+      "kind": "Interview",
+      "date": "12 December 2019",
+      "dateKey": "2019-12-12",
+      "year": 2019,
+      "duration": "48:07",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/eddy-current-suppression-ring-breaking-and-entering",
+      "summary": "Almost ten years after their last release, Melbourne’s much-loved Eddy Current Suppression Ring have put out a new album, All in Good Time. Breaking and Entering’s Lauren and Simon chat with Brendan and Mikey of the band about the record. They share the impetus for recording the new material, how their respective careers in visual arts and audio mixing informed the album making process, plus some of their favorite tracks from 2019.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "melbourne"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-eddy-current-suppression-ring-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/eddy-current-suppression-ring-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "48:07",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-cate-le-bon-breaking-and-entering",
+      "artist": "Cate Le Bon",
+      "title": "Breaking and Entering with Cate Le Bon",
+      "kind": "Interview",
+      "date": "7 November 2019",
+      "dateKey": "2019-11-07",
+      "year": 2019,
+      "duration": "22:48",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/cate-le-bon-breaking-and-entering",
+      "summary": "Cate Le Bon discusses her new record, Reward.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-cate-le-bon-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/cate-le-bon-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "22:48",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-channel-tres-breaking-and-entering",
+      "artist": "Channel Tres",
+      "title": "Channel Tres - Breaking and Entering",
+      "kind": "Interview",
+      "date": "18 July 2019",
+      "dateKey": "2019-07-18",
+      "year": 2019,
+      "duration": "18:20",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/channel-tres-breaking-and-entering",
+      "summary": "Channel Tres joins Simon in the studio to chat about his Australian tour, musical influences and creative process. Fresh from the release of his 2019 single 'Sexy Black Timberlake', Channel Tres reflects on his music career to date and drops some news on an upcoming release.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-channel-tres-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/channel-tres-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "18:20",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-lachlan-denton-breaking-and-entering",
+      "artist": "Lachlan Denton",
+      "title": "Lachlan Denton - Breaking and Entering",
+      "kind": "Interview",
+      "date": "11 June 2019",
+      "dateKey": "2019-06-11",
+      "year": 2019,
+      "duration": "35:03",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/lachlan-denton-breaking-and-entering",
+      "summary": "Lauran and simon talks to Lachlan about his new album and his brother who has passed away and the his brother was in.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-lachlan-denton-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/lachlan-denton-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "35:03",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-kurt-vile-on-breaking-and-entering",
+      "artist": "Kurt Vile",
+      "title": "Kurt Vile - Breaking and Entering",
+      "kind": "Interview",
+      "date": "25 April 2019",
+      "dateKey": "2019-04-25",
+      "year": 2019,
+      "duration": "38:56",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/kurt-vile-on-breaking-and-entering",
+      "summary": "Kurt Vile talks about his 7th record 'Bottle It In', his love of melancholic music, Obama, and getting lost in hypnotic grooves.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-kurt-vile-on-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/kurt-vile-on-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "38:56",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-pikelet-breaking-and-entering",
+      "artist": "Pikelet",
+      "title": "Pikelet - Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 March 2019",
+      "dateKey": "2019-03-21",
+      "year": 2019,
+      "duration": "26:20",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/pikelet-breaking-and-entering",
+      "summary": "Lauren and Simon talk to Evelyn Ida Morris about the last Pikelet record, appropriately titled Goodbye.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-pikelet-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/pikelet-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "26:20",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-jon-hopkins-breaking-and-entering",
+      "artist": "Jon Hopkins",
+      "title": "Jon Hopkins - Breaking and Entering",
+      "kind": "Interview",
+      "date": "31 January 2019",
+      "dateKey": "2019-01-31",
+      "year": 2019,
+      "duration": "37:48",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/jon-hopkins-breaking-and-entering",
+      "summary": "Prior to his performances at the Laneway Festival, Lauren and Simon chat to Jon Hopkins about his methods of mindfulness whilst touring, consciousness and the music on his upcoming album 'Singularity'.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-jon-hopkins-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/jon-hopkins-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "37:48",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-james-blake-breaking-and-entering",
+      "artist": "James Blake",
+      "title": "James Blake - Breaking and Entering",
+      "kind": "Interview",
+      "date": "24 January 2019",
+      "dateKey": "2019-01-24",
+      "year": 2019,
+      "duration": "32:30",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/james-blake-breaking-and-entering",
+      "summary": "Mercury Award winning, Grammy nominated artist James Blake phoned into Breaking and Entering to chat with Simon and Lauren about his latest album 'Assume Form'; covering topics such as mental health (for which James has become a vocal advocate in recent times), love, masculinity, vulnerability and how this album represents him finding peace.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-james-blake-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/james-blake-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "32:30",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-julia-holter-breaking-and-entering",
+      "artist": "Julia Holter",
+      "title": "Julia Holter - Breaking and Entering",
+      "kind": "Interview",
+      "date": "17 January 2019",
+      "dateKey": "2019-01-17",
+      "year": 2019,
+      "duration": "28:10",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/julia-holter-breaking-and-entering",
+      "summary": "Ahead of her concert at the Melbourne Recital Centre, accliamed art-pop composer Julia Holter phoned in to RRR to discuss the inspiratations behind her ambitious new album 'Aviary', as well as collaborating with Los Angeles-based composer Tashi Wada.",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "melbourne"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-julia-holter-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/julia-holter-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "28:10",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-empress-of-breaking-and-entering",
+      "artist": "Empress Of",
+      "title": "Empress Of - Breaking and Entering",
+      "kind": "Interview",
+      "date": "13 December 2018",
+      "dateKey": "2018-12-13",
+      "year": 2018,
+      "duration": "15:14",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/empress-of-breaking-and-entering",
+      "summary": "Lorely Rodriguez, aka Empress Of, is a Latin American musician from Los Angeles. Lorely joins Breaking And Entering to chat to fill-in host Charlie Miller about the strong voices that shaped her life growing up, as well as her latest album Us. Us is a much more collaborative piece of work than her debut Me. Lorely filled the writing process with people she loves, and musicians that inspire her, creating a sense of community and ‘a way to deal with how crazy the world is’.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-empress-of-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/empress-of-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "15:14",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-liars-breaking-and-entering",
+      "artist": "Liars",
+      "title": "Liars - Breaking and Entering",
+      "kind": "Interview",
+      "date": "27 September 2018",
+      "dateKey": "2018-09-27",
+      "year": 2018,
+      "duration": "21:18",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/liars-breaking-and-entering",
+      "summary": "Angus Andrew from Liars came into the studio to chat with Simon Winkler about their split 7\" with TFS, and Angus' split with creative partner Aaron Hemphill.",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-liars-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/liars-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "21:18",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1670-kim-thompson-alan-weedon-breaking-and-entering",
+      "artist": "Kim Thompson & Alan Weedon",
+      "title": "Kim Thompson & Alan Weedon - Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 June 2018",
+      "dateKey": "2018-06-21",
+      "year": 2018,
+      "duration": "14:55",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1670-kim-thompson-alan-weedon-breaking-and-entering",
+      "summary": "Kim Thompson & Alan Weedon on Breaking and Entering",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1670-kim-thompson-alan-weedon-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1670-kim-thompson-alan-weedon-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "14:55",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1667-nubya-garcia-breaking-and-entering",
+      "artist": "Nubya Garcia",
+      "title": "Nubya Garcia - Breaking and Entering",
+      "kind": "Interview",
+      "date": "7 June 2018",
+      "dateKey": "2018-06-07",
+      "year": 2018,
+      "duration": "29:38",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1667-nubya-garcia-breaking-and-entering",
+      "summary": "Nubya Garcia talks to Simon Winkler and Lauren Taylor on Breaking and Entering",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1667-nubya-garcia-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1667-nubya-garcia-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "29:38",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1665-cat-power-breaking-and-entering",
+      "artist": "Cat Power",
+      "title": "Cat Power - Breaking and Entering",
+      "kind": "Interview",
+      "date": "31 May 2018",
+      "dateKey": "2018-05-31",
+      "year": 2018,
+      "duration": "33:09",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1665-cat-power-breaking-and-entering",
+      "summary": "Cat power joins Lauren Taylor and Simon Winkler on Breaking and Entering",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1665-cat-power-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1665-cat-power-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "33:09",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-mlbjzue6wEA",
+      "artist": "Tropical F*#k Storm",
+      "title": "Tropical F*#k Storm - Two Afternoons (Live at 3RRR)",
+      "kind": "Live",
+      "date": "21 May 2018",
+      "dateKey": "2018-05-21",
+      "year": 2018,
+      "duration": "5:27",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=mlbjzue6wEA",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-mlbjzue6wEA",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=mlbjzue6wEA",
+          "access": "Public",
+          "duration": "5:27",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-tropical-fk-storm-two-afternoons",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/tropical-fk-storm-two-afternoons",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1639-the-weather-station-breaking-and-entering",
+      "artist": "The Weather Station",
+      "title": "The Weather Station - Breaking and Entering",
+      "kind": "Interview",
+      "date": "10 May 2018",
+      "dateKey": "2018-05-10",
+      "year": 2018,
+      "duration": "19:22",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1639-the-weather-station-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1639-the-weather-station-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1639-the-weather-station-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "19:22",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-8bQHObvO-gg",
+      "artist": "NO ZU",
+      "title": "NO ZU - Mind Melt (Live at 3RRR)",
+      "kind": "Live",
+      "date": "26 April 2018",
+      "dateKey": "2018-04-26",
+      "year": 2018,
+      "duration": "7:17",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=8bQHObvO-gg",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-8bQHObvO-gg",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=8bQHObvO-gg",
+          "access": "Public",
+          "duration": "7:17",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-video-no-zu-mind-melt",
+          "label": "Triple R video page",
+          "href": "https://www.rrr.org.au/explore/videos/no-zu-mind-melt",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed RRR video landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1620-moses-sumney-breaking-and-entering",
+      "artist": "Moses Sumney",
+      "title": "Moses Sumney - Breaking and Entering",
+      "kind": "Interview",
+      "date": "1 February 2018",
+      "dateKey": "2018-02-01",
+      "year": 2018,
+      "duration": "24:44",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1620-moses-sumney-breaking-and-entering",
+      "summary": "Moses Sumney dropped in to chat with Breaking And Entering and play live in studio",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1620-moses-sumney-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1620-moses-sumney-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "24:44",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1577-ibeyi-breaking-entering",
+      "artist": "Ibeyi",
+      "title": "Ibeyi - Breaking and Entering",
+      "kind": "Interview",
+      "date": "28 September 2017",
+      "dateKey": "2017-09-28",
+      "year": 2017,
+      "duration": "8:21",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1577-ibeyi-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1577-ibeyi-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1577-ibeyi-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "8:21",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1568-mount-kimbie-breaking-and-entering",
+      "artist": "Mount Kimbie",
+      "title": "Mount Kimbie - Breaking and Entering",
+      "kind": "Interview",
+      "date": "7 September 2017",
+      "dateKey": "2017-09-07",
+      "year": 2017,
+      "duration": "29:07",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1568-mount-kimbie-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1568-mount-kimbie-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1568-mount-kimbie-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "29:07",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1549-jess-cornelius-breaking-and-entering",
+      "artist": "Jess Cornelius",
+      "title": "Jess Cornelius - Breaking and Entering",
+      "kind": "Interview",
+      "date": "3 August 2017",
+      "dateKey": "2017-08-03",
+      "year": 2017,
+      "duration": "25:00",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1549-jess-cornelius-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1549-jess-cornelius-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1549-jess-cornelius-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "25:00",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1537-kardajala-kirridarra-breaking-and-entering",
+      "artist": "Kardajala Kirridarra",
+      "title": "Kardajala Kirridarra - Breaking and Entering",
+      "kind": "Interview",
+      "date": "20 July 2017",
+      "dateKey": "2017-07-20",
+      "year": 2017,
+      "duration": "33:05",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1537-kardajala-kirridarra-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1537-kardajala-kirridarra-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1537-kardajala-kirridarra-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "33:05",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1539-steve-gunn-breaking-and-entering",
+      "artist": "Steve Gunn",
+      "title": "Steve Gunn - Breaking and Entering",
+      "kind": "Interview",
+      "date": "6 July 2017",
+      "dateKey": "2017-07-06",
+      "year": 2017,
+      "duration": "24:21",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1539-steve-gunn-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1539-steve-gunn-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1539-steve-gunn-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "24:21",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1489-sophia-brous-breaking-and-entering",
+      "artist": "Sophia Brous",
+      "title": "Sophia Brous - Breaking and Entering",
+      "kind": "Interview",
+      "date": "25 May 2017",
+      "dateKey": "2017-05-25",
+      "year": 2017,
+      "duration": "36:53",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1489-sophia-brous-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1489-sophia-brous-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1489-sophia-brous-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "36:53",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1476-jade-imagine-breaking-and-entering",
+      "artist": "Jade Imagine",
+      "title": "Jade Imagine - Breaking and Entering",
+      "kind": "Interview",
+      "date": "18 May 2017",
+      "dateKey": "2017-05-18",
+      "year": 2017,
+      "duration": "24:20",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1476-jade-imagine-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1476-jade-imagine-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1476-jade-imagine-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "24:20",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1448-mikey-young-breaking-and-entering",
+      "artist": "Mikey Young",
+      "title": "Mikey Young - Breaking and Entering",
+      "kind": "Interview",
+      "date": "4 May 2017",
+      "dateKey": "2017-05-04",
+      "year": 2017,
+      "duration": "47:23",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1448-mikey-young-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1448-mikey-young-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1448-mikey-young-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "47:23",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1460-dj-fett-burger-breaking-and-entering",
+      "artist": "DJ Fett Burger",
+      "title": "DJ Fett Burger - Breaking and Entering",
+      "kind": "Interview",
+      "date": "27 April 2017",
+      "dateKey": "2017-04-27",
+      "year": 2017,
+      "duration": "1:10:22",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1460-dj-fett-burger-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "dj culture"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1460-dj-fett-burger-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1460-dj-fett-burger-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "1:10:22",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1435-el-guincho-breaking-entering",
+      "artist": "El Guincho",
+      "title": "El Guincho - Breaking and Entering",
+      "kind": "Interview",
+      "date": "16 February 2017",
+      "dateKey": "2017-02-16",
+      "year": 2017,
+      "duration": "14:14",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1435-el-guincho-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1435-el-guincho-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1435-el-guincho-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "14:14",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+      "artist": "Tropic of Cancer IV & Guest Selection",
+      "title": "Tropic of Cancer IV & Guest Selection- Breaking and Entering",
+      "kind": "Guest mix",
+      "date": "9 February 2017",
+      "dateKey": "2017-02-09",
+      "year": 2017,
+      "duration": "20:06",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+      "summary": "",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "20:06",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1427-weyes-blood-breaking-entering",
+      "artist": "Weyes Blood",
+      "title": "Weyes Blood - Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 January 2017",
+      "dateKey": "2017-01-21",
+      "year": 2017,
+      "duration": "11:17",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1427-weyes-blood-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1427-weyes-blood-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1427-weyes-blood-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "11:17",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1441-kaitlyn-aurelia-smith-breaking-and-entering",
+      "artist": "Kaitlyn Aurelia Smith",
+      "title": "Kaitlyn Aurelia Smith - Breaking and Entering",
+      "kind": "Interview",
+      "date": "19 January 2017",
+      "dateKey": "2017-01-19",
+      "year": 2017,
+      "duration": "51:12",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1441-kaitlyn-aurelia-smith-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1441-kaitlyn-aurelia-smith-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1441-kaitlyn-aurelia-smith-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "51:12",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1494-kaitlyn-aurelia-smith-breaking-entering",
+      "artist": "Kaitlyn Aurelia Smith",
+      "title": "Kaitlyn Aurelia Smith- Breaking and Entering",
+      "kind": "Interview",
+      "date": "19 January 2017",
+      "dateKey": "2017-01-19",
+      "year": 2017,
+      "duration": "24:06",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1494-kaitlyn-aurelia-smith-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1494-kaitlyn-aurelia-smith-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1494-kaitlyn-aurelia-smith-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "24:06",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1399-badbadnotgood-breaking-and-entering",
+      "artist": "BADBADNOTGOOD",
+      "title": "BADBADNOTGOOD - Breaking and Entering",
+      "kind": "Interview",
+      "date": "15 December 2016",
+      "dateKey": "2016-12-15",
+      "year": 2016,
+      "duration": "30:25",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1399-badbadnotgood-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1399-badbadnotgood-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1399-badbadnotgood-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "30:25",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1404-dungen-breaking-and-entering",
+      "artist": "Dungen",
+      "title": "Dungen - Breaking and Entering",
+      "kind": "Interview",
+      "date": "8 December 2016",
+      "dateKey": "2016-12-08",
+      "year": 2016,
+      "duration": "30:43",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1404-dungen-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1404-dungen-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1404-dungen-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "30:43",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1376-lost-animal-breaking-entering",
+      "artist": "Lost Animal",
+      "title": "Lost Animal - Breaking and Entering",
+      "kind": "Interview",
+      "date": "1 December 2016",
+      "dateKey": "2016-12-01",
+      "year": 2016,
+      "duration": "18:47",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1376-lost-animal-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1376-lost-animal-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1376-lost-animal-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "18:47",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1375-machinedrum-breaking-and-entering",
+      "artist": "Machinedrum",
+      "title": "Machinedrum - Breaking and Entering",
+      "kind": "Interview",
+      "date": "1 December 2016",
+      "dateKey": "2016-12-01",
+      "year": 2016,
+      "duration": "10:54",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1375-machinedrum-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1375-machinedrum-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1375-machinedrum-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "10:54",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1374-throwing-shade-breaking-and-entering",
+      "artist": "Throwing Shade",
+      "title": "Throwing Shade - Breaking and Entering",
+      "kind": "Interview",
+      "date": "1 December 2016",
+      "dateKey": "2016-12-01",
+      "year": 2016,
+      "duration": "48:21",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1374-throwing-shade-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1374-throwing-shade-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1374-throwing-shade-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "48:21",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1366-corin-breaking-entering",
+      "artist": "Corin",
+      "title": "Corin - Breaking and Entering",
+      "kind": "Interview",
+      "date": "10 November 2016",
+      "dateKey": "2016-11-10",
+      "year": 2016,
+      "duration": "17:12",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1366-corin-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1366-corin-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1366-corin-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "17:12",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1367-gareth-liddiard-breaking-entering",
+      "artist": "Gareth Liddiard",
+      "title": "Gareth Liddiard - Breaking and Entering",
+      "kind": "Interview",
+      "date": "10 November 2016",
+      "dateKey": "2016-11-10",
+      "year": 2016,
+      "duration": "11:45",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1367-gareth-liddiard-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1367-gareth-liddiard-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1367-gareth-liddiard-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "11:45",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1363-tim-shiel-and-braille-face-breaking-and-entering",
+      "artist": "Tim Shiel and Braille Face",
+      "title": "Tim Shiel and Braille Face - Breaking and Entering",
+      "kind": "Interview",
+      "date": "10 November 2016",
+      "dateKey": "2016-11-10",
+      "year": 2016,
+      "duration": "27:46",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1363-tim-shiel-and-braille-face-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1363-tim-shiel-and-braille-face-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1363-tim-shiel-and-braille-face-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "27:46",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1392-friendships-breaking-entering",
+      "artist": "Friendships",
+      "title": "Friendships - Breaking and Entering",
+      "kind": "Interview",
+      "date": "27 October 2016",
+      "dateKey": "2016-10-27",
+      "year": 2016,
+      "duration": "21:19",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1392-friendships-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1392-friendships-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1392-friendships-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "21:19",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1412-jaala-breaking-entering",
+      "artist": "Jaala",
+      "title": "Jaala - Breaking and Entering",
+      "kind": "Interview",
+      "date": "27 October 2016",
+      "dateKey": "2016-10-27",
+      "year": 2016,
+      "duration": "10:04",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1412-jaala-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1412-jaala-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1412-jaala-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "10:04",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1418-retiree-breaking-and-entering",
+      "artist": "Retiree",
+      "title": "Retiree - Breaking and Entering",
+      "kind": "Interview",
+      "date": "20 October 2016",
+      "dateKey": "2016-10-20",
+      "year": 2016,
+      "duration": "21:33",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1418-retiree-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1418-retiree-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1418-retiree-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "21:33",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1452-dd-dumbo-breaking-entering",
+      "artist": "D.D Dumbo",
+      "title": "D.D Dumbo - Breaking and Entering",
+      "kind": "Interview",
+      "date": "6 October 2016",
+      "dateKey": "2016-10-06",
+      "year": 2016,
+      "duration": "14:44",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1452-dd-dumbo-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1452-dd-dumbo-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1452-dd-dumbo-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "14:44",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1336-egyptian-lover-breaking-and-entering",
+      "artist": "Egyptian Lover",
+      "title": "Egyptian Lover - Breaking and Entering",
+      "kind": "Interview",
+      "date": "15 September 2016",
+      "dateKey": "2016-09-15",
+      "year": 2016,
+      "duration": "30:08",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1336-egyptian-lover-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1336-egyptian-lover-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1336-egyptian-lover-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "30:08",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-mix-05-hard-to-be-a-diamond-mix-by-lauren-taylor-simon-winkler",
+      "artist": "Lauren Taylor & Simon Winkler",
+      "title": "Hard To Be A Diamond mix by Lauren Taylor & Simon Winkler",
+      "kind": "Guest mix",
+      "date": "18 August 2016",
+      "dateKey": "2016-08-18",
+      "year": 2016,
+      "duration": "",
+      "presenters": "",
+      "source": "Mixcloud",
+      "href": "https://www.mixcloud.com/AssemblePapers/hard-to-be-a-diamond-mix-by-lauren-taylor-simon-winkler/",
+      "summary": "",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "mixcloud"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-mix-05-hard-to-be-a-diamond-mix-by-lauren-taylor-simon-winkler",
+          "label": "Mixcloud",
+          "href": "https://www.mixcloud.com/AssemblePapers/hard-to-be-a-diamond-mix-by-lauren-taylor-simon-winkler/",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed public landing page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1321-jamie-xx-breaking-and-entering",
+      "artist": "Jamie XX",
+      "title": "Jamie XX- Breaking and Entering",
+      "kind": "Interview",
+      "date": "7 January 2016",
+      "dateKey": "2016-01-07",
+      "year": 2016,
+      "duration": "5:32",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1321-jamie-xx-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1321-jamie-xx-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1321-jamie-xx-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "5:32",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-VRzr2eyeN-s",
+      "artist": "Jessica Pratt",
+      "title": "Jessica Pratt - Game That I Play (Live at 3RRR)",
+      "kind": "Live",
+      "date": "10 December 2015",
+      "dateKey": "2015-12-10",
+      "year": 2015,
+      "duration": "4:09",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=VRzr2eyeN-s",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-VRzr2eyeN-s",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=VRzr2eyeN-s",
+          "access": "Public",
+          "duration": "4:09",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1253-jd-samson-breaking-and-entering",
+      "artist": "JD Samson",
+      "title": "JD Samson - Breaking and entering",
+      "kind": "Interview",
+      "date": "5 November 2015",
+      "dateKey": "2015-11-05",
+      "year": 2015,
+      "duration": "7:19",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1253-jd-samson-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1253-jd-samson-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1253-jd-samson-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "7:19",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1256-peaches-breaking-and-entering",
+      "artist": "Peaches",
+      "title": "Peaches - Breaking and entering",
+      "kind": "Interview",
+      "date": "8 October 2015",
+      "dateKey": "2015-10-08",
+      "year": 2015,
+      "duration": "21:08",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1256-peaches-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1256-peaches-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1256-peaches-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "21:08",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1421-tv-on-the-radio-breaking-and-entering",
+      "artist": "TV on the Radio",
+      "title": "TV on the Radio - Breaking and Entering",
+      "kind": "Interview",
+      "date": "11 June 2015",
+      "dateKey": "2015-06-11",
+      "year": 2015,
+      "duration": "30:17",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1421-tv-on-the-radio-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1421-tv-on-the-radio-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1421-tv-on-the-radio-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "30:17",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1146-al-doyle-breaking-and-entering",
+      "artist": "Al Doyle",
+      "title": "Al Doyle - Breaking And Entering",
+      "kind": "Interview",
+      "date": "7 May 2015",
+      "dateKey": "2015-05-07",
+      "year": 2015,
+      "duration": "18:04",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1146-al-doyle-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1146-al-doyle-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1146-al-doyle-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "18:04",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1084-connan-mockasin-breaking-and-entering",
+      "artist": "Connan Mockasin",
+      "title": "Connan Mockasin - Breaking and Entering",
+      "kind": "Interview",
+      "date": "5 February 2015",
+      "dateKey": "2015-02-05",
+      "year": 2015,
+      "duration": "14:20",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1084-connan-mockasin-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1084-connan-mockasin-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1084-connan-mockasin-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "14:20",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-1085-fka-twigs-breaking-and-entering",
+      "artist": "FKA Twigs",
+      "title": "FKA Twigs - Breaking and Entering",
+      "kind": "Interview",
+      "date": "5 February 2015",
+      "dateKey": "2015-02-05",
+      "year": 2015,
+      "duration": "27:03",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1085-fka-twigs-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-1085-fka-twigs-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/1085-fka-twigs-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "27:03",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-929-beck-breaking-and-entering",
+      "artist": "Beck",
+      "title": "Beck - Breaking And Entering",
+      "kind": "Interview",
+      "date": "24 February 2014",
+      "dateKey": "2014-02-24",
+      "year": 2014,
+      "duration": "25:08",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=BK0tRJh47HM",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-BK0tRJh47HM",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=BK0tRJh47HM",
+          "access": "Public",
+          "duration": "25:08",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        },
+        {
+          "id": "src-rrr-archive-929-beck-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/929-beck-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "25:06",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-904-chris-ruen-breaking-and-entering",
+      "artist": "Chris Ruen",
+      "title": "Chris Ruen - Breaking And Entering",
+      "kind": "Interview",
+      "date": "2 September 2013",
+      "dateKey": "2013-09-02",
+      "year": 2013,
+      "duration": "20:34",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/904-chris-ruen-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-904-chris-ruen-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/904-chris-ruen-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "20:34",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-mix-06-springtime-surf-mix",
+      "artist": "Breaking and Entering",
+      "title": "Springtime surf mix",
+      "kind": "Guest mix",
+      "date": "11 October 2012",
+      "dateKey": "2012-10-11",
+      "year": 2012,
+      "duration": "",
+      "presenters": "",
+      "source": "Mixcloud",
+      "href": "https://www.mixcloud.com/AssemblePapers/springtime-surf-mix/",
+      "summary": "",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "mixcloud"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-mix-06-springtime-surf-mix",
+          "label": "Mixcloud",
+          "href": "https://www.mixcloud.com/AssemblePapers/springtime-surf-mix/",
+          "access": "Public",
+          "duration": "",
+          "status": "Confirmed public landing page"
+        },
+        {
+          "id": "src-mix-06-springtime-surf-mix-reference",
+          "label": "Assemble Papers",
+          "href": "https://assemblepapers.com.au/2012/10/11/springtime-surf-mix/",
+          "access": "Public",
+          "duration": "",
+          "status": "Related editorial source"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-847-cat-power-breaking-and-entering",
+      "artist": "Cat Power",
+      "title": "Cat Power - Breaking and Entering",
+      "kind": "Interview",
+      "date": "3 September 2012",
+      "dateKey": "2012-09-03",
+      "year": 2012,
+      "duration": "12:35",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/847-cat-power-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-847-cat-power-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/847-cat-power-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "12:35",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-838-jack-white-breaking-and-entering",
+      "artist": "Jack White",
+      "title": "Jack White - Breaking and Entering",
+      "kind": "Interview",
+      "date": "6 August 2012",
+      "dateKey": "2012-08-06",
+      "year": 2012,
+      "duration": "11:35",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/838-jack-white-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-838-jack-white-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/838-jack-white-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "11:35",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-833-friends-breaking-and-entering",
+      "artist": "Friends",
+      "title": "Friends - Breaking and Entering",
+      "kind": "Interview",
+      "date": "23 July 2012",
+      "dateKey": "2012-07-23",
+      "year": 2012,
+      "duration": "16:01",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/833-friends-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-833-friends-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/833-friends-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "16:01",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-791-santigold-breaking-and-entering",
+      "artist": "Santigold",
+      "title": "Santigold - Breaking and Entering",
+      "kind": "Interview",
+      "date": "7 May 2012",
+      "dateKey": "2012-05-07",
+      "year": 2012,
+      "duration": "9:53",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/791-santigold-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-791-santigold-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/791-santigold-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "9:53",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-768-chet-faker-breaking-entering",
+      "artist": "Chet Faker",
+      "title": "Chet Faker - Breaking and Entering",
+      "kind": "Interview",
+      "date": "16 April 2012",
+      "dateKey": "2012-04-16",
+      "year": 2012,
+      "duration": "23:35",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/768-chet-faker-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-768-chet-faker-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/768-chet-faker-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "23:35",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+      "artist": "Naysayer and Gilsun (DJ Set)",
+      "title": "Naysayer and Gilsun (DJ Set) - Breaking and Entering",
+      "kind": "Guest mix",
+      "date": "19 March 2012",
+      "dateKey": "2012-03-19",
+      "year": 2012,
+      "duration": "29:26",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/712-naysayer-and-gilsun-dj-set-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "29:26",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-694-real-estate-breaking-and-entering",
+      "artist": "Real Estate",
+      "title": "Real Estate - Breaking and Entering",
+      "kind": "Interview",
+      "date": "12 March 2012",
+      "dateKey": "2012-03-12",
+      "year": 2012,
+      "duration": "15:13",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/694-real-estate-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-694-real-estate-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/694-real-estate-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "15:13",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-666-grimes-breaking-and-entering",
+      "artist": "Grimes",
+      "title": "Grimes - Breaking and Entering",
+      "kind": "Interview",
+      "date": "27 February 2012",
+      "dateKey": "2012-02-27",
+      "year": 2012,
+      "duration": "7:30",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/666-grimes-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-666-grimes-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/666-grimes-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "7:30",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-622-gonjasufi-breaking-and-entering",
+      "artist": "Gonjasufi",
+      "title": "Gonjasufi - Breaking And Entering",
+      "kind": "Interview",
+      "date": "6 February 2012",
+      "dateKey": "2012-02-06",
+      "year": 2012,
+      "duration": "14:21",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/622-gonjasufi-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-622-gonjasufi-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/622-gonjasufi-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "14:21",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-600-julianna-barwick-breaking-and-entering",
+      "artist": "Julianna Barwick",
+      "title": "Julianna Barwick - Breaking and Entering",
+      "kind": "Interview",
+      "date": "16 January 2012",
+      "dateKey": "2012-01-16",
+      "year": 2012,
+      "duration": "10:47",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/600-julianna-barwick-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-600-julianna-barwick-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/600-julianna-barwick-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "10:47",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-601-tune-yards-breaking-and-entering",
+      "artist": "Tune-Yards",
+      "title": "Tune-Yards - Breaking and Entering",
+      "kind": "Interview",
+      "date": "16 January 2012",
+      "dateKey": "2012-01-16",
+      "year": 2012,
+      "duration": "21:26",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/601-tune-yards-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-601-tune-yards-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/601-tune-yards-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "21:26",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-595-absolute-boys-breaking-and-entering",
+      "artist": "Absolute Boys",
+      "title": "Absolute Boys, Breaking and Entering",
+      "kind": "Interview",
+      "date": "9 January 2012",
+      "dateKey": "2012-01-09",
+      "year": 2012,
+      "duration": "8:20",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/595-absolute-boys-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-595-absolute-boys-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/595-absolute-boys-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "8:20",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-572-exclusive-dj-mix-from-brian-degraw-of-gang-gang-dance-breaking-entering",
+      "artist": "Exclusive DJ mix from Brian DeGraw of Gang Gang Dance",
+      "title": "Exclusive DJ mix from Brian DeGraw of Gang Gang Dance - Breaking and Entering",
+      "kind": "Guest mix",
+      "date": "5 December 2011",
+      "dateKey": "2011-12-05",
+      "year": 2011,
+      "duration": "33:14",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/572-exclusive-dj-mix-from-brian-degraw-of-gang-gang-dance-breaking-entering",
+      "summary": "",
+      "tags": [
+        "guest mix",
+        "dj culture",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-572-exclusive-dj-mix-from-brian-degraw-of-gang-gang-dance-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/572-exclusive-dj-mix-from-brian-degraw-of-gang-gang-dance-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "33:14",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-568-gang-gang-dance-breaking-entering",
+      "artist": "Gang Gang Dance",
+      "title": "Gang Gang Dance - Breaking and Entering",
+      "kind": "Interview",
+      "date": "28 November 2011",
+      "dateKey": "2011-11-28",
+      "year": 2011,
+      "duration": "17:18",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/568-gang-gang-dance-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-568-gang-gang-dance-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/568-gang-gang-dance-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "17:18",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-557-htrk-breaking-and-entering",
+      "artist": "HTRK",
+      "title": "HTRK - Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 November 2011",
+      "dateKey": "2011-11-21",
+      "year": 2011,
+      "duration": "13:13",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/557-htrk-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-557-htrk-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/557-htrk-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "13:13",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-545-rucl-live-to-air-on-breaking-entering",
+      "artist": "RuCL - Live to Air",
+      "title": "RuCL - Live to Air on Breaking and Entering",
+      "kind": "Live",
+      "date": "14 November 2011",
+      "dateKey": "2011-11-14",
+      "year": 2011,
+      "duration": "37:37",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/545-rucl-live-to-air-on-breaking-entering",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-545-rucl-live-to-air-on-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/545-rucl-live-to-air-on-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "37:37",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-538-qua-breaking-entering",
+      "artist": "Qua",
+      "title": "Qua - Breaking and Entering",
+      "kind": "Interview",
+      "date": "3 November 2011",
+      "dateKey": "2011-11-03",
+      "year": 2011,
+      "duration": "12:24",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/538-qua-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-538-qua-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/538-qua-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "12:24",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-529-on-ra-breaking-and-entering",
+      "artist": "On Ra",
+      "title": "On Ra - Breaking and Entering",
+      "kind": "Interview",
+      "date": "31 October 2011",
+      "dateKey": "2011-10-31",
+      "year": 2011,
+      "duration": "13:33",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/529-on-ra-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-529-on-ra-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/529-on-ra-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "13:33",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-518-sbtrkt-breaking-and-entering",
+      "artist": "Sbtrkt",
+      "title": "Sbtrkt, Breaking and Entering",
+      "kind": "Interview",
+      "date": "17 October 2011",
+      "dateKey": "2011-10-17",
+      "year": 2011,
+      "duration": "15:02",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/518-sbtrkt-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-518-sbtrkt-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/518-sbtrkt-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "15:02",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-526-lucky-dragons-breaking-and-entering",
+      "artist": "Lucky Dragons",
+      "title": "Lucky Dragons, Breaking and Entering",
+      "kind": "Interview",
+      "date": "10 October 2011",
+      "dateKey": "2011-10-10",
+      "year": 2011,
+      "duration": "17:51",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/526-lucky-dragons-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-526-lucky-dragons-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/526-lucky-dragons-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "17:51",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-448-mayer-hawthorne-breaking-and-entering",
+      "artist": "Mayer Hawthorne",
+      "title": "Mayer Hawthorne - Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 February 2011",
+      "dateKey": "2011-02-21",
+      "year": 2011,
+      "duration": "8:35",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/448-mayer-hawthorne-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-448-mayer-hawthorne-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/448-mayer-hawthorne-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "8:35",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-449-os-mutantes-breaking-and-entering",
+      "artist": "Os Mutantes",
+      "title": "Os Mutantes - Breaking and Entering",
+      "kind": "Interview",
+      "date": "21 February 2011",
+      "dateKey": "2011-02-21",
+      "year": 2011,
+      "duration": "5:49",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/449-os-mutantes-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-449-os-mutantes-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/449-os-mutantes-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "5:49",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-440-deerhunter-breaking-entering",
+      "artist": "Deerhunter",
+      "title": "Deerhunter - Breaking and Entering",
+      "kind": "Interview",
+      "date": "14 February 2011",
+      "dateKey": "2011-02-14",
+      "year": 2011,
+      "duration": "22:16",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/440-deerhunter-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-440-deerhunter-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/440-deerhunter-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "22:16",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-424-clipse-breaking-and-entering",
+      "artist": "Clipse",
+      "title": "Clipse - Breaking and Entering",
+      "kind": "Interview",
+      "date": "6 December 2010",
+      "dateKey": "2010-12-06",
+      "year": 2010,
+      "duration": "8:42",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/424-clipse-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-424-clipse-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/424-clipse-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "8:42",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-363-cloud-control-live-to-air-breaking-and-entering",
+      "artist": "Cloud Control Live To Air",
+      "title": "Cloud Control Live To Air - Breaking and Entering",
+      "kind": "Live",
+      "date": "24 May 2010",
+      "dateKey": "2010-05-24",
+      "year": 2010,
+      "duration": "31:58",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/363-cloud-control-live-to-air-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-363-cloud-control-live-to-air-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/363-cloud-control-live-to-air-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "31:58",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-354-worlds-end-press-live-at-the-corner-breaking-entering",
+      "artist": "World's End Press live at the Corner",
+      "title": "World's End Press live at the Corner - Breaking and Entering",
+      "kind": "Live",
+      "date": "26 April 2010",
+      "dateKey": "2010-04-26",
+      "year": 2010,
+      "duration": "32:08",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/354-worlds-end-press-live-at-the-corner-breaking-entering",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-354-worlds-end-press-live-at-the-corner-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/354-worlds-end-press-live-at-the-corner-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "32:08",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-258-dj-spinderella-breaking-entering",
+      "artist": "DJ Spinderella",
+      "title": "DJ Spinderella - Breaking and Entering",
+      "kind": "Interview",
+      "date": "17 September 2009",
+      "dateKey": "2009-09-17",
+      "year": 2009,
+      "duration": "20:57",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/258-dj-spinderella-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive",
+        "dj culture"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-258-dj-spinderella-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/258-dj-spinderella-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "20:57",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-214-deerhunter-breaking-entering",
+      "artist": "Deerhunter",
+      "title": "Deerhunter - Breaking and Entering",
+      "kind": "Interview",
+      "date": "18 June 2009",
+      "dateKey": "2009-06-18",
+      "year": 2009,
+      "duration": "10:08",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/214-deerhunter-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-214-deerhunter-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/214-deerhunter-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "10:08",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-164-the-black-lips-breaking-and-entering",
+      "artist": "The Black Lips",
+      "title": "The Black Lips - Breaking and Entering",
+      "kind": "Interview",
+      "date": "12 March 2009",
+      "dateKey": "2009-03-12",
+      "year": 2009,
+      "duration": "11:17",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/164-the-black-lips-breaking-and-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-164-the-black-lips-breaking-and-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/164-the-black-lips-breaking-and-entering",
+          "access": "RRR subscriber",
+          "duration": "11:17",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-rrr-archive-81-chad-van-gaalen-breaking-entering",
+      "artist": "Chad Van Gaalen",
+      "title": "Chad Van Gaalen - Breaking and Entering",
+      "kind": "Interview",
+      "date": "25 September 2008",
+      "dateKey": "2008-09-25",
+      "year": 2008,
+      "duration": "6:20",
+      "presenters": "",
+      "source": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/81-chad-van-gaalen-breaking-entering",
+      "summary": "",
+      "tags": [
+        "interview",
+        "subscriber archive"
+      ],
+      "access": "RRR subscriber",
+      "sources": [
+        {
+          "id": "src-rrr-archive-81-chad-van-gaalen-breaking-entering",
+          "label": "Triple R archive",
+          "href": "https://www.rrr.org.au/on-demand/archives/81-chad-van-gaalen-breaking-entering",
+          "access": "RRR subscriber",
+          "duration": "6:20",
+          "status": "Confirmed RRR archive page"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-LeuP0ttTk-c",
+      "artist": "Bradford Cox",
+      "title": "Bradford Cox interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "15:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=LeuP0ttTk-c",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-LeuP0ttTk-c",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=LeuP0ttTk-c",
+          "access": "Public",
+          "duration": "15:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-ZanHtVu3Z2w",
+      "artist": "Cassette Kids",
+      "title": "Cassette Kids interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "6:43",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=ZanHtVu3Z2w",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-ZanHtVu3Z2w",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=ZanHtVu3Z2w",
+          "access": "Public",
+          "duration": "6:43",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-BwghaaoFRtw",
+      "artist": "Cate Le Bon",
+      "title": "Cate Le Bon - We Might Revolve (Live at 3RRR)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "4:19",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=BwghaaoFRtw",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-BwghaaoFRtw",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=BwghaaoFRtw",
+          "access": "Public",
+          "duration": "4:19",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-gIONWgSlCuc",
+      "artist": "Fabulous Diamonds",
+      "title": "Fabulous Diamonds interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "9:55",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=gIONWgSlCuc",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-gIONWgSlCuc",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=gIONWgSlCuc",
+          "access": "Public",
+          "duration": "9:55",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-oz8WoO98CZA",
+      "artist": "Gang Gang Dance",
+      "title": "Gang Gang Dance interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "12:29",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=oz8WoO98CZA",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-oz8WoO98CZA",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=oz8WoO98CZA",
+          "access": "Public",
+          "duration": "12:29",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-4hCu1H58Fsk",
+      "artist": "James Blake",
+      "title": "James Blake interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "14:46",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=4hCu1H58Fsk",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-4hCu1H58Fsk",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=4hCu1H58Fsk",
+          "access": "Public",
+          "duration": "14:46",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-MHFpPNivnXo",
+      "artist": "Jamie xx",
+      "title": "Jamie XX interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "3:08",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=MHFpPNivnXo",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-MHFpPNivnXo",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=MHFpPNivnXo",
+          "access": "Public",
+          "duration": "3:08",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-PTIef99lR8Q",
+      "artist": "Lauren Taylor",
+      "title": "Lauren Taylor from Breaking and Entering (Interviewed at 3RRR)",
+      "kind": "Special program",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "1:18",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=PTIef99lR8Q",
+      "summary": "",
+      "tags": [
+        "special program",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-PTIef99lR8Q",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=PTIef99lR8Q",
+          "access": "Public",
+          "duration": "1:18",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-hxYOVNiML-Y",
+      "artist": "Lucky Dragons",
+      "title": "Lucky Dragons interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "17:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=hxYOVNiML-Y",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-hxYOVNiML-Y",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=hxYOVNiML-Y",
+          "access": "Public",
+          "duration": "17:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-SsipSfVRNCc",
+      "artist": "Mikal Cronin",
+      "title": "Mikal Cronin - Don't Let Me Go (Live at 3RRR)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "3:36",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=SsipSfVRNCc",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-SsipSfVRNCc",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=SsipSfVRNCc",
+          "access": "Public",
+          "duration": "3:36",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-vE-twCEdJt4",
+      "artist": "P.K. 14",
+      "title": "P.K. 14 interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "4:57",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=vE-twCEdJt4",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-vE-twCEdJt4",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=vE-twCEdJt4",
+          "access": "Public",
+          "duration": "4:57",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-g_392IU5HTk",
+      "artist": "Peabody",
+      "title": "Peabody interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "5:53",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=g_392IU5HTk",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-g_392IU5HTk",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=g_392IU5HTk",
+          "access": "Public",
+          "duration": "5:53",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-37SW9jxNyWc",
+      "artist": "Rat Vs Possum",
+      "title": "Rat Vs Possum on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "10:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=37SW9jxNyWc",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-37SW9jxNyWc",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=37SW9jxNyWc",
+          "access": "Public",
+          "duration": "10:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-pRdw9Hwg5Ik",
+      "artist": "Sampa The Great",
+      "title": "Sampa The Great - F E M A L E (Live at 3RRR)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "2:38",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=pRdw9Hwg5Ik",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-pRdw9Hwg5Ik",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=pRdw9Hwg5Ik",
+          "access": "Public",
+          "duration": "2:38",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-k1Vs7MT_SFQ",
+      "artist": "SBTRKT",
+      "title": "SBTRKT interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "6:08",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=k1Vs7MT_SFQ",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-k1Vs7MT_SFQ",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=k1Vs7MT_SFQ",
+          "access": "Public",
+          "duration": "6:08",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-7pTJahiccTQ",
+      "artist": "Tame Impala",
+      "title": "Tame Impala interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "8:41",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=7pTJahiccTQ",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-7pTJahiccTQ",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=7pTJahiccTQ",
+          "access": "Public",
+          "duration": "8:41",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-j-bkJ2Lp8c4",
+      "artist": "TENGGER",
+      "title": "TENGGER (Live From The Triple R Greenroom)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "8:04",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=j-bkJ2Lp8c4",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-j-bkJ2Lp8c4",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=j-bkJ2Lp8c4",
+          "access": "Public",
+          "duration": "8:04",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-lWHv1HliRks",
+      "artist": "The Big Pink",
+      "title": "The Big Pink on 3RRRFM",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "4:16",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=lWHv1HliRks",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-lWHv1HliRks",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=lWHv1HliRks",
+          "access": "Public",
+          "duration": "4:16",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-WuoMnLiL4Bg",
+      "artist": "Thibault",
+      "title": "Live at RRR: Thibault (Live Stream)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "23:00",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=WuoMnLiL4Bg",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-WuoMnLiL4Bg",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=WuoMnLiL4Bg",
+          "access": "Public",
+          "duration": "23:00",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-vIGu1k53KVA",
+      "artist": "Totally Mild",
+      "title": "Totally Mild - Christa (Live at 3RRR)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "3:25",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=vIGu1k53KVA",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-vIGu1k53KVA",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=vIGu1k53KVA",
+          "access": "Public",
+          "duration": "3:25",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-usnt8B_fnZg",
+      "artist": "Washed Out",
+      "title": "Washed Out interview on 3RRR",
+      "kind": "Interview",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "7:31",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=usnt8B_fnZg",
+      "summary": "",
+      "tags": [
+        "interview",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-usnt8B_fnZg",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=usnt8B_fnZg",
+          "access": "Public",
+          "duration": "7:31",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    },
+    {
+      "id": "src-youtube-lQjsNemkgWY",
+      "artist": "World's End Press",
+      "title": "World's End Press - Someone's Daddy (Live at 3RRR)",
+      "kind": "Live",
+      "date": "Date unconfirmed",
+      "dateKey": "",
+      "year": null,
+      "duration": "6:42",
+      "presenters": "",
+      "source": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=lQjsNemkgWY",
+      "summary": "",
+      "tags": [
+        "live",
+        "live performance",
+        "video"
+      ],
+      "access": "Public",
+      "sources": [
+        {
+          "id": "src-youtube-lQjsNemkgWY",
+          "label": "Triple R YouTube",
+          "href": "https://www.youtube.com/watch?v=lQjsNemkgWY",
+          "access": "Public",
+          "duration": "6:42",
+          "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+        }
+      ]
+    }
+  ],
+  "recoveryLeads": [
+    {
+      "title": "Breaking and Entering: Tom Ravenscroft's Guest Selection",
+      "status": "reference only; segment page no longer resolves",
+      "primary_url": "https://www.rrr.org.au/explore/programs/breaking-and-entering/episodes/26874-breaking-and-entering-26-october-2023",
+      "reference_url": "https://www.facebook.com/3RRRFM/posts/tom-ravenscroft-drops-by-breaking-and-entering-to-select-some-tracks/823201939811620/"
+    },
+    {
+      "title": "Two-hour Hopes Radio Winter mix",
+      "status": "social reference; locate canonical audio",
+      "primary_url": "https://www.instagram.com/p/BxTaJWnhTXf/"
+    },
+    {
+      "title": "Os Mutantes YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=yG3adCG8peQ"
+    },
+    {
+      "title": "Gareth Liddiard YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=kGRk9JztUPM"
+    },
+    {
+      "title": "Jon Hopkins YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=eaHIq1mBLrs"
+    },
+    {
+      "title": "Eddy Current Suppression Ring YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=lIHdLB7ufkE"
+    },
+    {
+      "title": "Black Lips YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=G0ER2sUxhDk"
+    },
+    {
+      "title": "King Gizzard interview index reference",
+      "status": "external index corroborates 23 October 2025 interview",
+      "primary_url": "https://kglw.net/pages/interviews"
+    },
+    {
+      "title": "Triple R Melbourne Music Week 2015 compilation",
+      "status": "contextual multi-program video; identify B&E chapter before ingest",
+      "primary_url": "https://www.youtube.com/watch?v=ZVg8srae5aU"
+    },
+    {
+      "title": "Triple R Melbourne Music Week promo",
+      "status": "contextual multi-program video",
+      "primary_url": "https://www.youtube.com/watch?v=6lJOO2Wxn4k"
+    },
+    {
+      "title": "Triple R Melbourne Music Week 2016 compilation",
+      "status": "contextual multi-program video; identify B&E chapter before ingest",
+      "primary_url": "https://www.youtube.com/watch?v=l_PLKTaUg_s"
+    },
+    {
+      "title": "Triple R MIFF 2016 compilation",
+      "status": "contextual multi-program video; identify B&E chapter before ingest",
+      "primary_url": "https://www.youtube.com/watch?v=gRR94dL4c98"
+    }
+  ],
+  "sourceHubs": [
+    {
+      "name": "Triple R programme highlights",
+      "url": "https://www.rrr.org.au/explore/programs/breaking-and-entering/highlights"
+    },
+    {
+      "name": "Triple R B&E tag",
+      "url": "https://www.rrr.org.au/tags/breaking-and-entering"
+    },
+    {
+      "name": "Triple R audio archive index",
+      "url": "https://www.rrr.org.au/on-demand/archives"
+    },
+    {
+      "name": "Triple R YouTube channel",
+      "url": "https://www.youtube.com/channel/UCXWGCgCIoJ-eMwSd-SPi2Mg"
+    },
+    {
+      "name": "Triple R Interviewed at RRR playlist",
+      "url": "https://www.youtube.com/playlist?list=PLCF1031568D538068"
+    },
+    {
+      "name": "Breaking and Entering Mixcloud profile",
+      "url": "https://www.mixcloud.com/breakingandentering/"
+    }
+  ]
+}

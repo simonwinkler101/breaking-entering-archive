@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-847-cat-power-breaking-and-entering",
+  "artist": "Cat Power",
+  "title": "Cat Power - Breaking and Entering",
+  "kind": "Interview",
+  "date": "3 September 2012",
+  "dateKey": "2012-09-03",
+  "year": 2012,
+  "duration": "12:35",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/847-cat-power-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-847-cat-power-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/847-cat-power-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "12:35",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

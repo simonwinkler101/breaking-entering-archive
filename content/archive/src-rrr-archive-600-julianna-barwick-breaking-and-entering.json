@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-600-julianna-barwick-breaking-and-entering",
+  "artist": "Julianna Barwick",
+  "title": "Julianna Barwick - Breaking and Entering",
+  "kind": "Interview",
+  "date": "16 January 2012",
+  "dateKey": "2012-01-16",
+  "year": 2012,
+  "duration": "10:47",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/600-julianna-barwick-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-600-julianna-barwick-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/600-julianna-barwick-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "10:47",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

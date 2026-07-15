@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-breaking-and-entering-karen-marks",
+  "artist": "Karen Marks",
+  "title": "Breaking And Entering: Karen Marks",
+  "kind": "Interview",
+  "date": "23 March 2023",
+  "dateKey": "2023-03-23",
+  "year": 2023,
+  "duration": "26:17",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-karen-marks",
+  "summary": "Karen Marks joins Lauren on Breaking And Entering to discuss Karen’s former RRR show, the underground 80s music scene in Melbourne, and what to expect from her premiere show.",
+  "tags": [
+    "interview",
+    "subscriber archive",
+    "melbourne"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-breaking-and-entering-karen-marks",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-karen-marks",
+      "access": "RRR subscriber",
+      "duration": "26:17",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-PTIef99lR8Q",
+  "artist": "Lauren Taylor",
+  "title": "Lauren Taylor from Breaking and Entering (Interviewed at 3RRR)",
+  "kind": "Special program",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "1:18",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=PTIef99lR8Q",
+  "summary": "",
+  "tags": [
+    "special program",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-PTIef99lR8Q",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=PTIef99lR8Q",
+      "access": "Public",
+      "duration": "1:18",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

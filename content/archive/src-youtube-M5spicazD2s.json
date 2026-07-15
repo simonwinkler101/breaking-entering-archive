@@ -1,0 +1,38 @@
+{
+  "id": "src-youtube-M5spicazD2s",
+  "artist": "Teether & Kuya Neil",
+  "title": "Live at RRR: Teether & Kuya Neil (Live Stream)",
+  "kind": "Live",
+  "date": "16 November 2021",
+  "dateKey": "2021-11-16",
+  "year": 2021,
+  "duration": "37:00",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=M5spicazD2s",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-M5spicazD2s",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=M5spicazD2s",
+      "access": "Public",
+      "duration": "37:00",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    },
+    {
+      "id": "src-rrr-video-teether-kuya-neil-live-on-breaking-and-entering",
+      "label": "Triple R video page",
+      "href": "https://www.rrr.org.au/explore/videos/teether-kuya-neil-live-on-breaking-and-entering",
+      "access": "Public",
+      "duration": "",
+      "status": "Confirmed RRR video landing page"
+    }
+  ]
+}

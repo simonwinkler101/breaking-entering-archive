@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-81-chad-van-gaalen-breaking-entering",
+  "artist": "Chad Van Gaalen",
+  "title": "Chad Van Gaalen - Breaking and Entering",
+  "kind": "Interview",
+  "date": "25 September 2008",
+  "dateKey": "2008-09-25",
+  "year": 2008,
+  "duration": "6:20",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/81-chad-van-gaalen-breaking-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-81-chad-van-gaalen-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/81-chad-van-gaalen-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "6:20",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

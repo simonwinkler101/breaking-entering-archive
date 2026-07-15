@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1489-sophia-brous-breaking-and-entering",
+  "artist": "Sophia Brous",
+  "title": "Sophia Brous - Breaking and Entering",
+  "kind": "Interview",
+  "date": "25 May 2017",
+  "dateKey": "2017-05-25",
+  "year": 2017,
+  "duration": "36:53",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1489-sophia-brous-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1489-sophia-brous-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1489-sophia-brous-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "36:53",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

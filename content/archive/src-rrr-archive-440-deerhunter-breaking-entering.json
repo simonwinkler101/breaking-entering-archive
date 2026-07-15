@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-440-deerhunter-breaking-entering",
+  "artist": "Deerhunter",
+  "title": "Deerhunter - Breaking and Entering",
+  "kind": "Interview",
+  "date": "14 February 2011",
+  "dateKey": "2011-02-14",
+  "year": 2011,
+  "duration": "22:16",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/440-deerhunter-breaking-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-440-deerhunter-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/440-deerhunter-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "22:16",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}
