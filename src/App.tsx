@@ -213,11 +213,24 @@ export default function Home() {
       }
 
       setSelected(null);
-      if (window.location.hash === "#interviews") setFilter("Interview");
-      if (window.location.hash === "#mixes") setFilter("Guest mix");
-      if (window.location.hash === "#live") setFilter("Live");
-      if (window.location.hash === "#programs") setFilter("Special program");
-      if (window.location.hash === "#archive") setFilter("All");
+      const hashFilter: Filter | null =
+        window.location.hash === "#interviews"
+          ? "Interview"
+          : window.location.hash === "#mixes"
+            ? "Guest mix"
+            : window.location.hash === "#live"
+              ? "Live"
+              : window.location.hash === "#programs"
+                ? "Special program"
+                : window.location.hash === "#archive"
+                  ? "All"
+                  : null;
+      if (hashFilter) {
+        setQuery("");
+        setFilter(hashFilter);
+        setTagFilter(null);
+        setYearFilter("All");
+      }
       setVisibleCount(PAGE_SIZE);
     };
 
@@ -320,7 +333,6 @@ export default function Home() {
     setFilter(nextFilter);
     setTagFilter(null);
     setYearFilter("All");
-    setSort("newest");
     setVisibleCount(PAGE_SIZE);
     setSelected(null);
     window.history.pushState(null, "", hashForFilter(nextFilter));
@@ -425,7 +437,14 @@ export default function Home() {
               type="search"
               value={query}
               onChange={(event) => {
-                setQuery(event.target.value);
+                const nextQuery = event.target.value;
+                setQuery(nextQuery);
+                if (nextQuery.trim()) {
+                  setFilter("All");
+                  setTagFilter(null);
+                  setYearFilter("All");
+                  window.history.replaceState(null, "", "#archive");
+                }
                 setVisibleCount(PAGE_SIZE);
               }}
               placeholder={siteSettings.hero.searchPlaceholder}
@@ -476,6 +495,19 @@ export default function Home() {
         <span className="archive-anchor" id="mixes" aria-hidden="true" />
         <span className="archive-anchor" id="live" aria-hidden="true" />
         <span className="archive-anchor" id="programs" aria-hidden="true" />
+        <header className="archive-intro">
+          <div>
+            <p className="eyebrow">Archive index</p>
+            <h2>Browse the archive</h2>
+          </div>
+          <p className="archive-result-count" aria-live="polite">
+            <strong>{results.length}</strong>
+            <span>{results.length === 1 ? "entry" : "entries"}</span>
+            {results.length !== archiveEntries.length && (
+              <small>of {archiveEntries.length}</small>
+            )}
+          </p>
+        </header>
         <div className="archive-controls">
           <div className="filter-group" aria-label="Filter by format">
             {filters.map((item) => (
@@ -485,11 +517,7 @@ export default function Home() {
                 className={filter === item ? "active" : ""}
                 aria-pressed={filter === item}
                 key={item}
-                onClick={() => {
-                  setFilter(item);
-                  setVisibleCount(PAGE_SIZE);
-                  window.history.replaceState(null, "", hashForFilter(item));
-                }}
+                onClick={() => openArchiveView(item)}
               >
                 <KindDot kind={item} />
                 {item === "All" ? "All formats" : item}
@@ -535,19 +563,20 @@ export default function Home() {
           </div>
         </div>
 
-        {tagFilter && (
-          <div className="active-subject" aria-live="polite">
-            <span>Subject</span>
-            <strong>{tagFilter}</strong>
-            <button
-              type="button"
-              aria-label={`Remove subject filter: ${tagFilter}`}
-              onClick={() => {
-                setTagFilter(null);
-                setVisibleCount(PAGE_SIZE);
-              }}
-            >
-              Clear <span aria-hidden="true">×</span>
+        {(query.trim() || tagFilter || yearFilter !== "All") && (
+          <div className="active-filters" aria-live="polite">
+            <span>Active filters</span>
+            <div>
+              {query.trim() && <strong>Search: “{query.trim()}”</strong>}
+              {tagFilter && <strong>Subject: {tagFilter}</strong>}
+              {yearFilter !== "All" && (
+                <strong>
+                  Year: {yearFilter === "Unknown" ? "Date unconfirmed" : yearFilter}
+                </strong>
+              )}
+            </div>
+            <button type="button" onClick={clearSearch}>
+              Clear all <span aria-hidden="true">×</span>
             </button>
           </div>
         )}
@@ -685,8 +714,10 @@ export default function Home() {
                   type="button"
                   key={tag}
                   onClick={() => {
+                    setQuery("");
                     setTagFilter(tag);
                     setFilter("All");
+                    setYearFilter("All");
                     setVisibleCount(PAGE_SIZE);
                     setSelected(null);
                     window.history.replaceState(null, "", "#archive");

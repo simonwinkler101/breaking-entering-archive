@@ -461,6 +461,53 @@ a {
   scroll-margin-top: 30px;
 }
 
+.archive-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 124px;
+  padding: 26px 0 24px;
+  border-top: 1px solid var(--ink);
+}
+
+.archive-intro .eyebrow {
+  color: var(--faint-ink);
+  font-size: 10px;
+}
+
+.archive-intro h2 {
+  margin: 8px 0 0;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.archive-result-count {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0;
+  color: var(--muted-ink);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.archive-result-count strong {
+  color: var(--ink);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.archive-result-count small {
+  color: var(--faint-ink);
+  font: inherit;
+}
+
 .archive-controls {
   display: flex;
   align-items: center;
@@ -562,16 +609,17 @@ a {
   text-transform: none;
 }
 
-.active-subject {
-  display: flex;
+.active-filters {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
   min-height: 56px;
   border-bottom: 1px solid var(--rule);
 }
 
-.active-subject > span,
-.active-subject button {
+.active-filters > span,
+.active-filters button {
   color: var(--faint-ink);
   font-size: 10px;
   font-weight: 600;
@@ -579,7 +627,13 @@ a {
   text-transform: uppercase;
 }
 
-.active-subject strong {
+.active-filters > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.active-filters strong {
   padding: 7px 10px 6px;
   border: 1px solid var(--rule);
   background: transparent;
@@ -589,16 +643,15 @@ a {
   text-transform: uppercase;
 }
 
-.active-subject button {
-  margin: 0 0 0 auto;
+.active-filters button {
   padding: 7px 0 4px;
   border-bottom: 1px solid transparent;
   background: transparent;
   cursor: pointer;
 }
 
-.active-subject button:hover,
-.active-subject button:focus-visible {
+.active-filters button:hover,
+.active-filters button:focus-visible {
   border-bottom-color: var(--stock-dark);
   color: var(--stock-dark);
 }
@@ -1338,6 +1391,10 @@ a {
     padding: 64px 0 90px;
   }
 
+  .archive-intro {
+    min-height: 108px;
+  }
+
   .archive-controls {
     align-items: flex-start;
     flex-direction: column;
@@ -1346,6 +1403,25 @@ a {
 
   .select-controls {
     flex-wrap: wrap;
+  }
+
+  .active-filters {
+    grid-template-columns: 1fr auto;
+    padding: 13px 0;
+  }
+
+  .active-filters > span {
+    grid-column: 1;
+  }
+
+  .active-filters > div {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .active-filters button {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .entry-open {
