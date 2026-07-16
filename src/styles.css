@@ -1299,6 +1299,10 @@ a {
     --shell: calc(100% - 34px);
   }
 
+  .landing {
+    min-height: 100svh;
+  }
+
   .arrow-diagonal {
     display: none;
   }
