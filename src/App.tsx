@@ -652,6 +652,7 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="results-region">
         <div
           className="results-boundary"
           id="results"
@@ -748,6 +749,7 @@ export default function Home() {
             <button type="button" onClick={clearSearch}>Clear search and filters</button>
           </div>
         )}
+        </div>
       </section>
 
       <footer className="site-footer shell">
