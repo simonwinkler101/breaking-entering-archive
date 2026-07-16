@@ -42,7 +42,7 @@ npm install
 npm run dev
 ```
 
-`npm run build` validates the public content, regenerates `data/archive-data.json`, builds the application, and then creates permanent entry pages, social metadata, structured data, `sitemap.xml` and `robots.txt` in the deployable `dist/` directory.
+`npm run build` validates the public content, generates the untracked `data/` build outputs from canonical `content/` sources (including `content/archive-research.json`), builds the application, and then creates permanent entry pages, social metadata, structured data, `sitemap.xml` and `robots.txt` in the deployable `dist/` directory. `npm run dev` generates `data/` automatically first.
 
 ## Content architecture
 
