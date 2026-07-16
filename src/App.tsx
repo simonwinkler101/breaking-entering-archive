@@ -207,6 +207,7 @@ export default function Home() {
   const [selected, setSelected] = useState<ArchiveEntry | null>(null);
   const [showTranscript, setShowTranscript] = useState(false);
   const archiveRef = useRef<HTMLElement>(null);
+  const resultsBoundaryRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
@@ -366,7 +367,14 @@ export default function Home() {
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    searchInputRef.current?.blur();
+    const boundary = resultsBoundaryRef.current;
+    if (boundary) {
+      boundary.scrollIntoView({ behavior: "smooth", block: "start" });
+      boundary.focus({ preventScroll: true });
+    } else {
+      archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   const openArchiveView = (nextFilter: Filter) => {
@@ -393,6 +401,18 @@ export default function Home() {
     if (sort === "relevance") setSort("newest");
     window.history.replaceState(null, "", "/#archive");
   };
+
+  const archiveHeading = query.trim()
+    ? "Search results"
+    : filter === "Interview"
+      ? "Interviews"
+      : filter === "Guest mix"
+        ? "Guest mixes"
+        : filter === "Live"
+          ? "Live performances"
+          : filter === "Special program"
+            ? "Special programs"
+            : "Browse the archive";
 
   const featuredMix =
     archiveEntries.find((entry) => entry.id === siteSettings.featured.entryId) ??
@@ -544,7 +564,7 @@ export default function Home() {
         <header className="archive-intro">
           <div>
             <p className="eyebrow">Archive index</p>
-            <h2>Browse the archive</h2>
+            <h2>{archiveHeading}</h2>
           </div>
           <p className="archive-result-count" aria-live="polite">
             <strong>{results.length}</strong>
@@ -610,11 +630,25 @@ export default function Home() {
           </div>
         </div>
 
+        <div
+          className="results-boundary"
+          id="results"
+          ref={resultsBoundaryRef}
+          tabIndex={-1}
+          role="group"
+          aria-label="Archive results"
+        />
+
         {(query.trim() || tagFilter || yearFilter !== "All") && (
           <div className="active-filters" aria-live="polite">
             <span>Active filters</span>
             <div>
-              {query.trim() && <strong>Search: “{query.trim()}”</strong>}
+              {query.trim() && (
+                <>
+                  <strong>Search: “{query.trim()}”</strong>
+                  <strong>{results.length === 1 ? "1 result" : `${results.length} results`}</strong>
+                </>
+              )}
               {tagFilter && <strong>Subject: {tagFilter}</strong>}
               {yearFilter !== "All" && (
                 <strong>
