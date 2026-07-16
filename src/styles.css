@@ -866,9 +866,6 @@ a {
   height: 100%;
   padding: 76px 68px 64px;
   animation: 0.19s ease-out slide-in;
-  transition:
-    width 0.2s ease,
-    padding 0.2s ease;
   position: relative;
   overflow-y: auto;
 }
@@ -880,6 +877,9 @@ a {
   border-top-width: 4px;
   width: 100%;
   padding: 60px clamp(20px, 5vw, 64px) 72px;
+  /* Layout snaps; only the incoming state fades. Animating the drawer's
+     geometry reflows text every frame and can never feel calm. */
+  animation: 0.18s ease-out fade-in;
 }
 .dialog-reader-column {
   width: 100%;
@@ -1004,7 +1004,7 @@ a {
   background: color-mix(in srgb, var(--quote-accent) 24%, var(--paper));
   max-width: 44rem;
   margin: 30px 0 0;
-  padding: 24px 28px;
+  padding: 18px 22px;
 }
 .entry-pull-quote[data-kind="Guest mix"] {
   --quote-accent: var(--accent-mix);
@@ -1020,10 +1020,9 @@ a {
 }
 .entry-pull-quote blockquote p {
   color: var(--ink);
-  letter-spacing: -0.02em;
   margin: 0;
-  font-size: clamp(24px, 3vw, 36px);
-  line-height: 1.22;
+  font-size: var(--type-reading);
+  line-height: 1.58;
 }
 .entry-pull-quote figcaption {
   color: var(--muted-ink);
@@ -1763,8 +1762,8 @@ a {
     break-inside: avoid;
   }
   .entry-pull-quote blockquote p {
-    font-size: 14pt;
-    line-height: 1.3;
+    font-size: 11pt;
+    line-height: 1.45;
   }
   .entry-pull-quote figcaption {
     margin-top: 6pt;
