@@ -549,6 +549,12 @@ a {
   outline: none;
   scroll-margin-top: 14px;
 }
+.results-region {
+  /* Guarantees enough space below the boundary for it to reach the viewport
+     top after a search, even with zero or one result. */
+  min-height: calc(100vh - 14px);
+  min-height: calc(100svh - 14px);
+}
 .active-filters {
   border-bottom: 1px solid var(--rule);
   grid-template-columns: auto minmax(0, 1fr) auto;
