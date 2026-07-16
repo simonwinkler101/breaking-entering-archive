@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-529-on-ra-breaking-and-entering",
+  "artist": "On Ra",
+  "title": "On Ra - Breaking and Entering",
+  "kind": "Interview",
+  "date": "31 October 2011",
+  "dateKey": "2011-10-31",
+  "year": 2011,
+  "duration": "13:33",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/529-on-ra-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-529-on-ra-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/529-on-ra-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "13:33",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

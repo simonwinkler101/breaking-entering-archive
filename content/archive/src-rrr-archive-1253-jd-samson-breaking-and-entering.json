@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1253-jd-samson-breaking-and-entering",
+  "artist": "JD Samson",
+  "title": "JD Samson - Breaking and entering",
+  "kind": "Interview",
+  "date": "5 November 2015",
+  "dateKey": "2015-11-05",
+  "year": 2015,
+  "duration": "7:19",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1253-jd-samson-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1253-jd-samson-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1253-jd-samson-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "7:19",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

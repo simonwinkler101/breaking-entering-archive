@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-449-os-mutantes-breaking-and-entering",
+  "artist": "Os Mutantes",
+  "title": "Os Mutantes - Breaking and Entering",
+  "kind": "Interview",
+  "date": "21 February 2011",
+  "dateKey": "2011-02-21",
+  "year": 2011,
+  "duration": "5:49",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/449-os-mutantes-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-449-os-mutantes-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/449-os-mutantes-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "5:49",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

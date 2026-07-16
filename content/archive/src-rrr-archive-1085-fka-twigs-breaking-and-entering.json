@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1085-fka-twigs-breaking-and-entering",
+  "artist": "FKA Twigs",
+  "title": "FKA Twigs - Breaking and Entering",
+  "kind": "Interview",
+  "date": "5 February 2015",
+  "dateKey": "2015-02-05",
+  "year": 2015,
+  "duration": "27:03",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1085-fka-twigs-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1085-fka-twigs-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1085-fka-twigs-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "27:03",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

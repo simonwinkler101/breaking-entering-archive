@@ -1,0 +1,32 @@
+{
+  "id": "cate-le-bon",
+  "artist": "Cate Le Bon",
+  "title": "Michelangelo Dying",
+  "kind": "Interview",
+  "date": "2 October 2025",
+  "dateKey": "2025-10-02",
+  "year": 2025,
+  "duration": "21:22",
+  "presenters": "Lauren Taylor & Simon Winkler",
+  "source": "Triple R",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-cate-le-bon-returns-with-michelangelo-dying",
+  "summary": "Cate Le Bon speaks with Lauren and Simon about heartbreak, experimentation, drone music and treating an album as a physical presence.",
+  "tags": [
+    "interview",
+    "songwriting",
+    "drone",
+    "experimental",
+    "welsh music"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-entering-cate-le-bon-returns-with-michelangelo-dying",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-cate-le-bon-returns-with-michelangelo-dying",
+      "access": "Public",
+      "duration": "21:22",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

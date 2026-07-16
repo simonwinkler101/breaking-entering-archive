@@ -1,0 +1,38 @@
+{
+  "id": "src-rrr-segment-breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+  "artist": "Byron Scullin & Robin Fox / MESS",
+  "title": "Breaking and Entering: Melbourne's Gym For Synths MESS Celebrates 10 Years",
+  "kind": "Interview",
+  "date": "7 May 2026",
+  "dateKey": "2026-05-07",
+  "year": 2026,
+  "duration": "25:58",
+  "presenters": "",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+  "summary": "MESS (Melbourne Electronic Sound Studio) celebrates its 10th anniversary this year! Co-founders Byron Scullin and Robin Fox join Lauren in the studio to reflect on the creation of their \"living museum\". Located in Federation Square, MESS houses a significant collection of new and historic electronic instruments and preserves them for use by musicians from all over the world.",
+  "tags": [
+    "interview",
+    "melbourne",
+    "electronic"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-melbournes-gym-for-synths-mess-celebrates-10-years",
+      "access": "Public",
+      "duration": "25:58",
+      "status": "Confirmed RRR segment page"
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-byron-scullin-robin-fox",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-byron-scullin-robin-fox",
+      "access": "Public",
+      "duration": "26:56",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

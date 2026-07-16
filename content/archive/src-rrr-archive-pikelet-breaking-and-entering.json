@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-pikelet-breaking-and-entering",
+  "artist": "Pikelet",
+  "title": "Pikelet - Breaking and Entering",
+  "kind": "Interview",
+  "date": "21 March 2019",
+  "dateKey": "2019-03-21",
+  "year": 2019,
+  "duration": "26:20",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/pikelet-breaking-and-entering",
+  "summary": "Lauren and Simon talk to Evelyn Ida Morris about the last Pikelet record, appropriately titled Goodbye.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-pikelet-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/pikelet-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "26:20",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

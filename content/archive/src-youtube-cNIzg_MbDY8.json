@@ -1,0 +1,38 @@
+{
+  "id": "src-youtube-cNIzg_MbDY8",
+  "artist": "Wet Leg",
+  "title": "Wet Leg - Being In Love (Live at Triple R)",
+  "kind": "Live",
+  "date": "23 February 2023",
+  "dateKey": "2023-02-23",
+  "year": 2023,
+  "duration": "2:18",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=cNIzg_MbDY8",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-cNIzg_MbDY8",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=cNIzg_MbDY8",
+      "access": "Public",
+      "duration": "2:18",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    },
+    {
+      "id": "src-rrr-video-live-at-rrr-wet-leg",
+      "label": "Triple R video page",
+      "href": "https://www.rrr.org.au/explore/videos/live-at-rrr-wet-leg",
+      "access": "Public",
+      "duration": "",
+      "status": "Confirmed RRR video landing page"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "carla-dal-forno",
+  "artist": "Carla dal Forno",
+  "title": "Confession and the Stillness of Castlemaine",
+  "kind": "Interview",
+  "date": "23 April 2026",
+  "dateKey": "2026-04-23",
+  "year": 2026,
+  "duration": "12:25",
+  "presenters": "Lauren Taylor & Simon Winkler",
+  "source": "Triple R",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-carla-dal-forno-on-her-new-record-confession-and-the-stillness-of-castlemaine",
+  "summary": "Carla dal Forno discusses her fourth solo album, moving from the city to Castlemaine, recording in a disused hospital and the relationship between sound, place and stillness.",
+  "tags": [
+    "interview",
+    "post-punk",
+    "castlemaine",
+    "songwriting",
+    "art"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-carla-dal-forno-on-her-new-record-confession-and-the-stillness-of-castlemaine",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-carla-dal-forno-on-her-new-record-confession-and-the-stillness-of-castlemaine",
+      "access": "Public",
+      "duration": "12:25",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

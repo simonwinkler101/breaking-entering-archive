@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-448-mayer-hawthorne-breaking-and-entering",
+  "artist": "Mayer Hawthorne",
+  "title": "Mayer Hawthorne - Breaking and Entering",
+  "kind": "Interview",
+  "date": "21 February 2011",
+  "dateKey": "2011-02-21",
+  "year": 2011,
+  "duration": "8:35",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/448-mayer-hawthorne-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-448-mayer-hawthorne-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/448-mayer-hawthorne-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "8:35",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

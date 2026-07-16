@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1146-al-doyle-breaking-and-entering",
+  "artist": "Al Doyle",
+  "title": "Al Doyle - Breaking And Entering",
+  "kind": "Interview",
+  "date": "7 May 2015",
+  "dateKey": "2015-05-07",
+  "year": 2015,
+  "duration": "18:04",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1146-al-doyle-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1146-al-doyle-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1146-al-doyle-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "18:04",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

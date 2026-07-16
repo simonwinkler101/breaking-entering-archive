@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-jon-hopkins-breaking-and-entering",
+  "artist": "Jon Hopkins",
+  "title": "Jon Hopkins - Breaking and Entering",
+  "kind": "Interview",
+  "date": "31 January 2019",
+  "dateKey": "2019-01-31",
+  "year": 2019,
+  "duration": "37:48",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/jon-hopkins-breaking-and-entering",
+  "summary": "Prior to his performances at the Laneway Festival, Lauren and Simon chat to Jon Hopkins about his methods of mindfulness whilst touring, consciousness and the music on his upcoming album 'Singularity'.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-jon-hopkins-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/jon-hopkins-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "37:48",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

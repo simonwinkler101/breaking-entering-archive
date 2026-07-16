@@ -1,0 +1,32 @@
+{
+  "id": "exek",
+  "artist": "EXEK",
+  "title": "Prove The Mountains Move",
+  "kind": "Interview",
+  "date": "12 March 2026",
+  "dateKey": "2026-03-12",
+  "year": 2026,
+  "duration": "28:52",
+  "presenters": "Lauren Taylor & Simon Winkler",
+  "source": "Triple R",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-exek-prove-the-mountains-move",
+  "summary": "Albert Wolski speaks about EXEK’s experimental writing methods, field recordings, film scores and the making of the band’s DFA-released album Prove The Mountains Move.",
+  "tags": [
+    "interview",
+    "experimental",
+    "post-punk",
+    "field recordings",
+    "dfa"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-exek-prove-the-mountains-move",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-exek-prove-the-mountains-move",
+      "access": "Public",
+      "duration": "28:52",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

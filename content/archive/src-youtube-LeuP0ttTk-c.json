@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-LeuP0ttTk-c",
+  "artist": "Bradford Cox",
+  "title": "Bradford Cox interview on 3RRR",
+  "kind": "Interview",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "15:00",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=LeuP0ttTk-c",
+  "summary": "",
+  "tags": [
+    "interview",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-LeuP0ttTk-c",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=LeuP0ttTk-c",
+      "access": "Public",
+      "duration": "15:00",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

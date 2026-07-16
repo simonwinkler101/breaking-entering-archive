@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-liars-breaking-and-entering",
+  "artist": "Liars",
+  "title": "Liars - Breaking and Entering",
+  "kind": "Interview",
+  "date": "27 September 2018",
+  "dateKey": "2018-09-27",
+  "year": 2018,
+  "duration": "21:18",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/liars-breaking-and-entering",
+  "summary": "Angus Andrew from Liars came into the studio to chat with Simon Winkler about their split 7\" with TFS, and Angus' split with creative partner Aaron Hemphill.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-liars-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/liars-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "21:18",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

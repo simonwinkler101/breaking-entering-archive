@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-838-jack-white-breaking-and-entering",
+  "artist": "Jack White",
+  "title": "Jack White - Breaking and Entering",
+  "kind": "Interview",
+  "date": "6 August 2012",
+  "dateKey": "2012-08-06",
+  "year": 2012,
+  "duration": "11:35",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/838-jack-white-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-838-jack-white-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/838-jack-white-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "11:35",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+name: Build check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Guard against empty or broken archive
+        run: |
+          test -f src/main.tsx
+          count=$(find content/archive -name '*.json' | wc -l)
+          echo "archive entries: $count"
+          test "$count" -ge 150
+          pages=$(find dist/archive -name index.html | wc -l)
+          echo "generated pages: $pages"
+          test "$pages" -eq "$count"
+          ! grep -rq '"kind": "Broadcast"' content/archive/
+
+      - name: Ensure generated data files are committed in sync
+        run: |
+          git diff --exit-code -- data/ || {
+            echo "::error::data/ is out of sync with content/. Run 'npm run content:build' and commit the result."
+            exit 1
+          }
+
+      - name: Verify preserved broadcast archive integrity
+        run: |
+          node -e '
+            const fs = require("node:fs");
+            const archive = JSON.parse(
+              fs.readFileSync("content/private/broadcast-archive.json", "utf8"),
+            );
+            if (!Array.isArray(archive.entries)) {
+              throw new Error("broadcast-archive.json has no entries array.");
+            }
+            if (archive.entries.length < 475) {
+              throw new Error(
+                `Expected at least 475 preserved broadcast records, found ${archive.entries.length}.`,
+              );
+            }
+            console.log(`broadcast records: ${archive.entries.length}`);
+          '

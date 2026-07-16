@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1441-kaitlyn-aurelia-smith-breaking-and-entering",
+  "artist": "Kaitlyn Aurelia Smith",
+  "title": "Kaitlyn Aurelia Smith - Breaking and Entering",
+  "kind": "Interview",
+  "date": "19 January 2017",
+  "dateKey": "2017-01-19",
+  "year": 2017,
+  "duration": "51:12",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1441-kaitlyn-aurelia-smith-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1441-kaitlyn-aurelia-smith-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1441-kaitlyn-aurelia-smith-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "51:12",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

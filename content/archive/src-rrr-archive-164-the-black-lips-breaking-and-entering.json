@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-164-the-black-lips-breaking-and-entering",
+  "artist": "The Black Lips",
+  "title": "The Black Lips - Breaking and Entering",
+  "kind": "Interview",
+  "date": "12 March 2009",
+  "dateKey": "2009-03-12",
+  "year": 2009,
+  "duration": "11:17",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/164-the-black-lips-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-164-the-black-lips-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/164-the-black-lips-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "11:17",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

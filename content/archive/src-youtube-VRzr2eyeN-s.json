@@ -1,0 +1,30 @@
+{
+  "id": "src-youtube-VRzr2eyeN-s",
+  "artist": "Jessica Pratt",
+  "title": "Jessica Pratt - Game That I Play (Live at 3RRR)",
+  "kind": "Live",
+  "date": "10 December 2015",
+  "dateKey": "2015-12-10",
+  "year": 2015,
+  "duration": "4:09",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=VRzr2eyeN-s",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-VRzr2eyeN-s",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=VRzr2eyeN-s",
+      "access": "Public",
+      "duration": "4:09",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

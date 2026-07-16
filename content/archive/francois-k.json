@@ -1,0 +1,32 @@
+{
+  "id": "francois-k",
+  "artist": "François K",
+  "title": "The Endurance of François K",
+  "kind": "Interview",
+  "date": "26 February 2026",
+  "dateKey": "2026-02-26",
+  "year": 2026,
+  "duration": "15:20",
+  "presenters": "Lauren Taylor & Simon Winkler",
+  "source": "Triple R",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-francois-k",
+  "summary": "A conversation about late-1970s New York, the dancefloor as a space for community and François Kevorkian’s contemporary work reconstructing classic recordings live.",
+  "tags": [
+    "interview",
+    "dance music",
+    "new york",
+    "dj culture",
+    "community"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-francois-k",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-francois-k",
+      "access": "Public",
+      "duration": "15:20",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

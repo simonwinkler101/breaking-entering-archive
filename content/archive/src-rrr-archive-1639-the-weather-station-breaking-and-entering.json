@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1639-the-weather-station-breaking-and-entering",
+  "artist": "The Weather Station",
+  "title": "The Weather Station - Breaking and Entering",
+  "kind": "Interview",
+  "date": "10 May 2018",
+  "dateKey": "2018-05-10",
+  "year": 2018,
+  "duration": "19:22",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1639-the-weather-station-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1639-the-weather-station-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1639-the-weather-station-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "19:22",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

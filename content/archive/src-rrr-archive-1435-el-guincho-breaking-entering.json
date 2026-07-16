@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1435-el-guincho-breaking-entering",
+  "artist": "El Guincho",
+  "title": "El Guincho - Breaking and Entering",
+  "kind": "Interview",
+  "date": "16 February 2017",
+  "dateKey": "2017-02-16",
+  "year": 2017,
+  "duration": "14:14",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1435-el-guincho-breaking-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1435-el-guincho-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1435-el-guincho-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "14:14",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

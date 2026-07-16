@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-mickearls",
+  "artist": "Mick Earls / Use No Hooks",
+  "title": "Minimalist Principles: Simon Winkler talks to Mick Earls of 'Use No Hooks' on Breaking and Entering",
+  "kind": "Interview",
+  "date": "21 March 2020",
+  "dateKey": "2020-03-21",
+  "year": 2020,
+  "duration": "31:28",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/mickearls",
+  "summary": "Simon Winkler talks to Mick Earls, one of the founding members of the iconic disco punk band \"Use No Hooks.\" \"Use No Hooks\" were a funky outfit who took pains to avoid commercial success. Earls says the band is a product of its time, its place, cheap inner suburban living, and the ideology of minimalism.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-mickearls",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/mickearls",
+      "access": "RRR subscriber",
+      "duration": "31:28",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}
