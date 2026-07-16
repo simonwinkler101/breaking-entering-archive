@@ -1409,7 +1409,7 @@ a {
   }
   .hero-search input {
     padding: 0 16px;
-    font-size: var(--type-supporting);
+    font-size: 16px; /* 16px minimum stops iOS Safari's focus auto-zoom */
   }
   .featured {
     grid-template-columns: 1fr;
@@ -1505,6 +1505,7 @@ a {
   .sort-control select {
     min-width: 0;
     max-width: 100%;
+    font-size: 16px; /* 16px minimum stops iOS Safari's focus auto-zoom */
   }
   .active-filters {
     grid-template-columns: 1fr auto;
