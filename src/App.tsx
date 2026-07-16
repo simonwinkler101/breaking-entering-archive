@@ -782,7 +782,23 @@ export default function Home() {
                     {selected.transcript
                       .trim()
                       .split(/\n{2,}/)
-                      .map((paragraph, index) => <p key={index}>{paragraph}</p>)}
+                      .map((paragraph, index) => {
+                        if (index === 0) {
+                          return (
+                            <p className="transcript-intro" key={index}>{paragraph}</p>
+                          );
+                        }
+                        const speakerMatch = paragraph.match(
+                          /^([A-Za-z][A-Za-z .'’-]{0,40}:)([\s\S]*)$/,
+                        );
+                        if (!speakerMatch) return <p key={index}>{paragraph}</p>;
+                        return (
+                          <p key={index}>
+                            <strong className="transcript-speaker">{speakerMatch[1]}</strong>
+                            {speakerMatch[2]}
+                          </p>
+                        );
+                      })}
                   </div>
                 )}
               </div>

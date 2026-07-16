@@ -68,8 +68,15 @@ working in this repository.
 - Untracked files are worktree-local, not branch-owned. Protect or isolate
   them before switching branches; never assume a branch switch parks them
   safely.
-- Do not push, merge, deploy, alter branch protection or delete remote
-  branches without explicit user approval.
+- Once the user authorizes a scoped implementation, fix or publication,
+  routine delivery for that task is also authorized: create a branch, commit,
+  push, open or update a pull request, wait for required checks and previews,
+  merge when green, verify production and clean up the merged task branch.
+  Do not pause for separate approval between those steps unless the user asks
+  for local-only work, a review checkpoint or no merge.
+- Separate approval is still required to alter branch protection, push
+  directly to `main`, force-push, rewrite shared history, delete an unmerged
+  remote branch or deploy outside the authorized project and scope.
 - Preserve unrelated user changes.
 
 ## Audio and transcription
@@ -90,10 +97,35 @@ working in this repository.
   lyrics; represent musical passages as `[Music]` unless separately cleared.
 - Do not edit archive entry JSON during inventory or raw transcription stages.
 
+## Delivery mode
+
+- Default to fast-track delivery: make the smallest reversible change that
+  completes the authorized outcome, using existing architecture, branch
+  protection and automated checks.
+- Keep verification proportional to risk. Inspect the final diff, run the
+  relevant build or tests, require CI to pass and smoke-test preview or
+  production when user-facing behaviour changes.
+- Resolve ordinary in-scope implementation, build, check and deployment
+  failures autonomously. Required checks are delivery gates, not approval
+  gates.
+- Use best judgment for minor reversible details and fix forward when needed;
+  do not block delivery for speculative polish.
+- Avoid extra audits, worktrees, manifests, pilots, documentation or approval
+  pauses unless they control a concrete material risk or isolate unrelated
+  work.
+- Stop and ask only when proceeding would materially expand scope, risk data
+  loss, require a destructive or irreversible action, expose private data or
+  credentials, incur meaningful unapproved cost, rely on ambiguous source or
+  publishing rights, overwrite unrelated work, or require bypassing a
+  protection or failed required check.
+
 ## Working style
 
-- Begin broad or risky work with a read-only audit and a proposed plan.
-- Use dry runs and one-item pilots before batch operations.
+- Begin broad or materially risky work with a read-only audit and proposed
+  plan; do not add that gate to small reversible changes.
+- Use dry runs or one-item pilots when batch mistakes could affect many
+  records, incur meaningful cost or be hard to reverse; otherwise proceed
+  with the essential checks.
 - Make batch work resumable and idempotent.
 - Report changed files, tests, build results and remaining uncertainties.
 - Stop on ambiguous source matches rather than guessing.
