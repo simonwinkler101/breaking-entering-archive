@@ -105,6 +105,17 @@ working in this repository.
 - Keep verification proportional to risk. Inspect the final diff, run the
   relevant build or tests, require CI to pass and smoke-test preview or
   production when user-facing behaviour changes.
+- Proportional checks in practice: a wording fix needs the build and its
+  exact page; a transcript needs formatting plus one transcript-search check;
+  a CSS or interaction change needs the affected desktop/mobile views; a
+  build-system or archive-wide change needs full counts, sitemap and
+  Broadcast-exclusion validation on a clean build; mass deletion,
+  credentials, privacy or source-data restructuring stops for explicit
+  review.
+- Report outcomes, not journeys: one concise final report with changed
+  files, checks, preview/production results and any remaining uncertainty.
+  Do not narrate ordinary commands or reproduce logs unless something
+  failed.
 - Resolve ordinary in-scope implementation, build, check and deployment
   failures autonomously. Required checks are delivery gates, not approval
   gates.
