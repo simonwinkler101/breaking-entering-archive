@@ -258,16 +258,24 @@ const sourceRows = (entry) =>
     )
     .join("");
 
+const transcriptParagraph = (paragraph, index) => {
+  if (index === 0) return `<p class="transcript-intro">${escapeHtml(paragraph)}</p>`;
+  const speakerMatch = paragraph.match(/^([A-Za-z][A-Za-z .'’-]{0,40}:)([\s\S]*)$/);
+  if (!speakerMatch) return `<p>${escapeHtml(paragraph)}</p>`;
+  return `<p><strong class="transcript-speaker">${escapeHtml(speakerMatch[1])}</strong>${escapeHtml(speakerMatch[2])}</p>`;
+};
+
 const transcriptBlock = (entry) => {
   if (!entry.transcript?.trim()) return "";
   const paragraphs = entry.transcript
     .trim()
     .split(/\n{2,}/)
-    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .map(transcriptParagraph)
     .join("");
   return `
-    <details class="static-transcript">
+    <details class="static-transcript" id="transcript">
       <summary><span class="transcript-marker" aria-hidden="true">T</span> Read transcript <span aria-hidden="true">↓</span></summary>
+      <h2 class="transcript-print-heading">Transcript</h2>
       <div class="transcript-copy">${paragraphs}</div>
     </details>`;
 };
