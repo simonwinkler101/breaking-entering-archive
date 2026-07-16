@@ -368,13 +368,35 @@ export default function Home() {
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     searchInputRef.current?.blur();
-    const boundary = resultsBoundaryRef.current;
-    if (boundary) {
-      boundary.scrollIntoView({ behavior: "smooth", block: "start" });
-      boundary.focus({ preventScroll: true });
-    } else {
-      archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const scrollToResults = () => {
+      const boundary = resultsBoundaryRef.current;
+      if (boundary) {
+        boundary.scrollIntoView({ behavior: "smooth", block: "start" });
+        boundary.focus({ preventScroll: true });
+      } else {
+        archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+    // On touch devices the on-screen keyboard dismisses with an animated
+    // viewport resize that displaces any scroll started during it. Wait for
+    // the viewport to settle (or a fallback timeout) before scrolling.
+    const viewport = window.visualViewport;
+    const keyboardLikelyOpen = viewport
+      ? window.innerHeight - viewport.height > 80
+      : false;
+    if (!keyboardLikelyOpen) {
+      scrollToResults();
+      return;
     }
+    let handled = false;
+    const runOnce = () => {
+      if (handled) return;
+      handled = true;
+      viewport?.removeEventListener("resize", runOnce);
+      window.requestAnimationFrame(scrollToResults);
+    };
+    viewport?.addEventListener("resize", runOnce);
+    window.setTimeout(runOnce, 450);
   };
 
   const openArchiveView = (nextFilter: Filter) => {
