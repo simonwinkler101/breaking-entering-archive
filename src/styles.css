@@ -876,7 +876,10 @@ a {
   border-left-width: 0;
   border-top-width: 4px;
   width: 100%;
-  padding: 60px clamp(20px, 5vw, 64px) 72px;
+  /* No top padding on the scroll container: Chrome pins sticky children below
+     a scroll container's top padding, which would float the close bar awkwardly.
+     The reading column carries the top breathing room instead. */
+  padding: 0 clamp(20px, 5vw, 64px) 72px;
   /* Layout snaps; only the incoming state fades. Animating the drawer's
      geometry reflows text every frame and can never feel calm. */
   animation: 0.18s ease-out fade-in;
@@ -887,11 +890,12 @@ a {
 .entry-dialog.reader-open .dialog-reader-column {
   max-width: 44rem;
   margin-inline: auto;
+  padding-top: 60px;
 }
 .entry-dialog.reader-open .transcript-toggle {
   background: var(--paper-raised);
   border-bottom: 1px solid var(--rule);
-  padding-block: 14px;
+  padding-block: 16px;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -980,6 +984,14 @@ a {
 .transcript-toggle:hover > span:last-child,
 .transcript-toggle:focus-visible > span:last-child {
   transform: translate(3px);
+}
+.transcript-toggle > span.transcript-toggle-close {
+  font-size: 21px;
+  line-height: 1;
+}
+.transcript-toggle:hover > span.transcript-toggle-close,
+.transcript-toggle:focus-visible > span.transcript-toggle-close {
+  transform: none;
 }
 .transcript-copy {
   border-top: 1px solid var(--rule);

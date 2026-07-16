@@ -806,7 +806,11 @@ export default function Home() {
                 >
                   <span className="transcript-marker" aria-hidden="true">T</span>
                   <span>{showTranscript ? "Close transcript" : "Read transcript"}</span>
-                  <Arrow />
+                  {showTranscript ? (
+                    <span className="transcript-toggle-close" aria-hidden="true">×</span>
+                  ) : (
+                    <Arrow />
+                  )}
                 </button>
                 {showTranscript && (
                   <div className="transcript-copy">
