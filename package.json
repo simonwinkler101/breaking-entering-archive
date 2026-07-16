@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite",
     "content:build": "node scripts/build-content.mjs",
-    "build": "npm run content:build && tsc -b && vite build",
+    "static:build": "node scripts/build-static-pages.mjs",
+    "build": "npm run content:build && tsc -b && vite build && npm run static:build",
     "preview": "vite preview"
   },
   "dependencies": {

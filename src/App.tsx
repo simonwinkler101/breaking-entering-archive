@@ -1,7 +1,8 @@
-import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { FormEvent, MouseEvent as ReactMouseEvent, useEffect, useMemo, useRef, useState } from "react";
 import associationData from "../data/archive-associations.json";
 import archiveData from "../data/archive-data.json";
 import siteSettings from "../data/site-settings.json";
+import { createSearchIndex, normaliseSearchText, searchArchive } from "./search";
 
 type ArchiveKind = "Interview" | "Guest mix" | "Live" | "Broadcast" | "Special program";
 type ArchiveAccess = "Public" | "RRR subscriber" | "Availability varies";
@@ -29,6 +30,7 @@ type ArchiveEntry = {
   href: string;
   summary: string;
   transcript?: string;
+  aliases?: string[];
   tags: string[];
   relatedIds?: string[];
   access: ArchiveAccess;
@@ -38,6 +40,7 @@ type ArchiveEntry = {
 const archiveEntries = (archiveData.entries as unknown as ArchiveEntry[]).filter(
   (entry) => entry.kind !== "Broadcast",
 );
+const archiveSearchIndex = createSearchIndex(archiveEntries);
 
 const explicitAssociationLabels = new Map<string, Map<string, string>>();
 for (const group of associationData.groups) {
@@ -52,7 +55,7 @@ for (const group of associationData.groups) {
 
 const filters = ["All", "Interview", "Guest mix", "Live", "Special program"] as const;
 type Filter = (typeof filters)[number];
-type Sort = "newest" | "oldest" | "artist";
+type Sort = "relevance" | "newest" | "oldest" | "artist";
 type YearFilter = "All" | "Unknown" | `${number}`;
 
 const PAGE_SIZE = siteSettings.layout.pageSize;
@@ -67,6 +70,28 @@ const hashForFilter = (filter: Filter) => {
   if (filter === "Special program") return "#programs";
   return "#archive";
 };
+
+const entryPath = (entry: ArchiveEntry) => `/archive/${encodeURIComponent(entry.id)}/`;
+
+const entryIdFromLocation = () => {
+  const routeMatch = window.location.pathname.match(/^\/archive\/([^/]+)\/?$/);
+  try {
+    if (routeMatch) return decodeURIComponent(routeMatch[1]);
+    if (window.location.hash.startsWith("#entry/")) {
+      return decodeURIComponent(window.location.hash.slice("#entry/".length));
+    }
+  } catch {
+    return null;
+  }
+  return null;
+};
+
+const isUnmodifiedLeftClick = (event: ReactMouseEvent<HTMLAnchorElement>) =>
+  event.button === 0 &&
+  !event.metaKey &&
+  !event.ctrlKey &&
+  !event.shiftKey &&
+  !event.altKey;
 
 const primaryActionLabel = (entry: ArchiveEntry) => {
   const href = entry.href.toLowerCase();
@@ -186,28 +211,54 @@ export default function Home() {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    document.title = siteSettings.metadata.title;
+    const title = selected
+      ? `${selected.artist} — ${selected.title} | ${siteSettings.metadata.title}`
+      : siteSettings.metadata.title;
+    const description = selected
+      ? selected.summary ||
+        `${selected.kind} with ${selected.artist}${selected.date ? `, ${selected.date}` : ""}, from the Breaking and Entering Archive.`
+      : siteSettings.metadata.description;
+    const canonicalUrl = new URL(
+      selected ? entryPath(selected) : "/",
+      siteSettings.metadata.siteUrl,
+    ).toString();
+
+    document.title = title;
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute("content", siteSettings.metadata.description);
-  }, []);
+      ?.setAttribute("content", description);
+
+    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.append(canonical);
+    }
+    canonical.href = canonicalUrl;
+  }, [selected]);
 
   const closeEntry = () => {
     setSelected(null);
     setShowTranscript(false);
-    window.history.replaceState(null, "", "#archive");
+    window.history.replaceState(null, "", "/#archive");
   };
 
   const openEntry = (entry: ArchiveEntry) => {
     setShowTranscript(false);
     setSelected(entry);
-    window.history.replaceState(null, "", `#entry/${encodeURIComponent(entry.id)}`);
+    window.history.replaceState({ entryId: entry.id }, "", entryPath(entry));
+  };
+
+  const followEntryLink = (event: ReactMouseEvent<HTMLAnchorElement>, entry: ArchiveEntry) => {
+    if (!isUnmodifiedLeftClick(event)) return;
+    event.preventDefault();
+    openEntry(entry);
   };
 
   useEffect(() => {
-    const syncViewFromHash = () => {
-      if (window.location.hash.startsWith("#entry/")) {
-        const entryId = decodeURIComponent(window.location.hash.slice("#entry/".length));
+    const syncViewFromLocation = () => {
+      const entryId = entryIdFromLocation();
+      if (entryId) {
         const entry = archiveEntries.find((candidate) => candidate.id === entryId);
         if (entry) {
           setShowTranscript(false);
@@ -234,16 +285,17 @@ export default function Home() {
         setFilter(hashFilter);
         setTagFilter(null);
         setYearFilter("All");
+        setSort((current) => (current === "relevance" ? "newest" : current));
       }
       setVisibleCount(PAGE_SIZE);
     };
 
-    syncViewFromHash();
-    window.addEventListener("hashchange", syncViewFromHash);
-    window.addEventListener("popstate", syncViewFromHash);
+    syncViewFromLocation();
+    window.addEventListener("hashchange", syncViewFromLocation);
+    window.addEventListener("popstate", syncViewFromLocation);
     return () => {
-      window.removeEventListener("hashchange", syncViewFromHash);
-      window.removeEventListener("popstate", syncViewFromHash);
+      window.removeEventListener("hashchange", syncViewFromLocation);
+      window.removeEventListener("popstate", syncViewFromLocation);
     };
   }, []);
 
@@ -285,43 +337,28 @@ export default function Home() {
   }, [selected]);
 
   const results = useMemo(() => {
-    const normalisedQuery = query.trim().toLocaleLowerCase();
-    const matching = archiveEntries.filter((entry) => {
+    const normalisedQuery = normaliseSearchText(query);
+    const matching = searchArchive(archiveSearchIndex, query).filter(({ entry }) => {
       const matchesFilter = filter === "All" || entry.kind === filter;
       const matchesYear =
         yearFilter === "All" ||
         (yearFilter === "Unknown" ? entry.year === null : entry.year === Number(yearFilter));
       const matchesTag = !tagFilter || entry.tags.includes(tagFilter);
-      const searchText = [
-        entry.artist,
-        entry.title,
-        entry.kind,
-        entry.date,
-        entry.presenters,
-        entry.source,
-        entry.summary,
-        entry.transcript,
-        entry.access,
-        ...entry.sources.flatMap((source) => [source.label, source.access, source.status]),
-        ...entry.tags,
-      ]
-        .join(" ")
-        .toLocaleLowerCase();
-      return (
-        matchesFilter &&
-        matchesYear &&
-        matchesTag &&
-        (!normalisedQuery || searchText.includes(normalisedQuery))
-      );
+      return matchesFilter && matchesYear && matchesTag;
     });
 
     return [...matching].sort((a, b) => {
-      if (sort === "artist") return a.artist.localeCompare(b.artist);
-      if (!a.dateKey && !b.dateKey) return a.artist.localeCompare(b.artist);
-      if (!a.dateKey) return 1;
-      if (!b.dateKey) return -1;
-      if (sort === "oldest") return a.dateKey.localeCompare(b.dateKey);
-      return b.dateKey.localeCompare(a.dateKey);
+      if (normalisedQuery && sort === "relevance" && b.score !== a.score) {
+        return b.score - a.score;
+      }
+      if (sort === "artist") return a.entry.artist.localeCompare(b.entry.artist);
+      if (!a.entry.dateKey && !b.entry.dateKey) {
+        return a.entry.artist.localeCompare(b.entry.artist);
+      }
+      if (!a.entry.dateKey) return 1;
+      if (!b.entry.dateKey) return -1;
+      if (sort === "oldest") return a.entry.dateKey.localeCompare(b.entry.dateKey);
+      return b.entry.dateKey.localeCompare(a.entry.dateKey);
     });
   }, [filter, query, sort, tagFilter, yearFilter]);
 
@@ -339,7 +376,8 @@ export default function Home() {
     setYearFilter("All");
     setVisibleCount(PAGE_SIZE);
     setSelected(null);
-    window.history.pushState(null, "", hashForFilter(nextFilter));
+    if (sort === "relevance") setSort("newest");
+    window.history.pushState(null, "", `/${hashForFilter(nextFilter)}`);
     window.setTimeout(
       () => archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
       0,
@@ -352,7 +390,8 @@ export default function Home() {
     setTagFilter(null);
     setYearFilter("All");
     setVisibleCount(PAGE_SIZE);
-    window.history.replaceState(null, "", "#archive");
+    if (sort === "relevance") setSort("newest");
+    window.history.replaceState(null, "", "/#archive");
   };
 
   const featuredMix =
@@ -384,7 +423,7 @@ export default function Home() {
     <main>
       <div className="landing" id="top">
         <header className="site-header shell">
-          <a className="wordmark" href="#top" aria-label={siteSettings.wordmark.homeLabel}>
+          <a className="wordmark" href="/#top" aria-label={siteSettings.wordmark.homeLabel}>
             <span>{siteSettings.wordmark.lineOne}</span>
             <span>{siteSettings.wordmark.lineTwo}</span>
             <small>{siteSettings.wordmark.label}</small>
@@ -444,10 +483,13 @@ export default function Home() {
                 const nextQuery = event.target.value;
                 setQuery(nextQuery);
                 if (nextQuery.trim()) {
+                  if (!query.trim()) setSort("relevance");
                   setFilter("All");
                   setTagFilter(null);
                   setYearFilter("All");
-                  window.history.replaceState(null, "", "#archive");
+                  window.history.replaceState(null, "", "/#archive");
+                } else if (sort === "relevance") {
+                  setSort("newest");
                 }
                 setVisibleCount(PAGE_SIZE);
               }}
@@ -559,6 +601,7 @@ export default function Home() {
                   setVisibleCount(PAGE_SIZE);
                 }}
               >
+                <option value="relevance" disabled={!query.trim()}>Best match</option>
                 <option value="newest">Newest first</option>
                 <option value="oldest">Oldest first</option>
                 <option value="artist">Artist A–Z</option>
@@ -588,9 +631,13 @@ export default function Home() {
         {results.length > 0 ? (
           <>
             <div className="archive-list">
-            {visibleResults.map((entry) => (
+            {visibleResults.map(({ entry, transcriptExcerpt }) => (
               <article className="archive-row" data-kind={entry.kind} key={entry.id}>
-                <button className="entry-open" type="button" onClick={() => openEntry(entry)}>
+                <a
+                  className="entry-open"
+                  href={entryPath(entry)}
+                  onClick={(event) => followEntryLink(event, entry)}
+                >
                   <span className="entry-kind">
                     <span>{entry.kind}</span>
                     {entry.access !== "Public" && (
@@ -611,10 +658,16 @@ export default function Home() {
                         </small>
                       )}
                     </span>
+                    {transcriptExcerpt && (
+                      <small className="search-match-excerpt">
+                        <span>Transcript</span>
+                        {transcriptExcerpt}
+                      </small>
+                    )}
                   </span>
                   <span className="entry-year">{entry.year ?? "—"}</span>
                   <span className="entry-duration">{entry.duration || "—"}</span>
-                </button>
+                </a>
                 <a className="entry-listen" href={entry.href} target="_blank" rel="noreferrer" aria-label={`${primaryActionLabel(entry)} to ${entry.artist}: ${entry.title}`}>
                   <span>{primaryActionLabel(entry)}</span> <Arrow diagonal />
                 </a>
@@ -643,7 +696,7 @@ export default function Home() {
 
       <footer className="site-footer shell">
         <p>{siteSettings.footer.text}</p>
-        <a href="#top">{siteSettings.footer.backToTopLabel} <Arrow /></a>
+        <a href="/#top">{siteSettings.footer.backToTopLabel} <Arrow /></a>
       </footer>
 
       {selected && (
@@ -722,9 +775,10 @@ export default function Home() {
                     setTagFilter(tag);
                     setFilter("All");
                     setYearFilter("All");
+                    setSort((current) => (current === "relevance" ? "newest" : current));
                     setVisibleCount(PAGE_SIZE);
                     setSelected(null);
-                    window.history.replaceState(null, "", "#archive");
+                    window.history.replaceState(null, "", "/#archive");
                     window.setTimeout(
                       () => archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
                       0,
@@ -739,11 +793,15 @@ export default function Home() {
               <div className="related-entries">
                 <p className="dialog-section-label">Elsewhere in the archive</p>
                 {relatedEntries.map(({ entry }) => (
-                  <button type="button" key={entry.id} onClick={() => openEntry(entry)}>
+                  <a
+                    href={entryPath(entry)}
+                    key={entry.id}
+                    onClick={(event) => followEntryLink(event, entry)}
+                  >
                     <span>{entry.artist}</span>
                     <small>{entry.kind} / {entry.year ?? "Date unconfirmed"}</small>
                     <Arrow />
-                  </button>
+                  </a>
                 ))}
               </div>
             )}

@@ -26,11 +26,42 @@ for (const entry of entries) {
     if (!entry[required]) throw new Error(`${entry.id || "Unknown entry"} is missing ${required}.`);
   }
   if (!Array.isArray(entry.tags)) throw new Error(`${entry.id} needs a subjects array.`);
+  if (entry.aliases !== undefined && !Array.isArray(entry.aliases)) {
+    throw new Error(`${entry.id} aliases must be an array.`);
+  }
   if (!Array.isArray(entry.sources) || !entry.sources.length) {
     throw new Error(`${entry.id} needs at least one source.`);
   }
   if (ids.has(entry.id)) throw new Error(`Duplicate archive id: ${entry.id}`);
+  if (!/^[A-Za-z0-9._-]+$/.test(entry.id)) {
+    throw new Error(`${entry.id} is not safe to use in a permanent archive address.`);
+  }
+  if (!/^https?:\/\//.test(entry.href)) {
+    throw new Error(`${entry.id} has an invalid primary link: ${entry.href}`);
+  }
+  for (const source of entry.sources) {
+    if (!/^https?:\/\//.test(source.href)) {
+      throw new Error(`${entry.id} has an invalid source link: ${source.href}`);
+    }
+  }
   ids.add(entry.id);
+}
+
+const siteSettings = readJson(path.join(root, "content/site-settings.json"));
+try {
+  const publicSiteUrl = new URL(siteSettings.metadata.siteUrl);
+  if (
+    publicSiteUrl.protocol !== "https:" ||
+    publicSiteUrl.pathname !== "/" ||
+    publicSiteUrl.search ||
+    publicSiteUrl.hash ||
+    publicSiteUrl.username ||
+    publicSiteUrl.password
+  ) {
+    throw new Error();
+  }
+} catch {
+  throw new Error("Site settings metadata.siteUrl must be a complete https origin without a path.");
 }
 
 entries.sort((a, b) => {

@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+
+Sitemap: https://breaking-entering-archive.netlify.app/sitemap.xml

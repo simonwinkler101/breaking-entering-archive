@@ -44,6 +44,13 @@ collections:
       - { label: Duration, name: duration, widget: string, required: false }
       - { label: Presented by, name: presenters, widget: string, required: false }
       - { label: Summary, name: summary, widget: text, required: false }
+      - label: Alternate artist names
+        name: aliases
+        widget: list
+        required: false
+        allow_add: true
+        field: { label: Name or spelling, name: alias, widget: string }
+        hint: "Optional search-only names, abbreviations or former spellings. These are not displayed publicly."
       - label: Transcript
         name: transcript
         widget: text
@@ -122,6 +129,8 @@ collections:
             fields:
               - { label: Site title, name: title, widget: string }
               - { label: Site description, name: description, widget: text }
+              - { label: Public site address, name: siteUrl, widget: string, pattern: ["^https://[^/]+/?$", "Use the complete https address without a path."], hint: "Change this when the custom domain goes live; canonical links, the sitemap and social metadata are generated from it." }
+              - { label: Google verification code, name: googleSiteVerification, widget: string, required: false, hint: "Optional. Paste only the content value supplied by Google Search Console, not the full meta tag." }
           - label: Wordmark
             name: wordmark
             widget: object
