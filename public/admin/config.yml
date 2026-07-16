@@ -3,6 +3,10 @@ backend:
   repo: simonwinkler101/breaking-entering-archive
   branch: main
 
+publish_mode: editorial_workflow
+site_url: https://breaking-entering-archive.netlify.app
+display_url: https://breaking-entering-archive.netlify.app
+
 media_folder: public/uploads
 public_folder: /uploads
 editor:
@@ -13,8 +17,9 @@ collections:
     label: Archive entries
     label_singular: Archive entry
     folder: content/archive
-    create: true
-    delete: true
+    create: false
+    delete: false
+    preview_path: "archive/{{fields.id}}/"
     extension: json
     format: json
     identifier_field: id
