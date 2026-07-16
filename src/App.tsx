@@ -161,7 +161,11 @@ const scoreRelationship = (
 };
 
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
-  return <span aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
+  return (
+    <span className={diagonal ? "arrow arrow-diagonal" : "arrow"} aria-hidden="true">
+      {diagonal ? "\u2197\uFE0E" : "→"}
+    </span>
+  );
 }
 
 function KindDot({ kind }: { kind: ArchiveKind | "All" }) {

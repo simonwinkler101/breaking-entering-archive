@@ -1299,6 +1299,10 @@ a {
     --shell: calc(100% - 34px);
   }
 
+  .arrow-diagonal {
+    display: none;
+  }
+
   .site-header {
     display: grid;
     grid-template-columns: 1fr;
