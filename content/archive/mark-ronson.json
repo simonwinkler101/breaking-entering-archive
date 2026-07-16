@@ -1,0 +1,40 @@
+{
+  "id": "mark-ronson",
+  "artist": "Mark Ronson",
+  "title": "Night People and ’90s New York",
+  "kind": "Interview",
+  "date": "23 October 2025",
+  "dateKey": "2025-10-23",
+  "year": 2025,
+  "duration": "23:14",
+  "presenters": "Simon Winkler",
+  "source": "Triple R",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-mark-ronson-on-night-people-and-90s-nyc",
+  "summary": "Mark Ronson looks back on becoming a DJ in 1990s New York, carrying records across the city and learning in rooms shaped by hip-hop history.",
+  "tags": [
+    "interview",
+    "dj culture",
+    "hip-hop",
+    "new york",
+    "books"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-mark-ronson-on-night-people-and-90s-nyc",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-mark-ronson-on-night-people-and-90s-nyc",
+      "access": "Public",
+      "duration": "23:14",
+      "status": "Confirmed RRR segment page"
+    },
+    {
+      "id": "src-rrr-archive-breaking-entering-mark-ronson",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-entering-mark-ronson",
+      "access": "RRR subscriber",
+      "duration": "13:32",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1366-corin-breaking-entering",
+  "artist": "Corin",
+  "title": "Corin - Breaking and Entering",
+  "kind": "Interview",
+  "date": "10 November 2016",
+  "dateKey": "2016-11-10",
+  "year": 2016,
+  "duration": "17:12",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1366-corin-breaking-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1366-corin-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1366-corin-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "17:12",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

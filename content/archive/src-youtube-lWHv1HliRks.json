@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-lWHv1HliRks",
+  "artist": "The Big Pink",
+  "title": "The Big Pink on 3RRRFM",
+  "kind": "Interview",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "4:16",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=lWHv1HliRks",
+  "summary": "",
+  "tags": [
+    "interview",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-lWHv1HliRks",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=lWHv1HliRks",
+      "access": "Public",
+      "duration": "4:16",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

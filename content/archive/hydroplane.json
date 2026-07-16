@@ -1,0 +1,40 @@
+{
+  "id": "hydroplane",
+  "artist": "Hydroplane",
+  "title": "The First New Album in Two Decades",
+  "kind": "Interview",
+  "date": "6 November 2025",
+  "dateKey": "2025-11-06",
+  "year": 2025,
+  "duration": "25:43",
+  "presenters": "Lauren Taylor & Simon Winkler",
+  "source": "Triple R",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-hydroplanes-first-new-album-in-two-decades",
+  "summary": "Kerrie Bolton, Andrew Withycombe and Bart Cummings discuss reuniting to make A Place In My Memory Is All I Have To Claim, their first Hydroplane album in twenty years.",
+  "tags": [
+    "interview",
+    "indie pop",
+    "reunion",
+    "melbourne",
+    "efficient space"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-hydroplanes-first-new-album-in-two-decades",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-hydroplanes-first-new-album-in-two-decades",
+      "access": "Public",
+      "duration": "25:43",
+      "status": "Confirmed RRR segment page"
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-hydroplane",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-hydroplane",
+      "access": "RRR subscriber",
+      "duration": "21:16",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+  "artist": "Tropic of Cancer IV & Guest Selection",
+  "title": "Tropic of Cancer IV & Guest Selection- Breaking and Entering",
+  "kind": "Guest mix",
+  "date": "9 February 2017",
+  "dateKey": "2017-02-09",
+  "year": 2017,
+  "duration": "20:06",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+  "summary": "",
+  "tags": [
+    "guest mix",
+    "dj culture",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1487-tropic-of-cancer-iv-guest-selection-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "20:06",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

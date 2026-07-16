@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1376-lost-animal-breaking-entering",
+  "artist": "Lost Animal",
+  "title": "Lost Animal - Breaking and Entering",
+  "kind": "Interview",
+  "date": "1 December 2016",
+  "dateKey": "2016-12-01",
+  "year": 2016,
+  "duration": "18:47",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1376-lost-animal-breaking-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1376-lost-animal-breaking-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1376-lost-animal-breaking-entering",
+      "access": "RRR subscriber",
+      "duration": "18:47",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

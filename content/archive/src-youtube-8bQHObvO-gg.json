@@ -1,0 +1,38 @@
+{
+  "id": "src-youtube-8bQHObvO-gg",
+  "artist": "NO ZU",
+  "title": "NO ZU - Mind Melt (Live at 3RRR)",
+  "kind": "Live",
+  "date": "26 April 2018",
+  "dateKey": "2018-04-26",
+  "year": 2018,
+  "duration": "7:17",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=8bQHObvO-gg",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-8bQHObvO-gg",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=8bQHObvO-gg",
+      "access": "Public",
+      "duration": "7:17",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    },
+    {
+      "id": "src-rrr-video-no-zu-mind-melt",
+      "label": "Triple R video page",
+      "href": "https://www.rrr.org.au/explore/videos/no-zu-mind-melt",
+      "access": "Public",
+      "duration": "",
+      "status": "Confirmed RRR video landing page"
+    }
+  ]
+}

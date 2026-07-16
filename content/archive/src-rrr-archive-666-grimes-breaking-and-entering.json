@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-666-grimes-breaking-and-entering",
+  "artist": "Grimes",
+  "title": "Grimes - Breaking and Entering",
+  "kind": "Interview",
+  "date": "27 February 2012",
+  "dateKey": "2012-02-27",
+  "year": 2012,
+  "duration": "7:30",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/666-grimes-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-666-grimes-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/666-grimes-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "7:30",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

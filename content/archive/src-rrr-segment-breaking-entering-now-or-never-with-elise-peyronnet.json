@@ -1,0 +1,28 @@
+{
+  "id": "src-rrr-segment-breaking-entering-now-or-never-with-elise-peyronnet",
+  "artist": "Elise Peyronnet",
+  "title": "Breaking and Entering: Now or Never with Elise Peyronnet",
+  "kind": "Interview",
+  "date": "2 July 2026",
+  "dateKey": "2026-07-02",
+  "year": 2026,
+  "duration": "19:09",
+  "presenters": "",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-now-or-never-with-elise-peyronnet",
+  "summary": "",
+  "tags": [
+    "interview"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-entering-now-or-never-with-elise-peyronnet",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-now-or-never-with-elise-peyronnet",
+      "access": "Public",
+      "duration": "19:09",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

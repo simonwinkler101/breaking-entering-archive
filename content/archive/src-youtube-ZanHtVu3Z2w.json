@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-ZanHtVu3Z2w",
+  "artist": "Cassette Kids",
+  "title": "Cassette Kids interview on 3RRR",
+  "kind": "Interview",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "6:43",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=ZanHtVu3Z2w",
+  "summary": "",
+  "tags": [
+    "interview",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-ZanHtVu3Z2w",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=ZanHtVu3Z2w",
+      "access": "Public",
+      "duration": "6:43",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

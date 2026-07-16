@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-james-blake-breaking-and-entering",
+  "artist": "James Blake",
+  "title": "James Blake - Breaking and Entering",
+  "kind": "Interview",
+  "date": "24 January 2019",
+  "dateKey": "2019-01-24",
+  "year": 2019,
+  "duration": "32:30",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/james-blake-breaking-and-entering",
+  "summary": "Mercury Award winning, Grammy nominated artist James Blake phoned into Breaking and Entering to chat with Simon and Lauren about his latest album 'Assume Form'; covering topics such as mental health (for which James has become a vocal advocate in recent times), love, masculinity, vulnerability and how this album represents him finding peace.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-james-blake-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/james-blake-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "32:30",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

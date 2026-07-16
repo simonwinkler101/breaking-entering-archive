@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1399-badbadnotgood-breaking-and-entering",
+  "artist": "BADBADNOTGOOD",
+  "title": "BADBADNOTGOOD - Breaking and Entering",
+  "kind": "Interview",
+  "date": "15 December 2016",
+  "dateKey": "2016-12-15",
+  "year": 2016,
+  "duration": "30:25",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1399-badbadnotgood-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1399-badbadnotgood-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1399-badbadnotgood-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "30:25",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

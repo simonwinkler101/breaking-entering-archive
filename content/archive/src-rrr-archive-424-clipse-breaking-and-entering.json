@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-424-clipse-breaking-and-entering",
+  "artist": "Clipse",
+  "title": "Clipse - Breaking and Entering",
+  "kind": "Interview",
+  "date": "6 December 2010",
+  "dateKey": "2010-12-06",
+  "year": 2010,
+  "duration": "8:42",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/424-clipse-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-424-clipse-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/424-clipse-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "8:42",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

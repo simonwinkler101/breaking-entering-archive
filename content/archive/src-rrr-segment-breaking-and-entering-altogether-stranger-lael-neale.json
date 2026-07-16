@@ -1,0 +1,28 @@
+{
+  "id": "src-rrr-segment-breaking-and-entering-altogether-stranger-lael-neale",
+  "artist": "Lael Neale",
+  "title": "Breaking and Entering: Lael Neale's Altogether Stranger",
+  "kind": "Interview",
+  "date": "7 August 2025",
+  "dateKey": "2025-08-07",
+  "year": 2025,
+  "duration": "22:45",
+  "presenters": "",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-altogether-stranger-lael-neale",
+  "summary": "",
+  "tags": [
+    "interview"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-altogether-stranger-lael-neale",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-altogether-stranger-lael-neale",
+      "access": "Public",
+      "duration": "22:45",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

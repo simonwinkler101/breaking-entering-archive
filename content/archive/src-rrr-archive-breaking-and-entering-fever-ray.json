@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-breaking-and-entering-fever-ray",
+  "artist": "Fever Ray",
+  "title": "Breaking and Entering: Fever Ray",
+  "kind": "Interview",
+  "date": "9 May 2024",
+  "dateKey": "2024-05-09",
+  "year": 2024,
+  "duration": "24:44",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-fever-ray",
+  "summary": "Simon and Lauren are joined on the line for a special interview with Swedish music royalty - producer & songwriter Karin Dreijer aka Fever Ray.",
+  "tags": [
+    "interview",
+    "subscriber archive",
+    "songwriting"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-breaking-and-entering-fever-ray",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-fever-ray",
+      "access": "RRR subscriber",
+      "duration": "24:44",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

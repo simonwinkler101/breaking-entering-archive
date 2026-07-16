@@ -1,0 +1,30 @@
+{
+  "id": "src-rrr-archive-breaking-and-entering-jamie-xx",
+  "artist": "Jamie xx",
+  "title": "Breaking and Entering: Jamie xx",
+  "kind": "Interview",
+  "date": "5 December 2024",
+  "dateKey": "2024-12-05",
+  "year": 2024,
+  "duration": "18:58",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-jamie-xx",
+  "summary": "During the Melbourne portion of his Australian tour, Jamie xx joins Simon and Lauren on Breaking and Entering to chat about his latest record In Waves, as well as his collaborators and more.",
+  "tags": [
+    "interview",
+    "subscriber archive",
+    "melbourne"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-breaking-and-entering-jamie-xx",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-jamie-xx",
+      "access": "RRR subscriber",
+      "duration": "18:58",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "src-youtube-5g9wnMNogb0",
+  "artist": "Hachiku",
+  "title": "Live at RRR: Hachiku (Live Stream)",
+  "kind": "Live",
+  "date": "16 December 2020",
+  "dateKey": "2020-12-16",
+  "year": 2020,
+  "duration": "43:00",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=5g9wnMNogb0",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-5g9wnMNogb0",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=5g9wnMNogb0",
+      "access": "Public",
+      "duration": "43:00",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    },
+    {
+      "id": "src-rrr-video-hachiku-on-breaking-and-entering",
+      "label": "Triple R video page",
+      "href": "https://www.rrr.org.au/explore/videos/hachiku-on-breaking-and-entering",
+      "access": "Public",
+      "duration": "",
+      "status": "Confirmed RRR video landing page"
+    }
+  ]
+}

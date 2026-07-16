@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1568-mount-kimbie-breaking-and-entering",
+  "artist": "Mount Kimbie",
+  "title": "Mount Kimbie - Breaking and Entering",
+  "kind": "Interview",
+  "date": "7 September 2017",
+  "dateKey": "2017-09-07",
+  "year": 2017,
+  "duration": "29:07",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1568-mount-kimbie-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1568-mount-kimbie-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1568-mount-kimbie-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "29:07",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

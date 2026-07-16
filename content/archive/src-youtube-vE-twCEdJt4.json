@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-vE-twCEdJt4",
+  "artist": "P.K. 14",
+  "title": "P.K. 14 interview on 3RRR",
+  "kind": "Interview",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "4:57",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=vE-twCEdJt4",
+  "summary": "",
+  "tags": [
+    "interview",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-vE-twCEdJt4",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=vE-twCEdJt4",
+      "access": "Public",
+      "duration": "4:57",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

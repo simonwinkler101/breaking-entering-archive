@@ -1,0 +1,38 @@
+{
+  "id": "src-mix-06-springtime-surf-mix",
+  "artist": "Breaking and Entering",
+  "title": "Springtime surf mix",
+  "kind": "Guest mix",
+  "date": "11 October 2012",
+  "dateKey": "2012-10-11",
+  "year": 2012,
+  "duration": "",
+  "presenters": "",
+  "source": "Mixcloud",
+  "href": "https://www.mixcloud.com/AssemblePapers/springtime-surf-mix/",
+  "summary": "",
+  "tags": [
+    "guest mix",
+    "dj culture",
+    "mixcloud"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-mix-06-springtime-surf-mix",
+      "label": "Mixcloud",
+      "href": "https://www.mixcloud.com/AssemblePapers/springtime-surf-mix/",
+      "access": "Public",
+      "duration": "",
+      "status": "Confirmed public landing page"
+    },
+    {
+      "id": "src-mix-06-springtime-surf-mix-reference",
+      "label": "Assemble Papers",
+      "href": "https://assemblepapers.com.au/2012/10/11/springtime-surf-mix/",
+      "access": "Public",
+      "duration": "",
+      "status": "Related editorial source"
+    }
+  ]
+}

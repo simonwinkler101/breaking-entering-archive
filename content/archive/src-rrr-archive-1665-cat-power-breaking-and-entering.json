@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1665-cat-power-breaking-and-entering",
+  "artist": "Cat Power",
+  "title": "Cat Power - Breaking and Entering",
+  "kind": "Interview",
+  "date": "31 May 2018",
+  "dateKey": "2018-05-31",
+  "year": 2018,
+  "duration": "33:09",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1665-cat-power-breaking-and-entering",
+  "summary": "Cat power joins Lauren Taylor and Simon Winkler on Breaking and Entering",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1665-cat-power-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1665-cat-power-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "33:09",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

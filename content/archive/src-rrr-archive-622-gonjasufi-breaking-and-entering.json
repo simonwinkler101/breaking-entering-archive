@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-622-gonjasufi-breaking-and-entering",
+  "artist": "Gonjasufi",
+  "title": "Gonjasufi - Breaking And Entering",
+  "kind": "Interview",
+  "date": "6 February 2012",
+  "dateKey": "2012-02-06",
+  "year": 2012,
+  "duration": "14:21",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/622-gonjasufi-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-622-gonjasufi-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/622-gonjasufi-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "14:21",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

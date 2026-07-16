@@ -1,0 +1,30 @@
+{
+  "id": "src-youtube-lQjsNemkgWY",
+  "artist": "World's End Press",
+  "title": "World's End Press - Someone's Daddy (Live at 3RRR)",
+  "kind": "Live",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "6:42",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=lQjsNemkgWY",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-lQjsNemkgWY",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=lQjsNemkgWY",
+      "access": "Public",
+      "duration": "6:42",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-cate-le-bon-breaking-and-entering",
+  "artist": "Cate Le Bon",
+  "title": "Breaking and Entering with Cate Le Bon",
+  "kind": "Interview",
+  "date": "7 November 2019",
+  "dateKey": "2019-11-07",
+  "year": 2019,
+  "duration": "22:48",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/cate-le-bon-breaking-and-entering",
+  "summary": "Cate Le Bon discusses her new record, Reward.",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-cate-le-bon-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/cate-le-bon-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "22:48",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

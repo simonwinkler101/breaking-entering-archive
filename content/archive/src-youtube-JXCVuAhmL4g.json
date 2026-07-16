@@ -1,0 +1,38 @@
+{
+  "id": "src-youtube-JXCVuAhmL4g",
+  "artist": "Lady Lash",
+  "title": "Live at RRR: Lady Lash (Live Stream)",
+  "kind": "Live",
+  "date": "10 February 2022",
+  "dateKey": "2022-02-10",
+  "year": 2022,
+  "duration": "30:00",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=JXCVuAhmL4g",
+  "summary": "",
+  "tags": [
+    "live",
+    "live performance",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-JXCVuAhmL4g",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=JXCVuAhmL4g",
+      "access": "Public",
+      "duration": "30:00",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    },
+    {
+      "id": "src-rrr-video-lady-lash-live-during-breaking-and-entering",
+      "label": "Triple R video page",
+      "href": "https://www.rrr.org.au/explore/videos/lady-lash-live-during-breaking-and-entering",
+      "access": "Public",
+      "duration": "",
+      "status": "Confirmed RRR video landing page"
+    }
+  ]
+}

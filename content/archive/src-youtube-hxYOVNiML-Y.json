@@ -1,0 +1,29 @@
+{
+  "id": "src-youtube-hxYOVNiML-Y",
+  "artist": "Lucky Dragons",
+  "title": "Lucky Dragons interview on 3RRR",
+  "kind": "Interview",
+  "date": "Date unconfirmed",
+  "dateKey": "",
+  "year": null,
+  "duration": "17:00",
+  "presenters": "",
+  "source": "Triple R YouTube",
+  "href": "https://www.youtube.com/watch?v=hxYOVNiML-Y",
+  "summary": "",
+  "tags": [
+    "interview",
+    "video"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-youtube-hxYOVNiML-Y",
+      "label": "Triple R YouTube",
+      "href": "https://www.youtube.com/watch?v=hxYOVNiML-Y",
+      "access": "Public",
+      "duration": "17:00",
+      "status": "Confirmed on Triple R's official YouTube channel or RRR embed"
+    }
+  ]
+}

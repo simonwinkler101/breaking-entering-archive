@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1418-retiree-breaking-and-entering",
+  "artist": "Retiree",
+  "title": "Retiree - Breaking and Entering",
+  "kind": "Interview",
+  "date": "20 October 2016",
+  "dateKey": "2016-10-20",
+  "year": 2016,
+  "duration": "21:33",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1418-retiree-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1418-retiree-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1418-retiree-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "21:33",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

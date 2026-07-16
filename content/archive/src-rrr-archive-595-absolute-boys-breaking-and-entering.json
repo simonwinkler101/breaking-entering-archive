@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-595-absolute-boys-breaking-and-entering",
+  "artist": "Absolute Boys",
+  "title": "Absolute Boys, Breaking and Entering",
+  "kind": "Interview",
+  "date": "9 January 2012",
+  "dateKey": "2012-01-09",
+  "year": 2012,
+  "duration": "8:20",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/595-absolute-boys-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-595-absolute-boys-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/595-absolute-boys-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "8:20",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

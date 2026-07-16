@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-557-htrk-breaking-and-entering",
+  "artist": "HTRK",
+  "title": "HTRK - Breaking and Entering",
+  "kind": "Interview",
+  "date": "21 November 2011",
+  "dateKey": "2011-11-21",
+  "year": 2011,
+  "duration": "13:13",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/557-htrk-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-557-htrk-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/557-htrk-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "13:13",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

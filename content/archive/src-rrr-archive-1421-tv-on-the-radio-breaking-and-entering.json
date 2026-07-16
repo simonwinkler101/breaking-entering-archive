@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1421-tv-on-the-radio-breaking-and-entering",
+  "artist": "TV on the Radio",
+  "title": "TV on the Radio - Breaking and Entering",
+  "kind": "Interview",
+  "date": "11 June 2015",
+  "dateKey": "2015-06-11",
+  "year": 2015,
+  "duration": "30:17",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1421-tv-on-the-radio-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1421-tv-on-the-radio-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1421-tv-on-the-radio-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "30:17",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}

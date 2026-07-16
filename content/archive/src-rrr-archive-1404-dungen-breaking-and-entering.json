@@ -1,0 +1,29 @@
+{
+  "id": "src-rrr-archive-1404-dungen-breaking-and-entering",
+  "artist": "Dungen",
+  "title": "Dungen - Breaking and Entering",
+  "kind": "Interview",
+  "date": "8 December 2016",
+  "dateKey": "2016-12-08",
+  "year": 2016,
+  "duration": "30:43",
+  "presenters": "",
+  "source": "Triple R archive",
+  "href": "https://www.rrr.org.au/on-demand/archives/1404-dungen-breaking-and-entering",
+  "summary": "",
+  "tags": [
+    "interview",
+    "subscriber archive"
+  ],
+  "access": "RRR subscriber",
+  "sources": [
+    {
+      "id": "src-rrr-archive-1404-dungen-breaking-and-entering",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/1404-dungen-breaking-and-entering",
+      "access": "RRR subscriber",
+      "duration": "30:43",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}
