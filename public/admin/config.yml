@@ -151,7 +151,7 @@ collections:
                 display_fields: [artist, title]
                 value_field: id
               - { label: Label, name: label, widget: string }
-              - { label: Volume, name: volume, widget: string }
+              - { label: Volume, name: volume, widget: string, required: false, hint: "Optional — useful for numbered series such as OK EG." }
               - { label: Kicker, name: kicker, widget: string }
               - { label: Link label, name: linkLabel, widget: string }
           - label: Archive layout

@@ -465,7 +465,7 @@ export default function Home() {
                   <KindDot kind={featuredMix.kind} />
                   <span id="featured-title">{siteSettings.featured.label}</span>
                 </span>
-                <span>{siteSettings.featured.volume}</span>
+                {siteSettings.featured.volume && <span>{siteSettings.featured.volume}</span>}
               </div>
               <div className="featured-main">
                 <p className="featured-kicker">{siteSettings.featured.kicker}</p>
@@ -611,7 +611,7 @@ export default function Home() {
                   <span className="entry-year">{entry.year ?? "—"}</span>
                   <span className="entry-duration">{entry.duration || "—"}</span>
                 </button>
-                <a className="entry-listen" href={entry.href} target="_blank" rel="noreferrer" aria-label={`Open ${entry.artist}: ${entry.title}`}>
+                <a className="entry-listen" href={entry.href} target="_blank" rel="noreferrer" aria-label={`${primaryActionLabel(entry)} to ${entry.artist}: ${entry.title}`}>
                   <span>{primaryActionLabel(entry)}</span> <Arrow diagonal />
                 </a>
               </article>
