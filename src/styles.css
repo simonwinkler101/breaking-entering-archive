@@ -1704,6 +1704,25 @@ a {
   .entry-dialog {
     padding: 72px 24px 50px;
   }
+  /* On phones the dialog is already full-screen, so reader mode should not
+     morph the layout or fade — the transcript just appears inline as before.
+     Reader expansion stays a desktop-only affordance. */
+  .entry-dialog.reader-open {
+    border-left-width: 3px;
+    border-top-width: 0;
+    padding: 72px 24px 50px;
+    animation: none;
+  }
+  .entry-dialog.reader-open .dialog-reader-column {
+    max-width: none;
+    padding-top: 0;
+  }
+  .entry-dialog.reader-open .transcript-toggle {
+    background: 0 0;
+    border-bottom: 0;
+    padding-block: 0;
+    position: static;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   *,
