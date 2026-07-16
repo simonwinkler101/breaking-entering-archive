@@ -47,3 +47,43 @@ explanation — uncertain matches are never silently accepted.
 
 Outputs: `media-inventory.json` and `media-inventory.csv` in the given
 manifests directory.
+
+## transcribe-pilot.mjs
+
+Single-entry transcription pilot. Only explicitly authorized entry IDs are
+accepted (currently `carla-dal-forno`); all other entries are refused.
+
+```sh
+node tools/transcription/transcribe-pilot.mjs \
+  --input "<path to confirmed source MP4>" \
+  --entry-id carla-dal-forno \
+  --media-root ~/Documents-Local/breaking-entering-archive-media \
+  [--execute]
+```
+
+Behaviour and safeguards:
+
+- Dry-run by default: without `--execute` it builds the derivative and chunk
+  plan and reports chunk count, sizes and output directories, but makes no
+  API request.
+- `--input` and `--media-root` must be outside the Git repository.
+- The source file is never modified; a mono 16 kHz 64 kbps MP3 speech
+  derivative (video stream removed) is created under
+  `<media-root>/working/<entry-id>/`.
+- The derivative is split into ~5-minute chunks with ~2 s overlap, preferring
+  a silence within 15 s of each boundary. Hard limits: uploads < 24 MB,
+  total duration ≤ 60 minutes, at most 12 API requests.
+- API: `gpt-4o-transcribe-diarize`, `response_format: diarized_json`,
+  `chunking_strategy: auto`, via the official OpenAI SDK with automatic
+  retries disabled. No prompt, temperature or speaker hints are sent.
+- `OPENAI_API_KEY` is read only from the environment and never printed or
+  persisted.
+- A failed request stops the run without retrying; re-running resumes and
+  skips chunks that already succeeded (state in `working/<entry-id>/`).
+- Raw, unedited API responses plus `run-metadata.json` (checksums, versions,
+  offsets, timestamps, statuses) go to `<media-root>/transcripts/raw/<id>/`;
+  an anonymous-speaker Markdown machine draft headed
+  "MACHINE DRAFT — NOT REVIEWED OR APPROVED" goes to
+  `<media-root>/transcripts/drafts/<id>/`.
+- Drafts are never copied into archive entries automatically; only a
+  human-approved transcript may reach an entry's `transcript` field.
