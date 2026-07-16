@@ -663,7 +663,7 @@ a {
 .archive-row {
   --row-accent: var(--stock);
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px;
+  grid-template-columns: minmax(0, 1fr) auto;
   min-height: 102px;
   border-top: 1px solid var(--rule);
   transition: background 160ms ease;
@@ -796,17 +796,21 @@ a {
 }
 
 .entry-listen {
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 0 10px;
-  border-left: 1px solid var(--rule);
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 18px 0 8px;
+  border-left: 0;
   background: transparent;
-  color: var(--stock-dark);
+  color: var(--muted-ink);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.11em;
+  white-space: nowrap;
   text-transform: uppercase;
 }
 
