@@ -56,6 +56,15 @@ collections:
         widget: text
         required: false
         hint: "Paste the complete transcript here. Leaving this blank hides the transcript marker and reader. Separate paragraphs with a blank line."
+      - label: Pull quote
+        name: pullQuote
+        widget: object
+        required: false
+        collapsed: true
+        hint: "Optional. A single hand-picked quotation from the transcript. Only add this to entries that already have a transcript."
+        fields:
+          - { label: Quote text, name: text, widget: text }
+          - { label: Speaker, name: speaker, widget: string }
       - label: Subjects
         name: tags
         widget: list

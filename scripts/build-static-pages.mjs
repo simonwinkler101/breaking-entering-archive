@@ -265,6 +265,15 @@ const transcriptParagraph = (paragraph, index) => {
   return `<p><strong class="transcript-speaker">${escapeHtml(speakerMatch[1])}</strong>${escapeHtml(speakerMatch[2])}</p>`;
 };
 
+const pullQuoteBlock = (entry) => {
+  if (!entry.pullQuote?.text || !entry.pullQuote?.speaker) return "";
+  return `
+    <figure class="entry-pull-quote" data-kind="${escapeHtml(entry.kind)}">
+      <blockquote><p>${escapeHtml(entry.pullQuote.text)}</p></blockquote>
+      <figcaption>— ${escapeHtml(entry.pullQuote.speaker)}</figcaption>
+    </figure>`;
+};
+
 const transcriptBlock = (entry) => {
   if (!entry.transcript?.trim()) return "";
   const paragraphs = entry.transcript
@@ -345,6 +354,7 @@ const entryDocument = (entry) => {
       <h1>${escapeHtml(entry.artist)}</h1>
       <h2>${escapeHtml(entry.title)}</h2>
       ${entry.summary ? `<p class="dialog-summary">${escapeHtml(entry.summary)}</p>` : ""}
+      ${pullQuoteBlock(entry)}
       ${transcriptBlock(entry)}
       <dl>
         ${entry.presenters ? `<div><dt>Presented by</dt><dd>${escapeHtml(entry.presenters)}</dd></div>` : ""}

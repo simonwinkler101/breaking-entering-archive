@@ -32,6 +32,21 @@ for (const entry of entries) {
   if (!Array.isArray(entry.sources) || !entry.sources.length) {
     throw new Error(`${entry.id} needs at least one source.`);
   }
+  if (entry.pullQuote !== undefined) {
+    const quote = entry.pullQuote;
+    if (typeof quote !== "object" || Array.isArray(quote) || quote === null) {
+      throw new Error(`${entry.id} pullQuote must be an object.`);
+    }
+    if (typeof quote.text !== "string" || !quote.text.trim()) {
+      throw new Error(`${entry.id} pullQuote.text must be a non-empty string.`);
+    }
+    if (typeof quote.speaker !== "string" || !quote.speaker.trim()) {
+      throw new Error(`${entry.id} pullQuote.speaker must be a non-empty string.`);
+    }
+    if (!entry.transcript?.trim()) {
+      throw new Error(`${entry.id} has a pullQuote but no transcript.`);
+    }
+  }
   if (ids.has(entry.id)) throw new Error(`Duplicate archive id: ${entry.id}`);
   if (!/^[A-Za-z0-9._-]+$/.test(entry.id)) {
     throw new Error(`${entry.id} is not safe to use in a permanent archive address.`);
