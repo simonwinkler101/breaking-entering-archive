@@ -1,0 +1,93 @@
+{
+  "researchSnapshot": "2026-07-15",
+  "scopeNote": "Publicly discoverable interviews, guest mixes, live sessions and special programs. Subscriber-gated audio is catalogued but not copied.",
+  "recoveryLeads": [
+    {
+      "title": "Breaking and Entering: Tom Ravenscroft's Guest Selection",
+      "status": "reference only; segment page no longer resolves",
+      "primary_url": "https://www.rrr.org.au/explore/programs/breaking-and-entering/episodes/26874-breaking-and-entering-26-october-2023",
+      "reference_url": "https://www.facebook.com/3RRRFM/posts/tom-ravenscroft-drops-by-breaking-and-entering-to-select-some-tracks/823201939811620/"
+    },
+    {
+      "title": "Two-hour Hopes Radio Winter mix",
+      "status": "social reference; locate canonical audio",
+      "primary_url": "https://www.instagram.com/p/BxTaJWnhTXf/"
+    },
+    {
+      "title": "Os Mutantes YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=yG3adCG8peQ"
+    },
+    {
+      "title": "Gareth Liddiard YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=kGRk9JztUPM"
+    },
+    {
+      "title": "Jon Hopkins YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=eaHIq1mBLrs"
+    },
+    {
+      "title": "Eddy Current Suppression Ring YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=lIHdLB7ufkE"
+    },
+    {
+      "title": "Black Lips YouTube interview",
+      "status": "candidate cross-match to B&E audio archive; inspect description/date",
+      "primary_url": "https://www.youtube.com/watch?v=G0ER2sUxhDk"
+    },
+    {
+      "title": "King Gizzard interview index reference",
+      "status": "external index corroborates 23 October 2025 interview",
+      "primary_url": "https://kglw.net/pages/interviews"
+    },
+    {
+      "title": "Triple R Melbourne Music Week 2015 compilation",
+      "status": "contextual multi-program video; identify B&E chapter before ingest",
+      "primary_url": "https://www.youtube.com/watch?v=ZVg8srae5aU"
+    },
+    {
+      "title": "Triple R Melbourne Music Week promo",
+      "status": "contextual multi-program video",
+      "primary_url": "https://www.youtube.com/watch?v=6lJOO2Wxn4k"
+    },
+    {
+      "title": "Triple R Melbourne Music Week 2016 compilation",
+      "status": "contextual multi-program video; identify B&E chapter before ingest",
+      "primary_url": "https://www.youtube.com/watch?v=l_PLKTaUg_s"
+    },
+    {
+      "title": "Triple R MIFF 2016 compilation",
+      "status": "contextual multi-program video; identify B&E chapter before ingest",
+      "primary_url": "https://www.youtube.com/watch?v=gRR94dL4c98"
+    }
+  ],
+  "sourceHubs": [
+    {
+      "name": "Triple R programme highlights",
+      "url": "https://www.rrr.org.au/explore/programs/breaking-and-entering/highlights"
+    },
+    {
+      "name": "Triple R B&E tag",
+      "url": "https://www.rrr.org.au/tags/breaking-and-entering"
+    },
+    {
+      "name": "Triple R audio archive index",
+      "url": "https://www.rrr.org.au/on-demand/archives"
+    },
+    {
+      "name": "Triple R YouTube channel",
+      "url": "https://www.youtube.com/channel/UCXWGCgCIoJ-eMwSd-SPi2Mg"
+    },
+    {
+      "name": "Triple R Interviewed at RRR playlist",
+      "url": "https://www.youtube.com/playlist?list=PLCF1031568D538068"
+    },
+    {
+      "name": "Breaking and Entering Mixcloud profile",
+      "url": "https://www.mixcloud.com/breakingandentering/"
+    }
+  ]
+}

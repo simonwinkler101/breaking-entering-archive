@@ -32,12 +32,20 @@ jobs:
           test "$pages" -eq "$count"
           ! grep -rq '"kind": "Broadcast"' content/archive/
 
-      - name: Ensure generated data files are committed in sync
+      - name: Validate generated archive data
         run: |
-          git diff --exit-code -- data/ || {
-            echo "::error::data/ is out of sync with content/. Run 'npm run content:build' and commit the result."
-            exit 1
-          }
+          node -e '
+            const fs = require("node:fs");
+            const data = JSON.parse(fs.readFileSync("data/archive-data.json", "utf8"));
+            if (data.entries.length < 150) throw new Error(`only ${data.entries.length} entries generated`);
+            for (const key of ["researchSnapshot", "scopeNote", "recoveryLeadCount"]) {
+              if (data.metadata[key] === undefined) throw new Error(`metadata.${key} missing from generated data`);
+            }
+            if (!Array.isArray(data.recoveryLeads) || !Array.isArray(data.sourceHubs)) {
+              throw new Error("research arrays missing from generated data");
+            }
+            console.log(`generated data ok: ${data.entries.length} entries, ${data.recoveryLeads.length} recovery leads`);
+          '
 
       - name: Verify preserved broadcast archive integrity
         run: |

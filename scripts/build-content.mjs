@@ -86,7 +86,15 @@ entries.sort((a, b) => {
   return b.dateKey.localeCompare(a.dateKey) || a.artist.localeCompare(b.artist);
 });
 
-const existingArchive = readJson(path.join(dataDirectory, "archive-data.json"));
+// data/ holds generated outputs only; everything is derived from canonical
+// content/ sources. content/archive-research.json carries the non-derived
+// research material (researchSnapshot, scopeNote, recoveryLeads, sourceHubs).
+const research = readJson(path.join(root, "content/archive-research.json"));
+for (const required of ["researchSnapshot", "scopeNote", "recoveryLeads", "sourceHubs"]) {
+  if (research[required] === undefined) {
+    throw new Error(`content/archive-research.json is missing ${required}.`);
+  }
+}
 const kindCounts = Object.fromEntries(
   [...new Set(entries.map((entry) => entry.kind))].map((kind) => [
     kind,
@@ -94,17 +102,21 @@ const kindCounts = Object.fromEntries(
   ]),
 );
 
+fs.mkdirSync(dataDirectory, { recursive: true });
 writeJson(path.join(dataDirectory, "archive-data.json"), {
-  ...existingArchive,
   metadata: {
-    ...existingArchive.metadata,
+    researchSnapshot: research.researchSnapshot,
     sourceRecordCount: entries.reduce((count, entry) => count + (entry.sources?.length ?? 0), 0),
     itemCount: entries.length,
     dateUnconfirmedCount: entries.filter((entry) => !entry.dateKey).length,
     subscriberOnlyItemCount: entries.filter((entry) => entry.access === "RRR subscriber").length,
     kindCounts,
+    recoveryLeadCount: research.recoveryLeads.length,
+    scopeNote: research.scopeNote,
   },
   entries,
+  recoveryLeads: research.recoveryLeads,
+  sourceHubs: research.sourceHubs,
 });
 
 for (const filename of ["site-settings.json", "archive-associations.json"]) {
