@@ -949,6 +949,7 @@ a {
 }
 .transcript-copy {
   border-top: 1px solid var(--rule);
+  max-width: 44rem;
   padding: 10px 0 28px;
   font-size: var(--type-body);
   line-height: 1.68;
@@ -956,6 +957,15 @@ a {
 .transcript-copy p {
   white-space: pre-wrap;
   margin: 18px 0 0;
+}
+.transcript-intro {
+  font-style: italic;
+}
+.transcript-speaker {
+  font-weight: 600;
+}
+.transcript-print-heading {
+  display: none;
 }
 .entry-dialog h3 + dl {
   margin-top: 38px;
@@ -1623,5 +1633,62 @@ a {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+@page {
+  margin: 18mm;
+}
+@media print {
+  html,
+  body {
+    background: #fff;
+    color: #000;
+  }
+  body:before {
+    display: none;
+  }
+  .site-header nav,
+  .site-footer,
+  .static-back,
+  .static-related {
+    display: none !important;
+  }
+  .static-entry {
+    padding: 0;
+  }
+  .static-transcript {
+    border: 0;
+    background: none;
+  }
+  .static-transcript summary {
+    display: none;
+  }
+  .static-transcript > .transcript-copy {
+    display: block !important;
+  }
+  .transcript-print-heading {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 22pt 0 4pt;
+    font-size: 12pt;
+    display: block;
+  }
+  .transcript-copy {
+    border-top: 0;
+    max-width: none;
+    padding: 0;
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+  .transcript-copy p {
+    orphans: 3;
+    widows: 3;
+    margin: 8pt 0 0;
+  }
+}
+@media print {
+  .static-transcript::details-content {
+    content-visibility: visible !important;
+    display: contents !important;
   }
 }
