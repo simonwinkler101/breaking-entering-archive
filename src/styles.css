@@ -1406,6 +1406,12 @@ a {
     transform: translate(24px);
   }
 }
+@keyframes dialog-settle {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
 @media (width<=980px) {
   :root {
     --shell: min(100% - 48px, 900px);
@@ -1703,6 +1709,9 @@ a {
   }
   .entry-dialog {
     padding: 72px 24px 50px;
+    /* On phones the dialog covers the screen, so sliding in from the right
+       reads as more motion than the moment needs. A brief settle is calmer. */
+    animation: 0.16s cubic-bezier(0.22, 1, 0.36, 1) dialog-settle;
   }
   /* On phones the dialog is already full-screen, so reader mode should not
      morph the layout or fade — the transcript just appears inline as before.
