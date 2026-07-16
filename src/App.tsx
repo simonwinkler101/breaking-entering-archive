@@ -30,6 +30,7 @@ type ArchiveEntry = {
   href: string;
   summary: string;
   transcript?: string;
+  pullQuote?: { text: string; speaker: string };
   aliases?: string[];
   tags: string[];
   relatedIds?: string[];
@@ -758,22 +759,50 @@ export default function Home() {
       </footer>
 
       {selected && (
-        <div className="dialog-backdrop" role="presentation" onMouseDown={(event) => {
-          if (event.currentTarget === event.target) closeEntry();
-        }}>
-          <section ref={dialogRef} className="entry-dialog" data-kind={selected.kind} role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <div
+          className={showTranscript ? "dialog-backdrop reader-mode" : "dialog-backdrop"}
+          role="presentation"
+          onMouseDown={(event) => {
+            if (event.currentTarget === event.target) closeEntry();
+          }}
+        >
+          <section
+            ref={dialogRef}
+            className={showTranscript ? "entry-dialog reader-open" : "entry-dialog"}
+            data-kind={selected.kind}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="dialog-title"
+          >
             <button className="dialog-close" type="button" onClick={closeEntry} aria-label="Close details">Close</button>
+            <div className="dialog-reader-column">
             <p className="eyebrow dialog-eyebrow">{selected.kind} / {selected.date}</p>
             <h2 id="dialog-title">{selected.artist}</h2>
             <h3>{selected.title}</h3>
             {selected.summary && <p className="dialog-summary">{selected.summary}</p>}
+            {selected.pullQuote && (
+              <figure className="entry-pull-quote" data-kind={selected.kind}>
+                <blockquote>
+                  <p>{selected.pullQuote.text}</p>
+                </blockquote>
+                <figcaption>— {selected.pullQuote.speaker}</figcaption>
+              </figure>
+            )}
             {selected.transcript?.trim() && (
               <div className="transcript-panel">
                 <button
                   className="transcript-toggle"
                   type="button"
                   aria-expanded={showTranscript}
-                  onClick={() => setShowTranscript((visible) => !visible)}
+                  onClick={() =>
+                    setShowTranscript((visible) => {
+                      const next = !visible;
+                      if (!next) {
+                        window.requestAnimationFrame(() => dialogRef.current?.scrollTo({ top: 0 }));
+                      }
+                      return next;
+                    })
+                  }
                 >
                   <span className="transcript-marker" aria-hidden="true">T</span>
                   <span>{showTranscript ? "Close transcript" : "Read transcript"}</span>
@@ -879,6 +908,7 @@ export default function Home() {
                 ))}
               </div>
             )}
+            </div>
           </section>
         </div>
       )}

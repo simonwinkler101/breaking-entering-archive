@@ -860,13 +860,41 @@ a {
 .entry-dialog {
   --dialog-accent: var(--stock);
   border-left: 3px solid var(--dialog-accent);
+  border-top: 0 solid var(--dialog-accent);
   background: var(--paper-raised);
   width: min(620px, 100%);
   height: 100%;
   padding: 76px 68px 64px;
   animation: 0.19s ease-out slide-in;
+  transition:
+    width 0.2s ease,
+    padding 0.2s ease;
   position: relative;
   overflow-y: auto;
+}
+.dialog-backdrop.reader-mode {
+  justify-content: center;
+}
+.entry-dialog.reader-open {
+  border-left-width: 0;
+  border-top-width: 4px;
+  width: 100%;
+  padding: 60px clamp(20px, 5vw, 64px) 72px;
+}
+.dialog-reader-column {
+  width: 100%;
+}
+.entry-dialog.reader-open .dialog-reader-column {
+  max-width: 44rem;
+  margin-inline: auto;
+}
+.entry-dialog.reader-open .transcript-toggle {
+  background: var(--paper-raised);
+  border-bottom: 1px solid var(--rule);
+  padding-block: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 .entry-dialog[data-kind="Interview"] {
   --dialog-accent: var(--accent-interview);
@@ -968,6 +996,41 @@ a {
   font-style: italic;
 }
 .transcript-speaker {
+  font-weight: 600;
+}
+.entry-pull-quote {
+  --quote-accent: var(--accent-interview);
+  border-left: 4px solid var(--quote-accent);
+  background: color-mix(in srgb, var(--quote-accent) 24%, var(--paper));
+  max-width: 44rem;
+  margin: 30px 0 0;
+  padding: 24px 28px;
+}
+.entry-pull-quote[data-kind="Guest mix"] {
+  --quote-accent: var(--accent-mix);
+}
+.entry-pull-quote[data-kind="Live"] {
+  --quote-accent: var(--stock);
+}
+.entry-pull-quote[data-kind="Special program"] {
+  --quote-accent: var(--accent-program);
+}
+.entry-pull-quote blockquote {
+  margin: 0;
+}
+.entry-pull-quote blockquote p {
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.22;
+}
+.entry-pull-quote figcaption {
+  color: var(--muted-ink);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-top: 16px;
+  font-size: var(--type-label);
   font-weight: 600;
 }
 .transcript-print-heading {
@@ -1690,6 +1753,22 @@ a {
     orphans: 3;
     widows: 3;
     margin: 8pt 0 0;
+  }
+  .entry-pull-quote {
+    background: none;
+    border-left: 3px solid #000;
+    max-width: none;
+    margin: 14pt 0;
+    padding: 2pt 0 2pt 14pt;
+    break-inside: avoid;
+  }
+  .entry-pull-quote blockquote p {
+    font-size: 14pt;
+    line-height: 1.3;
+  }
+  .entry-pull-quote figcaption {
+    margin-top: 6pt;
+    font-size: 10pt;
   }
 }
 @media print {
