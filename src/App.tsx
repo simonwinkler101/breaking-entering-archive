@@ -100,7 +100,7 @@ const primaryActionLabel = (entry: ArchiveEntry) => {
   return "Listen";
 };
 
-const genericArtists = new Set(["breaking entering"]);
+const genericArtists = new Set(["breaking entering", "breaking and entering"]);
 const genericTags = new Set([
   "broadcast",
   "guest mix",
@@ -525,27 +525,28 @@ export default function Home() {
           {siteSettings.featured.visible && featuredItems.length > 0 && (
             <section className="featured shell" aria-label="Featured from the archive">
               {featuredItems.map(({ entry, label, linkLabel }) => (
-                <a
-                  className="featured-line"
-                  data-kind={entry.kind}
-                  href={entry.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={entry.id}
-                >
-                  <span className="featured-line-label">
-                    <KindDot kind={entry.kind} />
-                    <span>{label}</span>
-                  </span>
+                <div className="featured-line" data-kind={entry.kind} key={entry.id}>
+                  <span className="featured-line-label">{label}</span>
                   <span className="featured-line-title">{featuredTitleFor(entry)}</span>
                   <span className="featured-line-meta">
                     <span>{entry.date}</span>
                     {entry.duration && <span>{entry.duration}</span>}
                   </span>
-                  <span className="featured-line-action">
-                    {linkLabel} <Arrow diagonal />
+                  <span className="featured-line-actions">
+                    {entry.transcript?.trim() && (
+                      <a
+                        href={entryPath(entry)}
+                        onClick={(event) => followEntryLink(event, entry)}
+                        aria-label={`Read the ${entry.artist} transcript`}
+                      >
+                        Read <Arrow />
+                      </a>
+                    )}
+                    <a href={entry.href} target="_blank" rel="noreferrer">
+                      {linkLabel} <Arrow diagonal />
+                    </a>
                   </span>
-                </a>
+                </div>
               ))}
             </section>
           )}

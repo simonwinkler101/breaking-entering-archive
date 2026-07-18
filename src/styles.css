@@ -310,13 +310,11 @@ a {
 }
 .featured-line {
   --featured-accent: var(--accent-mix);
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  grid-template-columns: 188px minmax(0, 1fr) 168px 160px;
   align-items: center;
   gap: 30px;
-  padding: 16px 22px;
-  border-left: 3px solid var(--featured-accent);
-  background: color-mix(in srgb, var(--featured-accent) 20%, var(--paper-raised));
-  transition: background 0.16s;
+  padding: 17px 22px;
+  background: var(--featured-accent);
   display: grid;
 }
 .featured-line[data-kind="Interview"] {
@@ -332,14 +330,11 @@ a {
   --featured-accent: var(--accent-program);
 }
 .featured-line-label {
-  align-items: center;
-  gap: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   white-space: nowrap;
   font-size: var(--type-label);
   font-weight: 600;
-  display: inline-flex;
 }
 .featured-line-title {
   letter-spacing: -0.02em;
@@ -351,32 +346,38 @@ a {
 }
 .featured-line-meta {
   gap: 14px;
-  color: var(--faint-ink);
+  color: var(--muted-ink);
   letter-spacing: 0.04em;
   white-space: nowrap;
   font-size: var(--type-meta);
   display: inline-flex;
 }
-.featured-line-action {
+.featured-line-actions {
+  justify-self: end;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
   white-space: nowrap;
   font-size: var(--type-ui);
   font-weight: 600;
   display: inline-flex;
 }
-.featured-line-action span {
+.featured-line-actions a {
+  align-items: center;
+  gap: 9px;
+  display: inline-flex;
+}
+.featured-line-actions .arrow {
   transition: transform 0.16s;
 }
-.featured-line:focus-visible {
-  outline: 2px solid var(--stock-dark);
+.featured-line-actions a:focus-visible {
+  outline: 2px solid var(--ink);
   outline-offset: 3px;
 }
 @media (hover: hover) and (pointer: fine) {
-  .featured-line:hover {
-    background: color-mix(in srgb, var(--featured-accent) 30%, var(--paper-raised));
+  .featured-line-actions a:hover .arrow {
+    transform: translateX(3px);
   }
-  .featured-line:hover .featured-line-action span {
+  .featured-line-actions a:hover .arrow-diagonal {
     transform: translate(3px, -3px);
   }
 }
@@ -1529,13 +1530,13 @@ a {
   .featured-line {
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 7px 16px;
-    padding: 14px 0;
+    padding: 13px 15px;
   }
   .featured-line-label {
     grid-column: 1;
     grid-row: 1;
   }
-  .featured-line-action {
+  .featured-line-actions {
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
