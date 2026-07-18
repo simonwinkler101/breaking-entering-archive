@@ -437,14 +437,17 @@ export default function Home() {
             ? "Special programs"
             : "Browse the archive";
 
-  const featuredMix =
-    archiveEntries.find((entry) => entry.id === siteSettings.featured.entryId) ??
-    archiveEntries.find((entry) => entry.kind === "Guest mix");
-  const featuredHeading =
-    featuredMix?.title.replace(
-      /^RISING:\s*Breaking (?:&|and) Entering\s*[-–—:]\s*/i,
-      "RISING: ",
-    ) ?? "";
+  const featuredTitleFor = (entry: ArchiveEntry) =>
+    genericArtists.has(normalisePhrase(entry.artist))
+      ? entry.title.replace(
+          /^RISING:\s*Breaking (?:&|and) Entering\s*[-–—:]\s*/i,
+          "RISING: ",
+        )
+      : entry.artist;
+  const featuredItems = siteSettings.featured.items.flatMap((item) => {
+    const entry = archiveEntries.find((candidate) => candidate.id === item.entryId);
+    return entry ? [{ entry, label: item.label, linkLabel: item.linkLabel }] : [];
+  });
   const relatedEntries = useMemo(() => {
     if (!selected) return [];
     const candidates: RelatedEntry[] = [];
@@ -513,36 +516,37 @@ export default function Home() {
 
         <section className="hero shell">
           <p className="eyebrow">{siteSettings.hero.eyebrow}</p>
-          <p className="hero-copy">{siteSettings.hero.introduction}</p>
-          <p className="hero-copy hero-copy-sub">{siteSettings.hero.archiveLine}</p>
+          <p className="hero-copy">
+            {siteSettings.hero.introduction} {siteSettings.hero.archiveLine}
+          </p>
         </section>
 
         <div className="featured-wrap">
-          {siteSettings.featured.visible && featuredMix && (
-            <section
-              className="featured shell"
-              data-kind={featuredMix.kind}
-              aria-labelledby="featured-title"
-            >
-              <a
-                className="featured-line"
-                href={featuredMix.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <span className="featured-line-label">
-                  <KindDot kind={featuredMix.kind} />
-                  <span id="featured-title">{siteSettings.featured.label}</span>
-                </span>
-                <span className="featured-line-title">{featuredHeading}</span>
-                <span className="featured-line-meta">
-                  <span>{featuredMix.date}</span>
-                  {featuredMix.duration && <span>{featuredMix.duration}</span>}
-                </span>
-                <span className="featured-line-action">
-                  {siteSettings.featured.linkLabel} <Arrow diagonal />
-                </span>
-              </a>
+          {siteSettings.featured.visible && featuredItems.length > 0 && (
+            <section className="featured shell" aria-label="Featured from the archive">
+              {featuredItems.map(({ entry, label, linkLabel }) => (
+                <a
+                  className="featured-line"
+                  data-kind={entry.kind}
+                  href={entry.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={entry.id}
+                >
+                  <span className="featured-line-label">
+                    <KindDot kind={entry.kind} />
+                    <span>{label}</span>
+                  </span>
+                  <span className="featured-line-title">{featuredTitleFor(entry)}</span>
+                  <span className="featured-line-meta">
+                    <span>{entry.date}</span>
+                    {entry.duration && <span>{entry.duration}</span>}
+                  </span>
+                  <span className="featured-line-action">
+                    {linkLabel} <Arrow diagonal />
+                  </span>
+                </a>
+              ))}
             </section>
           )}
         </div>

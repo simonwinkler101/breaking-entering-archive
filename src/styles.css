@@ -234,12 +234,6 @@ a {
   font-size: 22px;
   line-height: 1.55;
 }
-.hero-copy-sub {
-  max-width: 640px;
-  color: var(--faint-ink);
-  margin-top: 10px;
-  font-size: 18px;
-}
 .archive-search {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
@@ -310,22 +304,12 @@ a {
   padding: 6px 0 30px;
 }
 .featured {
-  --featured-accent: var(--accent-mix);
+  gap: 10px;
   color: var(--ink);
-}
-.featured[data-kind="Interview"] {
-  --featured-accent: var(--accent-interview);
-}
-.featured[data-kind="Guest\ mix"] {
-  --featured-accent: var(--accent-mix);
-}
-.featured[data-kind="Live"] {
-  --featured-accent: var(--stock);
-}
-.featured[data-kind="Special\ program"] {
-  --featured-accent: var(--accent-program);
+  display: grid;
 }
 .featured-line {
+  --featured-accent: var(--accent-mix);
   grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 30px;
@@ -334,6 +318,18 @@ a {
   background: color-mix(in srgb, var(--featured-accent) 20%, var(--paper-raised));
   transition: background 0.16s;
   display: grid;
+}
+.featured-line[data-kind="Interview"] {
+  --featured-accent: var(--accent-interview);
+}
+.featured-line[data-kind="Guest\ mix"] {
+  --featured-accent: var(--accent-mix);
+}
+.featured-line[data-kind="Live"] {
+  --featured-accent: var(--stock);
+}
+.featured-line[data-kind="Special\ program"] {
+  --featured-accent: var(--accent-program);
 }
 .featured-line-label {
   align-items: center;
@@ -1523,10 +1519,6 @@ a {
     margin-top: 14px;
     font-size: var(--type-body);
     line-height: 1.45;
-  }
-  .hero-copy-sub {
-    margin-top: 8px;
-    font-size: var(--type-supporting);
   }
   .archive-search {
     margin-bottom: 22px;

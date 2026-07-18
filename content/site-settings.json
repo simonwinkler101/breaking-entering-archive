@@ -19,9 +19,23 @@
   },
   "featured": {
     "visible": true,
-    "entryId": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
-    "label": "Featured mix",
-    "linkLabel": "Listen on Mixcloud"
+    "items": [
+      {
+        "entryId": "carla-dal-forno",
+        "label": "Featured interview",
+        "linkLabel": "Listen"
+      },
+      {
+        "entryId": "src-youtube-Rvh5V9hc-0c",
+        "label": "Featured live",
+        "linkLabel": "Watch"
+      },
+      {
+        "entryId": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
+        "label": "Featured mix",
+        "linkLabel": "Listen on Mixcloud"
+      }
+    ]
   },
   "footer": {
     "text": "2026 / 3RRR / Brunswick East, Naarm–Melbourne",
