@@ -100,7 +100,7 @@ const primaryActionLabel = (entry: ArchiveEntry) => {
   return "Listen";
 };
 
-const genericArtists = new Set(["breaking entering"]);
+const genericArtists = new Set(["breaking entering", "breaking and entering"]);
 const genericTags = new Set([
   "broadcast",
   "guest mix",
@@ -437,14 +437,17 @@ export default function Home() {
             ? "Special programs"
             : "Browse the archive";
 
-  const featuredMix =
-    archiveEntries.find((entry) => entry.id === siteSettings.featured.entryId) ??
-    archiveEntries.find((entry) => entry.kind === "Guest mix");
-  const featuredHeading =
-    featuredMix?.title.replace(
-      /^RISING:\s*Breaking (?:&|and) Entering\s*[-–—:]\s*/i,
-      "RISING: ",
-    ) ?? "";
+  const featuredTitleFor = (entry: ArchiveEntry) =>
+    genericArtists.has(normalisePhrase(entry.artist))
+      ? entry.title.replace(
+          /^RISING:\s*Breaking (?:&|and) Entering\s*[-–—:]\s*/i,
+          "RISING: ",
+        )
+      : entry.artist;
+  const featuredItems = siteSettings.featured.items.flatMap((item) => {
+    const entry = archiveEntries.find((candidate) => candidate.id === item.entryId);
+    return entry ? [{ entry, label: item.label, linkLabel: item.linkLabel }] : [];
+  });
   const relatedEntries = useMemo(() => {
     if (!selected) return [];
     const candidates: RelatedEntry[] = [];
@@ -513,70 +516,43 @@ export default function Home() {
 
         <section className="hero shell">
           <p className="eyebrow">{siteSettings.hero.eyebrow}</p>
-          <p className="hero-copy">{siteSettings.hero.introduction}</p>
-
-          <form className="hero-search" role="search" onSubmit={submitSearch}>
-            <label className="sr-only" htmlFor="archive-search">Search the archive</label>
-            <input
-              id="archive-search"
-              ref={searchInputRef}
-              type="search"
-              value={query}
-              onChange={(event) => {
-                const nextQuery = event.target.value;
-                setQuery(nextQuery);
-                if (nextQuery.trim()) {
-                  if (!query.trim()) setSort("relevance");
-                  setFilter("All");
-                  setTagFilter(null);
-                  setYearFilter("All");
-                  window.history.replaceState(null, "", "/#archive");
-                } else if (sort === "relevance") {
-                  setSort("newest");
-                }
-                setVisibleCount(PAGE_SIZE);
-              }}
-              placeholder={siteSettings.hero.searchPlaceholder}
-            />
-            <button type="submit" aria-label="Show search results"><Arrow /></button>
-          </form>
+          <p className="hero-copy">
+            {siteSettings.hero.introduction} {siteSettings.hero.archiveLine}
+          </p>
         </section>
 
         <div className="featured-wrap">
-          {siteSettings.featured.visible && featuredMix && (
-            <section
-              className="featured shell"
-              data-kind={featuredMix.kind}
-              aria-labelledby="featured-title"
-            >
-              <div className="featured-label">
-                <span className="featured-label-heading">
-                  <KindDot kind={featuredMix.kind} />
-                  <span id="featured-title">{siteSettings.featured.label}</span>
-                </span>
-                {siteSettings.featured.volume && <span>{siteSettings.featured.volume}</span>}
-              </div>
-              <div className="featured-main">
-                <p className="featured-kicker">{siteSettings.featured.kicker}</p>
-                <h2>{featuredHeading}</h2>
-              </div>
-              <div className="featured-meta">
-                <span>{featuredMix.date}</span>
-                {featuredMix.duration && <span>{featuredMix.duration}</span>}
-                <a href={featuredMix.href} target="_blank" rel="noreferrer">
-                  {siteSettings.featured.linkLabel} <Arrow diagonal />
-                </a>
-              </div>
+          {siteSettings.featured.visible && featuredItems.length > 0 && (
+            <section className="featured shell" aria-label="Featured from the archive">
+              {featuredItems.map(({ entry, label, linkLabel }) => (
+                <div className="featured-line" data-kind={entry.kind} key={entry.id}>
+                  <span className="featured-line-label">{label}</span>
+                  <span className="featured-line-title">{featuredTitleFor(entry)}</span>
+                  <span className="featured-line-meta">
+                    <span>{entry.date}</span>
+                    {entry.duration && <span>{entry.duration}</span>}
+                  </span>
+                  <span className="featured-line-actions">
+                    {entry.transcript?.trim() && (
+                      <a
+                        href={entryPath(entry)}
+                        onClick={(event) => followEntryLink(event, entry)}
+                        aria-label={`Read the ${entry.artist} transcript`}
+                      >
+                        Read <Arrow />
+                      </a>
+                    )}
+                    <a href={entry.href} target="_blank" rel="noreferrer">
+                      {linkLabel} <Arrow diagonal />
+                    </a>
+                  </span>
+                </div>
+              ))}
             </section>
           )}
         </div>
 
-        <div className="land-foot shell">
-          <p>{siteSettings.footer.text}</p>
-          <button type="button" onClick={() => openArchiveView("All")}>
-            {siteSettings.hero.browseLabel} <span aria-hidden="true">↓</span>
-          </button>
-        </div>
+        <div className="land-foot shell" aria-hidden="true" />
       </div>
 
       <section className="archive shell" id="archive" ref={archiveRef} aria-label="Archive collection">
@@ -584,19 +560,45 @@ export default function Home() {
         <span className="archive-anchor" id="mixes" aria-hidden="true" />
         <span className="archive-anchor" id="live" aria-hidden="true" />
         <span className="archive-anchor" id="programs" aria-hidden="true" />
-        <header className="archive-intro">
-          <div>
-            <p className="eyebrow">Archive index</p>
+        {query.trim() || filter !== "All" || tagFilter || yearFilter !== "All" ? (
+          <header className="archive-intro">
             <h2>{archiveHeading}</h2>
-          </div>
-          <p className="archive-result-count" aria-live="polite">
-            <strong>{results.length}</strong>
-            <span>{results.length === 1 ? "entry" : "entries"}</span>
-            {results.length !== archiveEntries.length && (
-              <small>of {archiveEntries.length}</small>
-            )}
-          </p>
-        </header>
+            <p className="archive-result-count" aria-live="polite">
+              <strong>{results.length}</strong>
+              <span>{results.length === 1 ? "entry" : "entries"}</span>
+              {results.length !== archiveEntries.length && (
+                <small>of {archiveEntries.length}</small>
+              )}
+            </p>
+          </header>
+        ) : (
+          <h2 className="sr-only">{archiveHeading}</h2>
+        )}
+        <form className="archive-search" role="search" onSubmit={submitSearch}>
+          <label className="sr-only" htmlFor="archive-search-input">Search the archive</label>
+          <input
+            id="archive-search-input"
+            ref={searchInputRef}
+            type="search"
+            value={query}
+            onChange={(event) => {
+              const nextQuery = event.target.value;
+              setQuery(nextQuery);
+              if (nextQuery.trim()) {
+                if (!query.trim()) setSort("relevance");
+                setFilter("All");
+                setTagFilter(null);
+                setYearFilter("All");
+                window.history.replaceState(null, "", "/#archive");
+              } else if (sort === "relevance") {
+                setSort("newest");
+              }
+              setVisibleCount(PAGE_SIZE);
+            }}
+            placeholder={siteSettings.hero.searchPlaceholder}
+          />
+          <button type="submit" aria-label="Show search results"><Arrow /></button>
+        </form>
         <div className="archive-controls">
           <div className="filter-group" aria-label="Filter by format">
             {filters.map((item) => (
