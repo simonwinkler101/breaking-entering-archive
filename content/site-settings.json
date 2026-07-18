@@ -13,16 +13,15 @@
   },
   "hero": {
     "eyebrow": "Lauren Taylor + Simon Winkler / 3RRR 102.7FM",
-    "introduction": "index of interviews, guest mixes and live sessions.",
+    "introduction": "Breaking and Entering is a weekly program on Triple R — new music and in-depth conversations.",
+    "archiveLine": "This is its archive: interviews, guest mixes and live sessions, kept in one place.",
     "searchPlaceholder": "Search artists, years, subjects or formats",
     "browseLabel": "Browse the full index"
   },
   "featured": {
     "visible": true,
     "entryId": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
-    "label": "Featured guest mix",
-    "volume": "",
-    "kicker": "Breaking and Entering / Guest Mix",
+    "label": "Featured mix",
     "linkLabel": "Listen on Mixcloud"
   },
   "footer": {
