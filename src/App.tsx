@@ -547,12 +547,7 @@ export default function Home() {
           )}
         </div>
 
-        <div className="land-foot shell">
-          <p>{archiveEntries.length} entries</p>
-          <button type="button" onClick={() => openArchiveView("All")}>
-            {siteSettings.hero.browseLabel} <span aria-hidden="true">↓</span>
-          </button>
-        </div>
+        <div className="land-foot shell" aria-hidden="true" />
       </div>
 
       <section className="archive shell" id="archive" ref={archiveRef} aria-label="Archive collection">
@@ -560,19 +555,20 @@ export default function Home() {
         <span className="archive-anchor" id="mixes" aria-hidden="true" />
         <span className="archive-anchor" id="live" aria-hidden="true" />
         <span className="archive-anchor" id="programs" aria-hidden="true" />
-        <header className="archive-intro">
-          <div>
-            <p className="eyebrow">Archive index</p>
+        {query.trim() || filter !== "All" || tagFilter || yearFilter !== "All" ? (
+          <header className="archive-intro">
             <h2>{archiveHeading}</h2>
-          </div>
-          <p className="archive-result-count" aria-live="polite">
-            <strong>{results.length}</strong>
-            <span>{results.length === 1 ? "entry" : "entries"}</span>
-            {results.length !== archiveEntries.length && (
-              <small>of {archiveEntries.length}</small>
-            )}
-          </p>
-        </header>
+            <p className="archive-result-count" aria-live="polite">
+              <strong>{results.length}</strong>
+              <span>{results.length === 1 ? "entry" : "entries"}</span>
+              {results.length !== archiveEntries.length && (
+                <small>of {archiveEntries.length}</small>
+              )}
+            </p>
+          </header>
+        ) : (
+          <h2 className="sr-only">{archiveHeading}</h2>
+        )}
         <form className="archive-search" role="search" onSubmit={submitSearch}>
           <label className="sr-only" htmlFor="archive-search-input">Search the archive</label>
           <input

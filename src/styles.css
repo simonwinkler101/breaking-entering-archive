@@ -130,9 +130,9 @@ a {
 }
 .site-header nav {
   align-items: center;
-  gap: 26px;
+  gap: 30px;
   padding-top: 10px;
-  font-size: var(--type-ui);
+  font-size: 16px;
   display: flex;
 }
 .site-header nav button,
@@ -145,6 +145,7 @@ a {
   align-items: center;
   gap: 8px;
   padding: 5px 6px;
+  font-weight: 500;
   transition:
     background 0.16s,
     border-color 0.16s,
@@ -309,15 +310,29 @@ a {
   padding: 6px 0 30px;
 }
 .featured {
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
+  --featured-accent: var(--accent-mix);
   color: var(--ink);
+}
+.featured[data-kind="Interview"] {
+  --featured-accent: var(--accent-interview);
+}
+.featured[data-kind="Guest\ mix"] {
+  --featured-accent: var(--accent-mix);
+}
+.featured[data-kind="Live"] {
+  --featured-accent: var(--stock);
+}
+.featured[data-kind="Special\ program"] {
+  --featured-accent: var(--accent-program);
 }
 .featured-line {
   grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 30px;
-  padding: 15px 4px;
+  padding: 16px 22px;
+  border-left: 3px solid var(--featured-accent);
+  background: color-mix(in srgb, var(--featured-accent) 20%, var(--paper-raised));
+  transition: background 0.16s;
   display: grid;
 }
 .featured-line-label {
@@ -362,45 +377,16 @@ a {
   outline-offset: 3px;
 }
 @media (hover: hover) and (pointer: fine) {
+  .featured-line:hover {
+    background: color-mix(in srgb, var(--featured-accent) 30%, var(--paper-raised));
+  }
   .featured-line:hover .featured-line-action span {
     transform: translate(3px, -3px);
   }
 }
 .land-foot {
-  border-top: 1px solid var(--rule);
-  min-height: 60px;
-  color: var(--muted-ink);
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  font-size: var(--type-micro);
-  font-weight: 600;
-  display: flex;
-}
-.land-foot p {
-  margin: 0;
-}
-.land-foot button {
-  cursor: pointer;
-  text-transform: uppercase;
-  background: 0 0;
-  border-bottom: 1px solid #0000;
-  align-items: center;
-  gap: 12px;
-  padding: 5px 0;
-  display: inline-flex;
-}
-.land-foot button:focus-visible {
-  border-bottom-color: var(--ink);
-  color: var(--ink);
-}
-@media (hover: hover) and (pointer: fine) {
-  .land-foot button:hover {
-    border-bottom-color: var(--ink);
-    color: var(--ink);
-  }
+  border-top: 1px solid var(--ink);
+  min-height: 48px;
 }
 .archive {
   padding: 76px 0 118px;
@@ -421,10 +407,6 @@ a {
   min-height: 124px;
   padding: 26px 0 24px;
   display: flex;
-}
-.archive-intro .eyebrow {
-  color: var(--faint-ink);
-  font-size: var(--type-micro);
 }
 .archive-intro h2 {
   letter-spacing: -0.035em;
@@ -1580,12 +1562,7 @@ a {
     padding: 12px 0 16px;
   }
   .land-foot {
-    letter-spacing: 0.1em;
-    min-height: 52px;
-    font-size: var(--type-micro);
-  }
-  .land-foot p {
-    max-width: 52%;
+    min-height: 40px;
   }
   .archive {
     padding: 64px 0 90px;
