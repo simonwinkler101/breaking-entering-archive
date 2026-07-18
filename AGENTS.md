@@ -96,6 +96,13 @@ working in this repository.
 - Do not automatically transcribe mixes, performances, broadcasts or song
   lyrics; represent musical passages as `[Music]` unless separately cleared.
 - Do not edit archive entry JSON during inventory or raw transcription stages.
+- Publishing an approved transcript is a one-command, in-place step. The entry
+  in `content/archive/<id>.json` already holds the metadata, so publishing only
+  fills its `transcript` (and `pullQuote`) fields. Use `npm run fill:transcript
+  -- <slug>` (`scripts/fill-transcript.mjs`), or the `/publish-transcript
+  <slug>` command for the full branch-to-production flow. It refuses to run when
+  the entry does not exist, so it never overwrites metadata or drops a source;
+  do not regenerate an entry from scratch to publish a transcript.
 
 ## Delivery mode
 
