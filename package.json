@@ -10,6 +10,7 @@
     "predev": "npm run content:build",
     "dev": "vite",
     "content:build": "node scripts/build-content.mjs",
+    "fill:transcript": "node scripts/fill-transcript.mjs",
     "static:build": "node scripts/build-static-pages.mjs",
     "build": "npm run content:build && tsc -b && vite build && npm run static:build",
     "preview": "vite preview"
