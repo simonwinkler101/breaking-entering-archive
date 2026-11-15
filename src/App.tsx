@@ -136,6 +136,12 @@ export default function App() {
     return id && archiveEntries.some((entry) => entry.id === id) ? id : null;
   });
   const inputRef = useRef<HTMLInputElement>(null);
+  const mastheadRef = useRef<HTMLElement>(null);
+  // Set when the next change to the results should start the list from its
+  // top, just under the search row. An address with a format opens there.
+  const enterRef = useRef<ScrollBehavior | null>(
+    formatFromHash(window.location.hash) ? "auto" : null,
+  );
   const openIdRef = useRef(openId);
   openIdRef.current = openId;
   const rowRefs = useRef(new Map<string, HTMLAnchorElement>());
@@ -189,6 +195,22 @@ export default function App() {
       siteSettings.metadata.siteUrl,
     ).toString();
   }, [openEntry]);
+
+  // The list begins where the search row sits at rest: the foot of the title
+  // page. Scrolling there pins the row to the top with the list below it.
+  const listTop = () =>
+    (mastheadRef.current?.getBoundingClientRect().bottom ?? 0) + window.scrollY;
+  const motion = (): ScrollBehavior =>
+    window.matchMedia("(prefers-reduced-motion: reduce), (pointer: coarse)").matches
+      ? "auto"
+      : "smooth";
+
+  useLayoutEffect(() => {
+    const behavior = enterRef.current;
+    if (!behavior) return;
+    enterRef.current = null;
+    window.scrollTo({ top: listTop(), behavior });
+  }, [results]);
 
   // An entry address opened inside the application (for example after a
   // history step) brings that entry into view.
@@ -253,8 +275,15 @@ export default function App() {
     setOpenId((current) => (current === entry.id ? null : entry.id));
   };
 
+  // Search and the three words are doorways into the list.
   const chooseFormat = (next: Format) => {
+    enterRef.current = window.scrollY < listTop() - 1 ? motion() : "auto";
     setFormat((current) => (current === next ? null : next));
+  };
+
+  const enterFromSearch = () => {
+    const top = listTop();
+    if (window.scrollY < top - 1) window.scrollTo({ top, behavior: motion() });
   };
 
   const reset = (event: ReactMouseEvent<HTMLAnchorElement>) => {
@@ -273,7 +302,7 @@ export default function App() {
 
   return (
     <main className="site">
-      <header className="masthead" id="top">
+      <header className="masthead" id="top" ref={mastheadRef}>
         <p className="credit">{siteSettings.hero.eyebrow}</p>
         <h1 className="title">
           <a href="/" onClick={reset} aria-label={siteSettings.wordmark.homeLabel}>
@@ -292,7 +321,12 @@ export default function App() {
             ref={inputRef}
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={(event) => {
+              // A new search from deep in the list starts from its top.
+              if (window.scrollY > listTop() + 1) enterRef.current = "auto";
+              setQuery(event.target.value);
+            }}
+            onFocus={enterFromSearch}
             placeholder={siteSettings.hero.searchPlaceholder}
             aria-label="Search the archive"
             autoComplete="off"
