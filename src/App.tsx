@@ -1,5 +1,12 @@
-import { FormEvent, MouseEvent as ReactMouseEvent, useEffect, useMemo, useRef, useState } from "react";
-import associationData from "../data/archive-associations.json";
+import {
+  FormEvent,
+  MouseEvent as ReactMouseEvent,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import archiveData from "../data/archive-data.json";
 import siteSettings from "../data/site-settings.json";
 import { createSearchIndex, normaliseSearchText, searchArchive } from "./search";
@@ -36,41 +43,25 @@ type ArchiveEntry = {
   relatedIds?: string[];
   access: ArchiveAccess;
   sources: ArchiveSource[];
+  // Derived at build time by scripts/build-content.mjs.
+  display: { name: string; title: string; duration: string };
 };
 
+// Entries arrive sorted newest first, with undated entries last.
 const archiveEntries = (archiveData.entries as unknown as ArchiveEntry[]).filter(
   (entry) => entry.kind !== "Broadcast",
 );
-const archiveSearchIndex = createSearchIndex(archiveEntries);
+const searchIndex = createSearchIndex(archiveEntries);
 
-const explicitAssociationLabels = new Map<string, Map<string, string>>();
-for (const group of associationData.groups) {
-  for (const entryId of group.entryIds) {
-    const related = explicitAssociationLabels.get(entryId) ?? new Map<string, string>();
-    for (const relatedId of group.entryIds) {
-      if (relatedId !== entryId) related.set(relatedId, group.label);
-    }
-    explicitAssociationLabels.set(entryId, related);
-  }
-}
+const formats = [
+  { kind: "Interview", label: "Interviews", hash: "#interviews" },
+  { kind: "Live", label: "Live", hash: "#live" },
+  { kind: "Guest mix", label: "Mixes", hash: "#mixes" },
+] as const;
+type Format = (typeof formats)[number]["kind"];
 
-const filters = ["All", "Interview", "Guest mix", "Live", "Special program"] as const;
-type Filter = (typeof filters)[number];
-type Sort = "relevance" | "newest" | "oldest" | "artist";
-type YearFilter = "All" | "Unknown" | `${number}`;
-
-const PAGE_SIZE = siteSettings.layout.pageSize;
-const archiveYears = [...new Set(
-  archiveEntries.flatMap((entry) => (entry.year ? [entry.year] : [])),
-)].sort((a, b) => b - a);
-
-const hashForFilter = (filter: Filter) => {
-  if (filter === "Interview") return "#interviews";
-  if (filter === "Guest mix") return "#mixes";
-  if (filter === "Live") return "#live";
-  if (filter === "Special program") return "#programs";
-  return "#archive";
-};
+const formatFromHash = (hash: string): Format | null =>
+  formats.find((format) => format.hash === hash)?.kind ?? null;
 
 const entryPath = (entry: ArchiveEntry) => `/archive/${encodeURIComponent(entry.id)}/`;
 
@@ -88,836 +79,315 @@ const entryIdFromLocation = () => {
 };
 
 const isUnmodifiedLeftClick = (event: ReactMouseEvent<HTMLAnchorElement>) =>
-  event.button === 0 &&
-  !event.metaKey &&
-  !event.ctrlKey &&
-  !event.shiftKey &&
-  !event.altKey;
+  event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
 
-const primaryActionLabel = (entry: ArchiveEntry) => {
-  const href = entry.href.toLowerCase();
-  if (href.includes("youtube.com")) return "Watch";
-  return "Listen";
-};
+const hasTranscript = (entry: ArchiveEntry) => Boolean(entry.transcript?.trim());
+const actionLabel = (entry: ArchiveEntry) =>
+  entry.href.toLowerCase().includes("youtube.com") ? "Watch" : "Listen";
+const kindMark = (entry: ArchiveEntry) =>
+  entry.kind === "Live" ? "live" : entry.kind === "Guest mix" ? "mix" : "";
+const yearLabel = (entry: ArchiveEntry) => (entry.year ? String(entry.year) : "Undated");
 
-const genericArtists = new Set(["breaking entering", "breaking and entering"]);
-const genericTags = new Set([
-  "broadcast",
-  "guest mix",
-  "interview",
-  "live",
-  "live performance",
-  "mixcloud",
-  "special program",
-  "subscriber archive",
-  "video",
-]);
+const pageUrl = (format: Format | null) =>
+  `/${formats.find((item) => item.kind === format)?.hash ?? ""}`;
 
-const normalisePhrase = (value: string) =>
-  value
-    .normalize("NFKD")
-    .toLocaleLowerCase()
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim()
-    .replace(/\s+/g, " ");
+function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
+  const leaveForPermanentPage = (event: ReactMouseEvent<HTMLAnchorElement>) => {
+    // While an entry is open the address already shows its permanent page, so
+    // a link to that page with a #fragment would only scroll this document.
+    if (isUnmodifiedLeftClick(event)) {
+      window.history.replaceState(null, "", `/${window.location.hash}`);
+    }
+  };
 
-const includesPhrase = (value: string, phrase: string) =>
-  phrase.length >= 4 && ` ${value} `.includes(` ${phrase} `);
-
-type RelatedEntry = {
-  entry: ArchiveEntry;
-  score: number;
-  dateDistance: number;
-};
-
-const scoreRelationship = (
-  selected: ArchiveEntry,
-  candidate: ArchiveEntry,
-): RelatedEntry | null => {
-  if (selected.id === candidate.id) return null;
-
-  let score = 0;
-  const hasEntryRelationship =
-    selected.relatedIds?.includes(candidate.id) || candidate.relatedIds?.includes(selected.id);
-  const isCuratedRelationship = Boolean(
-    explicitAssociationLabels.get(selected.id)?.get(candidate.id) ||
-    hasEntryRelationship,
-  );
-  if (isCuratedRelationship) score += 1000;
-
-  const selectedArtist = normalisePhrase(selected.artist);
-  const candidateArtist = normalisePhrase(candidate.artist);
-  const selectedHasSpecificArtist = !genericArtists.has(selectedArtist);
-  const candidateHasSpecificArtist = !genericArtists.has(candidateArtist);
-  const selectedContext = normalisePhrase(
-    [selected.artist, selected.title, selected.summary].join(" "),
-  );
-  const candidateContext = normalisePhrase(
-    [candidate.artist, candidate.title, candidate.summary].join(" "),
-  );
-
-  if (
-    selectedHasSpecificArtist &&
-    candidateHasSpecificArtist &&
-    selectedArtist === candidateArtist
-  ) {
-    score += 600;
-  } else if (
-    (selectedHasSpecificArtist && includesPhrase(candidateContext, selectedArtist)) ||
-    (candidateHasSpecificArtist && includesPhrase(selectedContext, candidateArtist))
-  ) {
-    score += 260;
-  }
-
-  const selectedTags = new Set(selected.tags.filter((tag) => !genericTags.has(tag)));
-  const sharedTags = candidate.tags.filter((tag) => selectedTags.has(tag) && !genericTags.has(tag));
-  if (sharedTags.length > 0) {
-    score += sharedTags.length * 24;
-  }
-
-  if (score === 0) return null;
-
-  const dateDistance =
-    selected.dateKey && candidate.dateKey
-      ? Math.abs(Date.parse(selected.dateKey) - Date.parse(candidate.dateKey))
-      : Number.MAX_SAFE_INTEGER;
-
-  return { entry: candidate, score, dateDistance };
-};
-
-function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
-    <span className={diagonal ? "arrow arrow-diagonal" : "arrow"} aria-hidden="true">
-      {diagonal ? "\u2197\uFE0E" : "→"}
-    </span>
+    <div className="detail" id={id}>
+      {entry.display.title && <p className="detail-title">{entry.display.title}</p>}
+      <p className="detail-meta">
+        {entry.date && <span>{entry.date}</span>}
+        {entry.display.duration && <span>{entry.display.duration}</span>}
+        {entry.access === "RRR subscriber" && <span>Triple R subscribers</span>}
+      </p>
+      {entry.summary && <p className="detail-summary">{entry.summary}</p>}
+      <p className="detail-actions">
+        <a href={entry.href} target="_blank" rel="noreferrer">
+          {actionLabel(entry)}
+          <span className="outward" aria-hidden="true">↗</span>
+        </a>
+        {hasTranscript(entry) && (
+          <a
+            href={`${entryPath(entry)}#transcript`}
+            onClick={leaveForPermanentPage}
+            aria-label={`Read the ${entry.display.name} transcript`}
+          >
+            Read
+          </a>
+        )}
+      </p>
+    </div>
   );
 }
 
-function KindDot({ kind }: { kind: ArchiveKind | "All" }) {
-  return <span className="kind-dot" data-kind={kind} aria-hidden="true" />;
-}
-
-export default function Home() {
+export default function App() {
   const [query, setQuery] = useState("");
-  const [filter, setFilter] = useState<Filter>("All");
-  const [tagFilter, setTagFilter] = useState<string | null>(null);
-  const [yearFilter, setYearFilter] = useState<YearFilter>("All");
-  const [sort, setSort] = useState<Sort>("newest");
-  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
-  const [selected, setSelected] = useState<ArchiveEntry | null>(null);
-  const [showTranscript, setShowTranscript] = useState(false);
-  const archiveRef = useRef<HTMLElement>(null);
-  const resultsBoundaryRef = useRef<HTMLDivElement>(null);
-  const dialogRef = useRef<HTMLElement>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const [format, setFormat] = useState<Format | null>(() => formatFromHash(window.location.hash));
+  const [openId, setOpenId] = useState<string | null>(() => {
+    const id = entryIdFromLocation();
+    return id && archiveEntries.some((entry) => entry.id === id) ? id : null;
+  });
+  const inputRef = useRef<HTMLInputElement>(null);
+  const openIdRef = useRef(openId);
+  openIdRef.current = openId;
+  const rowRefs = useRef(new Map<string, HTMLAnchorElement>());
+  const searching = Boolean(normaliseSearchText(query));
+  const openEntry = archiveEntries.find((entry) => entry.id === openId) ?? null;
+
+  const results = useMemo(() => {
+    const matches = searchArchive(searchIndex, query).filter(
+      ({ entry }) => !format || entry.kind === format,
+    );
+    if (!normaliseSearchText(query)) return matches;
+    return [...matches].sort(
+      (a, b) =>
+        b.score - a.score ||
+        (b.entry.dateKey ?? "").localeCompare(a.entry.dateKey ?? "") ||
+        a.entry.display.name.localeCompare(b.entry.display.name),
+    );
+  }, [query, format]);
+
+  // An entry hidden by a new search or format closes.
+  useEffect(() => {
+    if (openId && !results.some(({ entry }) => entry.id === openId)) setOpenId(null);
+  }, [results, openId]);
+
+  // Keep the address in step without adding history entries: an open entry
+  // shows its permanent page address, so it can be copied and shared.
+  useEffect(() => {
+    const url = openEntry ? entryPath(openEntry) : pageUrl(format);
+    const current = `${window.location.pathname}${window.location.hash}`;
+    if (current !== url) window.history.replaceState(null, "", url);
+  }, [openEntry, format]);
 
   useEffect(() => {
-    const title = selected
-      ? `${selected.artist} — ${selected.title} | ${siteSettings.metadata.title}`
+    const title = openEntry
+      ? `${openEntry.display.name}${openEntry.display.title ? ` — ${openEntry.display.title}` : ""} | ${siteSettings.metadata.title}`
       : siteSettings.metadata.title;
-    const description = selected
-      ? selected.summary ||
-        `${selected.kind} with ${selected.artist}${selected.date ? `, ${selected.date}` : ""}, from the Breaking and Entering Archive.`
+    const description = openEntry
+      ? openEntry.summary ||
+        `${openEntry.kind} with ${openEntry.artist}${openEntry.date ? `, ${openEntry.date}` : ""}, from the Breaking and Entering Archive.`
       : siteSettings.metadata.description;
-    const canonicalUrl = new URL(
-      selected ? entryPath(selected) : "/",
-      siteSettings.metadata.siteUrl,
-    ).toString();
-
     document.title = title;
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute("content", description);
-
+    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
       canonical.rel = "canonical";
       document.head.append(canonical);
     }
-    canonical.href = canonicalUrl;
-  }, [selected]);
+    canonical.href = new URL(
+      openEntry ? entryPath(openEntry) : "/",
+      siteSettings.metadata.siteUrl,
+    ).toString();
+  }, [openEntry]);
 
-  const closeEntry = () => {
-    setSelected(null);
-    setShowTranscript(false);
-    window.history.replaceState(null, "", "/#archive");
-  };
-
-  const openEntry = (entry: ArchiveEntry) => {
-    setShowTranscript(false);
-    setSelected(entry);
-    window.history.replaceState({ entryId: entry.id }, "", entryPath(entry));
-  };
-
-  const followEntryLink = (event: ReactMouseEvent<HTMLAnchorElement>, entry: ArchiveEntry) => {
-    if (!isUnmodifiedLeftClick(event)) return;
-    event.preventDefault();
-    openEntry(entry);
-  };
+  // An entry address opened inside the application (for example after a
+  // history step) brings that entry into view.
+  useLayoutEffect(() => {
+    if (!openId) return;
+    rowRefs.current.get(openId)?.scrollIntoView({ block: "center" });
+  }, []); // First render only.
 
   useEffect(() => {
-    const syncViewFromLocation = () => {
-      const entryId = entryIdFromLocation();
-      if (entryId) {
-        const entry = archiveEntries.find((candidate) => candidate.id === entryId);
-        if (entry) {
-          setShowTranscript(false);
-          setSelected(entry);
-        }
+    const syncFromLocation = () => {
+      const id = entryIdFromLocation();
+      if (id && archiveEntries.some((entry) => entry.id === id)) {
+        setOpenId(id);
         return;
       }
-
-      setSelected(null);
-      const hashFilter: Filter | null =
-        window.location.hash === "#interviews"
-          ? "Interview"
-          : window.location.hash === "#mixes"
-            ? "Guest mix"
-            : window.location.hash === "#live"
-              ? "Live"
-              : window.location.hash === "#programs"
-                ? "Special program"
-                : window.location.hash === "#archive"
-                  ? "All"
-                  : null;
-      if (hashFilter) {
-        setQuery("");
-        setFilter(hashFilter);
-        setTagFilter(null);
-        setYearFilter("All");
-        setSort((current) => (current === "relevance" ? "newest" : current));
-      }
-      setVisibleCount(PAGE_SIZE);
+      setOpenId(null);
+      setFormat(formatFromHash(window.location.hash));
     };
-
-    syncViewFromLocation();
-    window.addEventListener("hashchange", syncViewFromLocation);
-    window.addEventListener("popstate", syncViewFromLocation);
+    window.addEventListener("hashchange", syncFromLocation);
+    window.addEventListener("popstate", syncFromLocation);
     return () => {
-      window.removeEventListener("hashchange", syncViewFromLocation);
-      window.removeEventListener("popstate", syncViewFromLocation);
+      window.removeEventListener("hashchange", syncFromLocation);
+      window.removeEventListener("popstate", syncFromLocation);
     };
   }, []);
 
   useEffect(() => {
-    const focusSearch = (event: KeyboardEvent) => {
+    const onKeyDown = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement | null;
-      const isTyping =
-        target?.tagName === "INPUT" ||
-        target?.tagName === "TEXTAREA" ||
-        target?.tagName === "SELECT";
-      if (event.key === "/" && !isTyping) {
+      const typing = target?.tagName === "INPUT" || target?.tagName === "TEXTAREA";
+      if (event.key === "/" && !typing) {
         event.preventDefault();
-        searchInputRef.current?.focus();
+        inputRef.current?.focus();
+        return;
       }
+      if (event.key !== "Escape") return;
+      if (target === inputRef.current && inputRef.current?.value) {
+        setQuery("");
+        return;
+      }
+      const current = openIdRef.current;
+      if (!current) return;
+      rowRefs.current.get(current)?.focus();
+      setOpenId(null);
     };
-    document.addEventListener("keydown", focusSearch);
-    return () => document.removeEventListener("keydown", focusSearch);
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
-  useEffect(() => {
-    if (!selected) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeEntry();
-    };
-    document.addEventListener("keydown", closeOnEscape);
-    document.body.classList.add("dialog-open");
-    return () => {
-      document.removeEventListener("keydown", closeOnEscape);
-      document.body.classList.remove("dialog-open");
-    };
-  }, [selected]);
+  const toggleEntry = (event: ReactMouseEvent<HTMLAnchorElement>, entry: ArchiveEntry) => {
+    if (!isUnmodifiedLeftClick(event)) return;
+    event.preventDefault();
+    setOpenId((current) => (current === entry.id ? null : entry.id));
+  };
 
-  useEffect(() => {
-    if (!selected) return;
-    const frame = window.requestAnimationFrame(() => {
-      dialogRef.current?.scrollTo({ top: 0 });
-    });
-    return () => window.cancelAnimationFrame(frame);
-  }, [selected]);
+  const chooseFormat = (next: Format) => {
+    setFormat((current) => (current === next ? null : next));
+  };
 
-  const results = useMemo(() => {
-    const normalisedQuery = normaliseSearchText(query);
-    const matching = searchArchive(archiveSearchIndex, query).filter(({ entry }) => {
-      const matchesFilter = filter === "All" || entry.kind === filter;
-      const matchesYear =
-        yearFilter === "All" ||
-        (yearFilter === "Unknown" ? entry.year === null : entry.year === Number(yearFilter));
-      const matchesTag = !tagFilter || entry.tags.includes(tagFilter);
-      return matchesFilter && matchesYear && matchesTag;
-    });
-
-    return [...matching].sort((a, b) => {
-      if (normalisedQuery && sort === "relevance" && b.score !== a.score) {
-        return b.score - a.score;
-      }
-      if (sort === "artist") return a.entry.artist.localeCompare(b.entry.artist);
-      if (!a.entry.dateKey && !b.entry.dateKey) {
-        return a.entry.artist.localeCompare(b.entry.artist);
-      }
-      if (!a.entry.dateKey) return 1;
-      if (!b.entry.dateKey) return -1;
-      if (sort === "oldest") return a.entry.dateKey.localeCompare(b.entry.dateKey);
-      return b.entry.dateKey.localeCompare(a.entry.dateKey);
-    });
-  }, [filter, query, sort, tagFilter, yearFilter]);
-
-  const visibleResults = results.slice(0, visibleCount);
+  const reset = (event: ReactMouseEvent<HTMLAnchorElement>) => {
+    if (!isUnmodifiedLeftClick(event)) return;
+    event.preventDefault();
+    setQuery("");
+    setFormat(null);
+    setOpenId(null);
+    window.scrollTo({ top: 0 });
+  };
 
   const submitSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    searchInputRef.current?.blur();
-    const scrollToResults = () => {
-      const boundary = resultsBoundaryRef.current;
-      if (boundary) {
-        boundary.scrollIntoView({ behavior: "smooth", block: "start" });
-        boundary.focus({ preventScroll: true });
-      } else {
-        archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    };
-    // On touch devices the on-screen keyboard dismisses with an animated
-    // viewport resize that displaces any scroll started during it. Wait for
-    // the viewport to settle (or a fallback timeout) before scrolling.
-    const viewport = window.visualViewport;
-    const keyboardLikelyOpen = viewport
-      ? window.innerHeight - viewport.height > 80
-      : false;
-    if (!keyboardLikelyOpen) {
-      scrollToResults();
-      return;
-    }
-    let handled = false;
-    const runOnce = () => {
-      if (handled) return;
-      handled = true;
-      viewport?.removeEventListener("resize", runOnce);
-      window.requestAnimationFrame(scrollToResults);
-    };
-    viewport?.addEventListener("resize", runOnce);
-    window.setTimeout(runOnce, 450);
+    inputRef.current?.blur();
   };
-
-  const openArchiveView = (nextFilter: Filter) => {
-    setQuery("");
-    setFilter(nextFilter);
-    setTagFilter(null);
-    setYearFilter("All");
-    setVisibleCount(PAGE_SIZE);
-    setSelected(null);
-    if (sort === "relevance") setSort("newest");
-    window.history.pushState(null, "", `/${hashForFilter(nextFilter)}`);
-    window.setTimeout(
-      () => archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
-      0,
-    );
-  };
-
-  const clearSearch = () => {
-    setQuery("");
-    setFilter("All");
-    setTagFilter(null);
-    setYearFilter("All");
-    setVisibleCount(PAGE_SIZE);
-    if (sort === "relevance") setSort("newest");
-    window.history.replaceState(null, "", "/#archive");
-  };
-
-  const archiveHeading = query.trim()
-    ? "Search results"
-    : filter === "Interview"
-      ? "Interviews"
-      : filter === "Guest mix"
-        ? "Guest mixes"
-        : filter === "Live"
-          ? "Live performances"
-          : filter === "Special program"
-            ? "Special programs"
-            : "Browse the archive";
-
-  const featuredTitleFor = (entry: ArchiveEntry) =>
-    genericArtists.has(normalisePhrase(entry.artist))
-      ? entry.title.replace(
-          /^RISING:\s*Breaking (?:&|and) Entering\s*[-–—:]\s*/i,
-          "RISING: ",
-        )
-      : entry.artist;
-  const featuredItems = siteSettings.featured.items.flatMap((item) => {
-    const entry = archiveEntries.find((candidate) => candidate.id === item.entryId);
-    return entry ? [{ entry, label: item.label, linkLabel: item.linkLabel }] : [];
-  });
-  const relatedEntries = useMemo(() => {
-    if (!selected) return [];
-    const candidates: RelatedEntry[] = [];
-    for (const entry of archiveEntries) {
-      const relationship = scoreRelationship(selected, entry);
-      if (relationship) candidates.push(relationship);
-    }
-    return candidates
-      .sort(
-        (a, b) =>
-          b.score - a.score ||
-          a.dateDistance - b.dateDistance ||
-          b.entry.dateKey.localeCompare(a.entry.dateKey),
-      )
-      .slice(0, 3);
-  }, [selected]);
 
   return (
-    <main>
-      <div className="landing" id="top">
-        <header className="site-header shell">
-          <a className="wordmark" href="/#top" aria-label={siteSettings.wordmark.homeLabel}>
-            <span>{siteSettings.wordmark.lineOne}</span>
+    <main className="site">
+      <header className="masthead" id="top">
+        <p className="credit">{siteSettings.hero.eyebrow}</p>
+        <h1 className="title">
+          <a href="/" onClick={reset} aria-label={siteSettings.wordmark.homeLabel}>
+            <span>{siteSettings.wordmark.lineOne}</span>{" "}
             <span>{siteSettings.wordmark.lineTwo}</span>
-            <small>{siteSettings.wordmark.label}</small>
           </a>
-          <nav aria-label="Primary navigation">
-            <button
-              type="button"
-              data-view="All"
-              className={filter === "All" ? "active" : ""}
-              aria-current={filter === "All" ? "page" : undefined}
-              onClick={() => openArchiveView("All")}
-            >
-              Browse
-            </button>
-            <button
-              type="button"
-              data-view="Interview"
-              className={filter === "Interview" ? "active" : ""}
-              aria-current={filter === "Interview" ? "page" : undefined}
-              onClick={() => openArchiveView("Interview")}
-            >
-              <KindDot kind="Interview" /> Interviews
-            </button>
-            <button
-              type="button"
-              data-view="Live"
-              className={filter === "Live" ? "active" : ""}
-              aria-current={filter === "Live" ? "page" : undefined}
-              onClick={() => openArchiveView("Live")}
-            >
-              <KindDot kind="Live" /> Live
-            </button>
-            <button
-              type="button"
-              data-view="Guest mix"
-              className={filter === "Guest mix" ? "active" : ""}
-              aria-current={filter === "Guest mix" ? "page" : undefined}
-              onClick={() => openArchiveView("Guest mix")}
-            >
-              <KindDot kind="Guest mix" /> Mixes
-            </button>
-          </nav>
-        </header>
+        </h1>
+        <p className="intro">
+          {siteSettings.hero.introduction} {siteSettings.hero.archiveLine}
+        </p>
+      </header>
 
-        <section className="hero shell">
-          <p className="eyebrow">{siteSettings.hero.eyebrow}</p>
-          <p className="hero-copy">
-            {siteSettings.hero.introduction} {siteSettings.hero.archiveLine}
-          </p>
-        </section>
-
-        <div className="featured-wrap">
-          {siteSettings.featured.visible && featuredItems.length > 0 && (
-            <section className="featured shell" aria-label="Featured from the archive">
-              {featuredItems.map(({ entry, label, linkLabel }) => (
-                <div className="featured-line" data-kind={entry.kind} key={entry.id}>
-                  <span className="featured-line-label">{label}</span>
-                  <span className="featured-line-title">{featuredTitleFor(entry)}</span>
-                  <span className="featured-line-meta">
-                    <span>{entry.date}</span>
-                    {entry.duration && <span>{entry.duration}</span>}
-                  </span>
-                  <span className="featured-line-actions">
-                    {entry.transcript?.trim() && (
-                      <a
-                        href={entryPath(entry)}
-                        onClick={(event) => followEntryLink(event, entry)}
-                        aria-label={`Read the ${entry.artist} transcript`}
-                      >
-                        Read <Arrow />
-                      </a>
-                    )}
-                    <a href={entry.href} target="_blank" rel="noreferrer">
-                      {linkLabel} <Arrow diagonal />
-                    </a>
-                  </span>
-                </div>
-              ))}
-            </section>
-          )}
-        </div>
-
-        <div className="land-foot shell" aria-hidden="true" />
-      </div>
-
-      <section className="archive shell" id="archive" ref={archiveRef} aria-label="Archive collection">
-        <span className="archive-anchor" id="interviews" aria-hidden="true" />
-        <span className="archive-anchor" id="mixes" aria-hidden="true" />
-        <span className="archive-anchor" id="live" aria-hidden="true" />
-        <span className="archive-anchor" id="programs" aria-hidden="true" />
-        {query.trim() || filter !== "All" || tagFilter || yearFilter !== "All" ? (
-          <header className="archive-intro">
-            <h2>{archiveHeading}</h2>
-            <p className="archive-result-count" aria-live="polite">
-              <strong>{results.length}</strong>
-              <span>{results.length === 1 ? "entry" : "entries"}</span>
-              {results.length !== archiveEntries.length && (
-                <small>of {archiveEntries.length}</small>
-              )}
-            </p>
-          </header>
-        ) : (
-          <h2 className="sr-only">{archiveHeading}</h2>
-        )}
-        <form className="archive-search" role="search" onSubmit={submitSearch}>
-          <label className="sr-only" htmlFor="archive-search-input">Search the archive</label>
+      <div className="controls">
+        <form className="search" role="search" onSubmit={submitSearch}>
           <input
-            id="archive-search-input"
-            ref={searchInputRef}
+            ref={inputRef}
             type="search"
             value={query}
-            onChange={(event) => {
-              const nextQuery = event.target.value;
-              setQuery(nextQuery);
-              if (nextQuery.trim()) {
-                if (!query.trim()) setSort("relevance");
-                setFilter("All");
-                setTagFilter(null);
-                setYearFilter("All");
-                window.history.replaceState(null, "", "/#archive");
-              } else if (sort === "relevance") {
-                setSort("newest");
-              }
-              setVisibleCount(PAGE_SIZE);
-            }}
+            onChange={(event) => setQuery(event.target.value)}
             placeholder={siteSettings.hero.searchPlaceholder}
+            aria-label="Search the archive"
+            autoComplete="off"
+            spellCheck={false}
+            enterKeyHint="search"
           />
-          <button type="submit" aria-label="Show search results"><Arrow /></button>
-        </form>
-        <div className="archive-controls">
-          <div className="filter-group" aria-label="Filter by format">
-            {filters.map((item) => (
-              <button
-                type="button"
-                data-filter={item}
-                className={filter === item ? "active" : ""}
-                aria-pressed={filter === item}
-                key={item}
-                onClick={() => openArchiveView(item)}
-              >
-                <KindDot kind={item} />
-                {item === "All" ? "All formats" : item}
-                <span className="filter-count">
-                  {item === "All"
-                    ? archiveEntries.length
-                    : archiveEntries.filter((entry) => entry.kind === item).length}
-                </span>
-              </button>
-            ))}
-          </div>
-          <div className="select-controls">
-            <label className="sort-control">
-              <span>Year</span>
-              <select
-                value={yearFilter}
-                onChange={(event) => {
-                  setYearFilter(event.target.value as YearFilter);
-                  setVisibleCount(PAGE_SIZE);
-                }}
-              >
-                <option value="All">All years</option>
-                {archiveYears.map((year) => (
-                  <option value={year} key={year}>{year}</option>
-                ))}
-                <option value="Unknown">Date unconfirmed</option>
-              </select>
-            </label>
-            <label className="sort-control">
-              <span>Sort</span>
-              <select
-                value={sort}
-                onChange={(event) => {
-                  setSort(event.target.value as Sort);
-                  setVisibleCount(PAGE_SIZE);
-                }}
-              >
-                <option value="relevance" disabled={!query.trim()}>Best match</option>
-                <option value="newest">Newest first</option>
-                <option value="oldest">Oldest first</option>
-                <option value="artist">Artist A–Z</option>
-              </select>
-            </label>
-          </div>
-        </div>
-
-        <div className="results-region">
-        <div
-          className="results-boundary"
-          id="results"
-          ref={resultsBoundaryRef}
-          tabIndex={-1}
-          role="group"
-          aria-label="Archive results"
-        />
-
-        {(query.trim() || tagFilter || yearFilter !== "All") && (
-          <div className="active-filters" aria-live="polite">
-            <span>Active filters</span>
-            <div>
-              {query.trim() && (
-                <>
-                  <strong>Search: “{query.trim()}”</strong>
-                  <strong>{results.length === 1 ? "1 result" : `${results.length} results`}</strong>
-                </>
-              )}
-              {tagFilter && <strong>Subject: {tagFilter}</strong>}
-              {yearFilter !== "All" && (
-                <strong>
-                  Year: {yearFilter === "Unknown" ? "Date unconfirmed" : yearFilter}
-                </strong>
-              )}
-            </div>
-            <button type="button" onClick={clearSearch}>
-              Clear all <span aria-hidden="true">×</span>
+          {query && (
+            <button
+              type="button"
+              className="clear"
+              onClick={() => {
+                setQuery("");
+                inputRef.current?.focus();
+              }}
+            >
+              Clear
             </button>
-          </div>
-        )}
+          )}
+        </form>
+        <nav className="formats" aria-label="Formats">
+          {formats.map((item) => (
+            <button
+              type="button"
+              key={item.kind}
+              aria-pressed={format === item.kind}
+              onClick={() => chooseFormat(item.kind)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+      </div>
 
-        {results.length > 0 ? (
-          <>
-            <div className="archive-list">
-            {visibleResults.map(({ entry, transcriptExcerpt }) => (
-              <article className="archive-row" data-kind={entry.kind} key={entry.id}>
-                <a
-                  className="entry-open"
-                  href={entryPath(entry)}
-                  onClick={(event) => followEntryLink(event, entry)}
-                >
-                  <span className="entry-kind">
-                    <span>{entry.kind}</span>
-                    {entry.access !== "Public" && (
-                      <small>{entry.access === "RRR subscriber" ? "Subscriber" : "Check availability"}</small>
-                    )}
-                  </span>
-                  <span className="entry-title">
-                    <strong>{entry.artist}</strong>
-                    <span className="entry-subtitle">
-                      <span>{entry.title}</span>
-                      {entry.transcript?.trim() && (
-                        <small
-                          className="transcript-marker"
-                          aria-label="Transcript available"
-                          title="Transcript available"
-                        >
-                          T
-                        </small>
-                      )}
-                    </span>
-                    {transcriptExcerpt && (
-                      <small className="search-match-excerpt">
-                        <span>Transcript</span>
-                        {transcriptExcerpt}
-                      </small>
-                    )}
-                  </span>
-                  <span className="entry-year">{entry.year ?? "—"}</span>
-                  <span className="entry-duration">{entry.duration || "—"}</span>
-                </a>
-                <a className="entry-listen" href={entry.href} target="_blank" rel="noreferrer" aria-label={`${primaryActionLabel(entry)} to ${entry.artist}: ${entry.title}`}>
-                  <span>{primaryActionLabel(entry)}</span> <Arrow diagonal />
-                </a>
-              </article>
-            ))}
-            </div>
-            {visibleResults.length < results.length && (
-              <button
-                className="load-more"
-                type="button"
-                onClick={() => setVisibleCount((count) => count + PAGE_SIZE)}
-              >
-                <span>Show more</span>
-                <small>{results.length - visibleResults.length} remaining</small>
-                <Arrow />
-              </button>
-            )}
-          </>
-        ) : (
-          <div className="empty-state">
-            <p>No entries match the current search and filters.</p>
-            <button type="button" onClick={clearSearch}>Clear search and filters</button>
-          </div>
+      <section className="index" aria-label="Archive">
+        {(searching || format) && (
+          <p className="sr-only" aria-live="polite">
+            {results.length === 1 ? "1 entry" : `${results.length} entries`}
+          </p>
         )}
-        </div>
+        {results.length > 0 ? (
+          <ol className="rows" data-mode={searching ? "search" : "browse"}>
+            {results.map(({ entry, transcriptExcerpt }, index) => {
+              const previous = results[index - 1]?.entry;
+              const startsGroup =
+                !searching && (!previous || yearLabel(previous) !== yearLabel(entry));
+              const open = entry.id === openId;
+              const detailId = `entry-${entry.id}`;
+              const marks = [
+                searching && entry.year ? String(entry.year) : "",
+                format ? "" : kindMark(entry),
+                hasTranscript(entry) ? "transcript" : "",
+              ].filter(Boolean);
+              return (
+                <li
+                  className="row"
+                  key={entry.id}
+                  data-open={open || undefined}
+                  data-group={startsGroup || undefined}
+                >
+                  {startsGroup && <span className="row-year">{yearLabel(entry)}</span>}
+                  <div className="row-body">
+                    <p className="row-line">
+                      <a
+                        className="row-name"
+                        href={entryPath(entry)}
+                        ref={(node) => {
+                          if (node) rowRefs.current.set(entry.id, node);
+                          else rowRefs.current.delete(entry.id);
+                        }}
+                        aria-expanded={open}
+                        aria-controls={open ? detailId : undefined}
+                        onClick={(event) => toggleEntry(event, entry)}
+                      >
+                        {entry.display.name}
+                      </a>
+                      {marks.length > 0 && (
+                        <span className="row-marks">
+                          {marks.map((mark) => (
+                            <span key={mark}>{mark}</span>
+                          ))}
+                        </span>
+                      )}
+                      {entry.display.title && !open && (
+                        <span className="row-hint" aria-hidden="true">
+                          {entry.display.title}
+                        </span>
+                      )}
+                    </p>
+                    {transcriptExcerpt && <p className="row-excerpt">{transcriptExcerpt}</p>}
+                    {open && <EntryDetail entry={entry} id={detailId} />}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        ) : (
+          <p className="empty">Nothing found.</p>
+        )}
       </section>
 
-      <footer className="site-footer shell">
+      <footer className="foot">
         <p>{siteSettings.footer.text}</p>
-        <a href="/#top">{siteSettings.footer.backToTopLabel} <Arrow /></a>
+        <a href="#top">{siteSettings.footer.backToTopLabel}</a>
       </footer>
-
-      {selected && (
-        <div
-          className={showTranscript ? "dialog-backdrop reader-mode" : "dialog-backdrop"}
-          role="presentation"
-          onMouseDown={(event) => {
-            if (event.currentTarget === event.target) closeEntry();
-          }}
-        >
-          <section
-            ref={dialogRef}
-            className={showTranscript ? "entry-dialog reader-open" : "entry-dialog"}
-            data-kind={selected.kind}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="dialog-title"
-          >
-            <button className="dialog-close" type="button" onClick={closeEntry} aria-label="Close details">Close</button>
-            <div className="dialog-reader-column">
-            <p className="eyebrow dialog-eyebrow">{selected.kind} / {selected.date}</p>
-            <h2 id="dialog-title">{selected.artist}</h2>
-            <h3>{selected.title}</h3>
-            {selected.summary && <p className="dialog-summary">{selected.summary}</p>}
-            {selected.pullQuote && (
-              <figure className="entry-pull-quote" data-kind={selected.kind}>
-                <blockquote>
-                  <p>{selected.pullQuote.text}</p>
-                </blockquote>
-                <figcaption>— {selected.pullQuote.speaker}</figcaption>
-              </figure>
-            )}
-            {selected.transcript?.trim() && (
-              <div className="transcript-panel">
-                <button
-                  className="transcript-toggle"
-                  type="button"
-                  aria-expanded={showTranscript}
-                  onClick={() =>
-                    setShowTranscript((visible) => {
-                      const next = !visible;
-                      if (!next) {
-                        window.requestAnimationFrame(() => dialogRef.current?.scrollTo({ top: 0 }));
-                      }
-                      return next;
-                    })
-                  }
-                >
-                  <span className="transcript-marker" aria-hidden="true">T</span>
-                  <span>{showTranscript ? "Close transcript" : "Read transcript"}</span>
-                  {showTranscript ? (
-                    <span className="transcript-toggle-close" aria-hidden="true">×</span>
-                  ) : (
-                    <Arrow />
-                  )}
-                </button>
-                {showTranscript && (
-                  <div className="transcript-copy">
-                    {selected.transcript
-                      .trim()
-                      .split(/\n{2,}/)
-                      .map((paragraph, index) => {
-                        if (index === 0) {
-                          return (
-                            <p className="transcript-intro" key={index}>{paragraph}</p>
-                          );
-                        }
-                        const speakerMatch = paragraph.match(
-                          /^([A-Za-z][A-Za-z .'’-]{0,40}:)([\s\S]*)$/,
-                        );
-                        if (!speakerMatch) return <p key={index}>{paragraph}</p>;
-                        return (
-                          <p key={index}>
-                            <strong className="transcript-speaker">{speakerMatch[1]}</strong>
-                            {speakerMatch[2]}
-                          </p>
-                        );
-                      })}
-                  </div>
-                )}
-              </div>
-            )}
-            <dl>
-              {selected.presenters && (
-                <div><dt>Presented by</dt><dd>{selected.presenters}</dd></div>
-              )}
-              {selected.duration && (
-                <div><dt>Duration</dt><dd>{selected.duration}</dd></div>
-              )}
-              <div>
-                <dt>Access</dt>
-                <dd><span className="audio-status" aria-hidden="true" />{selected.access}</dd>
-              </div>
-            </dl>
-            <p className="dialog-section-label">
-              {selected.sources.length === 1 ? "Source" : `${selected.sources.length} sources`}
-            </p>
-            <div className="holdings">
-              {selected.sources.map((source, index) => (
-                <a
-                  className="holding-row"
-                  data-holding={index === 0 ? "primary" : "alternate"}
-                  href={source.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={source.id}
-                >
-                  <span className="holding-disc" aria-hidden="true" />
-                  <span className="holding-label">{source.label}</span>
-                  <small className="holding-access">{source.access}</small>
-                  <span className="holding-duration">{source.duration || "—"}</span>
-                  <Arrow diagonal />
-                </a>
-              ))}
-            </div>
-            <p className="dialog-section-label">Filed under</p>
-            <div className="tag-list" aria-label="Subjects">
-              {selected.tags.map((tag) => (
-                <button
-                  type="button"
-                  key={tag}
-                  onClick={() => {
-                    setQuery("");
-                    setTagFilter(tag);
-                    setFilter("All");
-                    setYearFilter("All");
-                    setSort((current) => (current === "relevance" ? "newest" : current));
-                    setVisibleCount(PAGE_SIZE);
-                    setSelected(null);
-                    window.history.replaceState(null, "", "/#archive");
-                    window.setTimeout(
-                      () => archiveRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
-                      0,
-                    );
-                  }}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-            {relatedEntries.length > 0 && (
-              <div className="related-entries">
-                <p className="dialog-section-label">Elsewhere in the archive</p>
-                {relatedEntries.map(({ entry }) => (
-                  <a
-                    href={entryPath(entry)}
-                    key={entry.id}
-                    onClick={(event) => followEntryLink(event, entry)}
-                  >
-                    <span>{entry.artist}</span>
-                    <small>{entry.kind} / {entry.year ?? "Date unconfirmed"}</small>
-                    <Arrow />
-                  </a>
-                ))}
-              </div>
-            )}
-            </div>
-          </section>
-        </div>
-      )}
     </main>
   );
 }

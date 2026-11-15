@@ -8,40 +8,16 @@
   "wordmark": {
     "lineOne": "Breaking and",
     "lineTwo": "Entering",
-    "label": "Archive",
     "homeLabel": "Breaking and Entering Archive, home"
   },
   "hero": {
-    "eyebrow": "Lauren Taylor + Simon Winkler / 3RRR 102.7FM",
-    "introduction": "Breaking and Entering is a weekly program on Triple R — new music and in-depth conversations.",
+    "eyebrow": "Lauren Taylor + Simon Winkler",
+    "introduction": "Breaking and Entering is a weekly program on Triple R: new music and in-depth conversations.",
     "archiveLine": "This is an archive of some interviews, guest mixes, and live sessions broadcast on the show.",
-    "searchPlaceholder": "Search artists, years, subjects or formats"
-  },
-  "featured": {
-    "visible": true,
-    "items": [
-      {
-        "entryId": "carla-dal-forno",
-        "label": "Featured interview",
-        "linkLabel": "Listen"
-      },
-      {
-        "entryId": "src-youtube-Rvh5V9hc-0c",
-        "label": "Featured live",
-        "linkLabel": "Watch"
-      },
-      {
-        "entryId": "src-mix-01-rising-breaking-and-entering-stars-align-end-of-year-mix",
-        "label": "Featured mix",
-        "linkLabel": "Listen on Mixcloud"
-      }
-    ]
+    "searchPlaceholder": "Search"
   },
   "footer": {
     "text": "2026 / 3RRR / Brunswick East, Naarm–Melbourne",
     "backToTopLabel": "Back to top"
-  },
-  "layout": {
-    "pageSize": 40
   }
 }

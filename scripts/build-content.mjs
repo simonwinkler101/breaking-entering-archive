@@ -79,6 +79,73 @@ try {
   throw new Error("Site settings metadata.siteUrl must be a complete https origin without a path.");
 }
 
+// Display fields are derived here so the application and the permanent pages
+// agree. Most source titles repeat the artist and the program name; the public
+// site shows a name, plus a title only when it adds something.
+const showName = String.raw`breaking\s*(?:and|&)\s*entering`;
+const fold = (value = "") =>
+  value
+    .normalize("NFKD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const isGenericArtist = (artist) => fold(artist) === "breaking and entering";
+
+const cleanTitle = (entry) => {
+  const artist = escapeRegExp(entry.artist.trim());
+  let title = entry.title.trim();
+  title = title.replace(new RegExp(String.raw`^${showName}\s*[:\-–—]\s*`, "i"), "");
+  title = title.replace(new RegExp(String.raw`^${showName}\s+with\s+`, "i"), "");
+  title = title.replace(new RegExp(String.raw`\s*(?:[\-–—:]|\bon)?\s*${showName}$`, "i"), "");
+  if (new RegExp(String.raw`^${showName}$`, "i").test(title)) title = "";
+  title = title.replace(new RegExp(String.raw`^(rising:\s*)${showName}\s*[\-–—:]\s*`, "i"), "$1");
+  title = title.replace(/\s*\(interviewed at 3rrr\)$/i, "");
+  title = title.replace(new RegExp(String.raw`^${artist}\s*[\-–—:]\s*`, "i"), "");
+  title = title.replace(new RegExp(String.raw`\s+with\s+${artist}$`, "i"), "");
+  title = title.replace(
+    new RegExp(String.raw`^live at (?:rrr|3rrr|triple r)\s*:\s*${artist}(?:\s*\(live stream\))?$`, "i"),
+    "",
+  );
+  title = title.replace(
+    new RegExp(String.raw`^${artist}\s+(?:interview\s+)?on\s+(?:3rrr|triple r)(?:\s*fm)?$`, "i"),
+    "",
+  );
+  title = title.replace(new RegExp(String.raw`\s+by\s+${artist}$`, "i"), "");
+  title = title.replace(new RegExp(String.raw`^${artist}\s+(?=\()`, "i"), "");
+  title = title.replace(/\s*\(live (?:at|from)[^)]*\)$/i, "");
+  title = title.replace(/^\((.*)\)$/, "$1").trim();
+  return fold(title) === fold(entry.artist) ? "" : title;
+};
+
+const formatDuration = (value = "") => {
+  const parts = value.split(":").map(Number);
+  if (!parts.length || parts.some((part) => !Number.isFinite(part))) return "";
+  const seconds = parts.reduce((total, part) => total * 60 + part, 0);
+  if (!seconds) return "";
+  const minutes = Math.max(1, Math.round(seconds / 60));
+  if (minutes < 60) return `${minutes} min`;
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  return rest ? `${hours} hr ${rest} min` : `${hours} hr`;
+};
+
+for (const entry of entries) {
+  const title = cleanTitle(entry);
+  const useTitleAsName =
+    Boolean(title) && (isGenericArtist(entry.artist) || entry.kind === "Special program");
+  const displayName = useTitleAsName ? title : entry.artist;
+  let displayTitle = useTitleAsName ? (isGenericArtist(entry.artist) ? "" : entry.artist) : title;
+  if (displayTitle && fold(displayName).includes(fold(displayTitle))) displayTitle = "";
+  entry.display = {
+    name: displayName,
+    title: displayTitle,
+    duration: formatDuration(entry.duration),
+  };
+}
+
 entries.sort((a, b) => {
   if (!a.dateKey && !b.dateKey) return a.artist.localeCompare(b.artist);
   if (!a.dateKey) return 1;

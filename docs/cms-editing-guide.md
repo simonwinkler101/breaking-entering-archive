@@ -43,11 +43,16 @@ Summary, transcript, pull quote, display date, duration, presenters,
 subjects, alternate artist names and source labels are all ordinary text —
 edit them whenever needed.
 
+The **Artist** field is what the index shows, so keep it to the artist's
+name. Older or alternative wordings belong under **Alternate artist names**,
+where search still finds them.
+
 ## Fields not to alter casually
 
 - **ID** — never change after publishing; it is the entry's permanent
   address (`/archive/<id>/`) and changing it breaks shared links.
-- **Format** — changes which section and colour the entry belongs to.
+- **Format** — changes whether the entry appears under Interviews, Live or
+  Mixes.
 - **Sort date** — controls ordering; use `YYYY-MM-DD`.
 - **Links (Primary link, Sources)** — must remain complete `https://`
   addresses.
