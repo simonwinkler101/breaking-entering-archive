@@ -312,7 +312,7 @@ export default function App() {
             </button>
           )}
         </form>
-        <nav className="formats" aria-label="Formats">
+        <nav className="formats" aria-label="Formats" data-filtered={format ? "" : undefined}>
           {formats.map((item) => (
             <button
               type="button"
