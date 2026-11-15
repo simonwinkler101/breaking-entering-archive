@@ -112,7 +112,6 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
       <p className="detail-actions">
         <a href={entry.href} target="_blank" rel="noreferrer">
           {actionLabel(entry)}
-          <span className="outward" aria-hidden="true">↗</span>
         </a>
         {hasTranscript(entry) && (
           <a

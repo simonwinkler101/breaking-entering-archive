@@ -295,7 +295,7 @@ const sourcesBlock = (entry) => {
         ${entry.sources
           .map(
             (source) => `
-        <li><a href="${escapeHtml(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}<span class="outward" aria-hidden="true">↗</span></a>${[source.duration ? formatDuration(source.duration) : "", accessNote(source.access)].filter(Boolean).map((note) => `<span>${escapeHtml(note)}</span>`).join("")}</li>`,
+        <li><a href="${escapeHtml(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a>${[source.duration ? formatDuration(source.duration) : "", accessNote(source.access)].filter(Boolean).map((note) => `<span>${escapeHtml(note)}</span>`).join("")}</li>`,
           )
           .join("")}
       </ul>
@@ -375,14 +375,13 @@ const entryDocument = (entry) => {
   <main class="site entry-page">
     <header class="entry-top">
       <a href="/">${escapeHtml(settings.metadata.title.replace(/\s+Archive$/i, ""))}</a>
-      <span>${escapeHtml(settings.hero.eyebrow)}</span>
+      <nav class="entry-nav" aria-label="This entry"><a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}</a>${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</nav>
     </header>
     <article class="entry" data-kind="${escapeHtml(entry.kind)}">
       <h1 class="entry-name">${escapeHtml(name)}</h1>
       <div class="entry-body">
         ${displayTitle ? `<p class="entry-title">${escapeHtml(displayTitle)}</p>` : ""}
         <p class="entry-meta">${[entry.date, duration, kindWord(entry), accessNote(entry.access)].filter(Boolean).map((part) => `<span>${escapeHtml(part)}</span>`).join("")}</p>
-        <p class="entry-actions"><a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}<span class="outward" aria-hidden="true">↗</span></a>${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</p>
         ${entry.summary ? `<p class="entry-summary">${escapeHtml(entry.summary)}</p>` : ""}
         ${pullQuoteBlock(entry)}
       </div>
