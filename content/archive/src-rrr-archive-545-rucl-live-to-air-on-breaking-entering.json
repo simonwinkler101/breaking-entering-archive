@@ -1,6 +1,6 @@
 {
   "id": "src-rrr-archive-545-rucl-live-to-air-on-breaking-entering",
-  "artist": "RuCL - Live to Air",
+  "artist": "RuCL",
   "title": "RuCL - Live to Air on Breaking and Entering",
   "kind": "Live",
   "date": "14 November 2011",
@@ -11,6 +11,9 @@
   "source": "Triple R archive",
   "href": "https://www.rrr.org.au/on-demand/archives/545-rucl-live-to-air-on-breaking-entering",
   "summary": "",
+  "aliases": [
+    "RuCL - Live to Air"
+  ],
   "tags": [
     "live",
     "live performance",

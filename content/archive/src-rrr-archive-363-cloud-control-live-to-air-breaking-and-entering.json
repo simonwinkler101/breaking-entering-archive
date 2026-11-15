@@ -1,6 +1,6 @@
 {
   "id": "src-rrr-archive-363-cloud-control-live-to-air-breaking-and-entering",
-  "artist": "Cloud Control Live To Air",
+  "artist": "Cloud Control",
   "title": "Cloud Control Live To Air - Breaking and Entering",
   "kind": "Live",
   "date": "24 May 2010",
@@ -11,6 +11,9 @@
   "source": "Triple R archive",
   "href": "https://www.rrr.org.au/on-demand/archives/363-cloud-control-live-to-air-breaking-and-entering",
   "summary": "",
+  "aliases": [
+    "Cloud Control Live To Air"
+  ],
   "tags": [
     "live",
     "live performance",
