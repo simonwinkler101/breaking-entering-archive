@@ -104,9 +104,13 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
     <div className="detail" id={id}>
       {entry.display.title && <p className="detail-title">{entry.display.title}</p>}
       <p className="detail-meta">
-        {entry.date && <span>{entry.date}</span>}
-        {entry.display.duration && <span>{entry.display.duration}</span>}
-        {entry.access === "RRR subscriber" && <span>Triple R subscribers</span>}
+        {[
+          entry.year ? entry.date : "Undated",
+          entry.display.duration,
+          entry.access === "RRR subscriber" ? "Triple R subscribers" : "",
+        ]
+          .filter(Boolean)
+          .join(", ")}
       </p>
       {entry.summary && <p className="detail-summary">{entry.summary}</p>}
       <p className="detail-actions">

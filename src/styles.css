@@ -310,9 +310,6 @@ button {
 
 .detail-meta,
 .entry-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.2em;
   color: var(--quiet);
 }
 
@@ -442,18 +439,15 @@ button:active {
   text-wrap: balance;
 }
 
-.entry-body,
+/* Every part of an entry is a section with a single word in the margin,
+   as the years are in the index: the format, Quote, Transcript, Sources,
+   Elsewhere. */
 .entry-section {
   display: grid;
   grid-template-columns: var(--index) minmax(0, 1fr);
   align-items: baseline;
 }
 
-.entry-body {
-  margin-top: var(--unit);
-}
-
-.entry-body > *,
 .entry-section > * {
   grid-column: 2;
   max-width: 38em;
@@ -462,41 +456,29 @@ button:active {
 /* The entry's title stands where the homepage's statement does. */
 .entry-title {
   max-width: 25em;
+  margin: var(--unit) 0 0 var(--index);
   font-size: var(--large);
   line-height: 1.16;
   letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
-.entry-title + .entry-meta {
-  margin-top: calc(var(--unit) * 0.5);
-}
-
 .entry-summary {
-  margin-top: 0.9em;
+  margin-top: 0.6em;
   text-wrap: pretty;
 }
 
-.entry-body > .entry-quote {
-  max-width: none;
-  margin-top: calc(var(--unit) * 1.5);
-}
-
 .entry-quote blockquote {
-  max-width: 21em;
-  font-size: var(--large);
-  line-height: 1.16;
-  letter-spacing: -0.015em;
   text-wrap: pretty;
 }
 
 .entry-quote figcaption {
-  margin-top: 0.8em;
+  margin-top: 0.3em;
   color: var(--quiet);
 }
 
 .entry-section {
-  margin-top: calc(var(--unit) * 2);
+  margin-top: calc(var(--unit) * 1.5);
   scroll-margin-top: calc(var(--bar) + var(--unit) * 0.5);
 }
 
@@ -527,7 +509,6 @@ button:active {
 }
 
 .sources span {
-  margin-left: 1.2em;
   color: var(--quiet);
 }
 
@@ -541,7 +522,7 @@ button:active {
 }
 
 .related small {
-  margin-left: 0.8em;
+  margin-left: 0.4em;
   color: var(--quiet);
   font-size: var(--small);
   letter-spacing: 0;
@@ -564,7 +545,8 @@ button:active {
     display: block;
   }
 
-  .intro {
+  .intro,
+  .entry-title {
     margin-left: 0;
   }
 
@@ -581,7 +563,6 @@ button:active {
   }
 
   .row,
-  .entry-body,
   .entry-section {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -589,7 +570,6 @@ button:active {
   .row-year,
   .row-body,
   .entry-label,
-  .entry-body > *,
   .entry-section > * {
     grid-column: 1;
   }

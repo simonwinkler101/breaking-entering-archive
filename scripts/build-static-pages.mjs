@@ -268,10 +268,29 @@ const transcriptParagraph = (paragraph, index) => {
 const pullQuoteBlock = (entry) => {
   if (!entry.pullQuote?.text || !entry.pullQuote?.speaker) return "";
   return `
+    <section class="entry-section" aria-labelledby="quote-label">
+      <h2 class="entry-label" id="quote-label">Quote</h2>
       <figure class="entry-quote">
         <blockquote><p>“${escapeHtml(entry.pullQuote.text)}”</p></blockquote>
         <figcaption>${escapeHtml(entry.pullQuote.speaker)}</figcaption>
-      </figure>`;
+      </figure>
+    </section>`;
+};
+
+// The opening section is labelled with the entry's format; its facts are
+// plain text joined by commas, so they read and copy as a sentence.
+const aboutBlock = (entry, duration) => {
+  const facts = [entry.year ? entry.date : "Undated", duration, accessNote(entry.access)]
+    .filter(Boolean)
+    .join(", ");
+  return `
+    <section class="entry-section" aria-labelledby="about-label">
+      <h2 class="entry-label" id="about-label">${escapeHtml(kindWord(entry))}</h2>
+      <div class="entry-about">
+        <p class="entry-meta">${escapeHtml(facts)}</p>
+        ${entry.summary ? `<p class="entry-summary">${escapeHtml(entry.summary)}</p>` : ""}
+      </div>
+    </section>`;
 };
 
 const transcriptBlock = (entry) => {
@@ -295,7 +314,7 @@ const sourcesBlock = (entry) => {
         ${entry.sources
           .map(
             (source) => `
-        <li><a href="${escapeHtml(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a>${[source.duration ? formatDuration(source.duration) : "", accessNote(source.access)].filter(Boolean).map((note) => `<span>${escapeHtml(note)}</span>`).join("")}</li>`,
+        <li><a href="${escapeHtml(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a>${[source.duration ? formatDuration(source.duration) : "", accessNote(source.access)].filter(Boolean).map((note) => `<span>, ${escapeHtml(note)}</span>`).join("")}</li>`,
           )
           .join("")}
       </ul>
@@ -324,7 +343,7 @@ const relatedBlock = (entry) => {
         ${related
           .map(
             (relatedEntry) => `
-        <li><a href="${escapeHtml(entryPath(relatedEntry))}">${escapeHtml(display(relatedEntry).name)}</a><small>${escapeHtml(relatedEntry.year ?? "Undated")}</small></li>`,
+        <li><a href="${escapeHtml(entryPath(relatedEntry))}">${escapeHtml(display(relatedEntry).name)}</a> <small>${escapeHtml(relatedEntry.year ?? "Undated")}</small></li>`,
           )
           .join("")}
       </ul>
@@ -332,7 +351,7 @@ const relatedBlock = (entry) => {
 };
 
 const kindWord = (entry) =>
-  ({ Interview: "Interview", Live: "Live", "Guest mix": "Mix", "Special program": "Special program" })[
+  ({ Interview: "Interview", Live: "Live", "Guest mix": "Mix", "Special program": "Program" })[
     entry.kind
   ] ?? entry.kind;
 
@@ -379,12 +398,9 @@ const entryDocument = (entry) => {
     </header>
     <article class="entry" data-kind="${escapeHtml(entry.kind)}">
       <h1 class="entry-name">${escapeHtml(name)}</h1>
-      <div class="entry-body">
-        ${displayTitle ? `<p class="entry-title">${escapeHtml(displayTitle)}</p>` : ""}
-        <p class="entry-meta">${[entry.date, duration, kindWord(entry), accessNote(entry.access)].filter(Boolean).map((part) => `<span>${escapeHtml(part)}</span>`).join("")}</p>
-        ${entry.summary ? `<p class="entry-summary">${escapeHtml(entry.summary)}</p>` : ""}
-        ${pullQuoteBlock(entry)}
-      </div>
+      ${displayTitle ? `<p class="entry-title">${escapeHtml(displayTitle)}</p>` : ""}
+      ${aboutBlock(entry, duration)}
+      ${pullQuoteBlock(entry)}
       ${transcriptBlock(entry)}
       ${sourcesBlock(entry)}
       ${relatedBlock(entry)}
