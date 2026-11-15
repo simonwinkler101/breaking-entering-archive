@@ -325,19 +325,11 @@ button {
   text-wrap: pretty;
 }
 
-.detail-actions,
-.entry-actions {
+.detail-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 1.6em;
+  gap: 0 1.2em;
   margin-top: 0.9em;
-  font-weight: 500;
-}
-
-.outward {
-  display: inline-block;
-  margin-left: 0.25em;
-  font-weight: 400;
 }
 
 .empty {
@@ -377,7 +369,6 @@ button:active {
   }
 
   .detail-actions a:hover,
-  .entry-actions a:hover,
   .entry-top a:hover,
   .related a:hover,
   .sources a:hover {
@@ -398,6 +389,12 @@ button:active {
   .title span {
     display: block;
   }
+
+  .entry-name {
+    font-size: calc((100vw - 2 * var(--edge)) / 5.76);
+    font-size: calc(100cqi / 5.76);
+    line-height: 0.9;
+  }
 }
 
 /* Short landscape screens tighten the rhythm so search and the list show. */
@@ -409,11 +406,23 @@ button:active {
 
 /* Permanent entry pages (built by scripts/build-static-pages.mjs) ---------- */
 
+/* The same row as the homepage's: one small line, pinned. The site name
+   leads home; the entry's own words (Listen or Watch, Read) sit right. */
 .entry-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
-  gap: 24px;
-  padding: var(--edge) var(--edge) 0;
+  align-items: baseline;
+  gap: 1.2em;
+  padding: var(--edge) var(--edge) calc(var(--edge) * 0.5);
+  background: var(--paper);
+}
+
+.entry-nav {
+  display: flex;
+  gap: 1.2em;
 }
 
 .entry {
@@ -421,11 +430,13 @@ button:active {
   padding: 0 var(--edge);
 }
 
+/* The name is the page's title, at the homepage title's size. */
 .entry-name {
   margin: var(--unit) 0 0;
-  font-size: clamp(44px, 7.6cqi, 220px);
+  font-size: calc((100vw - 2 * var(--edge)) / 9.62);
+  font-size: calc(100cqi / 9.62);
   font-weight: 500;
-  line-height: 0.92;
+  line-height: 0.86;
   letter-spacing: -0.04em;
   overflow-wrap: anywhere;
   text-wrap: balance;
@@ -448,20 +459,21 @@ button:active {
   max-width: 38em;
 }
 
+/* The entry's title stands where the homepage's statement does. */
 .entry-title {
-  max-width: 21em;
+  max-width: 25em;
   font-size: var(--large);
   line-height: 1.16;
   letter-spacing: -0.015em;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 .entry-title + .entry-meta {
-  margin-top: 0.8em;
+  margin-top: calc(var(--unit) * 0.5);
 }
 
 .entry-summary {
-  margin-top: 1.6em;
+  margin-top: 0.9em;
   text-wrap: pretty;
 }
 
@@ -475,7 +487,6 @@ button:active {
   font-size: var(--large);
   line-height: 1.16;
   letter-spacing: -0.015em;
-  text-indent: -0.42em;
   text-wrap: pretty;
 }
 
@@ -486,6 +497,7 @@ button:active {
 
 .entry-section {
   margin-top: calc(var(--unit) * 2);
+  scroll-margin-top: calc(var(--bar) + var(--unit) * 0.5);
 }
 
 .entry-label {
@@ -616,16 +628,14 @@ button:active {
     margin-top: 0.2em;
   }
 
-  .entry-top span {
-    display: none;
-  }
-
   .entry-label {
     margin-bottom: 0.8em;
   }
 
   .entry-name {
-    font-size: clamp(40px, 13cqi, 96px);
+    font-size: calc((100vw - 2 * var(--edge)) / 5.76);
+    font-size: calc(100cqi / 5.76);
+    line-height: 0.9;
   }
 
   .empty {
@@ -637,8 +647,12 @@ button:active {
   .controls,
   .foot a,
   .detail-actions,
-  .entry-actions {
+  .entry-nav {
     display: none;
+  }
+
+  .entry-top {
+    position: static;
   }
 
   .title {
