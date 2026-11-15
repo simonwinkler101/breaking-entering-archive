@@ -12,7 +12,17 @@ const associations = JSON.parse(
 const settings = JSON.parse(fs.readFileSync(path.join(root, "data/site-settings.json"), "utf8"));
 const entries = archiveData.entries.filter((entry) => entry.kind !== "Broadcast");
 const siteUrl = settings.metadata.siteUrl.replace(/\/+$/, "");
-const baseIndex = fs.readFileSync(indexFilename, "utf8");
+const fontFile = fs
+  .readdirSync(path.join(distDirectory, "assets"))
+  .find((filename) => /^geist-latin-wght-normal.*\.woff2$/.test(filename));
+const baseIndex = fs
+  .readFileSync(indexFilename, "utf8")
+  .replace(
+    "</head>",
+    fontFile
+      ? `  <link rel="preload" href="/assets/${fontFile}" as="font" type="font/woff2" crossorigin />\n  </head>`
+      : "</head>",
+  );
 
 const escapeHtml = (value = "") =>
   String(value).replace(
@@ -40,7 +50,11 @@ const entryDescription = (entry) =>
       `${entry.kind} with ${entry.artist}${entry.date ? `, ${entry.date}` : ""}, from the Breaking and Entering Archive.`,
   );
 
-const entryTitleBase = (entry) => `${entry.artist} — ${entry.title}`;
+const display = (entry) => entry.display ?? { name: entry.artist, title: entry.title, duration: entry.duration };
+const entryTitleBase = (entry) => {
+  const { name, title } = display(entry);
+  return title ? `${name} — ${title}` : name;
+};
 const titleCounts = entries.reduce((counts, entry) => {
   const title = entryTitleBase(entry);
   counts.set(title, (counts.get(title) ?? 0) + 1);
@@ -167,49 +181,49 @@ const decorateDocument = (html, { title, description, url, schema, entry }) =>
   </head>`,
     );
 
-const wordmark = (href) => `
-  <a class="wordmark" href="${escapeHtml(href)}" aria-label="${escapeHtml(settings.wordmark.homeLabel)}">
-    <span>${escapeHtml(settings.wordmark.lineOne)}</span>
-    <span>${escapeHtml(settings.wordmark.lineTwo)}</span>
-    <small>${escapeHtml(settings.wordmark.label)}</small>
-  </a>`;
+const yearLabel = (entry) => (entry.year ? String(entry.year) : "Undated");
+const kindMark = (entry) => (entry.kind === "Live" ? "live" : entry.kind === "Guest mix" ? "mix" : "");
+const actionLabel = (entry) => (entry.href.toLowerCase().includes("youtube.com") ? "Watch" : "Listen");
+const hasTranscript = (entry) => Boolean(entry.transcript?.trim());
 
-const archiveNavigation = () => `
-  <nav aria-label="Primary navigation">
-    <a data-view="All" href="${siteUrl}/#archive">Browse</a>
-    <a data-view="Interview" href="${siteUrl}/#interviews"><span class="kind-dot" data-kind="Interview" aria-hidden="true"></span> Interviews</a>
-    <a data-view="Live" href="${siteUrl}/#live"><span class="kind-dot" data-kind="Live" aria-hidden="true"></span> Live</a>
-    <a data-view="Guest mix" href="${siteUrl}/#mixes"><span class="kind-dot" data-kind="Guest mix" aria-hidden="true"></span> Mixes</a>
-  </nav>`;
+const masthead = () => `
+  <header class="masthead" id="top">
+    <p class="credit">${escapeHtml(settings.hero.eyebrow)}</p>
+    <h1 class="title"><a href="/" aria-label="${escapeHtml(settings.wordmark.homeLabel)}"><span>${escapeHtml(settings.wordmark.lineOne)}</span> <span>${escapeHtml(settings.wordmark.lineTwo)}</span></a></h1>
+    <p class="intro">${escapeHtml(settings.hero.introduction)} ${escapeHtml(settings.hero.archiveLine)}</p>
+  </header>`;
 
+const footer = () => `
+  <footer class="foot">
+    <p>${escapeHtml(settings.footer.text)}</p>
+    <a href="#top">${escapeHtml(settings.footer.backToTopLabel)}</a>
+  </footer>`;
+
+// Shown only without JavaScript; the application renders the same structure.
 const homepageFallback = () => `
-  <main class="static-fallback" id="top">
-    <header class="site-header shell">
-      ${wordmark("/#top")}
-      ${archiveNavigation()}
-    </header>
-    <section class="static-index shell" aria-labelledby="static-index-title">
-      <p class="eyebrow">${escapeHtml(settings.hero.eyebrow)}</p>
-      <h1 id="static-index-title">${escapeHtml(settings.metadata.title)}</h1>
-      <p>${escapeHtml(settings.hero.introduction)}</p>
-      <div class="static-index-list">
+  <main class="site">
+    ${masthead()}
+    <section class="index" aria-label="Archive">
+      <ol class="rows" data-mode="browse">
         ${entries
-          .map(
-            (entry) => `
-          <a href="${escapeHtml(entryPath(entry))}">
-            <span>${escapeHtml(entry.kind)}</span>
-            <strong>${escapeHtml(entry.artist)}</strong>
-            <small>${escapeHtml(entry.title)}</small>
-            <em>${escapeHtml(entry.year ?? "Date unconfirmed")}</em>
-          </a>`,
-          )
+          .map((entry, index) => {
+            const startsGroup = index === 0 || yearLabel(entries[index - 1]) !== yearLabel(entry);
+            const marks = [kindMark(entry), hasTranscript(entry) ? "transcript" : ""].filter(Boolean);
+            return `
+        <li class="row"${startsGroup ? " data-group" : ""}>
+          ${startsGroup ? `<span class="row-year">${escapeHtml(yearLabel(entry))}</span>` : ""}
+          <div class="row-body">
+            <p class="row-line">
+              <a class="row-name" href="${escapeHtml(entryPath(entry))}">${escapeHtml(display(entry).name)}</a>
+              ${marks.length ? `<span class="row-marks">${marks.map((mark) => `<span>${mark}</span>`).join("")}</span>` : ""}
+            </p>
+          </div>
+        </li>`;
+          })
           .join("")}
-      </div>
+      </ol>
     </section>
-    <footer class="site-footer shell">
-      <p>${escapeHtml(settings.footer.text)}</p>
-      <a href="#top">${escapeHtml(settings.footer.backToTopLabel)} →</a>
-    </footer>
+    ${footer()}
   </main>`;
 
 const homepageSchema = {
@@ -244,69 +258,83 @@ const homepageSchema = {
   ],
 };
 
-const sourceRows = (entry) =>
-  entry.sources
-    .map(
-      (source, index) => `
-      <a class="holding-row" data-holding="${index === 0 ? "primary" : "alternate"}" href="${escapeHtml(source.href)}" target="_blank" rel="noopener noreferrer">
-        <span class="holding-disc" aria-hidden="true"></span>
-        <span class="holding-label">${escapeHtml(source.label)}</span>
-        <small class="holding-access">${escapeHtml(source.access)}</small>
-        <span class="holding-duration">${escapeHtml(source.duration || "—")}</span>
-        <span aria-hidden="true">→</span>
-      </a>`,
-    )
-    .join("");
-
 const transcriptParagraph = (paragraph, index) => {
   if (index === 0) return `<p class="transcript-intro">${escapeHtml(paragraph)}</p>`;
   const speakerMatch = paragraph.match(/^([A-Za-z][A-Za-z .'’-]{0,40}:)([\s\S]*)$/);
   if (!speakerMatch) return `<p>${escapeHtml(paragraph)}</p>`;
-  return `<p><strong class="transcript-speaker">${escapeHtml(speakerMatch[1])}</strong>${escapeHtml(speakerMatch[2])}</p>`;
+  return `<p><span class="transcript-speaker">${escapeHtml(speakerMatch[1])}</span>${escapeHtml(speakerMatch[2])}</p>`;
 };
 
 const pullQuoteBlock = (entry) => {
   if (!entry.pullQuote?.text || !entry.pullQuote?.speaker) return "";
   return `
-    <figure class="entry-pull-quote" data-kind="${escapeHtml(entry.kind)}">
-      <blockquote><p>${escapeHtml(entry.pullQuote.text)}</p></blockquote>
-      <figcaption>— ${escapeHtml(entry.pullQuote.speaker)}</figcaption>
-    </figure>`;
+      <figure class="entry-quote">
+        <blockquote><p>“${escapeHtml(entry.pullQuote.text)}”</p></blockquote>
+        <figcaption>${escapeHtml(entry.pullQuote.speaker)}</figcaption>
+      </figure>`;
 };
 
 const transcriptBlock = (entry) => {
-  if (!entry.transcript?.trim()) return "";
-  const paragraphs = entry.transcript
-    .trim()
-    .split(/\n{2,}/)
-    .map(transcriptParagraph)
-    .join("");
+  if (!hasTranscript(entry)) return "";
+  const paragraphs = entry.transcript.trim().split(/\n{2,}/).map(transcriptParagraph).join("");
   return `
-    <details class="static-transcript" id="transcript">
-      <summary><span class="transcript-marker" aria-hidden="true">T</span> Read transcript <span aria-hidden="true">↓</span></summary>
-      <h2 class="transcript-print-heading">Transcript</h2>
-      <div class="transcript-copy">${paragraphs}</div>
-    </details>`;
+    <section class="entry-section" id="transcript" aria-labelledby="transcript-label">
+      <h2 class="entry-label" id="transcript-label">Transcript</h2>
+      <div class="transcript">${paragraphs}</div>
+    </section>`;
+};
+
+const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscribers" : "");
+
+const sourcesBlock = (entry) => {
+  if (entry.sources.length < 2) return "";
+  return `
+    <section class="entry-section" aria-labelledby="sources-label">
+      <h2 class="entry-label" id="sources-label">Sources</h2>
+      <ul class="sources">
+        ${entry.sources
+          .map(
+            (source) => `
+        <li><a href="${escapeHtml(source.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}<span class="outward" aria-hidden="true">↗</span></a>${[source.duration ? formatDuration(source.duration) : "", accessNote(source.access)].filter(Boolean).map((note) => `<span>${escapeHtml(note)}</span>`).join("")}</li>`,
+          )
+          .join("")}
+      </ul>
+    </section>`;
+};
+
+const formatDuration = (value = "") => {
+  const parts = value.split(":").map(Number);
+  if (!parts.length || parts.some((part) => !Number.isFinite(part))) return "";
+  const seconds = parts.reduce((total, part) => total * 60 + part, 0);
+  if (!seconds) return "";
+  const minutes = Math.max(1, Math.round(seconds / 60));
+  if (minutes < 60) return `${minutes} min`;
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  return rest ? `${hours} hr ${rest} min` : `${hours} hr`;
 };
 
 const relatedBlock = (entry) => {
   const related = relatedEntriesFor(entry);
   if (!related.length) return "";
   return `
-    <section class="static-related" aria-labelledby="related-title">
-      <p class="dialog-section-label" id="related-title">Elsewhere in the archive</p>
-      ${related
-        .map(
-          (relatedEntry) => `
-        <a href="${escapeHtml(entryPath(relatedEntry))}">
-          <span>${escapeHtml(relatedEntry.artist)}</span>
-          <small>${escapeHtml(relatedEntry.kind)} / ${escapeHtml(relatedEntry.year ?? "Date unconfirmed")}</small>
-          <span aria-hidden="true">→</span>
-        </a>`,
-        )
-        .join("")}
+    <section class="entry-section" aria-labelledby="related-label">
+      <h2 class="entry-label" id="related-label">Elsewhere</h2>
+      <ul class="related">
+        ${related
+          .map(
+            (relatedEntry) => `
+        <li><a href="${escapeHtml(entryPath(relatedEntry))}">${escapeHtml(display(relatedEntry).name)}</a><small>${escapeHtml(relatedEntry.year ?? "Undated")}</small></li>`,
+          )
+          .join("")}
+      </ul>
     </section>`;
 };
+
+const kindWord = (entry) =>
+  ({ Interview: "Interview", Live: "Live", "Guest mix": "Mix", "Special program": "Special program" })[
+    entry.kind
+  ] ?? entry.kind;
 
 const entryDocument = (entry) => {
   const title = entryPageTitle(entry);
@@ -342,37 +370,27 @@ const entryDocument = (entry) => {
     mainEntity: media,
   };
 
+  const { name, title: displayTitle, duration } = display(entry);
   const content = `
-  <main class="static-entry-page" id="top">
-    <header class="site-header shell">
-      ${wordmark(`${siteUrl}/`)}
-      ${archiveNavigation()}
+  <main class="site entry-page">
+    <header class="entry-top">
+      <a href="/">${escapeHtml(settings.metadata.title.replace(/\s+Archive$/i, ""))}</a>
+      <span>${escapeHtml(settings.hero.eyebrow)}</span>
     </header>
-    <article class="static-entry shell" data-kind="${escapeHtml(entry.kind)}">
-      <a class="static-back" href="${siteUrl}/#archive">← Back to the archive</a>
-      <p class="eyebrow dialog-eyebrow">${escapeHtml(entry.kind)}${entry.date ? ` / ${escapeHtml(entry.date)}` : ""}</p>
-      <h1>${escapeHtml(entry.artist)}</h1>
-      <h2>${escapeHtml(entry.title)}</h2>
-      ${entry.summary ? `<p class="dialog-summary">${escapeHtml(entry.summary)}</p>` : ""}
-      ${pullQuoteBlock(entry)}
-      ${transcriptBlock(entry)}
-      <dl>
-        ${entry.presenters ? `<div><dt>Presented by</dt><dd>${escapeHtml(entry.presenters)}</dd></div>` : ""}
-        ${entry.duration ? `<div><dt>Duration</dt><dd>${escapeHtml(entry.duration)}</dd></div>` : ""}
-        <div><dt>Access</dt><dd><span class="audio-status" aria-hidden="true"></span>${escapeHtml(entry.access)}</dd></div>
-      </dl>
-      <p class="dialog-section-label">${entry.sources.length === 1 ? "Source" : `${entry.sources.length} sources`}</p>
-      <div class="holdings">${sourceRows(entry)}</div>
-      <p class="dialog-section-label">Filed under</p>
-      <div class="tag-list" aria-label="Subjects">
-        ${entry.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
+    <article class="entry" data-kind="${escapeHtml(entry.kind)}">
+      <h1 class="entry-name">${escapeHtml(name)}</h1>
+      <div class="entry-body">
+        ${displayTitle ? `<p class="entry-title">${escapeHtml(displayTitle)}</p>` : ""}
+        <p class="entry-meta">${[entry.date, duration, kindWord(entry), accessNote(entry.access)].filter(Boolean).map((part) => `<span>${escapeHtml(part)}</span>`).join("")}</p>
+        <p class="entry-actions"><a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}<span class="outward" aria-hidden="true">↗</span></a>${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</p>
+        ${entry.summary ? `<p class="entry-summary">${escapeHtml(entry.summary)}</p>` : ""}
+        ${pullQuoteBlock(entry)}
       </div>
+      ${transcriptBlock(entry)}
+      ${sourcesBlock(entry)}
       ${relatedBlock(entry)}
     </article>
-    <footer class="site-footer shell">
-      <p>${escapeHtml(settings.footer.text)}</p>
-      <a href="#top">${escapeHtml(settings.footer.backToTopLabel)} →</a>
-    </footer>
+    ${footer()}
   </main>`;
 
   const withoutApplication = baseIndex.replace(

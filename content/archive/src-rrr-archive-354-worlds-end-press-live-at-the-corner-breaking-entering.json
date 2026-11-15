@@ -1,6 +1,6 @@
 {
   "id": "src-rrr-archive-354-worlds-end-press-live-at-the-corner-breaking-entering",
-  "artist": "World's End Press live at the Corner",
+  "artist": "World's End Press",
   "title": "World's End Press live at the Corner - Breaking and Entering",
   "kind": "Live",
   "date": "26 April 2010",
@@ -11,6 +11,9 @@
   "source": "Triple R archive",
   "href": "https://www.rrr.org.au/on-demand/archives/354-worlds-end-press-live-at-the-corner-breaking-entering",
   "summary": "",
+  "aliases": [
+    "World's End Press live at the Corner"
+  ],
   "tags": [
     "live",
     "live performance",
