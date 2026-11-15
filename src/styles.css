@@ -1,8 +1,10 @@
 /*
   Breaking and Entering Archive
-  One typeface, one ink, one grey, on white. Three sizes: the title, which
-  fills the width; large, for names and statements; small, for everything
-  else. Space separates things, so there are no rules, boxes or borders.
+  One typeface, one ink, one grey, on white. The title fills the width;
+  names and the search line are large; reading text is a step down; labels
+  are small. Space separates things, so there are no rules, boxes or
+  borders. Every vertical gap is a multiple of --unit (one large line), and
+  everything aligns to one of two edges: the page edge or the index column.
 */
 
 :root {
@@ -11,11 +13,12 @@
   --paper: #fff;
   --font: "Geist Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --edge: clamp(16px, 2.4vw, 36px);
-  --index: clamp(72px, 12vw, 220px);
-  --small: clamp(14px, 0.2vw + 13px, 16px);
-  --large: clamp(24px, 1.75vw + 11px, 40px);
-  --reading: clamp(17px, 0.3vw + 15.5px, 20px);
+  --edge: clamp(16px, 2.4vw, 48px);
+  --index: clamp(72px, 12vw, 300px);
+  --small: clamp(14px, 0.35vw + 11px, 20px);
+  --reading: clamp(17px, 0.45vw + 13.5px, 25px);
+  --large: clamp(24px, 1.75vw + 11px, 56px);
+  --unit: calc(var(--large) * 1.16);
 
   color-scheme: light;
 }
@@ -29,6 +32,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -89,6 +93,7 @@ input {
   color: inherit;
   font: inherit;
   letter-spacing: inherit;
+  -webkit-appearance: none;
   appearance: none;
 }
 
@@ -129,7 +134,7 @@ button {
    "Breaking and Entering" at 1px in Geist 500 with this tracking, plus a
    little room. Narrow screens set it on two lines and fit "Breaking and". */
 .title {
-  margin: clamp(28px, 6vw, 96px) 0 0;
+  margin: var(--unit) 0 0;
   font-size: calc((100vw - 2 * var(--edge)) / 9.62);
   font-size: calc(100cqi / 9.62);
   font-weight: 500;
@@ -143,11 +148,10 @@ button {
 }
 
 .intro {
-  max-width: 21em;
-  margin: clamp(28px, 4vw, 64px) 0 0 var(--index);
-  font-size: var(--large);
-  line-height: 1.16;
-  letter-spacing: -0.015em;
+  max-width: 31em;
+  margin: var(--unit) 0 0 var(--index);
+  font-size: var(--reading);
+  line-height: 1.4;
   text-wrap: pretty;
 }
 
@@ -155,9 +159,10 @@ button {
 
 .controls {
   display: grid;
-  grid-template-columns: var(--index) minmax(0, 1fr) auto;
+  grid-template-columns: var(--index) minmax(0, 1fr);
   align-items: baseline;
-  padding: clamp(40px, 6vw, 96px) var(--edge) 0;
+  margin-top: var(--unit);
+  padding: calc(var(--unit) * 0.5) var(--edge) 0;
 }
 
 .search {
@@ -199,12 +204,12 @@ button {
 
 .formats {
   display: flex;
-  grid-column: 3;
+  grid-column: 2;
   gap: 1.2em;
-  margin-left: 24px;
+  margin-top: 0.3em;
 }
 
-.formats:not(:has([aria-pressed="true"])) button {
+.formats:not([data-filtered]) button {
   color: var(--ink);
 }
 
@@ -215,7 +220,7 @@ button {
 /* Index ------------------------------------------------------------------- */
 
 .index {
-  padding: clamp(24px, 3vw, 48px) var(--edge) 0;
+  padding: var(--unit) var(--edge) 0;
 }
 
 .row {
@@ -225,7 +230,7 @@ button {
 }
 
 .row[data-group]:not(:first-child) {
-  margin-top: clamp(28px, 3.2vw, 56px);
+  margin-top: var(--unit);
 }
 
 .row-year {
@@ -282,7 +287,7 @@ button {
 
 .detail {
   max-width: 38em;
-  margin: 0.5em 0 clamp(24px, 2.4vw, 40px);
+  margin: 0.5em 0 var(--unit);
 }
 
 .detail-title {
@@ -337,11 +342,17 @@ button {
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  padding: clamp(96px, 12vw, 200px) var(--edge) var(--edge);
+  padding: calc(var(--unit) * 3) var(--edge) var(--edge);
   color: var(--quiet);
 }
 
 /* Pointer states ---------------------------------------------------------- */
+
+/* Touch gets a brief grey press instead of the browser's highlight box. */
+a:active,
+button:active {
+  color: var(--quiet);
+}
 
 @media (hover: hover) and (pointer: fine) {
   .row:hover .row-hint {
@@ -365,14 +376,25 @@ button {
   }
 }
 
-/* Desktop keeps search within reach while the list scrolls. */
-@media (min-width: 721px) {
+/* Larger screens keep search within reach while the list scrolls. */
+@media (min-width: 721px) and (min-height: 600px) {
   .controls {
     position: sticky;
     top: 0;
     z-index: 2;
-    padding-bottom: 16px;
+    padding-bottom: calc(var(--unit) * 0.75);
     background: var(--paper);
+  }
+
+  .index {
+    padding-top: calc(var(--unit) * 0.25);
+  }
+}
+
+/* Short landscape screens tighten the rhythm so search and the list show. */
+@media (max-height: 520px) and (orientation: landscape) {
+  :root {
+    --unit: calc(var(--large) * 0.75);
   }
 }
 
@@ -391,8 +413,8 @@ button {
 }
 
 .entry-name {
-  margin: clamp(28px, 6vw, 96px) 0 0;
-  font-size: clamp(44px, 7.6cqi, 150px);
+  margin: var(--unit) 0 0;
+  font-size: clamp(44px, 7.6cqi, 220px);
   font-weight: 500;
   line-height: 0.92;
   letter-spacing: -0.04em;
@@ -408,7 +430,7 @@ button {
 }
 
 .entry-body {
-  margin-top: clamp(28px, 4vw, 64px);
+  margin-top: var(--unit);
 }
 
 .entry-body > *,
@@ -438,7 +460,7 @@ button {
 
 .entry-body > .entry-quote {
   max-width: none;
-  margin-top: clamp(40px, 5vw, 80px);
+  margin-top: calc(var(--unit) * 1.5);
 }
 
 .entry-quote blockquote {
@@ -456,7 +478,7 @@ button {
 }
 
 .entry-section {
-  margin-top: clamp(56px, 7vw, 112px);
+  margin-top: calc(var(--unit) * 2);
 }
 
 .entry-label {
@@ -530,16 +552,11 @@ button {
 
   .controls {
     grid-template-columns: minmax(0, 1fr);
-    row-gap: 14px;
   }
 
   .search,
   .formats {
     grid-column: 1;
-  }
-
-  .formats {
-    margin-left: 0;
   }
 
   .row,
