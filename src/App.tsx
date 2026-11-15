@@ -207,11 +207,20 @@ export default function App() {
       setOpenId(null);
       setFormat(formatFromHash(window.location.hash));
     };
+    // Returning from an entry page restores this page from the back-forward
+    // cache with its entry still open; put the entry's address back.
+    const restoreAddress = (event: PageTransitionEvent) => {
+      if (!event.persisted) return;
+      const open = archiveEntries.find((entry) => entry.id === openIdRef.current);
+      if (open) window.history.replaceState(null, "", entryPath(open));
+    };
     window.addEventListener("hashchange", syncFromLocation);
     window.addEventListener("popstate", syncFromLocation);
+    window.addEventListener("pageshow", restoreAddress);
     return () => {
       window.removeEventListener("hashchange", syncFromLocation);
       window.removeEventListener("popstate", syncFromLocation);
+      window.removeEventListener("pageshow", restoreAddress);
     };
   }, []);
 
