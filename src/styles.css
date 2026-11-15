@@ -1,10 +1,12 @@
 /*
   Breaking and Entering Archive
-  One typeface, one ink, one grey, on white. The title fills the width;
-  names and the search line are large; reading text is a step down; labels
-  are small. Space separates things, so there are no rules, boxes or
-  borders. Every vertical gap is a multiple of --unit (one large line), and
-  everything aligns to one of two edges: the page edge or the index column.
+  One typeface, one ink, one grey, on white, and three sizes: the title,
+  which fills the width; large, for names and the statement; small, for
+  everything else. The first screen is a title page; a row of four small
+  words (Search, Interviews, Live, Mixes) sits at its foot and pins to the
+  top as the list scrolls. Space separates things, so there are no rules,
+  boxes or borders. Vertical gaps are multiples of --unit (one large line),
+  and everything aligns to the page edge or the index column.
 */
 
 :root {
@@ -15,10 +17,11 @@
 
   --edge: clamp(16px, 2.4vw, 48px);
   --index: clamp(72px, 12vw, 300px);
-  --small: clamp(14px, 0.35vw + 11px, 20px);
-  --reading: clamp(17px, 0.45vw + 13.5px, 25px);
+  --small: clamp(16px, 0.35vw + 11px, 20px);
   --large: clamp(24px, 1.75vw + 11px, 56px);
   --unit: calc(var(--large) * 1.16);
+  /* Height of the search row: padding plus one small line. */
+  --bar: calc(var(--edge) * 1.5 + var(--small) * 1.45);
 
   color-scheme: light;
 }
@@ -123,7 +126,9 @@ button {
 
 .masthead {
   container-type: inline-size;
-  padding: var(--edge) var(--edge) 0;
+  min-height: calc(100vh - var(--bar) - var(--edge) * 0.5);
+  min-height: calc(100svh - var(--bar) - var(--edge) * 0.5);
+  padding: var(--edge) var(--edge) var(--unit);
 }
 
 .credit {
@@ -148,21 +153,25 @@ button {
 }
 
 .intro {
-  max-width: 31em;
+  max-width: 25em;
   margin: var(--unit) 0 0 var(--index);
-  font-size: var(--reading);
-  line-height: 1.4;
-  text-wrap: pretty;
+  font-size: var(--large);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 /* Search and formats ------------------------------------------------------ */
 
 .controls {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   display: grid;
-  grid-template-columns: var(--index) minmax(0, 1fr);
+  grid-template-columns: var(--index) minmax(0, 1fr) auto;
   align-items: baseline;
-  margin-top: var(--unit);
-  padding: calc(var(--unit) * 0.5) var(--edge) 0;
+  padding: var(--edge) var(--edge) calc(var(--edge) * 0.5);
+  background: var(--paper);
 }
 
 .search {
@@ -176,16 +185,22 @@ button {
 .search input {
   flex: 1;
   min-width: 0;
-  padding: 0.12em 0;
-  font-size: var(--large);
-  line-height: 1.16;
-  letter-spacing: -0.015em;
+  height: calc(var(--small) * 1.45);
+  padding: 0;
+  font-size: var(--small);
+  line-height: 1.45;
   caret-color: var(--ink);
+  cursor: text;
 }
 
+/* "Search" reads as a word in the row; it greys once the cursor is in. */
 .search input::placeholder {
-  color: var(--quiet);
+  color: var(--ink);
   opacity: 1;
+}
+
+.search input:focus::placeholder {
+  color: var(--quiet);
 }
 
 .search input::-webkit-search-cancel-button,
@@ -204,9 +219,9 @@ button {
 
 .formats {
   display: flex;
-  grid-column: 2;
+  grid-column: 3;
   gap: 1.2em;
-  margin-top: 0.3em;
+  margin-left: 1.2em;
 }
 
 .formats:not([data-filtered]) button {
@@ -220,6 +235,8 @@ button {
 /* Index ------------------------------------------------------------------- */
 
 .index {
+  min-height: calc(100vh - var(--bar));
+  min-height: calc(100svh - var(--bar));
   padding: var(--unit) var(--edge) 0;
 }
 
@@ -227,6 +244,7 @@ button {
   display: grid;
   grid-template-columns: var(--index) minmax(0, 1fr);
   align-items: baseline;
+  scroll-margin-top: calc(var(--bar) + var(--unit) * 0.5);
 }
 
 .row[data-group]:not(:first-child) {
@@ -290,11 +308,6 @@ button {
   margin: 0.5em 0 var(--unit);
 }
 
-.detail-title {
-  font-size: var(--reading);
-  line-height: 1.35;
-}
-
 .detail-meta,
 .entry-meta {
   display: flex;
@@ -309,8 +322,6 @@ button {
 
 .detail-summary {
   margin-top: 0.9em;
-  font-size: var(--reading);
-  line-height: 1.4;
   text-wrap: pretty;
 }
 
@@ -376,18 +387,16 @@ button:active {
   }
 }
 
-/* Larger screens keep search within reach while the list scrolls. */
-@media (min-width: 721px) and (min-height: 600px) {
-  .controls {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    padding-bottom: calc(var(--unit) * 0.75);
-    background: var(--paper);
+/* Upright tablets set the title on two lines, as phones do. */
+@media (orientation: portrait) and (min-width: 721px) and (max-width: 1100px) {
+  .title {
+    font-size: calc((100vw - 2 * var(--edge)) / 5.76);
+    font-size: calc(100cqi / 5.76);
+    line-height: 0.9;
   }
 
-  .index {
-    padding-top: calc(var(--unit) * 0.25);
+  .title span {
+    display: block;
   }
 }
 
@@ -453,8 +462,6 @@ button:active {
 
 .entry-summary {
   margin-top: 1.6em;
-  font-size: var(--reading);
-  line-height: 1.45;
   text-wrap: pretty;
 }
 
@@ -487,8 +494,7 @@ button:active {
 }
 
 .transcript {
-  font-size: var(--reading);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 .transcript p + p {
@@ -551,12 +557,15 @@ button:active {
   }
 
   .controls {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 
-  .search,
-  .formats {
+  .search {
     grid-column: 1;
+  }
+
+  .formats {
+    grid-column: 2;
   }
 
   .row,
@@ -577,8 +586,30 @@ button:active {
     margin-bottom: 0.3em;
   }
 
+  /* On narrow screens a wrapped name keeps its marks on its last line. */
   .row-line {
-    flex-wrap: wrap;
+    display: block;
+    padding-left: 0.6em;
+    text-indent: -0.6em;
+    font-size: var(--large);
+    line-height: 1.16;
+  }
+
+  .row-name {
+    padding: 0;
+    text-indent: 0;
+  }
+
+  .row-marks {
+    display: inline-flex;
+    margin-left: 0.6em;
+    font-size: var(--small);
+    letter-spacing: 0;
+    text-indent: 0;
+  }
+
+  .row:hover .row-hint {
+    display: none;
   }
 
   .row + .row:not([data-group]) {
@@ -613,5 +644,10 @@ button:active {
   .title {
     font-size: 64px;
     white-space: normal;
+  }
+
+  .masthead,
+  .index {
+    min-height: 0;
   }
 }

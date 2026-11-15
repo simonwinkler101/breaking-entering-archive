@@ -19,7 +19,9 @@ Each entry has a permanent page in the form `/archive/entry-id/`. In the index, 
 
 ## Design
 
-One typeface (Geist, self-hosted from `@fontsource-variable/geist`), black on white with one grey. The title is sized in CSS to fill the page width; names and the search line use a large size; the introduction, summaries and transcripts a reading size; labels a small size. Every vertical gap is a multiple of one spacing unit (`--unit`, one large line), and everything aligns to the page edge or the index column. There are no rules, boxes or menus. The index is one list, newest first and grouped by year; a single search line and three words (Interviews, Live, Mixes) narrow it.
+One typeface (Geist, self-hosted from `@fontsource-variable/geist`), black on white with one grey, and three sizes: the title, sized in CSS to fill the page width; a large size for names and the statement; and a small size for everything else. Vertical gaps are multiples of one spacing unit (`--unit`, one large line), and everything aligns to the page edge or the index column. There are no rules, boxes or menus.
+
+The first screen is a title page: the credit, the title and the statement. A row of four small words sits at its foot (Search, then Interviews, Live and Mixes) and pins to the top as the list scrolls. Search and the three words lead into the list: clicking either scrolls to where the list begins, and Search also puts the cursor in place. The list is newest first, grouped by year, and an address with a format (`/#live`) opens straight into it.
 
 Most source titles repeat the artist and the program name, so `scripts/build-content.mjs` derives a display name, a shorter display title and a readable duration for each entry at build time. Special programs and the program's own mixes show their title as the name. The stored titles are unchanged and still searchable.
 
