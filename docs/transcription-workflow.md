@@ -49,9 +49,9 @@ with the local recognition tools rather than as a website dependency; its
 pyannote segmentation and speaker-embedding models come from the project's
 GitHub releases, with no account or token. Before relying on a new setup, run it
 on one or two recordings whose transcripts already have established speakers and
-let a script score the agreement. Enrol a presenter's voiceprint, from about a
-minute of clean speech, only with their agreement. Voiceprints and separation
-output stay private with the audio.
+let a script score the agreement. Use content anchors only to name voices, as
+Simon instructed on 16 November 2026. Do not enrol presenter voiceprints or save
+speaker embeddings. Separation output stays private with the audio.
 Use official software/model sources and record versions, licences and checksums.
 Avoid duplicate runs. Reuse matching completed receipts; retain earlier attempts
 when retrying. Reduce or stop processing if it materially interferes with use of
@@ -232,9 +232,9 @@ nothing contradicts it:
 
 Speaker separation groups the recording's turns by voice, so one established
 turn can name a whole voice. A voice takes a name when at least one of its turns
-is established as above, or it matches an enrolled presenter voiceprint, and none
-of its turns contradicts that. Label all its turns, then spot-check two or three,
-including its shortest. Separation can split one person into two voices or merge
+is established as above and none of its turns contradicts that. Label all its
+turns, then spot-check two or three, including its shortest. Separation can split
+one person into two voices or merge
 two similar ones, so a contradiction, such as a voice answering a question put to
 someone else, sends that voice back to turn-by-turn evidence. An unanchored voice
 is not an identified person. Recognition's own speaker labels, stereo channel
@@ -243,7 +243,7 @@ when microphones occupy useful separate channels. Do not assign names merely
 because a passage looks like a question or answer, or assume that speakers
 alternate.
 
-Leave the mechanical work to the separation script: matching voiceprints, finding
+Leave the mechanical work to the separation script: grouping voices, finding
 candidate anchors (names in address or self-introduction) and writing one short
 summary per recording that gives each voice's talk time, proposed name, basis and
 a sample line. Review that summary and the spot-checks rather than rereading the
@@ -264,10 +264,10 @@ Labels use first names, as in the approved transcripts (`Lauren:`, `Simon:`,
 them. Use full names in the introduction, and add a surname or initial where two
 speakers share a first name. Preserve existing approved labels.
 
-Record privately the basis for any label that rests on role, continuity or a voice
-match rather than explicit address or self-identification. Summarise it in the
+Record privately the basis for any label that rests on role, continuity or an
+anchored voice group rather than explicit address or self-identification. Summarise it in the
 final report and name the calls most likely to be wrong, so Simon or Lauren can
-correct a label in one word. Attribution from content or voice matching is not
+correct a label in one word. Attribution from content and voice grouping is not
 listening verification; never record or describe it as such.
 
 ## 8. Review records and publication
