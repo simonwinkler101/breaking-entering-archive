@@ -102,19 +102,21 @@ working in this repository.
 - Keep access, private processing and publication permission separate. Continue
   authorised private work while an unrelated publication question remains.
 - Produce a faithful private timestamped source transcript and a separate
-  lightly edited reading draft. Cover the full supplied recording, reconcile
-  chunk boundaries and speaker labels, and flag uncertain wording or attribution.
-- Preserve spoken wording in the reading version: punctuation, paragraphs,
-  supported speaker labels and justified omissions may change. A full readability
-  pass is required before publication. Correct supported recognition errors and
-  make small grammatical repairs only where the meaning is unambiguous. Preserve
-  the speaker's voice, facts, qualifications and genuine self-corrections; do not
-  paraphrase arguments, rewrite questions or invent fluent replacements for
-  uncertain audio. Do not preserve an obvious machine error merely to retain
-  the machine's word sequence. Keep exact substantive edits privately. Apply the
-  page test and house style in `docs/transcription-workflow.md`: omit what only
-  worked on air, trim host filler and asides harder than guest answers while
-  keeping the question asked, and give each turn its own paragraph.
+  reading draft. Cover the full supplied recording, reconcile chunk boundaries
+  and speaker labels, and flag uncertain wording or attribution privately.
+- The reading version is a written transcript, lightly or even moderately
+  edited for clarity and interest. Much that sounds good in the room or on air
+  is less compelling written: use expert editorial judgement of what to keep
+  and what to politely exclude, keeping as much of the conversation, its
+  natural flow and its back-and-forth as possible. Remove filler phrases, false
+  starts and recognition errors. Tighten the hosts' questions and reflections
+  much harder than the guest's answers, keeping what was asked; keep the
+  guest's voice near-fully. Preserve facts, qualifications and genuine
+  self-corrections, and never invent content or a fluent replacement for
+  unclear audio: cut around it instead. A full readability pass is required
+  before publication. Keep exact substantive edits privately. Apply the page
+  test and house style in `docs/transcription-workflow.md`, and give each turn
+  its own paragraph.
 - Identify speakers wherever the recording's own content establishes them:
   in-dialogue address, self-identification, the entry's line-up (`presenters`
   and guest) where a turn's role is plain from its content, and continuity
@@ -122,9 +124,11 @@ working in this repository.
   established turn's name to that whole voice unless one of its turns
   contradicts it (workflow section 7). Use content anchors only; do not enrol
   presenter voiceprints or save speaker embeddings. Unanchored voices, other
-  machine labels and alternation are hints, never proof. Label turns with first
-  names; new publication uses no `Host:` or `Guest:` labels. Record the basis
-  privately and report the inferred calls.
+  machine labels and alternation are hints, never proof on their own. Where
+  nothing settles a turn, combine them with content, the line-up and research
+  into a best guess. Label every turn with a first name, never `Host:` or
+  `Guest:`. Record the basis privately and report every guess, so Simon or
+  Lauren can correct it in a word.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
   separate approval of each version. Public pages simply say “Transcript”;
@@ -140,16 +144,19 @@ working in this repository.
   of checked wording offered in the final report. Record a complete
   transcript-versus-recording check privately only when it actually occurred.
 - Do not automatically transcribe mixes, performances, broadcasts or song
-  lyrics. Use `[Music]` only when the classification is established; otherwise
-  retain a timed unclear-audio marker.
+  lyrics. In the private source, use `[Music]` only when the classification is
+  established; otherwise retain a timed unclear-audio marker. The public
+  transcript simply omits song interludes under the page test.
 - Give every unclear-audio marker one targeted second pass before publication
   (a window with context on both sides, relaxed silence filtering or a larger
   model), keeping recovered words only where they fit the surrounding speech,
   and record it privately; a re-run is not a listen. Every marker carries its
-  time. Hold publication only for an unidentified gap of a minute or more, or
-  text that stops before the conversation does: confirm music as `[Music]` or
-  transcribe it first. Other markers publish and stay on the private listening
-  list (`npm run transcripts:gaps`) until someone listens.
+  time in the private draft. Hold publication only for an unidentified gap of a
+  minute or more, or text that stops before the conversation does: identify the
+  music or transcribe the speech first. Public transcripts carry no uncertainty
+  annotations: edit around what stays unclear, and keep each marker on the
+  private listening list (`npm run transcripts:gaps -- --from <drafts>`) until
+  someone listens.
 - Do not edit archive entry JSON during inventory or raw transcription stages.
 - Publishing a transcript is a one-command, in-place step. The entry
   in `content/archive/<id>.json` already holds the metadata, so publishing only

@@ -21,10 +21,11 @@
 //                      when --quote or --quote-index is explicitly supplied.
 //   --speaker "<name>" Pull-quote speaker. Defaults to the entry's artist.
 //   --no-quote         Do not add a pull quote at all.
-//   --gaps-checked     Publish despite an unclear-audio gap of a minute or
-//                      more, once someone has listened and it stays
-//                      unintelligible (docs/transcription-workflow.md §4).
 //   --dry-run          Show what would change; write nothing.
+//
+// It refuses bracketed annotations ([Unclear audio …], [Music], …) and
+// Host:/Guest: labels: the public copy edits around what stays unclear and
+// names every turn (docs/transcription-workflow.md sections 4, 6 and 7).
 //
 // It deliberately REFUSES to run when content/archive/<slug>.json does not
 // already exist, so it can never overwrite metadata or drop a source. To
@@ -37,7 +38,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { publicTranscriptMarkdown, unclearAudioProblems, LONG_GAP_SECONDS } from "./transcript-status.mjs";
+import { publicTranscriptMarkdown, findAnnotations } from "./transcript-status.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const mediaRoot =
@@ -57,7 +58,6 @@ for (let i = 0; i < argv.length; i += 1) {
   const a = argv[i];
   if (a === "--dry-run") opts.dryRun = true;
   else if (a === "--no-quote") opts.noQuote = true;
-  else if (a === "--gaps-checked") opts.gapsChecked = true;
   else if (a === "--md") opts.md = argv[++i];
   else if (a === "--quote") opts.quote = argv[++i];
   else if (a === "--quote-index") opts.quoteIndex = Number(argv[++i]);
@@ -132,32 +132,24 @@ try { transcript = toTranscript(markdown); }
 catch (error) { fail(error.message); }
 if (!transcript) fail("The transcript file has no readable text after cleanup.");
 
-// --- unclear audio: every marker timed; long gaps identified first ---
-const gaps = unclearAudioProblems(transcript);
-if (gaps.untimed.length) {
+// --- public copy: no uncertainty or music annotations (workflow sections 4, 6) ---
+const annotations = findAnnotations(transcript);
+if (annotations.length) {
   fail(
-    `${gaps.untimed.length} [Unclear audio] marker(s) have no time.\n` +
-      `  Give each its time from the timestamped source, e.g. [Unclear audio at 00:12:34–00:12:41].`,
-  );
-}
-if (gaps.long.length && !opts.gapsChecked) {
-  fail(
-    `Unclear-audio gap(s) of ${LONG_GAP_SECONDS} seconds or more:\n` +
-      gaps.long.map((gap) => `    ${gap.text}  (${Math.round(gap.length)} s)`).join("\n") +
-      `\n  Identify each first: mark music as [Music] once established, or transcribe the speech.\n` +
-      `  If someone has listened and it stays unintelligible, rerun with --gaps-checked.`,
+    `${annotations.length} bracketed annotation(s) in the public copy, e.g. ${annotations[0].text}.\n` +
+      `  Edit around each (cut the fragment or end the sentence) and keep the marker in the\n` +
+      `  private draft; check its listening list first: npm run transcripts:gaps -- --from <draft>.`,
   );
 }
 
 const entry = JSON.parse(fs.readFileSync(entryPath, "utf8"));
 
-// --- speakers: no new Host:/Guest: placeholders (workflow section 7) ---
-const roleLabels = (text) => (String(text || "").match(/^(?:Host|Guest):/gm) || []).length;
-const addedRoles = roleLabels(transcript) - roleLabels(entry.transcript);
-if (addedRoles > 0) {
+// --- speakers: no Host:/Guest: placeholders (workflow section 7) ---
+const roles = (transcript.match(/^(?:Host|Guest):/gm) || []).length;
+if (roles) {
   fail(
-    `${addedRoles} new Host:/Guest: label(s). New transcripts name every voice:\n` +
-      `  use the recording or speaker separation, or credit an unnamed band member to the band and ask Simon or Lauren.`,
+    `${roles} Host:/Guest: label(s). Name every turn: from the recording where it settles it,\n` +
+      `  otherwise the best-supported guess, listed in the report (workflow section 7).`,
   );
 }
 
