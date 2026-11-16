@@ -72,7 +72,12 @@ no further jobs.
 Each job signature includes entry ID, verified source SHA-256, model SHA-256,
 engine version and fixed recognition settings. Completion receipts and their
 output hashes are rechecked before work is skipped. The existing compatible
-Jazmine Mary pilot receipt is recognised. Changed sources/models/settings
+Jazmine Mary pilot receipt is recognised. A different date window uses its own
+state file, but also discovers completed receipts in the matching entry and
+job-signature attempt directory, newest first. It checks every candidate's
+source/model/settings and output hashes; incomplete attempts do not hide an
+earlier valid completion. It does not scan unrelated entries or signatures.
+Changed sources/models/settings
 produce a separate job. An incomplete or failed run is retained; a retry uses
 a new attempt directory and never overwrites earlier files.
 
@@ -114,4 +119,6 @@ node --test scripts/transcribe-interviews.test.mjs
 The checks cover scope, oldest-first ordering, incomplete receipts, checksum
 failures, a failed job followed by success, retained attempts, matching pilot
 reuse, model/settings differences, output integrity, faithful draft wording
-and a dry run that leaves no state or output files.
+and a dry run that leaves no state or output files. A cross-window check proves
+that widening the dates reuses completed recent interviews even when the new
+window has no state file, and that partial or corrupted attempts are rejected.

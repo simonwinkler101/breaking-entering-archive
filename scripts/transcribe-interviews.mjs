@@ -173,6 +173,16 @@ async function validReceipt(filename, item, runtime) {
   return filename;
 }
 
+async function matchingAttemptReceipts(mediaRoot, item) {
+  const directory = path.join(mediaRoot, "transcripts/raw", item.entry.id, `local-${item.fingerprint.slice(0, 16)}`);
+  let attempts;
+  try { attempts = await fs.readdir(directory, { withFileTypes: true }); }
+  catch (error) { if (error.code === "ENOENT") return []; throw error; }
+  return attempts.filter((entry) => entry.isDirectory() && /^attempt-\d{4}$/.test(entry.name))
+    .sort((a, b) => b.name.localeCompare(a.name))
+    .map((entry) => path.join(directory, entry.name, "run-metadata.json"));
+}
+
 export async function createPlan(options) {
   const version = await command(options.engine, ["--version"]);
   const engineVersion = `${version.stdout}\n${version.stderr}`.match(/(?:version[:\s]*)?(\d+\.\d+\.\d+)/i)?.[1];
@@ -202,8 +212,8 @@ export async function createPlan(options) {
       const fingerprint = digest(JSON.stringify({ entryId: entry.id, sourceHash, modelHash, engineVersion, settings: SETTINGS }));
       item = { entry, source, sourcePath, sourceHash, fingerprint, status: "queued" };
       const saved = state.jobs[fingerprint];
-      const receiptPaths = [saved?.receiptPath,
-        path.join(options.mediaRoot, "transcripts/raw", entry.id, "run-metadata.json")].filter(Boolean);
+      const receiptPaths = [...new Set([...(await matchingAttemptReceipts(options.mediaRoot, item)), saved?.receiptPath,
+        path.join(options.mediaRoot, "transcripts/raw", entry.id, "run-metadata.json")].filter(Boolean))];
       for (const receiptPath of receiptPaths) {
         const valid = await validReceipt(receiptPath, item, runtime);
         if (valid) { item.status = "completed-private-draft"; item.receiptPath = valid; break; }

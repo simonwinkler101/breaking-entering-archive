@@ -116,6 +116,33 @@ test("completed pilot is reused only for matching model/settings and intact outp
   assert.equal((await createPlan(f.options)).counts.queued, 1);
 });
 
+test("a wider date window discovers valid completed attempts without its earlier state", async (t) => {
+  const f = await fixture(t, [{ id: "recent", dateKey: "2026-01-01" }, { id: "older", dateKey: "2024-01-01" }]);
+  const narrow = await runQueue(f.options);
+  assert.equal(narrow.completed, 1);
+  const job = Object.values(narrow.state.jobs)[0];
+  const wider = parseArgs(["--repo", f.repo, "--media-root", f.media, "--model", f.model,
+    "--engine", f.options.engine, "--ffmpeg", f.options.ffmpeg, "--since", "2023-01-01"]);
+  assert.notEqual(wider.state, f.options.state);
+  await assert.rejects(fs.stat(wider.state));
+  let plan = await createPlan(wider);
+  assert.equal(plan.counts["completed-private-draft"], 1);
+  assert.equal(plan.counts.queued, 1);
+  assert.equal(plan.items.find((item) => item.entry.id === "recent").receiptPath, job.receiptPath);
+  // A newer incomplete attempt must not hide the earlier complete result.
+  const attempt2 = path.join(path.dirname(path.dirname(job.receiptPath)), "attempt-0002");
+  await fs.mkdir(attempt2);
+  await fs.writeFile(path.join(attempt2, "partial.log"), "interrupted attempt");
+  assert.equal((await createPlan(wider)).counts["completed-private-draft"], 1);
+  // A later completed receipt wins, but must pass all existing hash checks.
+  const receipt2 = path.join(attempt2, "run-metadata.json");
+  await fs.copyFile(job.receiptPath, receipt2);
+  plan = await createPlan(wider);
+  assert.equal(plan.items.find((item) => item.entry.id === "recent").receiptPath, receipt2);
+  await fs.writeFile(job.draftPath, "altered output");
+  assert.equal((await createPlan(wider)).counts["completed-private-draft"] || 0, 0);
+});
+
 test("music/repetition candidates are flagged without deleting or substituting raw words", () => {
   const texts = ["Thanks for having me.", "Thanks for having me.", "Thanks for having me.", "Unusual grammar stays exactly."];
   const raw = { transcription: texts.map((text, index) => ({ text, offsets: { from: index * 1000, to: index * 1000 + 1000 }, tokens: [{ text, p: 0.9 }] })) };
