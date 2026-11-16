@@ -119,11 +119,12 @@ working in this repository.
   in-dialogue address, self-identification, the entry's line-up (`presenters`
   and guest) where a turn's role is plain from its content, and continuity
   across segment boundaries. Local speaker separation then extends an
-  established turn's name, or an enrolled presenter voiceprint, to that whole
-  voice unless one of its turns contradicts it (workflow section 7).
-  Unanchored voices, other machine labels and alternation are hints, never
-  proof. Label turns with first names; new publication uses no `Host:` or
-  `Guest:` labels. Record the basis privately and report the inferred calls.
+  established turn's name to that whole voice unless one of its turns
+  contradicts it (workflow section 7). Use content anchors only; do not enrol
+  presenter voiceprints or save speaker embeddings. Unanchored voices, other
+  machine labels and alternation are hints, never proof. Label turns with first
+  names; new publication uses no `Host:` or `Guest:` labels. Record the basis
+  privately and report the inferred calls.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
   separate approval of each version. Public pages simply say “Transcript”;
