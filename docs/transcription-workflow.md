@@ -43,6 +43,12 @@ Use the existing local Node/FFmpeg/Whisper workflow. Run one recognition job at 
 time, normally with two CPU threads and lower process priority. The older queue
 uses `--order newest --threads 2`. Thread limits do not disable GPU use.
 
+The optional `--max-context N` limits the past-text context tokens retained by
+whisper.cpp; zero is allowed. Omit it to preserve the engine default and existing
+default receipts. Explicit limits are recorded as separate processing settings.
+A context limit is not proof of accuracy; all source, gap and readability checks
+still apply.
+
 Keep additional voice analysis local, small and sequential with recognition.
 Speaker separation uses sherpa-onnx (`sherpa-onnx-node`, Apache-2.0), installed
 with the local recognition tools rather than as a website dependency; its

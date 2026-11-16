@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs/promises";
 import path from "node:path";
 import os from "node:os";
+import { createHash } from "node:crypto";
 import { createPlan, eligibleEntries, parseArgs, renderDraft, runQueue, sha256 } from "./transcribe-interviews.mjs";
 
 async function fixture(t, records) {
@@ -40,6 +41,7 @@ if(value('--file').includes(path.sep+'fail'+path.sep)&&!fs.existsSync(path.join(
 const segment=(from,to,text)=>({offsets:{from,to},text,tokens:[{text,p:0.95}]});
 const raw={transcription:[segment(0,1000,' Exact original wording.'),segment(1000,2000,' And an unfinished thought...')]};
 const out=value('--output-file');
+fs.writeFileSync(out+'.args.json',JSON.stringify(args),{flag:'wx'});
 for(const ext of ['json','txt','srt','vtt'])fs.writeFileSync(out+'.'+ext,ext==='json'?JSON.stringify(raw):'raw engine output',{flag:'wx'});
 process.stderr.write('whisper_print_progress_callback: progress = 100%\\n');
 `, { mode: 0o755 });
@@ -67,6 +69,18 @@ test("order and thread arguments retain defaults and reject invalid values", () 
   assert.equal(parseArgs([...base, "--order", "newest", "--threads", "2"]).threads, 2);
   for (const value of ["0", "-1", "2.5", "NaN"]) assert.throws(() => parseArgs([...base, "--threads", value]), /positive integer/);
   assert.throws(() => parseArgs([...base, "--order", "random"]), /oldest or newest/);
+});
+
+test("max-context is optional, accepts zero, and rejects absent or non-integer values", () => {
+  const base = ["--media-root", "/tmp/private-test-media"];
+  assert.equal(Object.hasOwn(parseArgs(base), "maxContext"), false);
+  assert.equal(parseArgs([...base, "--max-context", "0"]).maxContext, 0);
+  assert.equal(parseArgs([...base, "--max-context", "64"]).maxContext, 64);
+  assert.throws(() => parseArgs([...base, "--max-context"]), /needs a value/);
+  assert.throws(() => parseArgs([...base, "--max-context", "--dry-run"]), /needs a value/);
+  for (const value of ["-1", "2.5", "NaN", "Infinity", " ", "2e2", "9007199254740992"]) {
+    assert.throws(() => parseArgs([...base, "--max-context", value]), /non-negative integer/);
+  }
 });
 
 test("dry run verifies receipts, rejects partial/checksum failures and writes nothing", async (t) => {
@@ -149,12 +163,85 @@ test("newest-first limits scheduling while threads reach the engine, signature a
   assert.equal(completed.status, "complete");
   const receipt = JSON.parse(await fs.readFile(completed.receiptPath, "utf8"));
   assert.equal(receipt.command[receipt.command.indexOf("--threads") + 1], "2");
+  assert.equal(receipt.command.includes("--max-context"), false);
+  assert.equal(Object.hasOwn(receipt.settings, "maxContext"), false);
   assert.equal(receipt.settings.threads, 2);
   assert.equal(run.state.runtime.settings.threads, 2);
   assert.equal(run.state.scope.order, "newest");
   assert.deepEqual(run.state.planSnapshot.publishedTranscriptEntryIds, []);
   assert.equal((await createPlan({ ...options, order: "oldest" })).counts["completed-private-draft"], 1);
   assert.equal((await createPlan({ ...options, threads: 4 })).counts.queued, 2);
+});
+
+test("zero context reaches the engine and matching runs resume without changing legacy default identity", async (t) => {
+  const f = await fixture(t, [{ id: "context" }]);
+  const legacy = await createPlan(f.options), item = legacy.items[0];
+  // Independently preserve the pre-option settings and serialized identity shape.
+  const oldSettings = { language: "en", threads: 4, processors: 1, beamSize: 5, bestOf: 5,
+    noFallback: true, diarization: false, vad: false, prompt: null };
+  const oldFingerprint = createHash("sha256").update(JSON.stringify({ entryId: item.entry.id,
+    sourceHash: item.sourceHash, modelHash: legacy.runtime.modelHash,
+    engineVersion: legacy.runtime.engineVersion, settings: oldSettings })).digest("hex");
+  assert.deepEqual(legacy.runtime.settings, oldSettings);
+  assert.equal(item.fingerprint, oldFingerprint);
+  const options = { ...f.options, maxContext: 0 };
+  const explicit = await createPlan(options);
+  assert.notEqual(explicit.items[0].fingerprint, oldFingerprint);
+  const run = await runQueue(options);
+  assert.equal(run.completed, 1);
+  const job = Object.values(run.state.jobs).find((job) => job.status === "complete");
+  const receipt = JSON.parse(await fs.readFile(job.receiptPath, "utf8"));
+  const actualArgs = JSON.parse(await fs.readFile(path.join(path.dirname(job.receiptPath), "whisper.args.json"), "utf8"));
+  assert.equal(actualArgs[actualArgs.indexOf("--max-context") + 1], "0");
+  assert.equal(receipt.settings.maxContext, 0);
+  assert.equal(run.state.runtime.settings.maxContext, 0);
+  assert.equal(receipt.runFingerprint, explicit.items[0].fingerprint);
+  assert.equal((await createPlan(options)).counts["completed-private-draft"], 1);
+  assert.equal((await runQueue(options)).completed, 0);
+  assert.equal((await createPlan(f.options)).counts.queued, 1);
+  assert.equal((await createPlan({ ...options, maxContext: 64 })).counts.queued, 1);
+  // Even a saved receipt carrying the requested fingerprint cannot override a
+  // conflicting actual command/settings pair.
+  const state = JSON.parse(await fs.readFile(f.options.state, "utf8"));
+  state.jobs[oldFingerprint] = { receiptPath: job.receiptPath };
+  await fs.writeFile(f.options.state, JSON.stringify(state));
+  await fs.writeFile(job.receiptPath, JSON.stringify({ ...receipt, runFingerprint: oldFingerprint }));
+  assert.equal((await createPlan(f.options)).counts.queued, 1);
+});
+
+test("legacy pilots remain valid only for matching omitted or explicit context", async (t) => {
+  const f = await fixture(t, [{ id: "pilot-context" }]);
+  const first = await createPlan(f.options), item = first.items[0];
+  const folder = path.join(f.media, "transcripts/raw/pilot-context");
+  await fs.mkdir(folder, { recursive: true });
+  const output = path.join(folder, "existing.txt");
+  await fs.writeFile(output, "legacy default draft");
+  const metadata = { entryId: item.entry.id, status: "succeeded", sourceSha256: item.sourceHash,
+    engine: "whisper.cpp", engineVersion: "1.9.5", modelSha256: first.runtime.modelHash,
+    language: "en", speakerDiarization: false,
+    command: [f.options.engine, "--model", f.model, "--file", "source.wav", "--language", "en", "--no-fallback", "--output-json-full"],
+    outputs: [{ path: output, sha256: await sha256(output) }] };
+  const filename = path.join(folder, "run-metadata.json");
+  await fs.writeFile(filename, JSON.stringify(metadata));
+  assert.equal((await createPlan(f.options)).counts["completed-private-draft"], 1);
+  assert.equal((await createPlan({ ...f.options, maxContext: 0 })).counts.queued, 1);
+  const zero = { ...metadata, command: [...metadata.command, "--max-context", "0"] };
+  await fs.writeFile(filename, JSON.stringify(zero));
+  assert.equal((await createPlan({ ...f.options, maxContext: 0 })).counts["completed-private-draft"], 1);
+  assert.equal((await createPlan(f.options)).counts.queued, 1);
+  assert.equal((await createPlan({ ...f.options, maxContext: 64 })).counts.queued, 1);
+  await fs.writeFile(filename, JSON.stringify({ ...metadata, settings: { maxContext: 64 },
+    command: [...metadata.command, "--max-context", "64"] }));
+  assert.equal((await createPlan({ ...f.options, maxContext: 64 })).counts["completed-private-draft"], 1);
+  assert.equal((await createPlan({ ...f.options, maxContext: 0 })).counts.queued, 1);
+  assert.equal((await createPlan(f.options)).counts.queued, 1);
+  // Inconsistent metadata cannot masquerade as either the default or zero.
+  await fs.writeFile(filename, JSON.stringify({ ...metadata, settings: { maxContext: 0 } }));
+  assert.equal((await createPlan(f.options)).counts.queued, 1);
+  assert.equal((await createPlan({ ...f.options, maxContext: 0 })).counts.queued, 1);
+  // Old default receipts with an existing fingerprint remain reusable too.
+  await fs.writeFile(filename, JSON.stringify({ ...metadata, runFingerprint: item.fingerprint }));
+  assert.equal((await createPlan(f.options)).counts["completed-private-draft"], 1);
 });
 
 test("a wider date window discovers valid completed attempts without its earlier state", async (t) => {
