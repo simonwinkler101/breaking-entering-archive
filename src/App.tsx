@@ -94,6 +94,17 @@ const yearLabel = (entry: ArchiveEntry) => (entry.year ? String(entry.year) : "U
 const pageUrl = (format: Format | null) =>
   `/${formats.find((item) => item.kind === format)?.hash ?? ""}`;
 
+function SubscriberArchiveCredit() {
+  return (
+    <p className="audio-credit">
+      From Triple R’s subscriber audio archive.{" "}
+      <a href="https://www.rrr.org.au/on-demand/archives" target="_blank" rel="noreferrer">
+        Explore the full archive
+      </a>.
+    </p>
+  );
+}
+
 function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
   const leaveForPermanentPage = (event: ReactMouseEvent<HTMLAnchorElement>) => {
     // While an entry is open the address already shows its permanent page, so
@@ -110,7 +121,6 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
         {[
           entry.year ? entry.date : "Undated",
           entry.display.duration,
-          !entry.audio && entry.access === "RRR subscriber" ? "Triple R subscribers" : "",
         ]
           .filter(Boolean)
           .join(", ")}
@@ -124,7 +134,8 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
           <a href={entry.audio.url}>Open audio</a>
         </audio>,
       )}
-      {entry.audio && (
+      {entry.access === "RRR subscriber" && <SubscriberArchiveCredit />}
+      {entry.audio && entry.access !== "RRR subscriber" && (
         <p className="audio-credit">
           {isTripleRSource(entry.href) ? "Broadcast on " : "Source: "}
           <a href={entry.href} target="_blank" rel="noreferrer">
