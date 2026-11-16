@@ -25,5 +25,9 @@
       "duration": "18:20",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/channel-tres-breaking-and-entering-8bcfc8debc51.mp3",
+    "type": "audio/mpeg"
+  }
 }
