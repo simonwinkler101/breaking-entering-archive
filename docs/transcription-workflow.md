@@ -1,143 +1,153 @@
-# Interview transcription workflow
+# Interview transcription instructions
 
-This is the current workflow for acquiring, transcribing, reviewing and
-publishing interviews. It supersedes conflicting older transcription
-instructions. Existing approved transcripts remain approved.
+These are the current instructions for acquiring, transcribing, editing and
+publishing Breaking and Entering interviews. They supersede conflicting older
+protocols. Existing approved transcripts retain their established status.
 
-## Acquire and preserve
+## 1. Scope and order
 
-Use a supplied recording first. When Simon authorises subscriber access,
-downloads through his ordinary signed-in browser session are also valid
-sources. Check that the selected recording actually plays; an account menu
-alone does not establish audio access. Do not bypass access controls or ask
-for passwords in chat. Prefer a station-supplied original when it offers
-better quality.
+Work backwards from the newest interview without a transcript. Use each entry's
+full source list when choosing a recording. Check undated recordings and possible
+duplicates before assigning dates or treating them as different interviews.
 
-Keep originals and processing artifacts outside Git under `BNE_MEDIA_ROOT`
-or explicit CLI paths. Preserve source bytes. Record the entry ID, source
-page, acquisition date and method, file size, duration and SHA-256 checksum.
-Never record credentials, cookies or signed access tokens in Git, public
-content or provenance metadata. Preserve stable source-page URLs instead.
+Do not automatically process broadcasts, performances, DJ mixes or song lyrics
+as interviews. Mixcloud and SoundCloud downloads and reuploads remain deferred.
+Published text does not need another recognition run merely for an editorial edit.
 
-Access, private processing and publication permission are separate facts.
-An authorised download can be processed privately while publication
-permission is unresolved. Public audio hosting and publication of a full
-transcript require applicable permission; subscriber access does not supply
-that permission by itself. Record an applicable permission once and reuse
-it within its scope.
+## 2. Access and preservation
 
-## Produce the private source transcript
+Use supplied originals first. Simon has authorised ordinary downloads through
+his signed-in Triple R session. Confirm actual playback or a working download;
+an account menu alone does not establish audio access. Do not bypass access
+controls, expiry restrictions or sign-in requirements, or extract credentials.
 
-Keep the raw engine output and a faithful timestamped working transcript.
-Record the source checksum, engine/model/version, processing settings and
-completed or failed intervals. Use local processing or an already-authorised
-service. Do not upload recordings to a new service without resolving that
-disclosure first.
+If a source is unavailable, record the entry, stable page URL, date and observed
+problem privately. Continue with accessible interviews and return to the gap.
+Use a verified alternative where available. Record which version was acquired;
+subscriber-archive and public-segment editions can have different durations.
 
-Process the supplied recording from beginning to end. Account for its full
-duration as speech, music, silence or unclear audio. State whether the
-recording is a complete interview or an excerpt. Never describe partially
-processed audio as a full transcript.
+Keep source audio outside Git under configurable `BNE_MEDIA_ROOT`. Copy from
+Downloads; never move, modify or delete its files. Preserve original bytes and
+record entry ID, source page, acquisition date/method, size, duration and SHA-256.
+Conversions are separate working derivatives. Never include credentials, cookies
+or temporary signed URLs in public content or preservation records.
 
-Prefer one full-recording run when supported reliably. If chunks are needed,
-retain original-relative offsets and a short overlap. Check every boundary
-for omitted words, repeated overlap and changes of speaker. Resume failed
-intervals without discarding successful output.
+Access, private processing and republication permission are separate facts.
+Simon has confirmed Triple R permission for this project's audio and transcripts;
+reuse it within its scope. Do not upload audio to a new processing service without
+resolving that disclosure first.
 
-Preserve meaning, meaningful hesitations and self-corrections. Mark music
-as `[Music]`; do not transcribe lyrics. Do not automatically process mixes,
-performances or full broadcasts as interviews. Automatic speech recognition
-can invent words over music or silence: inspect those intervals rather than
-treating every generated sentence as speech.
+## 3. Processing and system load
 
-Use provisional speaker labels until the audio or explicit evidence supports
-an identity. Reconcile labels across chunks; they can reset at each boundary.
-An engine without speaker separation must not be presented as if it supplied
-reliable speaker attribution.
+Use the existing local Node/FFmpeg/Whisper workflow. Run one recognition job at a
+time, normally with two CPU threads and lower process priority. The older queue
+uses `--order newest --threads 2`. Thread limits do not disable GPU use.
 
-Flag doubtful words, names and speakers at their source timestamps, for
-example `[unclear 00:04:12]`, `[name uncertain]` or `[speaker uncertain]`.
-Do not silently turn an unclear passage into a fluent invented sentence.
-Engine confidence values help prioritise review; they are not proof.
+Keep additional voice analysis local, small and sequential with recognition.
+Use official software/model sources and record versions, licences and checksums.
+Avoid duplicate runs. Reuse matching completed receipts; retain earlier attempts
+when retrying. Reduce or stop processing if it materially interferes with use of
+the Mac or the user requests it.
 
-## Prepare the reading draft
+## 4. Faithful timestamped source
 
-Create a separate lightly edited version for readers. Preserve the guest's
-spoken wording, meaning, characteristic phrasing and the exchange between
-speakers. Improve readability through punctuation, paragraph breaks and
-supported speaker labels. Do not paraphrase, substitute words, repair grammar,
-reorder a speaker's argument or rewrite an interviewer's question.
+Retain raw recognition output and a separate timestamped source transcript, with
+source/model hashes, software version, settings, outputs and completed intervals.
+Process the complete supplied recording. Distinguish complete engine coverage
+from accurate wording, and a complete supplied file from a complete interview.
 
-Remove accidental duplicated words, abandoned repeated starts, routine station
-announcements and logistics when they add nothing to the written interview.
-Keep hesitations, qualifications, self-corrections and unusual phrasing when
-they affect meaning or convey the speaker's voice. Do not remove a qualification
-to make a claim sound more certain. Do not join separate passages so they appear
-to be one continuous answer. Record substantive omissions in the private review
-notes; mark a public omission where the reader needs it to understand a break.
-Do not add facts or silently reconstruct unclear passages.
+If processing needs chunks, retain original-relative timestamps and overlap;
+check boundaries for omissions and repeated text. Account for uncertain intervals.
+Music and silence can produce fluent invented words. Do not transcribe lyrics or
+silently accept repeated machine text. Use `[Music]` only when that classification
+is established; otherwise use a timed unclear-audio marker. Confidence scores and
+repetition flags are review aids, not proof.
 
-Check doubtful, identifying or consequential proper nouns against primary
-sources: artists, recordings, labels, venues and dates. Verify an unknown
-guest's identity before naming them. Familiar, unambiguous names do not need
-repeated research. Keep a timestamped list of substantive corrections,
-unresolved questions and inferred attributions for audio review.
+## 5. Names and factual checks
 
-Use Australian spelling, clear paragraphs and consistent speaker names.
-The reading version can omit timestamps; retain them in the private source
-transcript. Keep an introduction identifying the interview and include
-“Edited for length and clarity” when applicable. Select pull quotes from
-the reviewed wording without rewriting them.
+Check doubtful names, recordings, labels, venues, events and dates against primary
+sources: artist/label pages, official credits, venues, festivals and Triple R.
+Correct an unambiguous spelling or title and record the exact change, timestamp,
+source and reason privately. Familiar unambiguous names do not need repeated work.
 
-Keep private review questions, raw engine output, actual review status and
-provenance details outside the public transcript. Public pages simply say
-“Transcript”, without automatic/draft labels or process disclaimers. Use specific
-unclear-wording markers where they are needed rather than inventing a sentence.
+A search can verify a name's spelling or an event's details. It cannot prove the
+exact sentence spoken. Do not replace uncertain speech with a biography, press
+release, another interview or a plausible sentence found online.
 
-## Review and publish
+## 6. Mandatory readability edit
 
-Simon confirmed on 16 November 2026 that the standing rule is to publish prepared
-transcript drafts and correct them afterwards, without waiting for a separate
-approval of each version. Existing publication permission remains applicable;
-do not ask for it again within its scope. This instruction supersedes the older
-requirement for Simon or Lauren to approve every version before publication.
+Read the entire proposed public transcript before publication. This is required
+for every new transcript and subsequent substantive correction. Keep a separate
+reading copy; never overwrite the raw or timestamped source to make it agree.
 
-Publish each prepared public reading copy as a transcript. Simon has explicitly
-asked that public pages not identify automatic or draft status. Keep review state
-and correction receipts private; do not add a public status field or disclaimer.
-Correct names and titles from primary sources when the match is unambiguous;
-record the correction privately. Mark unresolved wording, attribution and
-suspected machine artifacts where necessary instead of inventing fluent
-replacements. Do not publish private review headers, local paths or raw processing
-metadata. New publication uses no pull quote unless one is explicitly selected
-from checked wording. Keep the recording, timestamped source, uncertainty list
-and exact public version available for corrections.
+Improve punctuation, sentence boundaries, paragraphing and clearly continuous
+fragments. Correct supported recognition errors. Small grammatical repairs are
+allowed only when the meaning is unambiguous. Do not preserve an obvious machine
+error merely to retain its word sequence. Equally, do not make uncertain audio
+sound fluent by guessing.
 
-Complete listening review remains the condition for recording that a transcript
-has been checked against audio. Compare the complete text with the complete supplied recording,
-including speaker changes, omissions and passages where recognition supplied
-fluent but incorrect words. Record what was actually checked and corrected;
-never infer listening review from a filename, a generated draft, a completed
-recognition job or a text-only verification pass. Record that full comparison
-privately when it occurs. Existing approved transcripts remain approved.
+Join fragments within a continuous turn. Keep paragraph breaks around apparent
+questions and responses even when the speakers cannot yet be named. Do not merge
+an entire exchange into one paragraph or imply that one person spoke it all.
 
-Use `npm run fill:transcript -- <slug> --md <public-copy>` to fill an existing
-entry in place. The default is no pull quote; supply `--quote` or `--quote-index`
-only when explicitly selecting one. The filler extracts an explicitly named
-transcript section from a private reading draft or refuses private metadata;
-inspect its dry run before writing. Preserve entry metadata and source links.
-The permanent entry page provides the reading view and transcript search. Follow
-the protected branch, build and release workflow in `AGENTS.md`, and publish
-corrections through the same routine process without another approval pause.
+Preserve the speaker's meaning, voice, facts, qualifications, meaningful
+hesitations and self-corrections. Do not paraphrase an argument, rewrite a question,
+change a date or claim, remove uncertainty, or join separate passages as one answer.
+Keep unusual phrasing when it belongs to the speaker.
 
-## Reusable processing
+Routine station idents, music back-announcements and irrelevant logistics may be
+omitted. An awkward radio opening may be replaced by a short factual editorial
+introduction identifying the interview, topic and broadcast date. That introduction
+is editorial prose, not invented dialogue. Preserve substantive biography, credits,
+background and interview context; replacing a broken opening is not permission to
+shorten that material. Record substantive omissions and edits privately; show an
+omission or timed unclear marker where readers need it.
 
-Keep any project pipeline in the existing Node/TypeScript environment. It
-may invoke a locally installed transcription executable. Configure paths
-and engine settings per run; never hard-code personal paths or credentials.
-Use the source checksum, engine/model and settings to recognise completed
-runs. Preserve reviewed versions and originals when rerunning an engine.
+Use Australian spelling and consistent verified names. Keep uncertain words and
+intervals explicit. Web verification or grammatical plausibility must not be
+recorded as listening verification.
 
-Continue routine processing within existing authorisation. Ask only when
-an unresolved dependency changes the access, disclosure, cost or publication
-decision, and name the specific missing dependency.
+## 7. Speakers
+
+Divide speech into paragraphs where supported. Use named labels such as
+`Lauren Taylor:` only when the identity and turn are established. Preserve existing
+approved labels. Do not assign names merely because a passage looks like a
+question or answer, or assume that speakers alternate between two people.
+
+Stereo channel energy helps only when microphones occupy useful separate channels.
+Voice embeddings can suggest recurring voice groups; they do not name people or
+prove exact turn boundaries. Keep candidate groups private until supported by
+verified references and suitable checks. An anonymous group is not an identified
+person. Leave names unassigned when evidence is insufficient.
+
+## 8. Review records and publication
+
+Keep the recording, timestamped source, reading copy, uncertainty list, name
+references and exact correction/omission records together privately. Record what
+was actually read, checked, changed and listened to. A full listening review means
+checking the complete text against the complete recording; never infer it from a
+completed recognition job, a text edit or an approval to publish.
+
+Simon's standing instruction is to publish prepared transcripts and correct them
+afterwards, without a separate approval request for each version. A complete
+listening review is not a publication gate. The mandatory readability pass still
+applies. Where meaning remains unclear, publish the gap rather than invented words.
+
+Public pages simply say “Transcript”. Do not add automatic/draft labels, public
+review-status fields, process disclaimers, private review headers or local paths.
+Keep actual review state private. Do not claim a check that did not occur. New
+publication uses no pull quote unless one is explicitly selected from checked text.
+
+## 9. Release and later corrections
+
+Fill the existing entry in place with
+`npm run fill:transcript -- <slug> --md <public-copy>`. Preserve metadata, sources
+and audio. Use safe public-only input extraction; do not strip warnings blindly
+to bypass a refusal. The reading view stays on the permanent entry page, with
+“Read” available within the entry rather than a transcript badge in the index.
+
+Use the protected branch/PR process in `AGENTS.md`. Inspect the exact diff, run
+the required build and relevant checks, verify the permanent page and a transcript
+search match, require CI to pass, then publish and check production. Keep Triple R
+acknowledgement and source links. Publish completed items and later corrections
+without waiting for the whole archive or another routine approval.

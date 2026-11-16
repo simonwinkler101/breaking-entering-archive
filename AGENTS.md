@@ -99,8 +99,13 @@ working in this repository.
   lightly edited reading draft. Cover the full supplied recording, reconcile
   chunk boundaries and speaker labels, and flag uncertain wording or attribution.
 - Preserve spoken wording in the reading version: punctuation, paragraphs,
-  supported speaker labels and justified omissions may change; paraphrasing,
-  word substitution, grammar repair and rewritten questions are not permitted.
+  supported speaker labels and justified omissions may change. A full readability
+  pass is required before publication. Correct supported recognition errors and
+  make small grammatical repairs only where the meaning is unambiguous. Preserve
+  the speaker's voice, facts, qualifications and genuine self-corrections; do not
+  paraphrase arguments, rewrite questions or invent fluent replacements for
+  uncertain audio. Do not preserve an obvious machine error merely to retain
+  the machine's word sequence. Keep exact substantive edits privately.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
   separate approval of each version. Public pages simply say “Transcript”;
@@ -115,7 +120,8 @@ working in this repository.
   checked wording. Record a complete transcript-versus-recording check privately
   only when it actually occurred.
 - Do not automatically transcribe mixes, performances, broadcasts or song
-  lyrics; represent musical passages as `[Music]` unless separately cleared.
+  lyrics. Use `[Music]` only when the classification is established; otherwise
+  retain a timed unclear-audio marker.
 - Do not edit archive entry JSON during inventory or raw transcription stages.
 - Publishing a transcript is a one-command, in-place step. The entry
   in `content/archive/<id>.json` already holds the metadata, so publishing only
