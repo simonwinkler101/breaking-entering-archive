@@ -27,5 +27,9 @@
       "duration": "26:17",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/karenmarks-20230323-3f45a0b52bdd.mp3",
+    "type": "audio/mpeg"
+  }
 }

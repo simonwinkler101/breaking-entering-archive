@@ -27,5 +27,9 @@
       "duration": "24:44",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/feverray-20240509-7a36dbd1b5af.mp3",
+    "type": "audio/mpeg"
+  }
 }

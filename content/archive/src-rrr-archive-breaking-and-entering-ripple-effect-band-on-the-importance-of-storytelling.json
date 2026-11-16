@@ -30,5 +30,9 @@
       "duration": "23:41",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/rippleeffectband-20250501-9c98a9b7b922.mp3",
+    "type": "audio/mpeg"
+  }
 }

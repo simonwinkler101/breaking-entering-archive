@@ -29,5 +29,9 @@
       "duration": "29:06",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/breakin-and-entering-chapter-music-2025-05-22-16-00-00-rrr-128k-mp3-f695a9f64303.mp3",
+    "type": "audio/mpeg"
+  }
 }

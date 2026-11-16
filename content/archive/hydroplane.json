@@ -37,5 +37,9 @@
       "duration": "21:16",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/hydroplane-20251106-7fb2b2c826b1.mp3",
+    "type": "audio/mpeg"
+  }
 }

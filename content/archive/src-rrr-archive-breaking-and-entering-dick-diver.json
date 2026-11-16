@@ -26,5 +26,9 @@
       "duration": "20:00",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/dickdiver-20250522-282d81564654.mp3",
+    "type": "audio/mpeg"
+  }
 }
