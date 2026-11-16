@@ -89,24 +89,45 @@ transcript. Keep an introduction identifying the interview and include
 “Edited for length and clarity” when applicable. Select pull quotes from
 the reviewed wording without rewriting them.
 
-Label unapproved outputs as drafts. Keep review questions, raw engine output
-and provenance details outside the public transcript.
+Label unreviewed reading copies as drafts. Keep private review questions, raw
+engine output and provenance details outside the public transcript. An automatic
+draft notice explains that the public reading copy is still being corrected.
 
 ## Review and publish
 
-Supply the reading draft, source recording, uncertainty list and coverage
-status together. Check the complete transcript against the complete supplied
-audio before publication, including speaker changes, omissions and passages
-where the engine supplied fluent but incorrect words. Simon or Lauren
-approves the version to publish. Record both the review receipt and applicable
-publication permission. Never infer approval from a filename, a generated
-draft or a completed transcription job.
+Simon confirmed on 16 November 2026 that the standing rule is to publish prepared
+transcript drafts and correct them afterwards, without waiting for a separate
+approval of each version. Existing publication permission remains applicable;
+do not ask for it again within its scope. This instruction supersedes the older
+requirement for Simon or Lauren to approve every version before publication.
 
-Only approved text enters `content/archive/<id>.json`. Use the existing
-`npm run fill:transcript -- <slug>` command to fill an existing entry in place;
-preserve its metadata and source links. The permanent entry page already
-provides the reading view and transcript search. Follow the protected
-branch, build and release workflow in `AGENTS.md`.
+Publish each prepared public reading copy with `transcriptStatus: "draft"`.
+The page and archive mark must clearly identify it as an automatic draft whose
+wording, names and speaker attribution have not yet been fully checked against
+the recording. Correct names and titles from primary sources when the match is
+unambiguous; record the correction privately. Flag unresolved wording, attribution
+and suspected machine artifacts instead of inventing fluent replacements.
+Do not publish private review headers, local paths or raw processing metadata.
+Do not select pull quotes from a draft. Keep the recording, timestamped source,
+uncertainty list and exact public version available for corrections.
+
+Complete listening review remains the condition for describing a transcript as
+reviewed. Compare the complete text with the complete supplied recording,
+including speaker changes, omissions and passages where recognition supplied
+fluent but incorrect words. Record what was actually checked and corrected;
+never infer listening review from a filename, a generated draft, a completed
+recognition job or a text-only verification pass. Set `transcriptStatus` to
+`reviewed` after that full comparison. Existing approved transcripts keep their
+established reviewed presentation when the status field is absent.
+
+Use `npm run fill:transcript -- <slug> --status draft --md <public-copy>` to fill
+an existing entry in place. The default status is draft; use `--status reviewed`
+only for a fully checked version. The filler extracts an explicitly named
+transcript section from a private reading draft or refuses private metadata;
+inspect its dry run before writing. Preserve entry metadata and source links.
+The permanent entry page provides the reading view and transcript search. Follow
+the protected branch, build and release workflow in `AGENTS.md`, and publish
+corrections through the same routine process without another approval pause.
 
 ## Reusable processing
 

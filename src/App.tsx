@@ -38,6 +38,7 @@ type ArchiveEntry = {
   href: string;
   summary: string;
   transcript?: string;
+  transcriptStatus?: "draft" | "reviewed";
   audio?: { url: string; type: string };
   pullQuote?: { text: string; speaker: string };
   aliases?: string[];
@@ -412,7 +413,7 @@ export default function App() {
               const marks = [
                 searching && entry.year ? String(entry.year) : "",
                 format ? "" : kindMark(entry),
-                hasTranscript(entry) ? "transcript" : "",
+                hasTranscript(entry) ? (entry.transcriptStatus === "draft" ? "draft transcript" : "transcript") : "",
               ].filter(Boolean);
               return (
                 <li
