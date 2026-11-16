@@ -26,5 +26,9 @@
       "duration": "42:42",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/billcallahan-20200917-db5ab5ae18da.mp3",
+    "type": "audio/mpeg"
+  }
 }

@@ -37,5 +37,9 @@
       "duration": "26:34",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/kinggizzard-20251023-7f465c4ad815.mp3",
+    "type": "audio/mpeg"
+  }
 }
