@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// fill-transcript.mjs — add an approved transcript (and a pull quote) to an
+// fill-transcript.mjs — add a prepared public transcript to an
 // EXISTING archive entry, without touching any of its other fields.
 //
 // This is the "Stage 2" publish step: the website record already holds the
@@ -13,11 +13,12 @@
 //   npm run fill:transcript -- <slug> [options]
 //
 // Options:
-//   --md <path>        Approved transcript markdown. Defaults to
+//   --md <path>        Public-only transcript markdown. Defaults to
 //                      <BNE_MEDIA_ROOT>/transcripts/ready-to-publish/<slug>.md
 //   --quote "<text>"   Pull-quote text. Overrides the options in the markdown.
 //   --quote-index <n>  Pick the n-th (1-based) quote from the markdown's
-//                      "## Pull quote options" list. Defaults to 1.
+//                      "## Pull quote options" list. Quotes are used only
+//                      when --quote or --quote-index is explicitly supplied.
 //   --speaker "<name>" Pull-quote speaker. Defaults to the entry's artist.
 //   --no-quote         Do not add a pull quote at all.
 //   --dry-run          Show what would change; write nothing.
@@ -33,6 +34,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { publicTranscriptMarkdown } from "./transcript-status.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const mediaRoot =
@@ -46,7 +48,7 @@ const fail = (message) => {
 
 // --- parse args ---
 const argv = process.argv.slice(2);
-const opts = { quoteIndex: 1 };
+const opts = {};
 let slug;
 for (let i = 0; i < argv.length; i += 1) {
   const a = argv[i];
@@ -81,14 +83,14 @@ const mdPath = opts.md
   : path.join(mediaRoot, "transcripts", "ready-to-publish", `${slug}.md`);
 if (!fs.existsSync(mdPath)) {
   fail(
-    `Can't find the approved transcript:\n    ${mdPath}\n` +
+    `Can't find the transcript:\n    ${mdPath}\n` +
       `  Save it there, or pass --md <path>.`,
   );
 }
 
-// --- turn approved markdown into the plain-text transcript the site stores ---
+// --- turn public markdown into the plain-text transcript the site stores ---
 const toTranscript = (markdown) => {
-  let text = markdown.replace(/<!--[\s\S]*?-->/g, ""); // drop the draft/provenance comment
+  let text = publicTranscriptMarkdown(markdown).replace(/<!--[\s\S]*?-->/g, "");
   const pq = text.search(/^\s*#{1,6}\s*Pull quote options/im);
   if (pq !== -1) text = text.slice(0, pq); // drop the pull-quote-options section
   const lines = text
@@ -121,14 +123,16 @@ const readQuoteOptions = (markdown) => {
 };
 
 const markdown = fs.readFileSync(mdPath, "utf8");
-const transcript = toTranscript(markdown);
+let transcript;
+try { transcript = toTranscript(markdown); }
+catch (error) { fail(error.message); }
 if (!transcript) fail("The transcript file has no readable text after cleanup.");
 
 const entry = JSON.parse(fs.readFileSync(entryPath, "utf8"));
 
 // --- decide the pull quote ---
 let pullQuote;
-if (!opts.noQuote) {
+if (!opts.noQuote && (opts.quote || opts.quoteIndex !== undefined)) {
   let text = opts.quote;
   if (!text) {
     const options = readQuoteOptions(markdown);
@@ -154,7 +158,7 @@ if (!opts.noQuote) {
 const rebuilt = {};
 let placed = false;
 for (const [k, v] of Object.entries(entry)) {
-  if (k === "transcript" || k === "pullQuote") continue; // replace, don't duplicate
+  if (k === "transcript" || k === "transcriptStatus" || k === "pullQuote") continue;
   rebuilt[k] = v;
   if (k === "summary") {
     rebuilt.transcript = transcript;
