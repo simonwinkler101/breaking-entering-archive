@@ -35,6 +35,21 @@ const escapeHtml = (value = "") =>
   );
 
 const escapeXml = escapeHtml;
+const projectGroups = () => about.groups.map((group) => `
+      <section class="projects-group">
+        <h3>${escapeHtml(group.heading)}</h3>
+        <ul class="project-links">${group.links.map((link) => `
+          <li><a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a></li>`).join("")}
+        </ul>
+      </section>`).join("");
+const projectsDialog = () => `
+  <dialog class="projects-dialog" id="projects-dialog" aria-labelledby="projects-title">
+    <div class="projects-heading">
+      <h2 id="projects-title">${escapeHtml(about.title)}</h2>
+      <button type="button" data-projects-close autofocus>Close</button>
+    </div>
+    ${projectGroups()}
+  </dialog>`;
 const jsonLd = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
 const entryPath = (entry) => `/archive/${encodeURIComponent(entry.id)}/`;
 const entryUrl = (entry) => `${siteUrl}${entryPath(entry)}`;
@@ -180,7 +195,8 @@ const decorateDocument = (html, { title, description, url, schema, entry }) =>
       `${headTags({ title, description, url, entry })}
     <script type="application/ld+json">${jsonLd(schema)}</script>
   </head>`,
-    );
+    )
+    .replace("</body>", `${projectsDialog()}\n  </body>`);
 
 const yearLabel = (entry) => (entry.year ? String(entry.year) : "Undated");
 const kindMark = (entry) => (entry.kind === "Live" ? "live" : entry.kind === "Guest mix" ? "mix" : "");
@@ -190,7 +206,7 @@ const hasTranscript = (entry) => Boolean(entry.transcript?.trim());
 
 const masthead = () => `
   <header class="masthead" id="top">
-    <p class="credit"><a href="/about/">${escapeHtml(settings.hero.eyebrow)}</a></p>
+    <p class="credit"><a href="/about/" data-projects-trigger aria-haspopup="dialog" aria-controls="projects-dialog">${escapeHtml(settings.hero.eyebrow)}</a></p>
     <h1 class="title"><a href="/" aria-label="${escapeHtml(settings.wordmark.homeLabel)}"><span>${escapeHtml(settings.wordmark.lineOne)}</span> <span>${escapeHtml(settings.wordmark.lineTwo)}</span></a></h1>
     <p class="intro">${escapeHtml(settings.hero.introduction)} ${escapeHtml(settings.hero.archiveLine)}</p>
   </header>`;
@@ -198,6 +214,7 @@ const masthead = () => `
 const footer = () => `
   <footer class="foot">
     <p>${escapeHtml(settings.footer.text)}</p>
+    <a href="/about/" data-projects-trigger aria-haspopup="dialog" aria-controls="projects-dialog">${escapeHtml(about.title)}</a>
     <a href="#top">${escapeHtml(settings.footer.backToTopLabel)}</a>
   </footer>`;
 
