@@ -1,0 +1,32 @@
+{
+  "id": "saul-williams-2026",
+  "artist": "Saul Williams",
+  "title": "Leap Life",
+  "kind": "Interview",
+  "date": "3 September 2026",
+  "dateKey": "2026-09-03",
+  "year": 2026,
+  "duration": "31:45",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-saul-williams-on-leap-life",
+  "summary": "Saul Williams discusses Leap Life, collaboration with Carlos Niño, political histories and using the human voice as a primary instrument. He reflects on the ideas and collaborative work behind his first solo album in more than a decade.",
+  "tags": [
+    "interview",
+    "poetry",
+    "hip-hop",
+    "politics",
+    "collaboration"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-saul-williams-on-leap-life",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-saul-williams-on-leap-life",
+      "access": "Public",
+      "duration": "31:45",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

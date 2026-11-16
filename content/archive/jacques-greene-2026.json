@@ -1,0 +1,32 @@
+{
+  "id": "jacques-greene-2026",
+  "artist": "Jacques Greene",
+  "title": "jg + Guest Mix",
+  "kind": "Guest mix",
+  "date": "27 August 2026",
+  "dateKey": "2026-08-27",
+  "year": 2026,
+  "duration": "54:48",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/jacques-greene-on-new-album-jg-exclusive-guest-mix",
+  "summary": "Jacques Greene discusses his album jg, creative community, collaboration and making music for the club. The Canadian producer then takes over the studio decks for a guest mix following his conversation with Lauren.",
+  "tags": [
+    "guest mix",
+    "interview",
+    "electronic",
+    "dj culture",
+    "collaboration"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-jacques-greene-on-new-album-jg-exclusive-guest-mix",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/jacques-greene-on-new-album-jg-exclusive-guest-mix",
+      "access": "Public",
+      "duration": "54:48",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

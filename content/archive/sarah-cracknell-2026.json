@@ -1,0 +1,35 @@
+{
+  "id": "sarah-cracknell-2026",
+  "artist": "Sarah Cracknell",
+  "title": "Saint Etienne's Farewell",
+  "kind": "Interview",
+  "date": "13 August 2026",
+  "dateKey": "2026-08-13",
+  "year": 2026,
+  "duration": "30:47",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-sarah-cracknell-on-saint-etiennes-farewell",
+  "summary": "Sarah Cracknell reflects on Saint Etienne's history, their final album International and returning to Melbourne for a farewell performance. She also discusses the band's surprise at learning how their music helped Winona Ryder during a difficult film shoot.",
+  "tags": [
+    "interview",
+    "pop",
+    "electronic",
+    "saint etienne",
+    "uk music"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-sarah-cracknell-on-saint-etiennes-farewell",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-sarah-cracknell-on-saint-etiennes-farewell",
+      "access": "Public",
+      "duration": "30:47",
+      "status": "Confirmed RRR segment page"
+    }
+  ],
+  "aliases": [
+    "Saint Etienne"
+  ]
+}

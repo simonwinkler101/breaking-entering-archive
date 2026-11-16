@@ -1,0 +1,32 @@
+{
+  "id": "tamra-davis-2026",
+  "artist": "Tamra Davis",
+  "title": "The Best Summer",
+  "kind": "Interview",
+  "date": "30 July 2026",
+  "dateKey": "2026-07-30",
+  "year": 2026,
+  "duration": "30:04",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-tamra-davis-on-the-best-summer",
+  "summary": "Tamra Davis discusses The Best Summer, the documentary she assembled from rediscovered footage of the Summersault festival. She reflects on filming musicians away from the stage and revisiting the backstage friendships captured on her camcorder.",
+  "tags": [
+    "interview",
+    "film",
+    "documentary",
+    "music festivals",
+    "miff"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-tamra-davis-on-the-best-summer",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-tamra-davis-on-the-best-summer",
+      "access": "Public",
+      "duration": "30:04",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

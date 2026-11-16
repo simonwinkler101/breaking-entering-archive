@@ -1,0 +1,36 @@
+{
+  "id": "paul-gorrie-2026",
+  "artist": "Paul Gorrie / DJ PGZ",
+  "title": "Moments of Beauty + Guest Mix",
+  "kind": "Guest mix",
+  "date": "12 November 2026",
+  "dateKey": "2026-11-12",
+  "year": 2026,
+  "duration": "53:12",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-moments-of-beauty-with-paul-gorrie-guest-mix",
+  "summary": "Paul Gorrie discusses Ecstatic Mob, festival curation, supporting Massive Attack and moments of connection on the dancefloor. He then takes over the decks as DJ PGZ for a guest mix of current favourites and techno selections.",
+  "tags": [
+    "guest mix",
+    "interview",
+    "dj culture",
+    "first nations",
+    "electronic"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-moments-of-beauty-with-paul-gorrie-guest-mix",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-moments-of-beauty-with-paul-gorrie-guest-mix",
+      "access": "Public",
+      "duration": "53:12",
+      "status": "Confirmed RRR segment page"
+    }
+  ],
+  "aliases": [
+    "DJ PGZ",
+    "Paul Gorrie"
+  ]
+}

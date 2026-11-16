@@ -359,6 +359,23 @@ button:active {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  /* Native image cursors stay immediate, without a script or animation.
+     Keep the normal text cursor for searching and reading transcripts. */
+  @media (forced-colors: none) {
+    body {
+      cursor: url("/cursors/dot.svg") 8 8, auto;
+    }
+
+    a,
+    button {
+      cursor: url("/cursors/dot-link.svg") 10 10, pointer;
+    }
+
+    .transcript {
+      cursor: text;
+    }
+  }
+
   .row:hover .row-hint {
     display: block;
   }

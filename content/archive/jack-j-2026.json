@@ -1,0 +1,32 @@
+{
+  "id": "jack-j-2026",
+  "artist": "Jack J",
+  "title": "Returns + Guest Mix",
+  "kind": "Guest mix",
+  "date": "5 November 2026",
+  "dateKey": "2026-11-05",
+  "year": 2026,
+  "duration": "53:22",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jack-j-returns-guest-mix",
+  "summary": "Jack J joins Lauren during an Australian visit for a conversation and a guest mix featuring demos from his forthcoming album. The Mood Hut co-founder and Pender Street Steppers member returns for a run of local shows.",
+  "tags": [
+    "guest mix",
+    "interview",
+    "dj culture",
+    "mood hut",
+    "electronic"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-jack-j-returns-guest-mix",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-jack-j-returns-guest-mix",
+      "access": "Public",
+      "duration": "53:22",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}
