@@ -1,4 +1,5 @@
 import {
+  createElement,
   FormEvent,
   MouseEvent as ReactMouseEvent,
   useEffect,
@@ -37,6 +38,7 @@ type ArchiveEntry = {
   href: string;
   summary: string;
   transcript?: string;
+  audio?: { url: string; type: string };
   pullQuote?: { text: string; speaker: string };
   aliases?: string[];
   tags: string[];
@@ -84,6 +86,7 @@ const isUnmodifiedLeftClick = (event: ReactMouseEvent<HTMLAnchorElement>) =>
 const hasTranscript = (entry: ArchiveEntry) => Boolean(entry.transcript?.trim());
 const actionLabel = (entry: ArchiveEntry) =>
   entry.href.toLowerCase().includes("youtube.com") ? "Watch" : "Listen";
+const isTripleRSource = (href: string) => /^https?:\/\/(?:www\.)?rrr\.org\.au(?:\/|$)/i.test(href);
 const kindMark = (entry: ArchiveEntry) =>
   entry.kind === "Live" ? "live" : entry.kind === "Guest mix" ? "mix" : "";
 const yearLabel = (entry: ArchiveEntry) => (entry.year ? String(entry.year) : "Undated");
@@ -107,16 +110,34 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
         {[
           entry.year ? entry.date : "Undated",
           entry.display.duration,
-          entry.access === "RRR subscriber" ? "Triple R subscribers" : "",
+          !entry.audio && entry.access === "RRR subscriber" ? "Triple R subscribers" : "",
         ]
           .filter(Boolean)
           .join(", ")}
       </p>
       {entry.summary && <p className="detail-summary">{entry.summary}</p>}
+      {entry.audio && createElement(
+        "archive-audio",
+        { class: "audio-player", id: "listen", "data-title": entry.display.name, "data-duration": entry.duration, key: entry.audio.url },
+        <audio controls preload="none" aria-label={`Audio recording: ${entry.display.name}`}>
+          <source src={entry.audio.url} type={entry.audio.type} />
+          <a href={entry.audio.url}>Open audio</a>
+        </audio>,
+      )}
+      {entry.audio && (
+        <p className="audio-credit">
+          {isTripleRSource(entry.href) ? "Broadcast on " : "Source: "}
+          <a href={entry.href} target="_blank" rel="noreferrer">
+            {isTripleRSource(entry.href) ? "Triple R" : entry.source}
+          </a>
+        </p>
+      )}
       <p className="detail-actions">
-        <a href={entry.href} target="_blank" rel="noreferrer">
-          {actionLabel(entry)}
-        </a>
+        {entry.audio ? (
+          <a href="#listen">Listen</a>
+        ) : (
+          <a href={entry.href} target="_blank" rel="noreferrer">{actionLabel(entry)}</a>
+        )}
         {hasTranscript(entry) && (
           <a
             href={`${entryPath(entry)}#transcript`}

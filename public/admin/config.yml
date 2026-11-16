@@ -49,6 +49,18 @@ collections:
       - { label: Duration, name: duration, widget: string, required: false }
       - { label: Presented by, name: presenters, widget: string, required: false }
       - { label: Summary, name: summary, widget: text, required: false }
+      - label: Hosted audio
+        name: audio
+        widget: object
+        required: false
+        collapsed: true
+        hint: "Optional. Add only a cleared, published audio file at a permanent HTTPS address. Keep recordings outside this repository. Do not paste signed or expiring links."
+        fields:
+          - { label: Audio file URL, name: url, widget: string, pattern: ["^https://[^?#]+$", "Use a permanent HTTPS file address without query or fragment."] }
+          - label: Audio type
+            name: type
+            widget: select
+            options: [audio/mpeg, audio/mp4, audio/ogg, audio/wav, audio/webm]
       - label: Alternate artist names
         name: aliases
         widget: list
