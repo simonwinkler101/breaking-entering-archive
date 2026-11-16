@@ -281,7 +281,7 @@ const pullQuoteBlock = (entry) => {
 // The opening section is labelled with the entry's format; its facts are
 // plain text joined by commas, so they read and copy as a sentence.
 const aboutBlock = (entry, duration) => {
-  const facts = [entry.year ? entry.date : "Undated", duration, entry.audio ? "" : accessNote(entry.access)]
+  const facts = [entry.year ? entry.date : "Undated", duration]
     .filter(Boolean)
     .join(", ");
   return `
@@ -290,6 +290,7 @@ const aboutBlock = (entry, duration) => {
       <div class="entry-about">
         <p class="entry-meta">${escapeHtml(facts)}</p>
         ${entry.summary ? `<p class="entry-summary">${escapeHtml(entry.summary)}</p>` : ""}
+        ${!entry.audio ? subscriberArchiveCredit(entry) : ""}
       </div>
     </section>`;
 };
@@ -315,11 +316,15 @@ const audioBlock = (entry) => {
           <a href="${escapeHtml(entry.audio.url)}">Open audio</a>
         </audio>
       </archive-audio>
-      <p class="audio-credit">${isTripleRSource(entry.href) ? "Broadcast on " : "Source: "}<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(isTripleRSource(entry.href) ? "Triple R" : entry.source)}</a></p>
+      ${subscriberArchiveCredit(entry) || `<p class="audio-credit">${isTripleRSource(entry.href) ? "Broadcast on " : "Source: "}<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(isTripleRSource(entry.href) ? "Triple R" : entry.source)}</a></p>`}
     </section>`;
 };
 
-const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscribers" : "");
+const subscriberArchiveCredit = (entry) => entry.access === "RRR subscriber"
+  ? `<p class="audio-credit">From Triple R’s subscriber audio archive. <a href="https://www.rrr.org.au/on-demand/archives" target="_blank" rel="noopener noreferrer">Explore the full archive</a>.</p>`
+  : "";
+
+const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscriber audio archive" : "");
 
 const sourcesBlock = (entry) => {
   if (entry.sources.length < 2) return "";
