@@ -1,0 +1,58 @@
+{
+  "title": "Lauren Taylor + Simon Winkler",
+  "introduction": "Projects and pages from Lauren Taylor and Simon Winkler.",
+  "groups": [
+    {
+      "heading": "Breaking and Entering",
+      "links": [
+        {
+          "label": "Triple R",
+          "url": "https://www.rrr.org.au/explore/programs/breaking-and-entering"
+        },
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/brrreaking.fm"
+        }
+      ]
+    },
+    {
+      "heading": "Good Question",
+      "links": [
+        {
+          "label": "Website",
+          "url": "https://goodquestion.com.au/"
+        },
+        {
+          "label": "Events",
+          "url": "https://events.humanitix.com/host/good-question"
+        }
+      ]
+    },
+    {
+      "heading": "Lauren Taylor",
+      "links": [
+        {
+          "label": "Triple R",
+          "url": "https://www.rrr.org.au/explore/presenters/lauren-taylor"
+        }
+      ]
+    },
+    {
+      "heading": "Simon Winkler",
+      "links": [
+        {
+          "label": "Triple R",
+          "url": "https://www.rrr.org.au/explore/presenters/simon-winkler"
+        },
+        {
+          "label": "The Wheeler Centre",
+          "url": "https://www.wheelercentre.com/people/simon-winkler"
+        },
+        {
+          "label": "LinkedIn",
+          "url": "https://www.linkedin.com/in/simon-winkler-ab378a18/"
+        }
+      ]
+    }
+  ]
+}

@@ -31,5 +31,9 @@
   ],
   "aliases": [
     "Saint Etienne"
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/sarah-cracknell-2026-ff1263416af3.m4a",
+    "type": "audio/mp4"
+  }
 }

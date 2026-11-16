@@ -145,6 +145,25 @@ collections:
   - name: site
     label: Site settings
     files:
+      - label: Projects and pages
+        name: about
+        file: content/about.json
+        fields:
+          - { label: Page title, name: title, widget: string }
+          - { label: Introduction, name: introduction, widget: text }
+          - label: Link groups
+            name: groups
+            widget: list
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - label: Links
+                name: links
+                widget: list
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Link label, name: label, widget: string, hint: "Use the plain project or page name without icons or arrows." }
+                  - { label: Address, name: url, widget: string, pattern: ["^https://", "Use a complete public HTTPS address."], hint: "Verify the page and identity before adding it. Spotify links are excluded." }
       - label: Text and layout
         name: settings
         file: content/site-settings.json

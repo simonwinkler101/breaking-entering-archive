@@ -32,5 +32,9 @@
   "aliases": [
     "DJ PGZ",
     "Paul Gorrie"
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/paul-gorrie-2026-85d925be557d.m4a",
+    "type": "audio/mp4"
+  }
 }

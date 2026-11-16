@@ -369,7 +369,7 @@ button:active {
     a,
     button,
     .audio-seek:not(:disabled) {
-      cursor: url("/cursors/dot-link.svg") 10 10, pointer;
+      cursor: url("/cursors/dot-link.svg") 8 8, pointer;
     }
 
     .transcript {
@@ -777,5 +777,28 @@ button:active {
   .audio-player,
   .entry-section:has(> .audio-player) {
     display: none;
+  }
+}
+
+/* Projects and pages ----------------------------------------------------- */
+
+.project-links li + li {
+  margin-top: 0.2em;
+}
+
+.project-links a {
+  display: inline-block;
+  font-size: var(--large);
+  line-height: 1.16;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .credit a:hover,
+  .project-links a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
   }
 }

@@ -338,7 +338,7 @@ export default function App() {
   return (
     <main className="site">
       <header className="masthead" id="top" ref={mastheadRef}>
-        <p className="credit">{siteSettings.hero.eyebrow}</p>
+        <p className="credit"><a href="/about/">{siteSettings.hero.eyebrow}</a></p>
         <h1 className="title">
           <a href="/" onClick={reset} aria-label={siteSettings.wordmark.homeLabel}>
             <span>{siteSettings.wordmark.lineOne}</span>{" "}

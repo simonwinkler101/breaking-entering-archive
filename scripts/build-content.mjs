@@ -80,6 +80,27 @@ for (const entry of entries) {
 }
 
 const siteSettings = readJson(path.join(root, "content/site-settings.json"));
+const about = readJson(path.join(root, "content/about.json"));
+if (!about.title?.trim() || !about.introduction?.trim() || !Array.isArray(about.groups) || !about.groups.length) {
+  throw new Error("The project directory needs a title, introduction and link groups.");
+}
+const projectUrls = new Set();
+for (const group of about.groups) {
+  if (!group.heading?.trim() || !Array.isArray(group.links) || !group.links.length) {
+    throw new Error("Every project directory group needs a heading and links.");
+  }
+  for (const link of group.links) {
+    try {
+      const url = new URL(link.url);
+      if (!link.label?.trim() || url.protocol !== "https:" || url.username || url.password) throw new Error();
+      if (/(^|\.)spotify\.(com|link)$/.test(url.hostname)) throw new Error();
+      if (projectUrls.has(url.href)) throw new Error();
+      projectUrls.add(url.href);
+    } catch {
+      throw new Error("Project links need unique, verified public HTTPS addresses and plain labels. Spotify links are excluded.");
+    }
+  }
+}
 try {
   const publicSiteUrl = new URL(siteSettings.metadata.siteUrl);
   if (
@@ -203,7 +224,7 @@ writeJson(path.join(dataDirectory, "archive-data.json"), {
   sourceHubs: research.sourceHubs,
 });
 
-for (const filename of ["site-settings.json", "archive-associations.json"]) {
+for (const filename of ["site-settings.json", "archive-associations.json", "about.json"]) {
   fs.copyFileSync(path.join(root, "content", filename), path.join(dataDirectory, filename));
 }
 
