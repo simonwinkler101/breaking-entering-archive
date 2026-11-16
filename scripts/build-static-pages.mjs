@@ -279,7 +279,7 @@ const homepageSchema = {
 
 const transcriptParagraph = (paragraph, index) => {
   if (index === 0) return `<p class="transcript-intro">${escapeHtml(paragraph)}</p>`;
-  const speakerMatch = paragraph.match(/^([A-Za-z][A-Za-z .'’-]{0,40}:)([\s\S]*)$/);
+  const speakerMatch = paragraph.match(/^(\p{L}[\p{L}\p{M} .'’-]{0,40}:)([\s\S]*)$/u);
   if (!speakerMatch) return `<p>${escapeHtml(paragraph)}</p>`;
   return `<p><span class="transcript-speaker">${escapeHtml(speakerMatch[1])}</span>${escapeHtml(speakerMatch[2])}</p>`;
 };
