@@ -21,6 +21,9 @@
 //                      when --quote or --quote-index is explicitly supplied.
 //   --speaker "<name>" Pull-quote speaker. Defaults to the entry's artist.
 //   --no-quote         Do not add a pull quote at all.
+//   --gaps-checked     Publish despite an unclear-audio gap of a minute or
+//                      more, once someone has listened and it stays
+//                      unintelligible (docs/transcription-workflow.md §4).
 //   --dry-run          Show what would change; write nothing.
 //
 // It deliberately REFUSES to run when content/archive/<slug>.json does not
@@ -34,7 +37,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { publicTranscriptMarkdown } from "./transcript-status.mjs";
+import { publicTranscriptMarkdown, unclearAudioProblems, LONG_GAP_SECONDS } from "./transcript-status.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const mediaRoot =
@@ -54,6 +57,7 @@ for (let i = 0; i < argv.length; i += 1) {
   const a = argv[i];
   if (a === "--dry-run") opts.dryRun = true;
   else if (a === "--no-quote") opts.noQuote = true;
+  else if (a === "--gaps-checked") opts.gapsChecked = true;
   else if (a === "--md") opts.md = argv[++i];
   else if (a === "--quote") opts.quote = argv[++i];
   else if (a === "--quote-index") opts.quoteIndex = Number(argv[++i]);
@@ -127,6 +131,23 @@ let transcript;
 try { transcript = toTranscript(markdown); }
 catch (error) { fail(error.message); }
 if (!transcript) fail("The transcript file has no readable text after cleanup.");
+
+// --- unclear audio: every marker timed; long gaps identified first ---
+const gaps = unclearAudioProblems(transcript);
+if (gaps.untimed.length) {
+  fail(
+    `${gaps.untimed.length} [Unclear audio] marker(s) have no time.\n` +
+      `  Give each its time from the timestamped source, e.g. [Unclear audio at 00:12:34–00:12:41].`,
+  );
+}
+if (gaps.long.length && !opts.gapsChecked) {
+  fail(
+    `Unclear-audio gap(s) of ${LONG_GAP_SECONDS} seconds or more:\n` +
+      gaps.long.map((gap) => `    ${gap.text}  (${Math.round(gap.length)} s)`).join("\n") +
+      `\n  Identify each first: mark music as [Music] once established, or transcribe the speech.\n` +
+      `  If someone has listened and it stays unintelligible, rerun with --gaps-checked.`,
+  );
+}
 
 const entry = JSON.parse(fs.readFileSync(entryPath, "utf8"));
 

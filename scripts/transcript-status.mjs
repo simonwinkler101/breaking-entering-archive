@@ -21,3 +21,33 @@ export function publicTranscriptMarkdown(markdown) {
   }
   return text;
 }
+
+// Unclear-audio markers. A timed marker reads `[Unclear audio at 00:12:34–00:12:41]`
+// (seconds may carry decimals; an en dash or hyphen separates the times). An
+// untimed `[Unclear audio]` cannot be found again in the recording.
+const MARKER = /\[Unclear audio(?: at (\d+):(\d{2}):(\d{2}(?:\.\d+)?)\s*[–-]\s*(\d+):(\d{2}):(\d{2}(?:\.\d+)?))?\]/g;
+const seconds = (h, m, s) => Number(h) * 3600 + Number(m) * 60 + Number(s);
+
+export function findUnclearMarkers(text) {
+  const markers = [];
+  for (const match of String(text || "").matchAll(MARKER)) {
+    const timed = match[1] !== undefined;
+    const start = timed ? seconds(match[1], match[2], match[3]) : null;
+    const end = timed ? seconds(match[4], match[5], match[6]) : null;
+    markers.push({ text: match[0], index: match.index, timed, start, end, length: timed ? end - start : null });
+  }
+  return markers;
+}
+
+// Section 4 of docs/transcription-workflow.md: every marker carries its time,
+// and a gap of a minute or more must be identified (music, or transcribed)
+// before publication, unless it has been listened to and stays unintelligible.
+export const LONG_GAP_SECONDS = 60;
+
+export function unclearAudioProblems(text) {
+  const markers = findUnclearMarkers(text);
+  return {
+    untimed: markers.filter((marker) => !marker.timed),
+    long: markers.filter((marker) => marker.timed && marker.length >= LONG_GAP_SECONDS),
+  };
+}
