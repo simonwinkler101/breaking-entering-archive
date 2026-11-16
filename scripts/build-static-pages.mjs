@@ -354,7 +354,7 @@ const audioBlock = (entry) => {
 };
 
 const subscriberArchiveCredit = (entry) => entry.access === "RRR subscriber"
-  ? `<p class="audio-credit">From Triple R’s subscriber audio archive. <a href="https://www.rrr.org.au/on-demand/archives" target="_blank" rel="noopener noreferrer">Explore the full archive</a>.</p>`
+  ? `<p class="audio-credit">From Triple R’s subscriber audio archive. <a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">View on Triple R</a>.</p>`
   : "";
 
 const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscriber audio archive" : "");

@@ -109,12 +109,12 @@ const yearLabel = (entry: ArchiveEntry) => (entry.year ? String(entry.year) : "U
 const pageUrl = (format: Format | null) =>
   `/${formats.find((item) => item.kind === format)?.hash ?? ""}`;
 
-function SubscriberArchiveCredit() {
+function SubscriberArchiveCredit({ href }: { href: string }) {
   return (
     <p className="audio-credit">
       From Triple R’s subscriber audio archive.{" "}
-      <a href="https://www.rrr.org.au/on-demand/archives" target="_blank" rel="noreferrer">
-        Explore the full archive
+      <a href={href} target="_blank" rel="noreferrer">
+        View on Triple R
       </a>.
     </p>
   );
@@ -149,7 +149,7 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
           <a href={entry.audio.url}>Open audio</a>
         </audio>,
       )}
-      {entry.access === "RRR subscriber" && <SubscriberArchiveCredit />}
+      {entry.access === "RRR subscriber" && <SubscriberArchiveCredit href={entry.href} />}
       {entry.audio && entry.access !== "RRR subscriber" && (
         <p className="audio-credit">
           {isTripleRSource(entry.href) ? "Broadcast on " : "Source: "}
