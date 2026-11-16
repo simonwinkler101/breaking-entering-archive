@@ -21,8 +21,8 @@ without waiting for a separate approval of each version.
   receipts stay private. Incomplete listening review is not an approval gate for
   this publication; do not claim that it happened.
 - Existing approved transcripts remain approved. New publication uses no pull
-  quote unless one is explicitly selected. Choose only an exact quotation from
-  checked wording.
+  quote unless Simon or Lauren selects one, or asks for one to be chosen. Offer
+  three or four exact, continuous passages of checked wording in the report.
 - Applicable audio/transcript publication permission is already recorded for
   this project. Reuse it within its scope rather than asking again.
 
@@ -30,7 +30,9 @@ without waiting for a separate approval of each version.
 
 1. Read `AGENTS.md`, refresh `main`, inspect status and create a `codex/` branch.
 2. Run `node scripts/fill-transcript.mjs <slug> [flags] --dry-run`. Check the
-   opening text and length. The filler extracts a named transcript
+   length, that the first paragraph is the factual introduction, that turns
+   carry established speaker labels, and that paragraphs follow turns rather
+   than machine segments. The filler extracts a named transcript
    section or refuses private metadata; never bypass that refusal by blindly
    removing the warning. Prepare a clean public input instead.
 3. Run the same command without `--dry-run`. Inspect the entry diff; preserve
@@ -51,4 +53,7 @@ without waiting for a separate approval of each version.
   source-identity or publication-permission problem. Name the exact dependency.
 - Keep faithful wording and justified omissions. Flag uncertainty rather than
   paraphrasing or making up words. Do not present suspected lyrics as speech.
-- Report the published entry, checks and any remaining review limitation plainly.
+- Report the published entry, checks and any remaining review limitation plainly,
+  with the review items in `docs/transcription-workflow.md` section 8:
+  re-anchored or reconstructed lines first, inferred speaker calls, unresolved
+  names, cuts Simon or Lauren may want back and the pull quote options.

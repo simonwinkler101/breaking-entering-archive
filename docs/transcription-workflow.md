@@ -70,6 +70,32 @@ sources: artist/label pages, official credits, venues, festivals and Triple R.
 Correct an unambiguous spelling or title and record the exact change, timestamp,
 source and reason privately. Familiar unambiguous names do not need repeated work.
 
+Recognition fails in predictable ways. Read for song titles heard as ordinary
+phrases ('Going Out' as "going out"), near-homophones (The Lewers as "The Lures",
+Kallista as "Calisto", Francis Plagne as "Francis Plain"), instruments and
+equipment (Omnichord as "omnicord", Technics as "techniques"), DJ and producer
+names (A-Trak as "A-track", Gang Starr as "gangstar") and brands lowercased into
+common nouns (Pioneers). Where reputable sources disagree on a spelling, follow
+the subject's own usage and note the disagreement privately.
+
+Check the timeline as well as the spelling. A name can be spelled correctly and
+still sit in the wrong clause: recognition drops and swaps words, so a title can
+migrate and still read fluently. Check that the claims around each name hold. Is
+a record described as forthcoming actually forthcoming? Does the album match the
+sleeve described? Do ages, years and durations add up? Where they do not, the
+error may be the recognition's or the speaker's, so do not silently correct the
+claim. Re-check that interval of the recording where possible. Re-anchor a title
+to the clause the facts support only when the recognised words themselves allow
+that reading, and treat it as a reconstruction (section 6). Either way, record it
+privately and report it first, since it is the edit most likely to be wrong.
+
+Name the guest from the entry or verified evidence only. When a recording does not
+name the guest, infer the identity from biographical and discographic details and
+verify it against primary sources before writing the name anywhere. Date an
+undated interview the same way, from release and tour dates or references such as
+"last weekend", and record the reasoning privately; leave the date open when the
+evidence is not firm.
+
 A search can verify a name's spelling or an event's details. It cannot prove the
 exact sentence spoken. Do not replace uncertain speech with a biography, press
 release, another interview or a plausible sentence found online.
@@ -80,45 +106,126 @@ Read the entire proposed public transcript before publication. This is required
 for every new transcript and subsequent substantive correction. Keep a separate
 reading copy; never overwrite the raw or timestamped source to make it agree.
 
+The approved Carla dal Forno, Lael Neale and Mark Ronson transcripts show the
+intended shape: a factual introduction, labelled turns, paragraphs by turn and the
+page test applied. (Carla's predates the dash rule below.) The rules in this
+section govern the wording.
+
+Apply the page test: keep what carries the conversation and omit what only worked
+in the room or on air. Routine station idents, music back-announcements, pre- and
+post-interview logistics, mid-interview re-introductions, crosstalk fragments
+("Yeah." "Totally."), apologies for interrupting and goodbyes beyond a single beat
+may be omitted. Remove filler, stutters and false starts that carry no meaning,
+keeping a light trace of each speaker's characteristic phrasing ("I guess", "kind
+of"). Trim the hosts' filler and unanswered asides harder than the guest's
+answers, but keep the question actually asked and the substance of any
+introduction: biography, credits, background and context. Keep the guest's voice
+near-fully, the back-and-forth rhythm, a short host reaction where it earns its
+place, and any moment where the conversation comes alive, such as a guest turning
+a question back on the host.
+
 Improve punctuation, sentence boundaries, paragraphing and clearly continuous
 fragments. Correct supported recognition errors. Small grammatical repairs are
 allowed only when the meaning is unambiguous. Do not preserve an obvious machine
 error merely to retain its word sequence. Equally, do not make uncertain audio
 sound fluent by guessing.
 
-Join fragments within a continuous turn. Keep paragraph breaks around apparent
-questions and responses even when the speakers cannot yet be named. Do not merge
-an entire exchange into one paragraph or imply that one person spoke it all.
+Paragraphs follow turns, not machine segments. Give each turn one paragraph, or a
+few for a long answer divided where the subject changes. Join fragments within a
+continuous turn. Keep paragraph breaks around apparent questions and responses
+even when the speakers cannot yet be named. Do not merge an entire exchange into
+one paragraph or imply that one person spoke it all.
 
 Preserve the speaker's meaning, voice, facts, qualifications, meaningful
 hesitations and self-corrections. Do not paraphrase an argument, rewrite a question,
 change a date or claim, remove uncertainty, or join separate passages as one answer.
 Keep unusual phrasing when it belongs to the speaker.
 
-Routine station idents, music back-announcements and irrelevant logistics may be
-omitted. An awkward radio opening may be replaced by a short factual editorial
-introduction identifying the interview, topic and broadcast date. That introduction
-is editorial prose, not invented dialogue. Preserve substantive biography, credits,
+Reconstruct a garbled line only when one reading is clearly supported by the
+recognised words and verified facts. Choose the most conservative reading, record
+it and the alternative privately, and report it. Otherwise keep the timed unclear
+marker. Never invent content.
+
+Begin every reading copy with a short factual introduction of one to three
+sentences: who spoke with whom, in the studio or remotely, when, and the occasion.
+The page sets the first paragraph as the introduction, so it must not be a
+speaker's turn. That introduction is editorial prose, not invented dialogue, and
+it may replace an awkward radio opening. Preserve substantive biography, credits,
 background and interview context; replacing a broken opening is not permission to
 shorten that material. Record substantive omissions and edits privately; show an
 omission or timed unclear marker where readers need it.
 
-Use Australian spelling and consistent verified names. Keep uncertain words and
-intervals explicit. Web verification or grammatical plausibility must not be
-recorded as listening verification.
+Keep uncertain words and intervals explicit. Web verification or grammatical
+plausibility must not be recorded as listening verification.
+
+House style:
+
+- Australian spelling throughout, including the guests' speech, with one verified
+  spelling of each name.
+- Minimise dashes in the text; use commas, colons, semicolons or full stops. Keep
+  a dash only where speech breaks off, self-corrects or is cut off by the other
+  speaker mid-thought. There a comma would imply continuation, a full stop
+  completion and an ellipsis a cut. Expect one or two in a transcript.
+- Use an ellipsis only for a genuine trailing pause, never to mark or hide a cut.
+- Put song titles in single quotes. Leave album, book and film titles in plain
+  title case: the publishing step removes markdown emphasis, so italics never
+  reach the page.
+- Write speaker labels as plain `Name:` at the start of a paragraph (section 7).
+  Use no timestamps in the text except inside markers.
+- Use one form for each marker: `[Unclear audio at 00:12:34–00:12:41]` for a
+  passage, `[name uncertain: “warnerball”]` for an unresolved name, quoting the
+  recognised form, and `[Music]` only where section 4 allows it.
+- Keep editorial prose plain and specific.
 
 ## 7. Speakers
 
-Divide speech into paragraphs where supported. Use named labels such as
-`Lauren Taylor:` only when the identity and turn are established. Preserve existing
-approved labels. Do not assign names merely because a passage looks like a
-question or answer, or assume that speakers alternate between two people.
+Readers need to know who is speaking. Establish speakers wherever the evidence
+allows and label those turns; an unlabelled transcript is a gap to close, not a
+safe default.
 
-Stereo channel energy helps only when microphones occupy useful separate channels.
-Voice embeddings can suggest recurring voice groups; they do not name people or
-prove exact turn boundaries. Keep candidate groups private until supported by
-verified references and suitable checks. An anonymous group is not an identified
-person. Leave names unassigned when evidence is insufficient.
+Start from the entry: `artist` names the guest and `presenters` the expected
+hosts. Confirm the line-up from the recording itself, usually its introduction,
+including the name of each guest present when a group appears.
+
+A turn's speaker is established when the recording's own content supports it and
+nothing contradicts it:
+
+- In-dialogue address. A question put to a guest by name is answered by that
+  guest; "Thanks, Lauren" places Lauren in the previous turn and someone else in
+  this one.
+- Self-identification, or first-person facts that fit only one person present:
+  the guest's own record, label or film, or a host's own program or project.
+- Role within the line-up. With one host and one guest, a turn whose content
+  plainly belongs to one role names that person: introducing the guest, station
+  business and questions about the guest's work are the host's, and first-person
+  answers about the guest's own work are the guest's.
+- Continuity. A sentence that runs across a machine segment or chunk boundary has
+  one speaker on both sides, and a word or two the machine assigns elsewhere
+  belongs to the sentence it completes.
+
+Machine speaker labels, voice groups, stereo channel energy and alternation are
+hints, never proof on their own. Diarisation labels can reset at chunk seams and
+mislabel short fragments. Stereo channel energy helps only when microphones occupy
+useful separate channels. Voice embeddings can suggest recurring voice groups;
+they do not name people or prove exact turn boundaries. Keep candidate groups
+private until content evidence or verified references support them; an anonymous
+group is not an identified person. Do not assign names merely because a passage
+looks like a question or answer, or assume that speakers alternate.
+
+When the role is clear but the person is not, as with one of several band members
+or one of two hosts, label the role (`Host:` or `Guest:`) rather than guess a
+name. Leave a paragraph unlabelled only when even the role is unclear.
+
+Labels use first names, as in the approved transcripts (`Lauren:`, `Simon:`,
+`Carla:`), written as plain text at the start of the paragraph; the page styles
+them. Use full names in the introduction, and add a surname or initial where two
+speakers share a first name. Preserve existing approved labels.
+
+Record privately the basis for any label that rests on role or continuity rather
+than explicit address or self-identification. Summarise it in the final report and
+name the calls most likely to be wrong, so Simon or Lauren can correct a label in
+one word. Attribution from content is not listening verification; never record or
+describe it as such.
 
 ## 8. Review records and publication
 
@@ -135,8 +242,24 @@ applies. Where meaning remains unclear, publish the gap rather than invented wor
 
 Public pages simply say “Transcript”. Do not add automatic/draft labels, public
 review-status fields, process disclaimers, private review headers or local paths.
-Keep actual review state private. Do not claim a check that did not occur. New
-publication uses no pull quote unless one is explicitly selected from checked text.
+Keep actual review state private. Do not claim a check that did not occur.
+
+New publication uses no pull quote unless one is explicitly selected from checked
+text. End the reading copy with `## Pull quote options`, which the publishing step
+strips: three or four exact, continuous passages of checked wording, without
+ellipses, each from a turn whose speaker is established. A good option stands
+alone without the question, says something specific about the guest's work,
+thinking or experience rather than a courtesy or a plug, and reads at a glance,
+usually in one or two sentences. Avoid passages near an unclear marker or a
+reconstruction. Offer the options in the final report. Add one, with
+`--quote-index` or the CMS field, only when Simon or Lauren chooses it or asks the
+agent to choose.
+
+With each publication, give Simon and Lauren a short report they can check against
+their memory of the conversation: re-anchored or reconstructed lines first, then
+inferred speaker calls, unresolved names and names where sources disagree, cuts
+they might want back (offered rather than assumed), date reasoning where the date
+was inferred, and the pull quote options. Keep it to what they can act on.
 
 ## 9. Release and later corrections
 

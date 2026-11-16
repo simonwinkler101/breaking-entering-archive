@@ -105,7 +105,17 @@ working in this repository.
   the speaker's voice, facts, qualifications and genuine self-corrections; do not
   paraphrase arguments, rewrite questions or invent fluent replacements for
   uncertain audio. Do not preserve an obvious machine error merely to retain
-  the machine's word sequence. Keep exact substantive edits privately.
+  the machine's word sequence. Keep exact substantive edits privately. Apply the
+  page test and house style in `docs/transcription-workflow.md`: omit what only
+  worked on air, trim host filler and asides harder than guest answers while
+  keeping the question asked, and give each turn its own paragraph.
+- Identify speakers wherever the recording's own content establishes them:
+  in-dialogue address, self-identification, the entry's line-up (`presenters`
+  and guest) where a turn's role is plain from its content, and continuity
+  across segment boundaries. Label those turns with first names; use `Host:`
+  or `Guest:` when only the role is clear. Machine speaker labels, voice groups
+  and alternation are hints, never proof. Record the basis privately and
+  report the inferred calls.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
   separate approval of each version. Public pages simply say “Transcript”;
@@ -114,11 +124,12 @@ working in this repository.
   Never claim listening review or reliable speaker attribution that did not
   occur. Existing approved transcripts remain approved.
 - Keep raw recognition and private review metadata outside public content.
-  Correct confirmed names from primary sources, flag unresolved wording and
-  suspected machine artifacts, and preserve the underlying source privately.
-  New publication uses no pull quote unless one is explicitly selected from
-  checked wording. Record a complete transcript-versus-recording check privately
-  only when it actually occurred.
+  Correct confirmed names from primary sources and check the timeline around
+  them, flag unresolved wording and suspected machine artifacts, and preserve
+  the underlying source privately. New publication uses no pull quote unless
+  Simon or Lauren selects one, or asks for one to be chosen, from exact options
+  of checked wording offered in the final report. Record a complete
+  transcript-versus-recording check privately only when it actually occurred.
 - Do not automatically transcribe mixes, performances, broadcasts or song
   lyrics. Use `[Music]` only when the classification is established; otherwise
   retain a timed unclear-audio marker.
