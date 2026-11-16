@@ -948,9 +948,13 @@ button:active {
     padding-block: 12px;
   }
 
-  /* These links are flex items: compensate their touch padding so the
-     sticky header keeps the height used by section anchor offsets. */
-  .entry-top a {
+  /* These links are flex items, so their touch padding would add height:
+     compensate it so the sticky header keeps the height used by section
+     anchor offsets, and an open entry's actions and the footer keep their
+     spacing. */
+  .entry-top a,
+  .detail-actions a,
+  .foot a {
     margin-block: -12px;
   }
 
