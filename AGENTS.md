@@ -133,6 +133,14 @@ working in this repository.
 - Do not automatically transcribe mixes, performances, broadcasts or song
   lyrics. Use `[Music]` only when the classification is established; otherwise
   retain a timed unclear-audio marker.
+- Give every unclear-audio marker one targeted second pass before publication
+  (a window with context on both sides, relaxed silence filtering or a larger
+  model), keeping recovered words only where they fit the surrounding speech,
+  and record it privately; a re-run is not a listen. Every marker carries its
+  time. Hold publication only for an unidentified gap of a minute or more, or
+  text that stops before the conversation does: confirm music as `[Music]` or
+  transcribe it first. Other markers publish and stay on the private listening
+  list (`npm run transcripts:gaps`) until someone listens.
 - Do not edit archive entry JSON during inventory or raw transcription stages.
 - Publishing a transcript is a one-command, in-place step. The entry
   in `content/archive/<id>.json` already holds the metadata, so publishing only

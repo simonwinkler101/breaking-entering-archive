@@ -63,6 +63,25 @@ silently accept repeated machine text. Use `[Music]` only when that classificati
 is established; otherwise use a timed unclear-audio marker. Confidence scores and
 repetition flags are review aids, not proof.
 
+Unclear audio gets one targeted second pass before publication. Running the same
+chunk through the same model and settings mostly reproduces the same gap, so
+re-run a window around each marker with 10 to 15 seconds of context on both
+sides, relaxed silence filtering or a larger model. Keep recovered words only
+where they fit what is said on either side: the engine that left the gap can also
+fill it with fluent invention. If the recovery is only filler or laughter, drop
+the marker as an ordinary omission. Record each attempt privately; a re-run is
+not a listen.
+
+Every marker carries its time; an untimed marker cannot be found again. A gap of
+a minute or more is usually a song, but it must be identified before publication:
+mark it `[Music]` once that is established, or transcribe the speech. The same
+applies when the text stops before the conversation does. Only when someone has
+listened and the passage stays unintelligible does it publish as a long marker
+(`--gaps-checked`). Shorter markers publish as they are and stay on the private
+listening list, longest first, until someone listens: `npm run transcripts:gaps`
+prints it; keep the output outside the repository. `npm run fill:transcript`
+refuses untimed markers and unidentified long gaps.
+
 ## 5. Names and factual checks
 
 Check doubtful names, recordings, labels, venues, events and dates against primary
@@ -238,7 +257,9 @@ completed recognition job, a text edit or an approval to publish.
 Simon's standing instruction is to publish prepared transcripts and correct them
 afterwards, without a separate approval request for each version. A complete
 listening review is not a publication gate. The mandatory readability pass still
-applies. Where meaning remains unclear, publish the gap rather than invented words.
+applies, and so does section 4's one hold: an unidentified gap of a minute or more,
+or text that stops before the conversation does. Where meaning remains unclear,
+publish the gap rather than invented words, and keep it on the listening list.
 
 Public pages simply say “Transcript”. Do not add automatic/draft labels, public
 review-status fields, process disclaimers, private review headers or local paths.

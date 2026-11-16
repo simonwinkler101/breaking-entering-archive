@@ -6,7 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import { execFile } from "node:child_process";
-import { publicTranscriptMarkdown } from "./transcript-status.mjs";
+import { publicTranscriptMarkdown, findUnclearMarkers, unclearAudioProblems } from "./transcript-status.mjs";
 
 const exec = promisify(execFile);
 const scripts = path.dirname(fileURLToPath(import.meta.url));
@@ -63,4 +63,26 @@ test("new publication uses no quote unless one is explicitly selected", async (t
   await f.run("--quote-index", "1");
   actual = JSON.parse(await fs.readFile(f.entryPath, "utf8"));
   assert.deepEqual(actual.pullQuote, { text: "The checked words.", speaker: "Guest" });
+});
+
+test("unclear-audio markers are parsed with their times", () => {
+  const markers = findUnclearMarkers("A [Unclear audio at 00:01:46–00:01:49] b [Unclear audio at 00:04:17.800–00:04:18.840] c [Unclear audio] d [Unclear audio at 00:10:04–00:19:19]");
+  assert.deepEqual(markers.map((m) => [m.timed, m.length && Math.round(m.length * 100) / 100]), [[true, 3], [true, 1.04], [false, null], [true, 555]]);
+  const problems = unclearAudioProblems("x [Unclear audio] y [Unclear audio at 00:06:35–00:09:39] z [Unclear audio at 00:00:01–00:00:59]");
+  assert.equal(problems.untimed.length, 1);
+  assert.deepEqual(problems.long.map((m) => m.length), [184]);
+});
+
+test("filler refuses untimed markers and unidentified long gaps", async (t) => {
+  const f = await fixture(t);
+  const before = await fs.readFile(f.entryPath, "utf8");
+  await fs.writeFile(f.md, "# Guest\n\nWords [Unclear audio] more words.");
+  await assert.rejects(f.run(), /have no time/);
+  await fs.writeFile(f.md, "# Guest\n\nWords.\n\n[Unclear audio at 00:06:35–00:09:39]\n\nMore words.");
+  await assert.rejects(f.run(), /minute or more|60 seconds or more/);
+  assert.equal(await fs.readFile(f.entryPath, "utf8"), before);
+  await f.run("--gaps-checked");
+  assert.match(JSON.parse(await fs.readFile(f.entryPath, "utf8")).transcript, /00:06:35–00:09:39/);
+  await fs.writeFile(f.md, "# Guest\n\nWords [Unclear audio at 00:01:46–00:01:49] more words.");
+  await f.run();
 });

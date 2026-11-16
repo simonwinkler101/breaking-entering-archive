@@ -32,7 +32,10 @@ without waiting for a separate approval of each version.
 2. Run `node scripts/fill-transcript.mjs <slug> [flags] --dry-run`. Check the
    length, that the first paragraph is the factual introduction, that turns
    carry established speaker labels, and that paragraphs follow turns rather
-   than machine segments. The filler extracts a named transcript
+   than machine segments. It refuses untimed `[Unclear audio]` markers and
+   unidentified gaps of a minute or more (section 4 of the workflow); give every
+   marker its second pass and time first, and use `--gaps-checked` only after
+   someone has listened. The filler extracts a named transcript
    section or refuses private metadata; never bypass that refusal by blindly
    removing the warning. Prepare a clean public input instead.
 3. Run the same command without `--dry-run`. Inspect the entry diff; preserve
@@ -56,4 +59,5 @@ without waiting for a separate approval of each version.
 - Report the published entry, checks and any remaining review limitation plainly,
   with the review items in `docs/transcription-workflow.md` section 8:
   re-anchored or reconstructed lines first, inferred speaker calls, unresolved
-  names, cuts Simon or Lauren may want back and the pull quote options.
+  names, cuts Simon or Lauren may want back, markers still on the listening
+  list and the pull quote options.
