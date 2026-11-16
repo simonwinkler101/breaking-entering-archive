@@ -70,6 +70,32 @@
         seek.max = seek.disabled ? "0" : String(audio.duration);
         seek.value = String(audio.currentTime);
         seek.setAttribute("aria-valuetext", `${time(audio.currentTime)} of ${time(total())}`);
+        // Styling hooks: the played part of the line, and the playing state.
+        const length = total();
+        const played = Number.isFinite(length) && length > 0 ? Math.min(100, (audio.currentTime / length) * 100) : 0;
+        this.style.setProperty("--played", `${played}%`);
+        this.toggleAttribute("data-playing", playing && !failed);
+      };
+      // On a phone, the lock screen and notification controls name the
+      // recording and can skip back or forward.
+      const announce = () => {
+        if (!("mediaSession" in navigator) || typeof MediaMetadata === "undefined") return;
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title,
+          artist: "Breaking and Entering",
+          album: "Triple R",
+        });
+        const skip = (delta) => () => {
+          const end = Number.isFinite(audio.duration) ? audio.duration : Infinity;
+          audio.currentTime = Math.max(0, Math.min(end, audio.currentTime + delta));
+        };
+        for (const [action, handler] of [["seekbackward", skip(-15)], ["seekforward", skip(30)]]) {
+          try {
+            navigator.mediaSession.setActionHandler(action, handler);
+          } catch {
+            // Not every browser supports every action.
+          }
+        }
       };
       toggle.addEventListener("click", async () => {
         if (!audio.paused || pending) {
@@ -102,6 +128,7 @@
         document.querySelectorAll("archive-audio audio").forEach((other) => {
           if (other !== audio) other.pause();
         });
+        announce();
         update();
       }, options);
       audio.addEventListener("playing", () => {
