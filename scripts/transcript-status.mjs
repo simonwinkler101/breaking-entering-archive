@@ -51,3 +51,10 @@ export function unclearAudioProblems(text) {
     long: markers.filter((marker) => marker.timed && marker.length >= LONG_GAP_SECONDS),
   };
 }
+
+// Public copies carry no bracketed uncertainty or music annotations; those stay
+// in the private draft (docs/transcription-workflow.md sections 4 and 6).
+const ANNOTATION = /\[(?:Unclear audio[^\]\n]*|names? uncertain[^\]\n]*|wording uncertain[^\]\n]*|Music)\]/g;
+export function findAnnotations(text) {
+  return [...String(text || "").matchAll(ANNOTATION)].map((match) => ({ text: match[0], index: match.index }));
+}

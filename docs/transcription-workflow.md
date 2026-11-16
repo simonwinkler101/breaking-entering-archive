@@ -83,12 +83,16 @@ not a listen.
 Every marker carries its time; an untimed marker cannot be found again. A gap of
 a minute or more is usually a song, but it must be identified before publication:
 mark it `[Music]` once that is established, or transcribe the speech. The same
-applies when the text stops before the conversation does. Only when someone has
-listened and the passage stays unintelligible does it publish as a long marker
-(`--gaps-checked`). Shorter markers publish as they are and stay on the private
-listening list, longest first, until someone listens: `npm run transcripts:gaps`
-prints it; keep the output outside the repository. `npm run fill:transcript`
-refuses untimed markers and unidentified long gaps.
+applies when the text stops before the conversation does, unless someone has
+listened and the passage stays unintelligible.
+
+Markers belong to the private reading draft, never the page. The public copy
+carries no uncertainty or music annotations: edit around what stays unclear by
+cutting the fragment, ending the sentence before it, or dropping a question whose
+answer is lost, and never fill the gap. Each marker stays on the private listening
+list, longest first, until someone listens: `npm run transcripts:gaps -- --from
+<draft or folder>` prints it; keep the output outside the repository. `npm run
+fill:transcript` refuses any bracketed annotation in a public copy.
 
 ## 5. Names and factual checks
 
@@ -133,10 +137,14 @@ Read the entire proposed public transcript before publication. This is required
 for every new transcript and subsequent substantive correction. Keep a separate
 reading copy; never overwrite the raw or timestamped source to make it agree.
 
-The approved Carla dal Forno, Lael Neale and Mark Ronson transcripts show the
-intended shape: a factual introduction, labelled turns, paragraphs by turn and the
-page test applied. (Carla's predates the dash rule below.) The rules in this
-section govern the wording.
+The reading version is a written transcript, lightly or even moderately edited
+for clarity and interest. A raw conversation holds a lot that sounds good in the
+room or on air but is less compelling written. Use expert editorial judgement of
+what to keep and what to politely exclude, keeping as much of the conversation,
+its natural flow and its back-and-forth as possible. The approved Carla dal Forno,
+Lael Neale and Mark Ronson transcripts show the intended result: a factual
+introduction, labelled turns, paragraphs by turn, the page test applied, and
+questions that read cleanly.
 
 Apply the page test: keep what carries the conversation and omit what only worked
 in the room or on air. Routine station idents, music back-announcements, pre- and
@@ -144,16 +152,17 @@ post-interview logistics, mid-interview re-introductions, crosstalk fragments
 ("Yeah." "Totally."), apologies for interrupting and goodbyes beyond a single beat
 may be omitted. Remove filler, stutters and false starts that carry no meaning,
 keeping a light trace of each speaker's characteristic phrasing ("I guess", "kind
-of"). Trim the hosts' filler and unanswered asides harder than the guest's
-answers, but keep the question actually asked and the substance of any
+of"). Tighten the hosts' questions and reflections much harder than the guest's
+answers: a long or meandering question becomes a clear one that asks the same
+thing, and effusive or unanswered reflections go. Keep the substance of any
 introduction: biography, credits, background and context. Keep the guest's voice
 near-fully, the back-and-forth rhythm, a short host reaction where it earns its
 place, and any moment where the conversation comes alive, such as a guest turning
 a question back on the host.
 
-Improve punctuation, sentence boundaries, paragraphing and clearly continuous
-fragments. Correct supported recognition errors. Small grammatical repairs are
-allowed only when the meaning is unambiguous. Do not preserve an obvious machine
+Improve punctuation, sentence boundaries, paragraphing and continuous fragments,
+and smooth spoken grammar into clear written sentences where the meaning is
+plain. Correct supported recognition errors; do not preserve an obvious machine
 error merely to retain its word sequence. Equally, do not make uncertain audio
 sound fluent by guessing.
 
@@ -164,14 +173,14 @@ even when the speakers cannot yet be named. Do not merge an entire exchange into
 one paragraph or imply that one person spoke it all.
 
 Preserve the speaker's meaning, voice, facts, qualifications, meaningful
-hesitations and self-corrections. Do not paraphrase an argument, rewrite a question,
-change a date or claim, remove uncertainty, or join separate passages as one answer.
-Keep unusual phrasing when it belongs to the speaker.
+hesitations and self-corrections. Do not paraphrase a guest's argument, change a
+date or claim, or join separate passages as one answer. Keep unusual phrasing when
+it belongs to the speaker.
 
 Reconstruct a garbled line only when one reading is clearly supported by the
 recognised words and verified facts. Choose the most conservative reading, record
-it and the alternative privately, and report it. Otherwise keep the timed unclear
-marker. Never invent content.
+it and the alternative privately, and report it. Otherwise cut around it in the
+public copy and keep the timed marker in the private draft. Never invent content.
 
 Begin every reading copy with a short factual introduction of one to three
 sentences: who spoke with whom, in the studio or remotely, when, and the occasion.
@@ -179,11 +188,10 @@ The page sets the first paragraph as the introduction, so it must not be a
 speaker's turn. That introduction is editorial prose, not invented dialogue, and
 it may replace an awkward radio opening. Preserve substantive biography, credits,
 background and interview context; replacing a broken opening is not permission to
-shorten that material. Record substantive omissions and edits privately; show an
-omission or timed unclear marker where readers need it.
+shorten that material. Record substantive omissions and edits privately.
 
-Keep uncertain words and intervals explicit. Web verification or grammatical
-plausibility must not be recorded as listening verification.
+Keep uncertain words and intervals explicit in the private draft. Web verification
+or grammatical plausibility must not be recorded as listening verification.
 
 House style:
 
@@ -198,10 +206,11 @@ House style:
   title case: the publishing step removes markdown emphasis, so italics never
   reach the page.
 - Write speaker labels as plain `Name:` at the start of a paragraph (section 7).
-  Use no timestamps in the text except inside markers.
-- Use one form for each marker: `[Unclear audio at 00:12:34–00:12:41]` for a
-  passage, `[name uncertain: “warnerball”]` for an unresolved name, quoting the
-  recognised form, and `[Music]` only where section 4 allows it.
+  Use no timestamps or bracketed annotations in the public text.
+- In the private draft, use one form for each marker: `[Unclear audio at
+  00:12:34–00:12:41]` for a passage, `[name uncertain: “warnerball”]` for an
+  unresolved name, quoting the recognised form, and `[Music]` only where section
+  4 allows it.
 - Keep editorial prose plain and specific.
 
 ## 7. Speakers
@@ -251,21 +260,23 @@ transcript, then let the script apply the names. For an existing transcript it
 matches paragraphs to the timestamped source by text and renames only `Host:` and
 `Guest:` turns.
 
-New publication uses no `Host:` or `Guest:` labels. When a band member's voice
-cannot be named, credit its turns to the band (`Acopia:`) and ask Simon or Lauren
-in the report, with a sample line and its time; rename the voice when they answer.
-Credit inseparable crosstalk the same way, or cut it under the page test. Hold
-publication only for a voice with no such fallback, such as an unnamed presenter.
-Existing role labels stay until a separation pass renames them. Leave a paragraph
-unlabelled only when even the role is unclear.
+No transcript uses `Host:` or `Guest:` labels. Where nothing above settles a turn,
+label the best-supported guess. Weigh together the content (whose work,
+instrument, history or project the turn speaks from), the line-up, research into
+members' roles and earlier interviews, continuity and machine hints, and choose
+the most likely person. Record the basis and confidence privately and list every
+guess in the report, lowest confidence first, so Simon or Lauren can correct it in
+a word. Credit genuinely inseparable crosstalk to the band, or cut it under the
+page test.
 
 Labels use first names, as in the approved transcripts (`Lauren:`, `Simon:`,
 `Carla:`), written as plain text at the start of the paragraph; the page styles
 them. Use full names in the introduction, and add a surname or initial where two
 speakers share a first name. Preserve existing approved labels.
 
-Record privately the basis for any label that rests on role, continuity or an
-anchored voice group rather than explicit address or self-identification. Summarise it in the
+Record privately the basis for any label that rests on role, continuity, an
+anchored voice group or a best guess rather than explicit address or
+self-identification. Summarise it in the
 final report and name the calls most likely to be wrong, so Simon or Lauren can
 correct a label in one word. Attribution from content and voice grouping is not
 listening verification; never record or describe it as such.
@@ -283,7 +294,7 @@ afterwards, without a separate approval request for each version. A complete
 listening review is not a publication gate. The mandatory readability pass still
 applies, and so does section 4's one hold: an unidentified gap of a minute or more,
 or text that stops before the conversation does. Where meaning remains unclear,
-publish the gap rather than invented words, and keep it on the listening list.
+cut around it rather than invent words, and keep it on the listening list.
 
 Public pages simply say “Transcript”. Do not add automatic/draft labels, public
 review-status fields, process disclaimers, private review headers or local paths.
@@ -302,7 +313,7 @@ agent to choose.
 
 With each publication, give Simon and Lauren a short report they can check against
 their memory of the conversation: re-anchored or reconstructed lines first, then
-inferred speaker calls, voices still credited to the band with their questions,
+inferred and best-guess speaker calls, lowest confidence first,
 unresolved names and names where sources disagree, cuts
 they might want back (offered rather than assumed), date reasoning where the date
 was inferred, and the pull quote options. Keep it to what they can act on.

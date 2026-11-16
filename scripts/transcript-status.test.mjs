@@ -73,28 +73,22 @@ test("unclear-audio markers are parsed with their times", () => {
   assert.deepEqual(problems.long.map((m) => m.length), [184]);
 });
 
-test("filler refuses untimed markers and unidentified long gaps", async (t) => {
+test("filler refuses bracketed annotations in a public copy", async (t) => {
   const f = await fixture(t);
   const before = await fs.readFile(f.entryPath, "utf8");
-  await fs.writeFile(f.md, "# Guest\n\nWords [Unclear audio] more words.");
-  await assert.rejects(f.run(), /have no time/);
-  await fs.writeFile(f.md, "# Guest\n\nWords.\n\n[Unclear audio at 00:06:35–00:09:39]\n\nMore words.");
-  await assert.rejects(f.run(), /minute or more|60 seconds or more/);
+  for (const note of ["[Unclear audio]", "[Unclear audio at 00:06:35–00:09:39]", "[name uncertain: “warnerball”]", "[wording uncertain: “so”]", "[Music]"]) {
+    await fs.writeFile(f.md, `# Guest\n\nWords ${note} more words.`);
+    await assert.rejects(f.run(), /bracketed annotation/);
+  }
   assert.equal(await fs.readFile(f.entryPath, "utf8"), before);
-  await f.run("--gaps-checked");
-  assert.match(JSON.parse(await fs.readFile(f.entryPath, "utf8")).transcript, /00:06:35–00:09:39/);
-  await fs.writeFile(f.md, "# Guest\n\nWords [Unclear audio at 00:01:46–00:01:49] more words.");
+  await fs.writeFile(f.md, "# Guest\n\nWords, then more words.");
   await f.run();
 });
 
-test("filler refuses new Host:/Guest: labels but keeps existing ones on correction", async (t) => {
+test("filler refuses Host:/Guest: labels", async (t) => {
   const f = await fixture(t);
-  const labelled = "Intro.\n\nHost: A question?\n\nGuest: An answer.";
-  await fs.writeFile(f.md, `# Guest\n\n${labelled}`);
-  await assert.rejects(f.run(), /new Host:\/Guest:/);
-  await fs.writeFile(f.entryPath, JSON.stringify({ ...f.entry, transcript: labelled }));
-  await fs.writeFile(f.md, `# Guest\n\n${labelled.replace("Intro.", "Intro, corrected.")}`);
+  await fs.writeFile(f.md, "# Guest\n\nIntro.\n\nHost: A question?\n\nGuest: An answer.");
+  await assert.rejects(f.run(), /2 Host:\/Guest: label/);
+  await fs.writeFile(f.md, "# Guest\n\nIntro.\n\nLauren: A question?\n\nCarla: An answer.");
   await f.run();
-  await fs.writeFile(f.md, `# Guest\n\n${labelled}\n\nGuest: Another answer.`);
-  await assert.rejects(f.run(), /1 new Host:\/Guest:/);
 });
