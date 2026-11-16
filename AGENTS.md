@@ -83,6 +83,12 @@ working in this repository.
 
 - Follow `docs/transcription-workflow.md`, the current workflow. It supersedes
   conflicting older transcription instructions; existing approvals remain valid.
+- Keep transcription light on tokens without losing accuracy. Local tools do
+  the mechanical work (recognition, second passes, speaker separation,
+  relabelling and checks) at the most accurate settings the Mac runs
+  comfortably, since every machine error costs tokens to find later. Agents
+  read compact summaries and exceptions, decide once per voice, and read each
+  transcript in full only once, for the readability pass.
 - Use supplied originals first. Simon-authorised downloads through an ordinary
   authenticated browser session are permitted. Never bypass access controls.
 - Audio, working derivatives, raw API responses, private manifests and private
@@ -112,10 +118,12 @@ working in this repository.
 - Identify speakers wherever the recording's own content establishes them:
   in-dialogue address, self-identification, the entry's line-up (`presenters`
   and guest) where a turn's role is plain from its content, and continuity
-  across segment boundaries. Label those turns with first names; use `Host:`
-  or `Guest:` when only the role is clear. Machine speaker labels, voice groups
-  and alternation are hints, never proof. Record the basis privately and
-  report the inferred calls.
+  across segment boundaries. Local speaker separation then extends an
+  established turn's name, or an enrolled presenter voiceprint, to that whole
+  voice unless one of its turns contradicts it (workflow section 7).
+  Unanchored voices, other machine labels and alternation are hints, never
+  proof. Label turns with first names; new publication uses no `Host:` or
+  `Guest:` labels. Record the basis privately and report the inferred calls.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
   separate approval of each version. Public pages simply say “Transcript”;

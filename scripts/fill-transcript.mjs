@@ -151,6 +151,16 @@ if (gaps.long.length && !opts.gapsChecked) {
 
 const entry = JSON.parse(fs.readFileSync(entryPath, "utf8"));
 
+// --- speakers: no new Host:/Guest: placeholders (workflow section 7) ---
+const roleLabels = (text) => (String(text || "").match(/^(?:Host|Guest):/gm) || []).length;
+const addedRoles = roleLabels(transcript) - roleLabels(entry.transcript);
+if (addedRoles > 0) {
+  fail(
+    `${addedRoles} new Host:/Guest: label(s). New transcripts name every voice:\n` +
+      `  use the recording or speaker separation, or credit an unnamed band member to the band and ask Simon or Lauren.`,
+  );
+}
+
 // --- decide the pull quote ---
 let pullQuote;
 if (!opts.noQuote && (opts.quote || opts.quoteIndex !== undefined)) {
