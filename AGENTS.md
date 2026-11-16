@@ -131,18 +131,22 @@ working in this repository.
   Lauren can correct it in a word.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
-  separate approval of each version. Public pages simply say “Transcript”;
-  do not add automatic/draft labels, public review-status fields or process
+  separate approval of each version. Public pages simply say “Transcript”,
+  and each introduction ends “Edited for length and clarity.”; do not add
+  automatic/draft labels, public review-status fields or other process
   disclaimers. Keep actual review status and correction receipts privately.
   Never claim listening review or reliable speaker attribution that did not
   occur. Existing approved transcripts remain approved.
 - Keep raw recognition and private review metadata outside public content.
-  Correct confirmed names from primary sources and check the timeline around
-  them, flag unresolved wording and suspected machine artifacts, and preserve
-  the underlying source privately. New publication uses no pull quote unless
-  Simon or Lauren selects one, or asks for one to be chosen, from exact options
-  of checked wording offered in the final report. Record a complete
-  transcript-versus-recording check privately only when it actually occurred.
+  Correct names from primary sources and check the timeline around them.
+  Never drop a name, venue, nickname or title because it is uncertain: search
+  for it first, and if it stays unconfirmed, keep it as heard and ask Simon or
+  Lauren in the report. Flag unresolved wording and suspected machine
+  artifacts, and preserve the underlying source privately. New publication
+  uses no pull quote unless Simon or Lauren selects one, or asks for one to be
+  chosen, from exact options of checked wording offered in the final report.
+  Record a complete transcript-versus-recording check privately only when it
+  actually occurred.
 - Do not automatically transcribe mixes, performances, broadcasts or song
   lyrics. In the private source, use `[Music]` only when the classification is
   established; otherwise retain a timed unclear-audio marker. The public

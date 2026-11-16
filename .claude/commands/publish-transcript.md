@@ -30,7 +30,9 @@ without waiting for a separate approval of each version.
 
 1. Read `AGENTS.md`, refresh `main`, inspect status and create a `codex/` branch.
 2. Run `node scripts/fill-transcript.mjs <slug> [flags] --dry-run`. Check the
-   length, that the first paragraph is the factual introduction, that turns
+   length, that the first paragraph is the factual introduction ending “Edited
+   for length and clarity.”, that uncertain names were searched or kept as heard
+   and asked about rather than cut, that turns
    carry established speaker labels, and that paragraphs follow turns rather
    than machine segments. It refuses any bracketed annotation, such as
    `[Unclear audio …]` or `[Music]`, and any `Host:` or `Guest:` label: edit
