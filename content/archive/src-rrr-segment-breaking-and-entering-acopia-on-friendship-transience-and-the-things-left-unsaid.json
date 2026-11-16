@@ -6,7 +6,7 @@
   "date": "18 June 2026",
   "dateKey": "2026-06-18",
   "year": 2026,
-  "duration": "1:16:56",
+  "duration": "13:12",
   "presenters": "",
   "source": "Triple R segment",
   "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid",
@@ -27,7 +27,7 @@
     }
   ],
   "audio": {
-    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/src-rrr-segment-breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid-7ba4d35732b8.m4a",
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/acopia-interview-2026-06-18-6ccbcb279dca.m4a",
     "type": "audio/mp4"
   }
 }

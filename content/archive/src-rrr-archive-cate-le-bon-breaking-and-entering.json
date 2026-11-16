@@ -25,5 +25,9 @@
       "duration": "22:48",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/cate-le-bon-breaking-and-entering-9d724759de33.mp3",
+    "type": "audio/mpeg"
+  }
 }

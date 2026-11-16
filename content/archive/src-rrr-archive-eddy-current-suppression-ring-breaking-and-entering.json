@@ -26,5 +26,9 @@
       "duration": "48:07",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/eddy-current-suppression-ring-breaking-and-entering-ea258b2fbc47.mp3",
+    "type": "audio/mpeg"
+  }
 }

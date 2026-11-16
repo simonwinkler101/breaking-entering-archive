@@ -25,5 +25,9 @@
       "duration": "35:03",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/lachlan-denton-breaking-and-entering-3f41ec08efcf.mp3",
+    "type": "audio/mpeg"
+  }
 }
