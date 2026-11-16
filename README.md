@@ -4,7 +4,7 @@ A quiet, searchable index of Breaking and Entering interviews, guest mixes, live
 
 ## What is public
 
-The website builds from the 160 records in `content/archive/`. Weekly Breaking and Entering broadcasts are deliberately kept out of the public build and search index; the 475 source records are preserved separately in `content/private/broadcast-archive.json` for a future, independent archive.
+The website builds from the 170 records in `content/archive/`. Weekly Breaking and Entering broadcasts are deliberately kept out of the public build and search index; the 475 source records are preserved separately in `content/private/broadcast-archive.json` for a future, independent archive.
 
 ## Editing the archive
 
@@ -59,6 +59,11 @@ npm run dev
 - `content/private/broadcast-archive.json` — preserved broadcasts, never imported by the public application
 - `scripts/build-content.mjs` — validation and build-time content compilation
 - `scripts/build-static-pages.mjs` — permanent entry pages and search-engine files
+
+Interview acquisition, private transcription, editing and human review follow
+[`docs/transcription-workflow.md`](docs/transcription-workflow.md). The reading
+version preserves the spoken wording: punctuation, paragraphs and justified
+omissions can improve readability; paraphrasing and grammar repair are excluded.
 
 The public site also associates records automatically using exact artist matches, artist mentions and shared non-generic subjects. Manually curated relationships take priority.
 

@@ -1,0 +1,35 @@
+{
+  "id": "sonic-boom-2026",
+  "artist": "Sonic Boom",
+  "title": "A ? of When with Panda Bear",
+  "kind": "Interview",
+  "date": "23 July 2026",
+  "dateKey": "2026-07-23",
+  "year": 2026,
+  "duration": "20:53",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-sonic-boom-chats-about-his-new-album-with-panda-bear-a-of-when",
+  "summary": "Pete Kember discusses A ? of When, his collaboration with Panda Bear, Jamaican musical influences and making music with hope for the future. He also reflects on radio and record stores as places to discover music.",
+  "tags": [
+    "interview",
+    "electronic",
+    "pop",
+    "collaboration",
+    "music discovery"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-sonic-boom-chats-about-his-new-album-with-panda-bear-a-of-when",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-sonic-boom-chats-about-his-new-album-with-panda-bear-a-of-when",
+      "access": "Public",
+      "duration": "20:53",
+      "status": "Confirmed RRR segment page"
+    }
+  ],
+  "aliases": [
+    "Pete Kember"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "yl-hooi-2026",
+  "artist": "YL Hooi",
+  "title": "Running Around + Guest Mix",
+  "kind": "Guest mix",
+  "date": "1 October 2026",
+  "dateKey": "2026-10-01",
+  "year": 2026,
+  "duration": "42:44",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/valya-from-yl-hooi-joins-lauren-from-breaking-and-entering-in-the-studio-for-an-incredible-dubbed-out-guest-mix-chat-about-the-new-12-running-around-83",
+  "summary": "Valya Ying-Li Hooi discusses Running Around (83), working with Tarquin Manek and Mad Professor, and her changing musical influences. The Melbourne artist then plays a guest mix that draws on her interest in dub.",
+  "tags": [
+    "guest mix",
+    "interview",
+    "dub",
+    "experimental",
+    "melbourne"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-valya-from-yl-hooi-joins-lauren-from-breaking-and-entering-in-the-studio-for-an-incredible-dubbed-out-guest-mix-chat-about-the-new-12-running-around-83",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/valya-from-yl-hooi-joins-lauren-from-breaking-and-entering-in-the-studio-for-an-incredible-dubbed-out-guest-mix-chat-about-the-new-12-running-around-83",
+      "access": "Public",
+      "duration": "42:44",
+      "status": "Confirmed RRR segment page"
+    }
+  ],
+  "aliases": [
+    "Valya Ying-Li Hooi"
+  ]
+}

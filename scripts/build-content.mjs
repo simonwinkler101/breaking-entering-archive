@@ -47,6 +47,23 @@ for (const entry of entries) {
       throw new Error(`${entry.id} has a pullQuote but no transcript.`);
     }
   }
+  if (entry.audio !== undefined && entry.audio !== null) {
+    const audio = entry.audio;
+    try {
+      if (typeof audio !== "object" || Array.isArray(audio)) throw new Error();
+      const url = new URL(audio.url);
+      // Published audio must have a stable address, not a credential-bearing
+      // or expiring signed URL. Original recordings stay outside Git.
+      if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash) {
+        throw new Error();
+      }
+      if (!["audio/mpeg", "audio/mp4", "audio/ogg", "audio/wav", "audio/webm"].includes(audio.type)) {
+        throw new Error();
+      }
+    } catch {
+      throw new Error(`${entry.id} audio needs a stable https URL without credentials, query or fragment, and a supported audio MIME type.`);
+    }
+  }
   if (ids.has(entry.id)) throw new Error(`Duplicate archive id: ${entry.id}`);
   if (!/^[A-Za-z0-9._-]+$/.test(entry.id)) {
     throw new Error(`${entry.id} is not safe to use in a permanent archive address.`);
@@ -176,7 +193,7 @@ writeJson(path.join(dataDirectory, "archive-data.json"), {
     sourceRecordCount: entries.reduce((count, entry) => count + (entry.sources?.length ?? 0), 0),
     itemCount: entries.length,
     dateUnconfirmedCount: entries.filter((entry) => !entry.dateKey).length,
-    subscriberOnlyItemCount: entries.filter((entry) => entry.access === "RRR subscriber").length,
+    subscriberOnlyItemCount: entries.filter((entry) => entry.access === "RRR subscriber" && !entry.audio).length,
     kindCounts,
     recoveryLeadCount: research.recoveryLeads.length,
     scopeNote: research.scopeNote,

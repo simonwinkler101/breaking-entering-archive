@@ -184,6 +184,7 @@ const decorateDocument = (html, { title, description, url, schema, entry }) =>
 const yearLabel = (entry) => (entry.year ? String(entry.year) : "Undated");
 const kindMark = (entry) => (entry.kind === "Live" ? "live" : entry.kind === "Guest mix" ? "mix" : "");
 const actionLabel = (entry) => (entry.href.toLowerCase().includes("youtube.com") ? "Watch" : "Listen");
+const isTripleRSource = (href) => /^https?:\/\/(?:www\.)?rrr\.org\.au(?:\/|$)/i.test(href);
 const hasTranscript = (entry) => Boolean(entry.transcript?.trim());
 
 const masthead = () => `
@@ -280,7 +281,7 @@ const pullQuoteBlock = (entry) => {
 // The opening section is labelled with the entry's format; its facts are
 // plain text joined by commas, so they read and copy as a sentence.
 const aboutBlock = (entry, duration) => {
-  const facts = [entry.year ? entry.date : "Undated", duration, accessNote(entry.access)]
+  const facts = [entry.year ? entry.date : "Undated", duration, entry.audio ? "" : accessNote(entry.access)]
     .filter(Boolean)
     .join(", ");
   return `
@@ -300,6 +301,21 @@ const transcriptBlock = (entry) => {
     <section class="entry-section" id="transcript" aria-labelledby="transcript-label">
       <h2 class="entry-label" id="transcript-label">Transcript</h2>
       <div class="transcript">${paragraphs}</div>
+    </section>`;
+};
+
+const audioBlock = (entry) => {
+  if (!entry.audio) return "";
+  return `
+    <section class="entry-section" id="listen" aria-labelledby="audio-label">
+      <h2 class="entry-label" id="audio-label">Listen</h2>
+      <archive-audio class="audio-player" data-title="${escapeHtml(display(entry).name)}" data-duration="${escapeHtml(entry.duration)}">
+        <audio controls preload="none" aria-label="${escapeHtml(`Audio recording: ${display(entry).name}`)}">
+          <source src="${escapeHtml(entry.audio.url)}" type="${escapeHtml(entry.audio.type)}" />
+          <a href="${escapeHtml(entry.audio.url)}">Open audio</a>
+        </audio>
+      </archive-audio>
+      <p class="audio-credit">${isTripleRSource(entry.href) ? "Broadcast on " : "Source: "}<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(isTripleRSource(entry.href) ? "Triple R" : entry.source)}</a></p>
     </section>`;
 };
 
@@ -359,12 +375,13 @@ const entryDocument = (entry) => {
   const title = entryPageTitle(entry);
   const description = entryDescription(entry);
   const url = entryUrl(entry);
-  const mediaType = entry.kind === "Guest mix" || entry.kind === "Live" ? "AudioObject" : "CreativeWork";
+  const mediaType = entry.audio || entry.kind === "Guest mix" || entry.kind === "Live" ? "AudioObject" : "CreativeWork";
   const media = {
     "@type": mediaType,
     name: entry.title,
     description,
-    contentUrl: entry.href,
+    contentUrl: entry.audio?.url ?? entry.href,
+    ...(entry.audio ? { encodingFormat: entry.audio.type } : {}),
     ...(entry.aliases?.length ? { alternateName: entry.aliases } : {}),
     ...(durationToIso(entry.duration) ? { duration: durationToIso(entry.duration) } : {}),
   };
@@ -394,12 +411,13 @@ const entryDocument = (entry) => {
   <main class="site entry-page">
     <header class="entry-top">
       <a href="/">${escapeHtml(settings.metadata.title.replace(/\s+Archive$/i, ""))}</a>
-      <nav class="entry-nav" aria-label="This entry"><a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}</a>${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</nav>
+      <nav class="entry-nav" aria-label="This entry">${entry.audio ? '<a href="#listen">Listen</a>' : `<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}</a>`}${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</nav>
     </header>
     <article class="entry" data-kind="${escapeHtml(entry.kind)}">
       <h1 class="entry-name">${escapeHtml(name)}</h1>
       ${displayTitle ? `<p class="entry-title">${escapeHtml(displayTitle)}</p>` : ""}
       ${aboutBlock(entry, duration)}
+      ${audioBlock(entry)}
       ${pullQuoteBlock(entry)}
       ${transcriptBlock(entry)}
       ${sourcesBlock(entry)}

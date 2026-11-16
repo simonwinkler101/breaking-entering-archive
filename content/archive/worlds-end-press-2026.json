@@ -1,0 +1,32 @@
+{
+  "id": "worlds-end-press-2026",
+  "artist": "World's End Press",
+  "title": "Reunited After a Decade + Guest Mix",
+  "kind": "Guest mix",
+  "date": "8 October 2026",
+  "dateKey": "2026-10-08",
+  "year": 2026,
+  "duration": "50:51",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-worlds-end-press-reunite-after-a-decade",
+  "summary": "John Parkinson and Rhys Richards reflect on the band's reunion after a decade apart, changes in the music industry and what might come next. They also play a guest mix ahead of their Melbourne reunion show.",
+  "tags": [
+    "guest mix",
+    "interview",
+    "reunion",
+    "melbourne",
+    "electronic"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-entering-worlds-end-press-reunite-after-a-decade",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-entering-worlds-end-press-reunite-after-a-decade",
+      "access": "Public",
+      "duration": "50:51",
+      "status": "Confirmed RRR segment page"
+    }
+  ]
+}

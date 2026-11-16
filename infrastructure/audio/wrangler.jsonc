@@ -1,0 +1,11 @@
+{
+  "name": "breaking-entering-audio",
+  "main": "worker.js",
+  "compatibility_date": "2026-11-16",
+  "r2_buckets": [
+    {
+      "binding": "AUDIO",
+      "bucket_name": "breaking-entering-audio"
+    }
+  ]
+}

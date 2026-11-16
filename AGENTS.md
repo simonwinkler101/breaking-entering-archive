@@ -81,8 +81,10 @@ working in this repository.
 
 ## Audio and transcription
 
-- Station-supplied files are the preferred source. Website extraction, yt-dlp
-  and subscriber-access circumvention are not default acquisition methods.
+- Follow `docs/transcription-workflow.md`, the current workflow. It supersedes
+  conflicting older transcription instructions; existing approvals remain valid.
+- Use supplied originals first. Simon-authorised downloads through an ordinary
+  authenticated browser session are permitted. Never bypass access controls.
 - Audio, working derivatives, raw API responses, private manifests and
   transcript drafts must remain outside the Git repository.
 - Use a configurable `BNE_MEDIA_ROOT` (or explicit CLI paths) rather than
@@ -90,9 +92,17 @@ working in this repository.
 - Never print, log or commit API credentials.
 - Preserve station-supplied files byte-for-byte; calculate checksums before
   processing.
+- Keep access, private processing and publication permission separate. Continue
+  authorised private work while an unrelated publication question remains.
+- Produce a faithful private timestamped source transcript and a separate
+  lightly edited reading draft. Cover the full supplied recording, reconcile
+  chunk boundaries and speaker labels, and flag uncertain wording or attribution.
+- Preserve spoken wording in the reading version: punctuation, paragraphs,
+  supported speaker labels and justified omissions may change; paraphrasing,
+  word substitution, grammar repair and rewritten questions are not permitted.
 - Raw and machine-edited transcripts are not publishable. Only a
-  human-approved transcript may be written to an archive entry's `transcript`
-  field.
+  human-approved transcript with applicable publication permission may be written
+  to an archive entry's `transcript` field.
 - Do not automatically transcribe mixes, performances, broadcasts or song
   lyrics; represent musical passages as `[Music]` unless separately cleared.
 - Do not edit archive entry JSON during inventory or raw transcription stages.

@@ -1,0 +1,40 @@
+{
+  "id": "the-avalanches-2026",
+  "artist": "The Avalanches",
+  "title": "No Bad Memories",
+  "kind": "Interview",
+  "date": "15 October 2026",
+  "dateKey": "2026-10-15",
+  "year": 2026,
+  "duration": "39:13",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-no-bad-memories-with-the-avalanches",
+  "summary": "Robbie Chater, Tony Di Blasi and Andy Szekeres discuss No Bad Memories, sampling and forgotten technologies. They reflect on the connections between advertising, childhood and memory, and following instinct while making their new record.",
+  "tags": [
+    "interview",
+    "sampling",
+    "electronic",
+    "melbourne",
+    "memory"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-no-bad-memories-with-the-avalanches",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-no-bad-memories-with-the-avalanches",
+      "access": "Public",
+      "duration": "39:13",
+      "status": "Confirmed RRR segment page"
+    },
+    {
+      "id": "src-rrr-archive-breaking-and-entering-the-avalanches-on-no-bad-memories",
+      "label": "Triple R archive",
+      "href": "https://www.rrr.org.au/on-demand/archives/breaking-and-entering-the-avalanches-on-no-bad-memories",
+      "access": "Public",
+      "duration": "31:32",
+      "status": "Confirmed RRR archive page"
+    }
+  ]
+}
