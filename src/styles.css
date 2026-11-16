@@ -348,6 +348,7 @@ button {
   gap: 24px;
   padding: calc(var(--unit) * 3) var(--edge) var(--edge);
   color: var(--quiet);
+  flex-wrap: wrap;
 }
 
 /* Pointer states ---------------------------------------------------------- */
@@ -359,21 +360,43 @@ button:active {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  /* Native image cursors stay immediate, without a script or animation.
-     Keep the normal text cursor for searching and reading transcripts. */
+  /* Embedded raster cursors avoid SVG loading/fallback changes. Explicit
+     inheritance keeps native arrow styles from interrupting the dot. */
   @media (forced-colors: none) {
-    body {
-      cursor: url("/cursors/dot.svg") 8 8, auto;
+    html {
+      --dot-cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGMoKChgoARTpJmmBvgUFBQcLigo+A7Fh6FiRBnQX1BQ8B8H7idkgA8ezTDsg8+Aw0QYcBifAd+JMOA7TQ2g2AsUByLF0UiVhDQ48gLRGAC5j55AEuJ4DwAAAABJRU5ErkJggg==") 8 8, auto;
+      --link-cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVR4nGNgGLbAh4GB4TADA8N3KD4MFSMK9DMwMPzHgfuJsRmXZhjG65LDRBhwGJ8B34kw4DtNDaDYCxQHIgOl0YjsErIT0hADAGmKTjGUivPkAAAAAElFTkSuQmCC") 8 8, pointer;
+      cursor: var(--dot-cursor);
+    }
+
+    body,
+    body * {
+      cursor: inherit;
+    }
+
+    dialog::backdrop {
+      cursor: var(--dot-cursor);
+    }
+
+    .transcript,
+    .transcript *,
+    input[type="search"],
+    textarea {
+      cursor: text;
     }
 
     a,
+    a *,
     button,
+    button *,
+    .transcript a,
+    .transcript a *,
     .audio-seek:not(:disabled) {
-      cursor: url("/cursors/dot-link.svg") 8 8, pointer;
+      cursor: var(--link-cursor);
     }
 
-    .transcript {
-      cursor: text;
+    .audio-seek:disabled {
+      cursor: var(--dot-cursor);
     }
   }
 
@@ -387,14 +410,6 @@ button:active {
     color: var(--ink);
   }
 
-  .detail-actions a:hover,
-  .entry-top a:hover,
-  .related a:hover,
-  .sources a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.18em;
-  }
 }
 
 /* Upright tablets set the title on two lines, as phones do. */
@@ -711,11 +726,6 @@ button:active {
   color: var(--ink);
 }
 
-.audio-credit a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-
 .audio-seek {
   flex: 1;
   min-width: 5em;
@@ -754,7 +764,7 @@ button:active {
 }
 
 .audio-seek:disabled {
-  cursor: default;
+  cursor: var(--dot-cursor, default);
   opacity: 0.35;
 }
 
@@ -788,17 +798,72 @@ button:active {
 
 .project-links a {
   display: inline-block;
-  font-size: var(--large);
-  line-height: 1.16;
-  letter-spacing: -0.015em;
+  font-size: inherit;
+  line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .credit a:hover,
-  .project-links a:hover {
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.18em;
+.projects-dialog {
+  position: fixed;
+  inset: var(--edge) auto auto var(--edge);
+  width: min(38em, calc(100vw - 2 * var(--edge)));
+  max-width: none;
+  max-height: calc(100dvh - 2 * var(--edge));
+  margin: 0;
+  padding: clamp(20px, 3vw, 40px);
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.projects-dialog::backdrop {
+  background: rgb(255 255 255 / 88%);
+}
+
+.projects-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5em;
+  margin-bottom: 2em;
+}
+
+.projects-heading button,
+.projects-group h3 {
+  color: var(--quiet);
+}
+
+.projects-group {
+  display: grid;
+  grid-template-columns: 11em minmax(0, 1fr);
+  gap: 1em;
+  margin-top: 1.5em;
+}
+
+.about-page .entry-name {
+  font-size: var(--small);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.about-page .entry-section {
+  margin-top: 1.5em;
+}
+
+@media (max-width: 480px) {
+  .projects-group {
+    grid-template-columns: 1fr;
+    gap: 0.3em;
   }
 }
+
+@media print {
+  .projects-dialog {
+    display: none;
+  }
+}
+
