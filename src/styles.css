@@ -897,8 +897,24 @@ button:active {
 
 @media (max-width: 480px) {
   .projects-group {
-    grid-template-columns: 1fr;
-    gap: 0.3em;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: 1.25em;
+    row-gap: 0;
+    align-items: baseline;
+    margin-top: 1.75em;
+  }
+
+  .projects-group h3 {
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .projects-group .project-links {
+    min-width: 0;
+  }
+
+  .projects-group .project-links a {
+    display: block;
   }
 }
 
@@ -930,6 +946,12 @@ button:active {
   .project-links a,
   .foot a {
     padding-block: 12px;
+  }
+
+  /* These links are flex items: compensate their touch padding so the
+     sticky header keeps the height used by section anchor offsets. */
+  .entry-top a {
+    margin-block: -12px;
   }
 
   .row + .row:not([data-group]) {
