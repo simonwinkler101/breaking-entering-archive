@@ -10,6 +10,7 @@ const associations = JSON.parse(
   fs.readFileSync(path.join(root, "data/archive-associations.json"), "utf8"),
 );
 const settings = JSON.parse(fs.readFileSync(path.join(root, "data/site-settings.json"), "utf8"));
+const about = JSON.parse(fs.readFileSync(path.join(root, "data/about.json"), "utf8"));
 const entries = archiveData.entries.filter((entry) => entry.kind !== "Broadcast");
 const siteUrl = settings.metadata.siteUrl.replace(/\/+$/, "");
 const fontFile = fs
@@ -189,7 +190,7 @@ const hasTranscript = (entry) => Boolean(entry.transcript?.trim());
 
 const masthead = () => `
   <header class="masthead" id="top">
-    <p class="credit">${escapeHtml(settings.hero.eyebrow)}</p>
+    <p class="credit"><a href="/about/">${escapeHtml(settings.hero.eyebrow)}</a></p>
     <h1 class="title"><a href="/" aria-label="${escapeHtml(settings.wordmark.homeLabel)}"><span>${escapeHtml(settings.wordmark.lineOne)}</span> <span>${escapeHtml(settings.wordmark.lineTwo)}</span></a></h1>
     <p class="intro">${escapeHtml(settings.hero.introduction)} ${escapeHtml(settings.hero.archiveLine)}</p>
   </header>`;
@@ -450,6 +451,60 @@ const homepage = decorateDocument(
 );
 fs.writeFileSync(indexFilename, homepage);
 
+const aboutUrl = `${siteUrl}/about/`;
+const projectLinks = about.groups.flatMap((group) => group.links);
+const aboutContent = `
+  <main class="site about-page" id="top">
+    <header class="entry-top"><a href="/">${escapeHtml(settings.metadata.title.replace(/\s+Archive$/i, ""))}</a></header>
+    <article class="entry">
+      <h1 class="entry-name">${escapeHtml(about.title)}</h1>
+      <section class="entry-section" aria-labelledby="about-label">
+        <h2 class="entry-label" id="about-label">About</h2>
+        <p>${escapeHtml(about.introduction)}</p>
+      </section>
+      ${about.groups.map((group, index) => `
+      <section class="entry-section" aria-labelledby="projects-${index}">
+        <h2 class="entry-label" id="projects-${index}">${escapeHtml(group.heading)}</h2>
+        <ul class="project-links">${group.links.map((link) => `
+          <li><a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a></li>`).join("")}
+        </ul>
+      </section>`).join("")}
+    </article>
+    ${footer()}
+  </main>`;
+const aboutBase = baseIndex
+  .replace(/\s*<script\s+type="module"[^>]*>[\s\S]*?<\/script>/gi, "")
+  .replace(/\s*<script\b[^>]*src="\/audio-player\.js"[^>]*><\/script>/gi, "");
+const aboutDocument = decorateDocument(
+  aboutBase.replace('<div id="root"></div>', `<div id="root">${aboutContent}</div>`),
+  {
+    title: `${about.title} | ${settings.metadata.title}`,
+    description: about.introduction,
+    url: aboutUrl,
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      url: aboutUrl,
+      name: about.title,
+      description: about.introduction,
+      inLanguage: "en-AU",
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: projectLinks.length,
+        itemListElement: projectLinks.map((link, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: link.label,
+          url: link.url,
+        })),
+      },
+    },
+  },
+);
+fs.mkdirSync(path.join(distDirectory, "about"), { recursive: true });
+fs.writeFileSync(path.join(distDirectory, "about/index.html"), aboutDocument);
+
 for (const entry of entries) {
   const directory = path.join(distDirectory, "archive", entry.id);
   fs.mkdirSync(directory, { recursive: true });
@@ -459,6 +514,7 @@ for (const entry of entries) {
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${escapeXml(`${siteUrl}/`)}</loc></url>
+  <url><loc>${escapeXml(aboutUrl)}</loc></url>
 ${entries.map((entry) => `  <url><loc>${escapeXml(entryUrl(entry))}</loc></url>`).join("\n")}
 </urlset>
 `;
@@ -468,4 +524,4 @@ fs.writeFileSync(
   `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${siteUrl}/sitemap.xml\n`,
 );
 
-console.log(`Generated ${entries.length} permanent archive pages and sitemap.xml.`);
+console.log(`Generated ${entries.length} permanent archive pages, the project directory and sitemap.xml.`);
