@@ -28,5 +28,9 @@
       "duration": "54:48",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/jacques-greene-2026-0a73bef153bb.m4a",
+    "type": "audio/mp4"
+  }
 }

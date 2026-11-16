@@ -28,5 +28,9 @@
       "duration": "53:22",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/jack-j-2026-0d4a2ab3b0df.m4a",
+    "type": "audio/mp4"
+  }
 }

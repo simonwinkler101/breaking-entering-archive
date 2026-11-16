@@ -369,7 +369,7 @@ button:active {
     a,
     button,
     .audio-seek:not(:disabled) {
-      cursor: url("/cursors/dot-link.svg") 10 10, pointer;
+      cursor: url("/cursors/dot-link.svg") 8 8, pointer;
     }
 
     .transcript {

@@ -24,5 +24,9 @@
       "duration": "18:02",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/src-rrr-segment-breaking-and-entering-daniel-avery-returns-with-a-tremor-75a1596dd8a9.m4a",
+    "type": "audio/mp4"
+  }
 }

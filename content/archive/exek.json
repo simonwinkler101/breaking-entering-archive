@@ -28,5 +28,9 @@
       "duration": "28:52",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/exek-1c183ef267af.m4a",
+    "type": "audio/mp4"
+  }
 }

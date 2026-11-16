@@ -28,5 +28,9 @@
       "duration": "50:51",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/worlds-end-press-2026-e6c09d070273.m4a",
+    "type": "audio/mp4"
+  }
 }

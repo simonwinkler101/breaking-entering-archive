@@ -24,5 +24,9 @@
       "duration": "19:09",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/src-rrr-segment-breaking-entering-now-or-never-with-elise-peyronnet-91af175cfa53.m4a",
+    "type": "audio/mp4"
+  }
 }

@@ -31,5 +31,9 @@
   ],
   "aliases": [
     "Pete Kember"
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/sonic-boom-2026-154bd3f94353.m4a",
+    "type": "audio/mp4"
+  }
 }

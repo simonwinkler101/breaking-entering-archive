@@ -28,5 +28,9 @@
       "duration": "31:45",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/saul-williams-2026-249711111007.m4a",
+    "type": "audio/mp4"
+  }
 }

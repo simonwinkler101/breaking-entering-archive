@@ -36,5 +36,9 @@
       "duration": "45:31",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/nabihah-iqbal-a4fa77c14b01.m4a",
+    "type": "audio/mp4"
+  }
 }

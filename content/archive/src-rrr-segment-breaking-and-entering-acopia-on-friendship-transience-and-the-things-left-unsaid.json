@@ -24,5 +24,9 @@
       "duration": "1:16:56",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/src-rrr-segment-breaking-and-entering-acopia-on-friendship-transience-and-the-things-left-unsaid-7ba4d35732b8.m4a",
+    "type": "audio/mp4"
+  }
 }
