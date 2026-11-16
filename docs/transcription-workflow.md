@@ -89,7 +89,7 @@ listened and the passage stays unintelligible.
 Markers belong to the private reading draft, never the page. The public copy
 carries no uncertainty or music annotations: edit around what stays unclear by
 cutting the fragment, ending the sentence before it, or dropping a question whose
-answer is lost, and never fill the gap. Each marker stays on the private listening
+answer is lost, and never fill the gap. An uncertain name is not cut (section 5). Each marker stays on the private listening
 list, longest first, until someone listens: `npm run transcripts:gaps -- --from
 <draft or folder>` prints it; keep the output outside the repository. `npm run
 fill:transcript` refuses any bracketed annotation in a public copy.
@@ -100,6 +100,13 @@ Check doubtful names, recordings, labels, venues, events and dates against prima
 sources: artist/label pages, official credits, venues, festivals and Triple R.
 Correct an unambiguous spelling or title and record the exact change, timestamp,
 source and reason privately. Familiar unambiguous names do not need repeated work.
+
+Never drop a name, venue, nickname or title because it is uncertain: those details
+are worth preserving. Search for it first, using the context around it (a venue
+heard as "the Burmy" is the Birmi, Fitzroy's Birmingham Hotel). If a search cannot
+confirm it, keep the name as heard, without brackets, and ask Simon or Lauren in
+the report; correct it when they answer. Only a name the recognition lost entirely
+is edited around until someone supplies it.
 
 Recognition fails in predictable ways. Read for song titles heard as ordinary
 phrases ('Going Out' as "going out"), near-homophones (The Lewers as "The Lures",
@@ -184,7 +191,7 @@ public copy and keep the timed marker in the private draft. Never invent content
 
 Begin every reading copy with a short factual introduction of one to three
 sentences: who spoke with whom, in the studio or remotely, when, and the occasion.
-The page sets the first paragraph as the introduction, so it must not be a
+End it with “Edited for length and clarity.” The page sets the first paragraph as the introduction, so it must not be a
 speaker's turn. That introduction is editorial prose, not invented dialogue, and
 it may replace an awkward radio opening. Preserve substantive biography, credits,
 background and interview context; replacing a broken opening is not permission to
@@ -296,8 +303,9 @@ applies, and so does section 4's one hold: an unidentified gap of a minute or mo
 or text that stops before the conversation does. Where meaning remains unclear,
 cut around it rather than invent words, and keep it on the listening list.
 
-Public pages simply say “Transcript”. Do not add automatic/draft labels, public
-review-status fields, process disclaimers, private review headers or local paths.
+Public pages simply say “Transcript”, and the introduction ends “Edited for length
+and clarity.” Do not add automatic/draft labels, public review-status fields, other
+process disclaimers, private review headers or local paths.
 Keep actual review state private. Do not claim a check that did not occur.
 
 New publication uses no pull quote unless one is explicitly selected from checked
