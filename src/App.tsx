@@ -8,8 +8,9 @@ import {
   useRef,
   useState,
 } from "react";
-import archiveData from "../data/archive-data.json";
+import archiveIndex from "../data/archive-index.json";
 import siteSettings from "../data/site-settings.json";
+import about from "../data/about.json";
 import { createSearchIndex, normaliseSearchText, searchArchive } from "./search";
 
 type ArchiveKind = "Interview" | "Guest mix" | "Live" | "Broadcast" | "Special program";
@@ -38,6 +39,8 @@ type ArchiveEntry = {
   href: string;
   summary: string;
   transcript?: string;
+  // Set at build time; the transcript text itself loads separately.
+  hasTranscript?: boolean;
   audio?: { url: string; type: string };
   pullQuote?: { text: string; speaker: string };
   aliases?: string[];
@@ -50,10 +53,22 @@ type ArchiveEntry = {
 };
 
 // Entries arrive sorted newest first, with undated entries last.
-const archiveEntries = (archiveData.entries as unknown as ArchiveEntry[]).filter(
+const archiveEntries = (archiveIndex.entries as unknown as ArchiveEntry[]).filter(
   (entry) => entry.kind !== "Broadcast",
 );
-const searchIndex = createSearchIndex(archiveEntries);
+const listIndex = createSearchIndex(archiveEntries);
+
+// Transcripts are most of the archive's weight, so they arrive after the list:
+// when the browser is idle, or as soon as someone starts to search.
+type Transcripts = Record<string, string>;
+let transcriptsRequest: Promise<Transcripts> | null = null;
+const requestTranscripts = () =>
+  (transcriptsRequest ??= import("../data/archive-transcripts.json")
+    .then((module) => module.default as Transcripts)
+    .catch((error) => {
+      transcriptsRequest = null;
+      throw error;
+    }));
 
 const formats = [
   { kind: "Interview", label: "Interviews", hash: "#interviews" },
@@ -83,7 +98,7 @@ const entryIdFromLocation = () => {
 const isUnmodifiedLeftClick = (event: ReactMouseEvent<HTMLAnchorElement>) =>
   event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey;
 
-const hasTranscript = (entry: ArchiveEntry) => Boolean(entry.transcript?.trim());
+const hasTranscript = (entry: ArchiveEntry) => Boolean(entry.hasTranscript);
 const actionLabel = (entry: ArchiveEntry) =>
   entry.href.toLowerCase().includes("youtube.com") ? "Watch" : "Listen";
 const isTripleRSource = (href: string) => /^https?:\/\/(?:www\.)?rrr\.org\.au(?:\/|$)/i.test(href);
@@ -163,8 +178,9 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
   );
 }
 
-export default function App() {
-  const [query, setQuery] = useState("");
+export default function App({ initialQuery = "" }: { initialQuery?: string }) {
+  const [query, setQuery] = useState(initialQuery);
+  const [transcripts, setTranscripts] = useState<Transcripts | null>(null);
   const [format, setFormat] = useState<Format | null>(() => formatFromHash(window.location.hash));
   const [openId, setOpenId] = useState<string | null>(() => {
     const id = entryIdFromLocation();
@@ -180,8 +196,39 @@ export default function App() {
   const openIdRef = useRef(openId);
   openIdRef.current = openId;
   const rowRefs = useRef(new Map<string, HTMLAnchorElement>());
+  // Set when a tap or click opens an entry, so its details can be brought on screen.
+  const revealRef = useRef(false);
   const searching = Boolean(normaliseSearchText(query));
   const openEntry = archiveEntries.find((entry) => entry.id === openId) ?? null;
+
+  const searchIndex = useMemo(
+    () =>
+      transcripts
+        ? createSearchIndex(
+            archiveEntries.map((entry) => ({ ...entry, transcript: transcripts[entry.id] })),
+          )
+        : listIndex,
+    [transcripts],
+  );
+
+  const loadTranscripts = () => {
+    requestTranscripts().then(setTranscripts, () => {});
+  };
+
+  useEffect(() => {
+    if (initialQuery) {
+      loadTranscripts();
+      return;
+    }
+    // On a data-saver connection, wait until someone searches.
+    if ((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData) return;
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(loadTranscripts, { timeout: 4000 });
+      return () => window.cancelIdleCallback(id);
+    }
+    const id = globalThis.setTimeout(loadTranscripts, 2000);
+    return () => globalThis.clearTimeout(id);
+  }, []);
 
   const results = useMemo(() => {
     const matches = searchArchive(searchIndex, query).filter(
@@ -194,7 +241,7 @@ export default function App() {
         (b.entry.dateKey ?? "").localeCompare(a.entry.dateKey ?? "") ||
         a.entry.display.name.localeCompare(b.entry.display.name),
     );
-  }, [query, format]);
+  }, [searchIndex, query, format]);
 
   // An entry hidden by a new search or format closes.
   useEffect(() => {
@@ -254,6 +301,22 @@ export default function App() {
     rowRefs.current.get(openId)?.scrollIntoView({ block: "center" });
   }, []); // First render only.
 
+  // An entry opened near the foot of the screen (common on a phone) scrolls up
+  // just enough to show its details, without pushing its name under the
+  // search row.
+  useLayoutEffect(() => {
+    if (!openId || !revealRef.current) return;
+    revealRef.current = false;
+    const name = rowRefs.current.get(openId);
+    const detail = document.getElementById(`entry-${openId}`);
+    if (!name || !detail) return;
+    const bar = document.querySelector(".controls")?.getBoundingClientRect().bottom ?? 0;
+    const hidden = detail.getBoundingClientRect().bottom + 16 - window.innerHeight;
+    const room = name.getBoundingClientRect().top - bar - 8;
+    const by = Math.min(hidden, room);
+    if (by > 0) window.scrollBy({ top: by, behavior: motion() });
+  }, [openId]);
+
   useEffect(() => {
     const syncFromLocation = () => {
       const id = entryIdFromLocation();
@@ -307,6 +370,7 @@ export default function App() {
   const toggleEntry = (event: ReactMouseEvent<HTMLAnchorElement>, entry: ArchiveEntry) => {
     if (!isUnmodifiedLeftClick(event)) return;
     event.preventDefault();
+    revealRef.current = openId !== entry.id;
     setOpenId((current) => (current === entry.id ? null : entry.id));
   };
 
@@ -361,7 +425,10 @@ export default function App() {
               if (window.scrollY > listTop() + 1) enterRef.current = "auto";
               setQuery(event.target.value);
             }}
-            onFocus={enterFromSearch}
+            onFocus={() => {
+              loadTranscripts();
+              enterFromSearch();
+            }}
             placeholder={siteSettings.hero.searchPlaceholder}
             aria-label="Search the archive"
             autoComplete="off"
@@ -463,6 +530,7 @@ export default function App() {
 
       <footer className="foot">
         <p>{siteSettings.footer.text}</p>
+        <a href="/about/" data-projects-trigger aria-haspopup="dialog" aria-controls="projects-dialog">{about.title}</a>
         <a href="#top">{siteSettings.footer.backToTopLabel}</a>
       </footer>
     </main>

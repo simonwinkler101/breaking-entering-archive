@@ -224,6 +224,23 @@ writeJson(path.join(dataDirectory, "archive-data.json"), {
   sourceHubs: research.sourceHubs,
 });
 
+// The application loads the list first and the transcripts afterwards, so a
+// phone paints and responds before the transcript text arrives (src/App.tsx).
+const publicEntries = entries.filter((entry) => entry.kind !== "Broadcast");
+writeJson(path.join(dataDirectory, "archive-index.json"), {
+  entries: publicEntries.map(({ transcript, ...entry }) =>
+    transcript?.trim() ? { ...entry, hasTranscript: true } : entry,
+  ),
+});
+writeJson(
+  path.join(dataDirectory, "archive-transcripts.json"),
+  Object.fromEntries(
+    publicEntries
+      .filter((entry) => entry.transcript?.trim())
+      .map((entry) => [entry.id, entry.transcript]),
+  ),
+);
+
 for (const filename of ["site-settings.json", "archive-associations.json", "about.json"]) {
   fs.copyFileSync(path.join(root, "content", filename), path.join(dataDirectory, filename));
 }

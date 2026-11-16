@@ -218,10 +218,25 @@ const footer = () => `
     <a href="#top">${escapeHtml(settings.footer.backToTopLabel)}</a>
   </footer>`;
 
-// Shown only without JavaScript; the application renders the same structure.
+// The homepage as built: it paints before the application script arrives,
+// and stands on its own without JavaScript. The application replaces it with
+// the same structure (src/main.tsx). The search row needs the script, so it
+// is hidden when scripting is off.
+const staticControls = () => `
+    <noscript><style>.controls { display: none; }</style></noscript>
+    <div class="controls">
+      <form class="search" role="search">
+        <input type="search" placeholder="${escapeHtml(settings.hero.searchPlaceholder)}" aria-label="Search the archive" autocomplete="off" spellcheck="false" enterkeyhint="search" />
+      </form>
+      <nav class="formats" aria-label="Formats">
+        ${["Interviews", "Live", "Mixes"].map((label) => `<button type="button" aria-pressed="false">${label}</button>`).join("\n        ")}
+      </nav>
+    </div>`;
+
 const homepageFallback = () => `
   <main class="site">
     ${masthead()}
+    ${staticControls()}
     <section class="index" aria-label="Archive">
       <ol class="rows" data-mode="browse">
         ${entries
@@ -462,7 +477,7 @@ const entryDocument = (entry) => {
 const homepage = decorateDocument(
   baseIndex.replace(
     '<div id="root"></div>',
-    `<div id="root"></div><noscript>${homepageFallback()}</noscript>`,
+    `<div id="root">${homepageFallback()}</div>`,
   ),
   {
     title: settings.metadata.title,

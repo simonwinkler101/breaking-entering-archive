@@ -7,12 +7,18 @@
   top as the list scrolls. Space separates things, so there are no rules,
   boxes or borders. Vertical gaps are multiples of --unit (one large line),
   and everything aligns to the page edge or the index column.
+
+  One colour, an on-air orange, marks what is selected or live: the chosen
+  format, the open entry, the recording that is playing and the moment of a
+  press. Nothing else is coloured.
 */
 
 :root {
   --ink: #000;
   --quiet: #707070;
   --paper: #fff;
+  /* 4.6:1 on white, so it holds for small text as well as large. */
+  --signal: #d24500;
   --font: "Geist Variable", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --edge: clamp(16px, 2.4vw, 48px);
@@ -193,7 +199,7 @@ button {
   padding: 0;
   font-size: var(--small);
   line-height: 1.45;
-  caret-color: var(--ink);
+  caret-color: var(--signal);
   cursor: text;
 }
 
@@ -233,7 +239,13 @@ button {
 }
 
 .formats button[aria-pressed="true"] {
-  color: var(--ink);
+  color: var(--signal);
+}
+
+.formats button,
+.row-name,
+.audio-toggle {
+  transition: color 0.15s ease;
 }
 
 /* Index ------------------------------------------------------------------- */
@@ -270,6 +282,11 @@ button {
   align-items: baseline;
   gap: 0 0.8em;
   min-width: 0;
+}
+
+/* The open entry's name takes the signal colour. */
+.row[data-open] .row-name {
+  color: var(--signal);
 }
 
 .row-name {
@@ -353,10 +370,10 @@ button {
 
 /* Pointer states ---------------------------------------------------------- */
 
-/* Touch gets a brief grey press instead of the browser's highlight box. */
+/* Touch gets a brief orange press instead of the browser's highlight box. */
 a:active,
 button:active {
-  color: var(--quiet);
+  color: var(--signal);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -405,7 +422,7 @@ button:active {
   }
 
   .clear:hover,
-  .formats button:hover,
+  .formats button:not([aria-pressed="true"]):hover,
   .foot a:hover {
     color: var(--ink);
   }
@@ -735,14 +752,38 @@ button:active {
   accent-color: var(--ink);
 }
 
+/* The played part of the line is drawn in ink, and in the signal colour
+   while the recording plays. audio-player.js sets --played and
+   data-playing. */
+.audio-seek {
+  --fill: var(--ink);
+}
+
+.audio-player[data-playing] .audio-seek {
+  --fill: var(--signal);
+}
+
+.audio-player[data-playing] .audio-toggle {
+  color: var(--signal);
+}
+
 .audio-seek::-webkit-slider-runnable-track {
   height: 1px;
-  background: var(--quiet);
+  background: linear-gradient(
+    to right,
+    var(--fill) var(--played, 0%),
+    var(--quiet) var(--played, 0%)
+  );
 }
 
 .audio-seek::-moz-range-track {
   height: 1px;
   background: var(--quiet);
+}
+
+.audio-seek::-moz-range-progress {
+  height: 1px;
+  background: var(--fill);
 }
 
 .audio-seek::-webkit-slider-thumb {
@@ -751,7 +792,7 @@ button:active {
   margin-top: -4.5px;
   border: 0;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--fill);
   -webkit-appearance: none;
 }
 
@@ -760,7 +801,7 @@ button:active {
   height: 10px;
   border: 0;
   border-radius: 50%;
-  background: var(--ink);
+  background: var(--fill);
 }
 
 .audio-seek:disabled {
@@ -864,5 +905,103 @@ button:active {
 @media print {
   .projects-dialog {
     display: none;
+  }
+}
+
+/* Touch ------------------------------------------------------------------- */
+
+/* Fingers need bigger targets than the words show. Padding widens each hit
+   area and a matching negative margin keeps the layout where it was; on
+   inline links the padding alone does it. */
+@media (pointer: coarse) {
+  .formats button,
+  .clear,
+  .audio-toggle,
+  .projects-heading button {
+    padding: 12px 8px;
+    margin: -12px -8px;
+  }
+
+  .credit a,
+  .entry-top a,
+  .detail-actions a,
+  .audio-credit a,
+  .sources a,
+  .project-links a,
+  .foot a {
+    padding-block: 12px;
+  }
+
+  .row + .row:not([data-group]) {
+    margin-top: 0.3em;
+  }
+
+  /* The field's own box is one line tall; extend it to a finger's height
+     without moving the text. */
+  .search input {
+    height: calc(var(--small) * 1.45 + 20px);
+    padding-block: 10px;
+    margin-block: -10px;
+  }
+
+  /* A thumb you can find and a line you can see, in the same space. */
+  .audio-seek {
+    height: 44px;
+    margin-block: -10px;
+  }
+
+  .audio-seek::-webkit-slider-runnable-track {
+    height: 2px;
+  }
+
+  .audio-seek::-moz-range-track,
+  .audio-seek::-moz-range-progress {
+    height: 2px;
+  }
+
+  .audio-seek::-webkit-slider-thumb {
+    width: 18px;
+    height: 18px;
+    margin-top: -8px;
+  }
+
+  .audio-seek::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (pointer: coarse) and (max-width: 720px) {
+  .row-name {
+    padding-block: 0.1em;
+  }
+}
+
+/* Phones ------------------------------------------------------------------ */
+
+/* While a search is being typed, the field takes the whole row and the
+   three formats step down a line, so the words stay readable. */
+@media (max-width: 560px) {
+  .controls:has(.search input:focus),
+  .controls:has(.search input:not(:placeholder-shown)) {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.4em;
+  }
+
+  .controls:has(.search input:focus) .formats,
+  .controls:has(.search input:not(:placeholder-shown)) .formats {
+    grid-column: 1;
+    margin-left: 0;
+  }
+}
+
+/* The projects list opens as a full sheet rather than over the page. */
+@media (max-width: 480px) {
+  .projects-dialog {
+    inset: 0;
+    width: 100vw;
+    height: 100dvh;
+    max-height: 100dvh;
+    padding: var(--edge);
   }
 }
