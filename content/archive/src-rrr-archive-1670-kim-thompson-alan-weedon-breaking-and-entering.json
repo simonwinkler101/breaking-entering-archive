@@ -25,5 +25,9 @@
       "duration": "14:55",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1670-kim-thompson-alan-weedon-breaking-and-entering-ed95b60f8566.mp3",
+    "type": "audio/mpeg"
+  }
 }
