@@ -25,5 +25,9 @@
       "duration": "26:20",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/pikelet-breaking-and-entering-6b2214c562bd.mp3",
+    "type": "audio/mpeg"
+  }
 }

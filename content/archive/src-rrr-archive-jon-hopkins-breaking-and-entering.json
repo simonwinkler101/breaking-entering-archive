@@ -25,5 +25,9 @@
       "duration": "37:48",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/jon-hopkins-breaking-and-entering-26c0dd2f6833.mp3",
+    "type": "audio/mpeg"
+  }
 }

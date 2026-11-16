@@ -25,5 +25,9 @@
       "duration": "32:30",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/james-blake-breaking-and-entering-33d860ab6917.mp3",
+    "type": "audio/mpeg"
+  }
 }

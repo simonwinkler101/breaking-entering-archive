@@ -26,5 +26,9 @@
       "duration": "28:10",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/julia-holter-breaking-and-entering-d1f55540adc4.mp3",
+    "type": "audio/mpeg"
+  }
 }
