@@ -57,14 +57,24 @@ test("scope accepts only dated interviews and sorts oldest first", () => {
     { id: "undated", kind: "Interview", dateKey: "" },
   ];
   assert.deepEqual(eligibleEntries(entries, "2025-11-16", "2026-11-16").map((entry) => entry.id), ["old", "new"]);
+  assert.deepEqual(eligibleEntries(entries, "2025-11-16", "2026-11-16", "newest").map((entry) => entry.id), ["new", "old"]);
+});
+
+test("order and thread arguments retain defaults and reject invalid values", () => {
+  const base = ["--media-root", "/tmp/private-test-media"];
+  const defaults = parseArgs(base);
+  assert.equal(defaults.order, "oldest"); assert.equal(defaults.threads, 4);
+  assert.equal(parseArgs([...base, "--order", "newest", "--threads", "2"]).threads, 2);
+  for (const value of ["0", "-1", "2.5", "NaN"]) assert.throws(() => parseArgs([...base, "--threads", value]), /positive integer/);
+  assert.throws(() => parseArgs([...base, "--order", "random"]), /oldest or newest/);
 });
 
 test("dry run verifies receipts, rejects partial/checksum failures and writes nothing", async (t) => {
-  const f = await fixture(t, [{ id: "valid" }, { id: "approved", transcript: "Human-approved text", source: false },
+  const f = await fixture(t, [{ id: "valid" }, { id: "published", transcript: "Published text without a listening-review claim", source: false },
     { id: "partial", complete: false }, { id: "fragmented", fragmentCount: 2 }, { id: "bad", badHash: true },
     { id: "mix", kind: "Guest mix" }]);
   const plan = await runQueue({ ...f.options, dryRun: true });
-  assert.equal(plan.counts.queued, 1); assert.equal(plan.counts["approved-public-transcript"], 1);
+  assert.equal(plan.counts.queued, 1); assert.equal(plan.counts["published-transcript"], 1);
   assert.equal(plan.counts["missing-source"], 3);
   assert.deepEqual(plan.items.find((item) => item.entry.id === "bad").sourceIssues, ["source-checksum-mismatch"]);
   await assert.rejects(fs.stat(f.options.state));
@@ -110,10 +120,41 @@ test("completed pilot is reused only for matching model/settings and intact outp
   const filename = path.join(folder, "run-metadata.json");
   await fs.writeFile(filename, JSON.stringify(metadata));
   assert.equal((await createPlan(f.options)).counts["completed-private-draft"], 1);
+  assert.equal((await createPlan({ ...f.options, threads: 2 })).counts.queued, 1);
+  await fs.writeFile(filename, JSON.stringify({ ...metadata, command: [...metadata.command, "--threads", "2"] }));
+  assert.equal((await createPlan({ ...f.options, threads: 2 })).counts["completed-private-draft"], 1);
+  assert.equal((await createPlan(f.options)).counts.queued, 1);
   await fs.writeFile(filename, JSON.stringify({ ...metadata, command: [...metadata.command, "--beam-size", "10"] }));
   assert.equal((await createPlan(f.options)).counts.queued, 1);
   await fs.writeFile(filename, JSON.stringify(metadata)); await fs.writeFile(output, "changed");
   assert.equal((await createPlan(f.options)).counts.queued, 1);
+});
+
+test("newest-first limits scheduling while threads reach the engine, signature and receipts", async (t) => {
+  const f = await fixture(t, [{ id: "old", dateKey: "2025-11-16" }, { id: "new", dateKey: "2026-10-01" }]);
+  const options = { ...f.options, order: "newest", threads: 2, limit: 1 };
+  const plan = await createPlan(options);
+  assert.deepEqual(plan.items.map((item) => item.entry.id), ["new", "old"]);
+  const oldest = await createPlan({ ...options, order: "oldest" });
+  const defaultThreads = await createPlan({ ...options, threads: 4 });
+  for (const item of plan.items) {
+    assert.equal(item.fingerprint, oldest.items.find((other) => other.entry.id === item.entry.id).fingerprint);
+    assert.notEqual(item.fingerprint, defaultThreads.items.find((other) => other.entry.id === item.entry.id).fingerprint);
+  }
+  const run = await runQueue(options);
+  assert.equal(run.completed, 1);
+  const jobs = Object.values(run.state.jobs);
+  assert.equal(jobs.find((job) => job.entryId === "old").status, "queued");
+  const completed = jobs.find((job) => job.entryId === "new");
+  assert.equal(completed.status, "complete");
+  const receipt = JSON.parse(await fs.readFile(completed.receiptPath, "utf8"));
+  assert.equal(receipt.command[receipt.command.indexOf("--threads") + 1], "2");
+  assert.equal(receipt.settings.threads, 2);
+  assert.equal(run.state.runtime.settings.threads, 2);
+  assert.equal(run.state.scope.order, "newest");
+  assert.deepEqual(run.state.planSnapshot.publishedTranscriptEntryIds, []);
+  assert.equal((await createPlan({ ...options, order: "oldest" })).counts["completed-private-draft"], 1);
+  assert.equal((await createPlan({ ...options, threads: 4 })).counts.queued, 2);
 });
 
 test("a wider date window discovers valid completed attempts without its earlier state", async (t) => {

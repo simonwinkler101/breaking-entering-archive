@@ -412,7 +412,6 @@ export default function App() {
               const marks = [
                 searching && entry.year ? String(entry.year) : "",
                 format ? "" : kindMark(entry),
-                hasTranscript(entry) ? "transcript" : "",
               ].filter(Boolean);
               return (
                 <li

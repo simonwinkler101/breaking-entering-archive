@@ -28,10 +28,10 @@ export async function sha256(filename) {
 export function parseArgs(args) {
   const options = { repo: repository, mediaRoot: process.env.BNE_MEDIA_ROOT,
     since: "2025-11-16", until: "2026-11-16", engine: "whisper-cli", ffmpeg: "ffmpeg",
-    manifests: [], dryRun: false, limit: Infinity };
+    manifests: [], dryRun: false, limit: Infinity, order: "oldest", threads: SETTINGS.threads };
   const names = { "--repo": "repo", "--media-root": "mediaRoot", "--since": "since",
     "--until": "until", "--model": "model", "--engine": "engine", "--ffmpeg": "ffmpeg",
-    "--state": "state", "--limit": "limit" };
+    "--state": "state", "--limit": "limit", "--order": "order", "--threads": "threads" };
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
     if (arg === "--dry-run") options.dryRun = true;
@@ -53,6 +53,9 @@ export function parseArgs(args) {
       new Date(date).toISOString().slice(0, 10) !== date) throw new Error(`Invalid --${field} date`);
   }
   if (options.since > options.until) throw new Error("--since must not follow --until");
+  if (!["oldest", "newest"].includes(options.order)) throw new Error("--order must be oldest or newest");
+  options.threads = Number(options.threads);
+  if (!Number.isSafeInteger(options.threads) || options.threads < 1) throw new Error("--threads must be a positive integer");
   options.model = path.resolve(options.model || path.join(options.mediaRoot, "working/models/ggml-large-v3-turbo-q5_0.bin"));
   options.state = path.resolve(options.state || path.join(options.mediaRoot, "manifests", `transcription-queue-${options.since}--${options.until}.json`));
   if (!inDirectory(options.state, options.mediaRoot)) throw new Error("Queue state must remain inside the private media root");
@@ -135,18 +138,23 @@ function stablePage(value) {
   catch { return null; }
 }
 
-export function eligibleEntries(entries, since, until) {
+export function eligibleEntries(entries, since, until, order = "oldest") {
+  if (!["oldest", "newest"].includes(order)) throw new Error("--order must be oldest or newest");
+  const direction = order === "newest" ? -1 : 1;
   return entries.filter((entry) => entry.kind === "Interview" && entry.dateKey >= since && entry.dateKey <= until)
-    .sort((a, b) => a.dateKey.localeCompare(b.dateKey) || a.id.localeCompare(b.id));
+    .sort((a, b) => direction * a.dateKey.localeCompare(b.dateKey) || a.id.localeCompare(b.id));
 }
 
-function pilotSettingsMatch(metadata, engineVersion, modelHash) {
+function pilotSettingsMatch(metadata, engineVersion, modelHash, settings) {
   if (metadata.engine !== "whisper.cpp" || metadata.engineVersion !== engineVersion ||
     metadata.modelSha256 !== modelHash || metadata.language !== "en" || metadata.speakerDiarization !== false) return false;
   const args = metadata.command || [];
   const flags = new Set(args);
+  // Older pilot commands may omit the thread flag and use the established
+  // default of four. They cannot establish a match for a different request.
+  if (!flags.has("--threads") && settings.threads !== SETTINGS.threads) return false;
   const values = { "--model": null, "--file": null, "--output-file": null,
-    "--language": "en", "--threads": "4", "--processors": "1", "--beam-size": "5", "--best-of": "5" };
+    "--language": "en", "--threads": String(settings.threads), "--processors": "1", "--beam-size": "5", "--best-of": "5" };
   const switches = new Set(["--no-fallback", "--output-json-full", "--output-srt", "--output-vtt", "--output-txt", "--print-progress"]);
   if (!flags.has("--no-fallback") || !flags.has("--language")) return false;
   for (let index = 1; index < args.length; index++) {
@@ -163,7 +171,7 @@ async function validReceipt(filename, item, runtime) {
   if (!await exists(filename)) return null;
   const metadata = await readJson(filename);
   if (metadata.status !== "succeeded" || metadata.entryId !== item.entry.id || metadata.sourceSha256 !== item.sourceHash) return null;
-  const matches = metadata.runFingerprint === item.fingerprint || pilotSettingsMatch(metadata, runtime.engineVersion, runtime.modelHash);
+  const matches = metadata.runFingerprint === item.fingerprint || pilotSettingsMatch(metadata, runtime.engineVersion, runtime.modelHash, runtime.settings);
   if (!matches || !metadata.outputs?.length) return null;
   for (const output of metadata.outputs) {
     const filename = output.path;
@@ -188,15 +196,16 @@ export async function createPlan(options) {
   const engineVersion = `${version.stdout}\n${version.stderr}`.match(/(?:version[:\s]*)?(\d+\.\d+\.\d+)/i)?.[1];
   if (!engineVersion) throw new Error("Could not establish the local whisper.cpp version");
   const modelHash = await sha256(options.model);
-  const runtime = { engineVersion, modelHash, mediaRoot: options.mediaRoot };
+  const runtime = { engineVersion, modelHash, mediaRoot: options.mediaRoot,
+    settings: { ...SETTINGS, threads: options.threads ?? SETTINGS.threads } };
   const state = await exists(options.state) ? await readJson(options.state) : { schemaVersion: 1, jobs: {} };
   if (state.schemaVersion !== 1 || !state.jobs || Array.isArray(state.jobs)) throw new Error("Unrecognised private queue state");
-  const entries = eligibleEntries(await loadEntries(options.repo), options.since, options.until);
+  const entries = eligibleEntries(await loadEntries(options.repo), options.since, options.until, options.order);
   const { paths, sources } = await acquisitions(options);
   const items = [];
   for (const entry of entries) {
     if (!/^[A-Za-z0-9._-]+$/.test(entry.id)) throw new Error("Unsafe archive entry ID");
-    if (entry.transcript?.trim()) { items.push({ entry, status: "approved-public-transcript" }); continue; }
+    if (entry.transcript?.trim()) { items.push({ entry, status: "published-transcript" }); continue; }
     const receipts = sources.filter((source) => source.entryId === entry.id).sort((a, b) => Number(b.original) - Number(a.original));
     let item = { entry, status: "missing-source" };
     const errors = [];
@@ -209,7 +218,7 @@ export async function createPlan(options) {
       if (!inDirectory(realPath, await fs.realpath(options.mediaRoot))) { errors.push("source-symlink-outside-media-root"); continue; }
       const sourceHash = await sha256(sourcePath);
       if (sourceHash !== source.sha256.toLowerCase()) { errors.push("source-checksum-mismatch"); continue; }
-      const fingerprint = digest(JSON.stringify({ entryId: entry.id, sourceHash, modelHash, engineVersion, settings: SETTINGS }));
+      const fingerprint = digest(JSON.stringify({ entryId: entry.id, sourceHash, modelHash, engineVersion, settings: runtime.settings }));
       item = { entry, source, sourcePath, sourceHash, fingerprint, status: "queued" };
       const saved = state.jobs[fingerprint];
       const receiptPaths = [...new Set([...(await matchingAttemptReceipts(options.mediaRoot, item)), saved?.receiptPath,
@@ -319,7 +328,7 @@ async function processItem(options, item, runtime, directories) {
   if (!(durationSeconds > 0)) throw new Error("Could not establish the full derivative duration from ffmpeg");
   if (item.source.durationSeconds && Math.abs(durationSeconds - item.source.durationSeconds) > 2) throw new Error("Source duration differs from its acquisition receipt");
   const output = path.join(directories.raw, "whisper");
-  const args = ["--model", options.model, "--file", wav, "--language", "en", "--threads", "4", "--processors", "1",
+  const args = ["--model", options.model, "--file", wav, "--language", "en", "--threads", String(runtime.settings.threads), "--processors", "1",
     "--beam-size", "5", "--best-of", "5", "--no-fallback", "--output-json-full", "--output-srt", "--output-vtt", "--output-txt", "--print-progress", "--output-file", output];
   let reported = -1;
   await command(options.engine, args, { stdoutFile: path.join(directories.raw, "engine.stdout.log"),
@@ -349,7 +358,7 @@ async function processItem(options, item, runtime, directories) {
     acquiredAtUTC: item.source.acquiredAtUTC || null, sourceSizeBytes: (await fs.stat(item.sourcePath)).size,
     sourceDurationSeconds: durationSeconds, recordingCompleteness: "Supplied recording processed in full; whether the supplied recording is a complete interview requires audio review",
     engine: "whisper.cpp", engineVersion: runtime.engineVersion, modelPath: options.model,
-    modelSha256: runtime.modelHash, settings: SETTINGS, language: "en", speakerDiarization: false,
+    modelSha256: runtime.modelHash, settings: runtime.settings, language: "en", speakerDiarization: false,
     command: [options.engine, ...args], externalAudioUpload: false, publicWebsiteChanged: false,
     coverage: { requestedIntervalFromMs: 0, requestedIntervalToMs: Math.round(durationSeconds * 1000),
       fullRecordingEngineRunSucceeded: true, rawSegmentCount: rendered.segmentCount,
@@ -362,18 +371,18 @@ async function processItem(options, item, runtime, directories) {
 export async function runQueue(options) {
   if (options.dryRun) {
     const plan = await createPlan(options);
-    report("plan", { dryRun: true, scope: { since: options.since, until: options.until }, counts: plan.counts,
+    report("plan", { dryRun: true, scope: { since: options.since, until: options.until, order: options.order ?? "oldest" }, settings: plan.runtime.settings, counts: plan.counts,
       items: plan.items.map(({ entry, status, sourceIssues }) => ({ entryId: entry.id, artist: entry.artist, date: entry.dateKey, status, ...(sourceIssues ? { sourceIssues } : {}) })) });
     return plan;
   }
   const unlock = await lockQueue(options.state);
   try {
     const plan = await createPlan(options), state = plan.state;
-    state.scope = { since: options.since, until: options.until }; state.updatedAt = now();
+    state.scope = { since: options.since, until: options.until, order: options.order ?? "oldest" }; state.updatedAt = now();
     state.manifestPaths = plan.manifestPaths;
-    state.runtime = { engineVersion: plan.runtime.engineVersion, modelSha256: plan.runtime.modelHash, settings: SETTINGS };
+    state.runtime = { engineVersion: plan.runtime.engineVersion, modelSha256: plan.runtime.modelHash, settings: plan.runtime.settings };
     state.planSnapshot = { at: now(), counts: plan.counts,
-      approvedPublicTranscriptEntryIds: plan.items.filter((item) => item.status === "approved-public-transcript").map((item) => item.entry.id) };
+      publishedTranscriptEntryIds: plan.items.filter((item) => item.status === "published-transcript").map((item) => item.entry.id) };
     state.unavailableEntries = plan.items.filter((item) => item.status === "missing-source").map((item) => ({ entryId: item.entry.id, issues: item.sourceIssues || ["No completed local acquisition receipt"] }));
     for (const item of plan.items.filter((item) => item.status === "queued")) {
       state.jobs[item.fingerprint] ||= { entryId: item.entry.id, date: item.entry.dateKey,
@@ -415,6 +424,8 @@ const HELP = `Usage: node scripts/transcribe-interviews.mjs [options]
   --repo PATH         Archive content checkout (default: this repository)
   --since YYYY-MM-DD  Inclusive start (default: 2025-11-16)
   --until YYYY-MM-DD  Inclusive end (default: 2026-11-16)
+  --order ORDER       oldest (default) or newest; scheduling only
+  --threads N         Recognition CPU threads (default: 4)
   --model PATH        Local Whisper GGML model (default: media-root/working/models/ggml-large-v3-turbo-q5_0.bin)
   --engine PATH       Local whisper-cli executable (default: whisper-cli)
   --ffmpeg PATH       Local ffmpeg executable (default: ffmpeg)

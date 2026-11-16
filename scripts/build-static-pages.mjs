@@ -227,7 +227,7 @@ const homepageFallback = () => `
         ${entries
           .map((entry, index) => {
             const startsGroup = index === 0 || yearLabel(entries[index - 1]) !== yearLabel(entry);
-            const marks = [kindMark(entry), hasTranscript(entry) ? "transcript" : ""].filter(Boolean);
+            const marks = [kindMark(entry)].filter(Boolean);
             return `
         <li class="row"${startsGroup ? " data-group" : ""}>
           ${startsGroup ? `<span class="row-year">${escapeHtml(yearLabel(entry))}</span>` : ""}

@@ -32,13 +32,30 @@ resumable foreground command, not a recurring schedule or acquisition service.
 It processes the currently available eligible recordings and stops. Run it
 again when a new acquisition receipt is available; completed matches are skipped.
 
+To work backwards through older interviews with two CPU threads and a lower
+process priority, preview one available job:
+
+```sh
+nice -n 15 node scripts/transcribe-interviews.mjs \
+  --media-root /absolute/path/to/private-media \
+  --repo /absolute/path/to/archive-content \
+  --since 2008-01-01 --until 2025-11-15 \
+  --order newest --threads 2 --limit 1 --dry-run
+```
+
+Remove `--dry-run` to process that job. `--order` accepts `oldest` (the default)
+or `newest`; it changes scheduling only. `--threads` accepts a positive integer
+and defaults to four. One recognition job still runs at a time. The thread
+limit and `nice` reduce CPU demand/priority; they do not disable GPU processing.
+
 ## Input boundary and selection
 
 The content checkout's `content/archive/*.json` establishes each entry's ID,
-format, date and approved public transcript. Only dated `Interview` entries
+format, date and published transcript. Only dated `Interview` entries
 inside the inclusive window are eligible. Guest mixes, live performances,
 special programs and broadcasts are excluded. Existing non-empty public
-transcripts are skipped. Work proceeds from oldest interview date to newest.
+transcripts are skipped without inferring listening review. Work proceeds from
+oldest interview date to newest unless `--order newest` is supplied.
 
 The runner reads private `manifests/rrr-on-demand-acquisition-*.json` files,
 or the exact paths supplied with repeatable `--manifest` options. It accepts
@@ -70,7 +87,10 @@ time. SIGINT/SIGTERM stops the active engine, records interruption and starts
 no further jobs.
 
 Each job signature includes entry ID, verified source SHA-256, model SHA-256,
-engine version and fixed recognition settings. Completion receipts and their
+engine version and recognition settings, including the selected thread count.
+Scheduling order is not part of the recognition signature, so reversing the
+order reuses matching completed jobs. Changing the thread count produces a
+separate signature. Completion receipts and their
 output hashes are rechecked before work is skipped. The existing compatible
 Jazmine Mary pilot receipt is recognised. A different date window uses its own
 state file, but also discovers completed receipts in the matching entry and
@@ -117,7 +137,8 @@ receipts and reports the current state.
 node --test scripts/transcribe-interviews.test.mjs
 ```
 
-The checks cover scope, oldest-first ordering, incomplete receipts, checksum
+The checks cover scope, both scheduling orders, selected threads reaching the
+engine/signatures/receipts, incomplete receipts, checksum
 failures, a failed job followed by success, retained attempts, matching pilot
 reuse, model/settings differences, output integrity, faithful draft wording
 and a dry run that leaves no state or output files. A cross-window check proves
