@@ -33,5 +33,9 @@
       "duration": "12:25",
       "status": "Confirmed RRR segment page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/carla-dal-forno-2026-d37d0667a7d6.m4a",
+    "type": "audio/mp4"
+  }
 }

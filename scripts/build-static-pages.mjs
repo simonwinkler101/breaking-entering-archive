@@ -322,7 +322,7 @@ const audioBlock = (entry) => {
 const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscribers" : "");
 
 const sourcesBlock = (entry) => {
-  if (entry.sources.length < 2 && !entry.audio) return "";
+  if (entry.sources.length < 2) return "";
   return `
     <section class="entry-section" aria-labelledby="sources-label">
       <h2 class="entry-label" id="sources-label">Sources</h2>
