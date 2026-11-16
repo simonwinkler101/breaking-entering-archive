@@ -44,6 +44,14 @@ time, normally with two CPU threads and lower process priority. The older queue
 uses `--order newest --threads 2`. Thread limits do not disable GPU use.
 
 Keep additional voice analysis local, small and sequential with recognition.
+Speaker separation uses sherpa-onnx (`sherpa-onnx-node`, Apache-2.0), installed
+with the local recognition tools rather than as a website dependency; its
+pyannote segmentation and speaker-embedding models come from the project's
+GitHub releases, with no account or token. Before relying on a new setup, run it
+on one or two recordings whose transcripts already have established speakers and
+let a script score the agreement. Enrol a presenter's voiceprint, from about a
+minute of clean speech, only with their agreement. Voiceprints and separation
+output stay private with the audio.
 Use official software/model sources and record versions, licences and checksums.
 Avoid duplicate runs. Reuse matching completed receipts; retain earlier attempts
 when retrying. Reduce or stop processing if it materially interferes with use of
@@ -222,29 +230,45 @@ nothing contradicts it:
   one speaker on both sides, and a word or two the machine assigns elsewhere
   belongs to the sentence it completes.
 
-Machine speaker labels, voice groups, stereo channel energy and alternation are
-hints, never proof on their own. Diarisation labels can reset at chunk seams and
-mislabel short fragments. Stereo channel energy helps only when microphones occupy
-useful separate channels. Voice embeddings can suggest recurring voice groups;
-they do not name people or prove exact turn boundaries. Keep candidate groups
-private until content evidence or verified references support them; an anonymous
-group is not an identified person. Do not assign names merely because a passage
-looks like a question or answer, or assume that speakers alternate.
+Speaker separation groups the recording's turns by voice, so one established
+turn can name a whole voice. A voice takes a name when at least one of its turns
+is established as above, or it matches an enrolled presenter voiceprint, and none
+of its turns contradicts that. Label all its turns, then spot-check two or three,
+including its shortest. Separation can split one person into two voices or merge
+two similar ones, so a contradiction, such as a voice answering a question put to
+someone else, sends that voice back to turn-by-turn evidence. An unanchored voice
+is not an identified person. Recognition's own speaker labels, stereo channel
+energy and alternation stay hints, never proof on their own; stereo helps only
+when microphones occupy useful separate channels. Do not assign names merely
+because a passage looks like a question or answer, or assume that speakers
+alternate.
 
-When the role is clear but the person is not, as with one of several band members
-or one of two hosts, label the role (`Host:` or `Guest:`) rather than guess a
-name. Leave a paragraph unlabelled only when even the role is unclear.
+Leave the mechanical work to the separation script: matching voiceprints, finding
+candidate anchors (names in address or self-introduction) and writing one short
+summary per recording that gives each voice's talk time, proposed name, basis and
+a sample line. Review that summary and the spot-checks rather than rereading the
+transcript, then let the script apply the names. For an existing transcript it
+matches paragraphs to the timestamped source by text and renames only `Host:` and
+`Guest:` turns.
+
+New publication uses no `Host:` or `Guest:` labels. When a band member's voice
+cannot be named, credit its turns to the band (`Acopia:`) and ask Simon or Lauren
+in the report, with a sample line and its time; rename the voice when they answer.
+Credit inseparable crosstalk the same way, or cut it under the page test. Hold
+publication only for a voice with no such fallback, such as an unnamed presenter.
+Existing role labels stay until a separation pass renames them. Leave a paragraph
+unlabelled only when even the role is unclear.
 
 Labels use first names, as in the approved transcripts (`Lauren:`, `Simon:`,
 `Carla:`), written as plain text at the start of the paragraph; the page styles
 them. Use full names in the introduction, and add a surname or initial where two
 speakers share a first name. Preserve existing approved labels.
 
-Record privately the basis for any label that rests on role or continuity rather
-than explicit address or self-identification. Summarise it in the final report and
-name the calls most likely to be wrong, so Simon or Lauren can correct a label in
-one word. Attribution from content is not listening verification; never record or
-describe it as such.
+Record privately the basis for any label that rests on role, continuity or a voice
+match rather than explicit address or self-identification. Summarise it in the
+final report and name the calls most likely to be wrong, so Simon or Lauren can
+correct a label in one word. Attribution from content or voice matching is not
+listening verification; never record or describe it as such.
 
 ## 8. Review records and publication
 
@@ -278,7 +302,8 @@ agent to choose.
 
 With each publication, give Simon and Lauren a short report they can check against
 their memory of the conversation: re-anchored or reconstructed lines first, then
-inferred speaker calls, unresolved names and names where sources disagree, cuts
+inferred speaker calls, voices still credited to the band with their questions,
+unresolved names and names where sources disagree, cuts
 they might want back (offered rather than assumed), date reasoning where the date
 was inferred, and the pull quote options. Keep it to what they can act on.
 

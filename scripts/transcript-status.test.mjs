@@ -86,3 +86,15 @@ test("filler refuses untimed markers and unidentified long gaps", async (t) => {
   await fs.writeFile(f.md, "# Guest\n\nWords [Unclear audio at 00:01:46–00:01:49] more words.");
   await f.run();
 });
+
+test("filler refuses new Host:/Guest: labels but keeps existing ones on correction", async (t) => {
+  const f = await fixture(t);
+  const labelled = "Intro.\n\nHost: A question?\n\nGuest: An answer.";
+  await fs.writeFile(f.md, `# Guest\n\n${labelled}`);
+  await assert.rejects(f.run(), /new Host:\/Guest:/);
+  await fs.writeFile(f.entryPath, JSON.stringify({ ...f.entry, transcript: labelled }));
+  await fs.writeFile(f.md, `# Guest\n\n${labelled.replace("Intro.", "Intro, corrected.")}`);
+  await f.run();
+  await fs.writeFile(f.md, `# Guest\n\n${labelled}\n\nGuest: Another answer.`);
+  await assert.rejects(f.run(), /1 new Host:\/Guest:/);
+});
