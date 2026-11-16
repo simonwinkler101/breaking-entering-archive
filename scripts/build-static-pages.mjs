@@ -227,7 +227,7 @@ const homepageFallback = () => `
         ${entries
           .map((entry, index) => {
             const startsGroup = index === 0 || yearLabel(entries[index - 1]) !== yearLabel(entry);
-            const marks = [kindMark(entry), hasTranscript(entry) ? (entry.transcriptStatus === "draft" ? "draft transcript" : "transcript") : ""].filter(Boolean);
+            const marks = [kindMark(entry), hasTranscript(entry) ? "transcript" : ""].filter(Boolean);
             return `
         <li class="row"${startsGroup ? " data-group" : ""}>
           ${startsGroup ? `<span class="row-year">${escapeHtml(yearLabel(entry))}</span>` : ""}
@@ -285,7 +285,6 @@ const transcriptParagraph = (paragraph, index) => {
 };
 
 const pullQuoteBlock = (entry) => {
-  if (entry.transcriptStatus === "draft") return "";
   if (!entry.pullQuote?.text || !entry.pullQuote?.speaker) return "";
   return `
     <section class="entry-section" aria-labelledby="quote-label">
@@ -320,7 +319,7 @@ const transcriptBlock = (entry) => {
   return `
     <section class="entry-section" id="transcript" aria-labelledby="transcript-label">
       <h2 class="entry-label" id="transcript-label">Transcript</h2>
-      <div class="transcript">${entry.transcriptStatus === "draft" ? '<p class="transcript-intro">Automatic draft transcript. Wording, names and speaker attribution are being corrected and have not yet been fully checked against the recording.</p>' : ""}${paragraphs}</div>
+      <div class="transcript">${paragraphs}</div>
     </section>`;
 };
 

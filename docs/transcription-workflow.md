@@ -89,9 +89,10 @@ transcript. Keep an introduction identifying the interview and include
 “Edited for length and clarity” when applicable. Select pull quotes from
 the reviewed wording without rewriting them.
 
-Label unreviewed reading copies as drafts. Keep private review questions, raw
-engine output and provenance details outside the public transcript. An automatic
-draft notice explains that the public reading copy is still being corrected.
+Keep private review questions, raw engine output, actual review status and
+provenance details outside the public transcript. Public pages simply say
+“Transcript”, without automatic/draft labels or process disclaimers. Use specific
+unclear-wording markers where they are needed rather than inventing a sentence.
 
 ## Review and publish
 
@@ -101,28 +102,28 @@ approval of each version. Existing publication permission remains applicable;
 do not ask for it again within its scope. This instruction supersedes the older
 requirement for Simon or Lauren to approve every version before publication.
 
-Publish each prepared public reading copy with `transcriptStatus: "draft"`.
-The page and archive mark must clearly identify it as an automatic draft whose
-wording, names and speaker attribution have not yet been fully checked against
-the recording. Correct names and titles from primary sources when the match is
-unambiguous; record the correction privately. Flag unresolved wording, attribution
-and suspected machine artifacts instead of inventing fluent replacements.
-Do not publish private review headers, local paths or raw processing metadata.
-Do not select pull quotes from a draft. Keep the recording, timestamped source,
-uncertainty list and exact public version available for corrections.
+Publish each prepared public reading copy as a transcript. Simon has explicitly
+asked that public pages not identify automatic or draft status. Keep review state
+and correction receipts private; do not add a public status field or disclaimer.
+Correct names and titles from primary sources when the match is unambiguous;
+record the correction privately. Mark unresolved wording, attribution and
+suspected machine artifacts where necessary instead of inventing fluent
+replacements. Do not publish private review headers, local paths or raw processing
+metadata. New publication uses no pull quote unless one is explicitly selected
+from checked wording. Keep the recording, timestamped source, uncertainty list
+and exact public version available for corrections.
 
-Complete listening review remains the condition for describing a transcript as
-reviewed. Compare the complete text with the complete supplied recording,
+Complete listening review remains the condition for recording that a transcript
+has been checked against audio. Compare the complete text with the complete supplied recording,
 including speaker changes, omissions and passages where recognition supplied
 fluent but incorrect words. Record what was actually checked and corrected;
 never infer listening review from a filename, a generated draft, a completed
-recognition job or a text-only verification pass. Set `transcriptStatus` to
-`reviewed` after that full comparison. Existing approved transcripts keep their
-established reviewed presentation when the status field is absent.
+recognition job or a text-only verification pass. Record that full comparison
+privately when it occurs. Existing approved transcripts remain approved.
 
-Use `npm run fill:transcript -- <slug> --status draft --md <public-copy>` to fill
-an existing entry in place. The default status is draft; use `--status reviewed`
-only for a fully checked version. The filler extracts an explicitly named
+Use `npm run fill:transcript -- <slug> --md <public-copy>` to fill an existing
+entry in place. The default is no pull quote; supply `--quote` or `--quote-index`
+only when explicitly selecting one. The filler extracts an explicitly named
 transcript section from a private reading draft or refuses private metadata;
 inspect its dry run before writing. Preserve entry metadata and source links.
 The permanent entry page provides the reading view and transcript search. Follow

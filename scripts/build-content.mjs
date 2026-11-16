@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { validateTranscriptStatus } from "./transcript-status.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const archiveDirectory = path.join(root, "content/archive");
@@ -23,7 +22,6 @@ if (entries.some((entry) => entry.kind === "Broadcast")) {
 
 const ids = new Set();
 for (const entry of entries) {
-  validateTranscriptStatus(entry);
   for (const required of ["id", "artist", "title", "kind", "href"]) {
     if (!entry[required]) throw new Error(`${entry.id || "Unknown entry"} is missing ${required}.`);
   }

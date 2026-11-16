@@ -87,7 +87,7 @@ working in this repository.
   authenticated browser session are permitted. Never bypass access controls.
 - Audio, working derivatives, raw API responses, private manifests and private
   review drafts must remain outside the Git repository. Prepared public reading
-  copies may enter archive content under the draft-publication rule below.
+  copies may enter archive content under the publication rule below.
 - Use a configurable `BNE_MEDIA_ROOT` (or explicit CLI paths) rather than
   hard-coded personal paths.
 - Never print, log or commit API credentials.
@@ -103,22 +103,24 @@ working in this repository.
   word substitution, grammar repair and rewritten questions are not permitted.
 - Simon's standing instruction, confirmed on 16 November 2026, is to publish
   prepared transcript drafts and correct them afterwards without waiting for a
-  separate approval of each version. Use `transcriptStatus: "draft"` for text
-  that has not had a complete audio comparison. The website must display its
-  automatic-draft notice; never claim listening review or reliable speaker
-  attribution that did not occur. Existing approved transcripts remain approved.
+  separate approval of each version. Public pages simply say “Transcript”;
+  do not add automatic/draft labels, public review-status fields or process
+  disclaimers. Keep actual review status and correction receipts privately.
+  Never claim listening review or reliable speaker attribution that did not
+  occur. Existing approved transcripts remain approved.
 - Keep raw recognition and private review metadata outside public content.
   Correct confirmed names from primary sources, flag unresolved wording and
   suspected machine artifacts, and preserve the underlying source privately.
-  Do not select pull quotes from draft transcripts. Set `transcriptStatus` to
-  `reviewed` only after a complete transcript-versus-recording check.
+  New publication uses no pull quote unless one is explicitly selected from
+  checked wording. Record a complete transcript-versus-recording check privately
+  only when it actually occurred.
 - Do not automatically transcribe mixes, performances, broadcasts or song
   lyrics; represent musical passages as `[Music]` unless separately cleared.
 - Do not edit archive entry JSON during inventory or raw transcription stages.
 - Publishing a transcript is a one-command, in-place step. The entry
   in `content/archive/<id>.json` already holds the metadata, so publishing only
-  fills its `transcript`, `transcriptStatus` and optional reviewed `pullQuote`
-  fields. Use `npm run fill:transcript -- <slug> --status draft --md <path>`
+  fills its `transcript` and optional explicitly selected `pullQuote` fields.
+  Use `npm run fill:transcript -- <slug> --md <path>`
   (`scripts/fill-transcript.mjs`), or the `/publish-transcript
   <slug>` command for the full branch-to-production flow. It refuses to run when
   the entry does not exist, so it never overwrites metadata or drops a source;

@@ -1,18 +1,3 @@
-export const TRANSCRIPT_STATUSES = ["draft", "reviewed"];
-
-export function validateTranscriptStatus(entry) {
-  if (entry.transcriptStatus === undefined) return;
-  if (!TRANSCRIPT_STATUSES.includes(entry.transcriptStatus)) {
-    throw new Error(`${entry.id} transcriptStatus must be draft or reviewed.`);
-  }
-  if (typeof entry.transcript !== "string" || !entry.transcript.trim()) {
-    throw new Error(`${entry.id} has a transcriptStatus but no transcript.`);
-  }
-  if (entry.transcriptStatus === "draft" && entry.pullQuote !== undefined) {
-    throw new Error(`${entry.id} draft transcripts must not have pull quotes.`);
-  }
-}
-
 // Only a named transcript section may be extracted from a private review file.
 // Otherwise require a clean public document rather than guessing which metadata
 // or review instructions belong in the transcript.

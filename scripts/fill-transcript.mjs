@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// fill-transcript.mjs — add a labelled draft or reviewed transcript to an
+// fill-transcript.mjs — add a prepared public transcript to an
 // EXISTING archive entry, without touching any of its other fields.
 //
 // This is the "Stage 2" publish step: the website record already holds the
@@ -15,11 +15,10 @@
 // Options:
 //   --md <path>        Public-only transcript markdown. Defaults to
 //                      <BNE_MEDIA_ROOT>/transcripts/ready-to-publish/<slug>.md
-//   --status <value>   draft (default) or reviewed. Reviewed means the complete
-//                      text has been checked against the complete recording.
 //   --quote "<text>"   Pull-quote text. Overrides the options in the markdown.
 //   --quote-index <n>  Pick the n-th (1-based) quote from the markdown's
-//                      "## Pull quote options" list. Defaults to 1.
+//                      "## Pull quote options" list. Quotes are used only
+//                      when --quote or --quote-index is explicitly supplied.
 //   --speaker "<name>" Pull-quote speaker. Defaults to the entry's artist.
 //   --no-quote         Do not add a pull quote at all.
 //   --dry-run          Show what would change; write nothing.
@@ -35,7 +34,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { TRANSCRIPT_STATUSES, publicTranscriptMarkdown, validateTranscriptStatus } from "./transcript-status.mjs";
+import { publicTranscriptMarkdown } from "./transcript-status.mjs";
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const mediaRoot =
@@ -49,14 +48,13 @@ const fail = (message) => {
 
 // --- parse args ---
 const argv = process.argv.slice(2);
-const opts = { quoteIndex: 1, status: "draft" };
+const opts = {};
 let slug;
 for (let i = 0; i < argv.length; i += 1) {
   const a = argv[i];
   if (a === "--dry-run") opts.dryRun = true;
   else if (a === "--no-quote") opts.noQuote = true;
   else if (a === "--md") opts.md = argv[++i];
-  else if (a === "--status") opts.status = argv[++i];
   else if (a === "--quote") opts.quote = argv[++i];
   else if (a === "--quote-index") opts.quoteIndex = Number(argv[++i]);
   else if (a === "--speaker") opts.speaker = argv[++i];
@@ -68,8 +66,6 @@ for (let i = 0; i < argv.length; i += 1) {
 if (!slug) {
   fail("Give the entry's slug, e.g.  npm run fill:transcript -- mark-ronson");
 }
-if (!TRANSCRIPT_STATUSES.includes(opts.status)) fail("--status must be draft or reviewed.");
-if (opts.status === "draft" && (opts.quote || opts.speaker)) fail("Draft transcripts do not use pull quotes. Use --status reviewed only after complete audio review.");
 if (!/^[a-z0-9-]+$/.test(slug)) {
   fail(`"${slug}" should be lowercase words joined by hyphens, e.g. mark-ronson.`);
 }
@@ -136,7 +132,7 @@ const entry = JSON.parse(fs.readFileSync(entryPath, "utf8"));
 
 // --- decide the pull quote ---
 let pullQuote;
-if (!opts.noQuote && opts.status === "reviewed") {
+if (!opts.noQuote && (opts.quote || opts.quoteIndex !== undefined)) {
   let text = opts.quote;
   if (!text) {
     const options = readQuoteOptions(markdown);
@@ -166,7 +162,6 @@ for (const [k, v] of Object.entries(entry)) {
   rebuilt[k] = v;
   if (k === "summary") {
     rebuilt.transcript = transcript;
-    rebuilt.transcriptStatus = opts.status;
     if (pullQuote) rebuilt.pullQuote = pullQuote;
     placed = true;
   }
@@ -174,10 +169,8 @@ for (const [k, v] of Object.entries(entry)) {
 if (!placed) {
   // No "summary" key to anchor on: append at the end instead.
   rebuilt.transcript = transcript;
-  rebuilt.transcriptStatus = opts.status;
   if (pullQuote) rebuilt.pullQuote = pullQuote;
 }
-validateTranscriptStatus(rebuilt);
 
 const hadTranscript = typeof entry.transcript === "string" && entry.transcript.length > 0;
 const preview = transcript.slice(0, 200).replace(/\n+/g, " ");
@@ -186,7 +179,6 @@ console.log(`\n  Entry:       ${entry.artist} — ${entry.title}`);
 console.log(`  File:        content/archive/${slug}.json${hadTranscript ? "  (replaces existing transcript)" : ""}`);
 console.log(`  Source md:   ${mdPath}`);
 console.log(`  Transcript:  ${transcript.length} characters`);
-console.log(`  Status:      ${opts.status}`);
 console.log(`  Starts:      "${preview}…"`);
 console.log(`  Pull quote:  ${pullQuote ? `"${pullQuote.text}" — ${pullQuote.speaker}` : "(none)"}`);
 

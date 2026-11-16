@@ -101,7 +101,7 @@ run. Gaps remain explicitly unclassified until audio review.
 The original source checksum is verified again after processing. Metadata
 records the model/settings, complete requested interval, acquisition reference
 and output hashes. No draft is placed in `ready-to-publish` or in website content.
-Follow `docs/transcription-workflow.md` for labelled draft publication and later
+Follow `docs/transcription-workflow.md` for publication and later
 audio review. This runner does not publish or establish review status.
 
 Progress is emitted as JSON lines containing entry IDs, dates, percentages and

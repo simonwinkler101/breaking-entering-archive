@@ -73,14 +73,6 @@ collections:
         widget: text
         required: false
         hint: "Paste the complete transcript here. Leaving this blank hides the transcript mark and the transcript on the entry page. Separate paragraphs with a blank line."
-      - label: Transcript status
-        name: transcriptStatus
-        widget: select
-        required: false
-        options:
-          - { label: Automatic draft, value: draft }
-          - { label: Checked against the complete recording, value: reviewed }
-        hint: "New automatic transcripts use draft and publish with a notice while corrections continue. Use reviewed only after a complete audio comparison. Existing transcripts without this field keep their established reviewed presentation."
       - label: Pull quote
         name: pullQuote
         widget: object

@@ -6,24 +6,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
 import { execFile } from "node:child_process";
-import { publicTranscriptMarkdown, validateTranscriptStatus } from "./transcript-status.mjs";
+import { publicTranscriptMarkdown } from "./transcript-status.mjs";
 
 const exec = promisify(execFile);
 const scripts = path.dirname(fileURLToPath(import.meta.url));
-
-test("only transcript-bearing draft/reviewed statuses are accepted; legacy entries stay valid", () => {
-  for (const entry of [
-    { id: "legacy", transcript: "Existing approved words", pullQuote: { text: "words", speaker: "Guest" } },
-    { id: "draft", transcript: "Unreviewed words", transcriptStatus: "draft" },
-    { id: "reviewed", transcript: "Checked words", transcriptStatus: "reviewed" },
-    { id: "empty" },
-  ]) assert.doesNotThrow(() => validateTranscriptStatus(entry));
-  for (const entry of [
-    { id: "bad", transcript: "Words", transcriptStatus: "approved" },
-    { id: "empty", transcriptStatus: "draft" },
-    { id: "quote", transcript: "Words", transcriptStatus: "draft", pullQuote: { text: "Words", speaker: "Guest" } },
-  ]) assert.throws(() => validateTranscriptStatus(entry));
-});
 
 test("private review metadata is extracted only at an explicit transcript section", () => {
   const privateDraft = "# Guest — private reading draft\n\nStatus: not reviewed\n\nSource path: /Users/example/audio.wav\n\n## Unverified transcript text\n\nWords stay exactly.\n\n## Private review notes\n\nDo not publish this.\n";
@@ -47,31 +33,34 @@ async function fixture(t) {
   return { root, entry, entryPath, md, run: (...args) => exec(process.execPath, [path.join(root, "scripts/fill-transcript.mjs"), "guest", "--md", md, ...args]) };
 }
 
-test("filler defaults to a labelled draft, excludes private headers and preserves all entry metadata", async (t) => {
+test("filler excludes public status/private headers and preserves all other entry metadata", async (t) => {
   const f = await fixture(t);
+  await fs.writeFile(f.entryPath, JSON.stringify({ ...f.entry, transcriptStatus: "draft" }));
   await fs.writeFile(f.md, "# Guest — private reading draft\n\nStatus: machine draft\n\nSource path: /Users/example/audio.wav\n\n## Unverified transcript text\n\nThe spoken words stay.\n\n## Private review notes\n\nDo not publish these.\n");
   await f.run();
   const actual = JSON.parse(await fs.readFile(f.entryPath, "utf8"));
-  assert.deepEqual(actual, { ...f.entry, transcript: "The spoken words stay.", transcriptStatus: "draft" });
+  assert.deepEqual(actual, { ...f.entry, transcript: "The spoken words stay." });
 });
 
-test("filler refuses unsectioned private metadata and invalid status without changing the entry", async (t) => {
+test("filler refuses unsectioned private metadata and removed status options without changing the entry", async (t) => {
   const f = await fixture(t);
   const before = await fs.readFile(f.entryPath, "utf8");
   await fs.writeFile(f.md, "# Guest — private reading draft\n\nStatus: machine draft\n\nUnsectioned words.");
   await assert.rejects(f.run(), /Private review metadata/);
   assert.equal(await fs.readFile(f.entryPath, "utf8"), before);
   await fs.writeFile(f.md, "# Guest\n\nPublic words.");
-  await assert.rejects(f.run("--status", "approved"), /draft or reviewed/);
+  await assert.rejects(f.run("--status", "draft"), /Unknown option/);
   assert.equal(await fs.readFile(f.entryPath, "utf8"), before);
 });
 
-test("reviewed publication remains explicit and draft publication cannot select a quote", async (t) => {
+test("new publication uses no quote unless one is explicitly selected", async (t) => {
   const f = await fixture(t);
   await fs.writeFile(f.md, "# Guest\n\nThe checked words.\n\n## Pull quote options\n\n- “The checked words.”\n");
-  await assert.rejects(f.run("--quote", "The checked words."), /Draft transcripts do not use pull quotes/);
-  await f.run("--status", "reviewed");
-  const actual = JSON.parse(await fs.readFile(f.entryPath, "utf8"));
-  assert.equal(actual.transcriptStatus, "reviewed");
+  await f.run();
+  let actual = JSON.parse(await fs.readFile(f.entryPath, "utf8"));
+  assert.equal(actual.pullQuote, undefined);
+  assert.equal(actual.transcriptStatus, undefined);
+  await f.run("--quote-index", "1");
+  actual = JSON.parse(await fs.readFile(f.entryPath, "utf8"));
   assert.deepEqual(actual.pullQuote, { text: "The checked words.", speaker: "Guest" });
 });
