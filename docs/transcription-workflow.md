@@ -302,6 +302,7 @@ listening review is not a publication gate. The mandatory readability pass still
 applies, and so does section 4's one hold: an unidentified gap of a minute or more,
 or text that stops before the conversation does. Where meaning remains unclear,
 cut around it rather than invent words, and keep it on the listening list.
+Release timing follows the credit-conscious batching rule in section 9.
 
 Public pages simply say “Transcript”, and the introduction ends “Edited for length
 and clarity.” Do not add automatic/draft labels, public review-status fields, other
@@ -337,5 +338,13 @@ to bypass a refusal. The reading view stays on the permanent entry page, with
 Use the protected branch/PR process in `AGENTS.md`. Inspect the exact diff, run
 the required build and relevant checks, verify the permanent page and a transcript
 search match, require CI to pass, then publish and check production. Keep Triple R
-acknowledgement and source links. Publish completed items and later corrections
-without waiting for the whole archive or another routine approval.
+acknowledgement and source links.
+
+On 17 November 2026 Simon asked for discretionary live publications to be grouped
+to conserve Netlify credits. Keep completed, checked items together on one preview
+branch and combine ordinary transcript, audio and metadata changes into
+substantial release batches. Check the current credit balance before merging.
+Downloads, private transcript work and R2 uploads can continue between live
+releases. Urgent material corrections may justify a separate publication; routine
+items should not each cause a production deployment. Do not wait for the whole
+archive or another routine approval.
