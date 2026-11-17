@@ -25,5 +25,9 @@
       "duration": "19:22",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1639-the-weather-station-breaking-and-entering-553121e17cb5.mp3",
+    "type": "audio/mpeg"
+  }
 }
