@@ -25,5 +25,9 @@
       "duration": "24:06",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1494-kaitlyn-aurelia-smith-breaking-entering-209c1821578b.mp3",
+    "type": "audio/mpeg"
+  }
 }

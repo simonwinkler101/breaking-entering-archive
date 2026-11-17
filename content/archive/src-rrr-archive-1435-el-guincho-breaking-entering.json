@@ -25,5 +25,9 @@
       "duration": "14:14",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1435-el-guincho-breaking-entering-01b9a368c774.mp3",
+    "type": "audio/mpeg"
+  }
 }

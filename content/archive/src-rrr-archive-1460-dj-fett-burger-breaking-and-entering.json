@@ -26,5 +26,9 @@
       "duration": "1:10:22",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1460-dj-fett-burger-breaking-and-entering-3a2d39fa14af.mp3",
+    "type": "audio/mpeg"
+  }
 }
