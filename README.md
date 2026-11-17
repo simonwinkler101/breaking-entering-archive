@@ -10,8 +10,8 @@ The website builds from the 170 records in `content/archive/`. Weekly Breaking a
 
 After the Netlify authentication step below, Lauren and Simon can use `/admin/` to:
 
-- add and edit archive records, sources, tags and summaries;
-- paste full transcripts (an entry is marked "transcript" in the list only when transcript text exists);
+- edit existing archive records, sources, tags and summaries;
+- edit full transcripts, including their first-paragraph introductions and speaker labels;
 - change the credit line, introduction and footer text;
 - manually connect related entries when the automatic artist-and-subject matching is not enough.
 
@@ -25,22 +25,34 @@ The first screen is a title page: the credit, the title and the statement. A row
 
 Most source titles repeat the artist and the program name, so `scripts/build-content.mjs` derives a display name, a shorter display title and a readable duration for each entry at build time. Special programs and the program's own mixes show their title as the name. The stored titles are unchanged and still searchable.
 
-Every save updates this GitHub repository. Netlify then rebuilds and publishes the site automatically. The relationship labels used in the editor are internal and never appear on the public site.
+Saving a draft updates a separate working branch and preview. Publishing merges
+the entry's changes into protected `main` after the required checks pass;
+Netlify then publishes the site. Keep completed drafts for combined releases
+where practical to conserve production-deployment credits. The CMS does not
+combine several entries into one release automatically. See
+[`docs/cms-editing-guide.md`](docs/cms-editing-guide.md). The relationship labels
+used in the editor are internal and never appear on the public site.
 
 ## First Netlify deployment
 
 1. In Netlify, choose **Add new project → Import an existing project**, connect GitHub, and select `simonwinkler101/breaking-entering-archive`.
 2. Netlify will read `netlify.toml`; the build command is `npm run build` and the publish directory is `dist`.
-3. Set the project name to `break-enter-archive` if it is available. This produces `break-enter-archive.netlify.app`.
+3. The existing project is named `breaking-entering-archive`, at `https://breaking-entering-archive.netlify.app`.
 4. Deploy the project.
 
 ## Enable the editor
 
 This project uses Decap CMS's direct GitHub backend. Each editor needs push access to this repository.
 
-1. In GitHub, create an OAuth App. Use the Netlify URL as its homepage and `https://api.netlify.com/auth/done` as the authorization callback URL.
-2. In Netlify, open **Project configuration → Access & security → OAuth → Authentication providers**, install the GitHub provider, and enter the OAuth client ID and secret.
-3. Visit `https://YOUR-NETLIFY-NAME.netlify.app/admin/` and sign in with GitHub.
+1. In [GitHub OAuth Apps](https://github.com/settings/developers), register an application named **Breaking and Entering Archive Editor**. Use `https://breaking-entering-archive.netlify.app` as its homepage and `https://api.netlify.com/auth/done` as its redirect URI. Generate its client secret and keep it private.
+2. In Netlify, open **Project configuration → Security → OAuth → Authentication providers**, choose **Install provider**, select **GitHub**, and enter the client ID and secret there. Do not put either secret or access tokens in repository files, transcripts or chat.
+3. Visit `https://breaking-entering-archive.netlify.app/admin/` and sign in with GitHub. The configured scope is `public_repo`, because this repository is public. Each editor needs GitHub write access to the archive repository; registration alone does not give that access.
+
+If the authentication popup returns **Not Found**, check that the GitHub provider
+has been installed for this Netlify project. The configuration explicitly uses
+the production Netlify hostname for authentication, including from previews.
+See [Netlify's provider setup](https://docs.netlify.com/manage/security/secure-access-to-sites/oauth-provider-tokens/)
+and [Decap's GitHub backend](https://decapcms.org/docs/github-backend/).
 
 ## Local development
 
@@ -62,8 +74,11 @@ npm run dev
 
 Interview acquisition, private transcription, editing and human review follow
 [`docs/transcription-workflow.md`](docs/transcription-workflow.md). The reading
-version preserves the spoken wording: punctuation, paragraphs and justified
-omissions can improve readability; paraphrasing and grammar repair are excluded.
+version preserves the guest's meaning, voice, facts and qualifications while
+allowing supported recognition corrections, punctuation, sentence repair and
+justified omissions. Questions may be tightened more strongly than answers;
+unclear content is never replaced with invented wording. The shared workflow
+defines the current editing and publication rules.
 
 The public site also associates records automatically using exact artist matches, artist mentions and shared non-generic subjects. Manually curated relationships take priority.
 

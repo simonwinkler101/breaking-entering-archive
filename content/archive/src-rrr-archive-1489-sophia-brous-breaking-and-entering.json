@@ -25,5 +25,9 @@
       "duration": "36:53",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1489-sophia-brous-breaking-and-entering-6c52e46f3c3e.mp3",
+    "type": "audio/mpeg"
+  }
 }

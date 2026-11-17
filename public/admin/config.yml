@@ -2,6 +2,9 @@ backend:
   name: github
   repo: simonwinkler101/breaking-entering-archive
   branch: main
+  auth_scope: public_repo
+  site_domain: breaking-entering-archive.netlify.app
+  preview_context: netlify/breaking-entering-archive/deploy-preview
 
 publish_mode: editorial_workflow
 site_url: https://breaking-entering-archive.netlify.app
@@ -34,8 +37,7 @@ collections:
     fields:
       - label: ID
         name: id
-        widget: string
-        hint: "A unique lowercase slug; use letters, numbers and hyphens only. Do not change after publishing."
+        widget: hidden
         pattern: ["^[a-z0-9][a-z0-9._-]*$", "Use only letters, numbers, dots, underscores and hyphens."]
       - { label: Artist, name: artist, widget: string }
       - { label: Entry title, name: title, widget: string }
@@ -47,8 +49,8 @@ collections:
       - { label: Sort date, name: dateKey, widget: datetime, required: false, format: "YYYY-MM-DD", time_format: false }
       - { label: Year, name: year, widget: number, required: false, value_type: int, min: 1900, max: 2100 }
       - { label: Duration, name: duration, widget: string, required: false }
-      - { label: Presented by, name: presenters, widget: string, required: false }
-      - { label: Summary, name: summary, widget: text, required: false }
+      - { label: Presented by, name: presenters, widget: string, required: false, hint: "Presenter metadata used by search. Edit speaker names separately inside Transcript." }
+      - { label: Summary, name: summary, widget: text, required: false, hint: "Entry description, separate from the transcript introduction." }
       - label: Hosted audio
         name: audio
         widget: object
@@ -56,10 +58,11 @@ collections:
         collapsed: true
         hint: "Optional. Add only a cleared, published audio file at a permanent HTTPS address. Keep recordings outside this repository. Do not paste signed or expiring links."
         fields:
-          - { label: Audio file URL, name: url, widget: string, pattern: ["^https://[^?#]+$", "Use a permanent HTTPS file address without query or fragment."] }
+          - { label: Audio file URL, name: url, widget: string, required: false, pattern: ["^https://[^?#]+$", "Use a permanent HTTPS file address without query or fragment."] }
           - label: Audio type
             name: type
             widget: select
+            required: false
             options: [audio/mpeg, audio/mp4, audio/ogg, audio/wav, audio/webm]
       - label: Alternate artist names
         name: aliases
@@ -72,7 +75,7 @@ collections:
         name: transcript
         widget: text
         required: false
-        hint: "Paste the complete transcript here. Leaving this blank hides the transcript mark and the transcript on the entry page. Separate paragraphs with a blank line."
+        hint: "Complete plain-text reading copy. The first paragraph is the introduction. Separate paragraphs and Name: speaker turns with blank lines. Clearing this field removes Read and the reading section."
       - label: Pull quote
         name: pullQuote
         widget: object
@@ -80,8 +83,8 @@ collections:
         collapsed: true
         hint: "Optional. A single hand-picked quotation from the transcript. Only add this to entries that already have a transcript."
         fields:
-          - { label: Quote text, name: text, widget: text }
-          - { label: Speaker, name: speaker, widget: string }
+          - { label: Quote text, name: text, widget: text, required: false }
+          - { label: Speaker, name: speaker, widget: string, required: false }
       - label: Subjects
         name: tags
         widget: list
