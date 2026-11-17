@@ -25,5 +25,9 @@
       "duration": "25:00",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1549-jess-cornelius-breaking-and-entering-fefc8deab770.mp3",
+    "type": "audio/mpeg"
+  }
 }

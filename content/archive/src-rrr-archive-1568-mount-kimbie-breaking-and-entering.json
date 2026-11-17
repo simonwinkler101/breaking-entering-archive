@@ -25,5 +25,9 @@
       "duration": "29:07",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1568-mount-kimbie-breaking-and-entering-445f4962010e.mp3",
+    "type": "audio/mpeg"
+  }
 }

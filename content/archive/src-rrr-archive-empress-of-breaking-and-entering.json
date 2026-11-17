@@ -25,5 +25,9 @@
       "duration": "15:14",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/empress-of-breaking-and-entering-6863c05daecc.mp3",
+    "type": "audio/mpeg"
+  }
 }

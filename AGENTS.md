@@ -137,6 +137,15 @@ working in this repository.
   disclaimers. Keep actual review status and correction receipts privately.
   Never claim listening review or reliable speaker attribution that did not
   occur. Existing approved transcripts remain approved.
+- On 17 November 2026 Simon asked for discretionary live publications to be
+  grouped to conserve Netlify credits. Prepare and check completed work
+  promptly, keep ready items together on one preview branch, and combine
+  ordinary transcript, audio and metadata changes into substantial release
+  batches. Check the current credit balance before merging a batch. An urgent
+  material correction may warrant a separate release. This changes release
+  timing, not the readability checks or the standing publication permission;
+  do not wait for the whole archive or another routine approval. Downloads,
+  private checks and R2 uploads can continue between live releases.
 - Keep raw recognition and private review metadata outside public content.
   Correct names from primary sources and check the timeline around them.
   Never drop a name, venue, nickname or title because it is uncertain: search

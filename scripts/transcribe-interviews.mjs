@@ -31,7 +31,8 @@ export function parseArgs(args) {
     manifests: [], dryRun: false, limit: Infinity, order: "oldest", threads: SETTINGS.threads };
   const names = { "--repo": "repo", "--media-root": "mediaRoot", "--since": "since",
     "--until": "until", "--model": "model", "--engine": "engine", "--ffmpeg": "ffmpeg",
-    "--state": "state", "--limit": "limit", "--order": "order", "--threads": "threads" };
+    "--state": "state", "--limit": "limit", "--order": "order", "--threads": "threads",
+    "--max-context": "maxContext" };
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
     if (arg === "--dry-run") options.dryRun = true;
@@ -56,6 +57,12 @@ export function parseArgs(args) {
   if (!["oldest", "newest"].includes(options.order)) throw new Error("--order must be oldest or newest");
   options.threads = Number(options.threads);
   if (!Number.isSafeInteger(options.threads) || options.threads < 1) throw new Error("--threads must be a positive integer");
+  if (options.maxContext !== undefined) {
+    if (!/^\d+$/.test(options.maxContext) || !Number.isSafeInteger(Number(options.maxContext))) {
+      throw new Error("--max-context must be a non-negative integer");
+    }
+    options.maxContext = Number(options.maxContext);
+  }
   options.model = path.resolve(options.model || path.join(options.mediaRoot, "working/models/ggml-large-v3-turbo-q5_0.bin"));
   options.state = path.resolve(options.state || path.join(options.mediaRoot, "manifests", `transcription-queue-${options.since}--${options.until}.json`));
   if (!inDirectory(options.state, options.mediaRoot)) throw new Error("Queue state must remain inside the private media root");
@@ -145,6 +152,23 @@ export function eligibleEntries(entries, since, until, order = "oldest") {
     .sort((a, b) => direction * a.dateKey.localeCompare(b.dateKey) || a.id.localeCompare(b.id));
 }
 
+function maxContextMatches(metadata, settings) {
+  if (metadata.command !== undefined && !Array.isArray(metadata.command)) return false;
+  const args = metadata.command || [];
+  const positions = args.flatMap((arg, index) => ["--max-context", "-mc"].includes(arg) ? [index] : []);
+  if (positions.length > 1) return false;
+  let actual;
+  if (positions.length) {
+    const value = args[positions[0] + 1];
+    if (typeof value !== "string" || !/^\d+$/.test(value) || !Number.isSafeInteger(Number(value))) return false;
+    actual = Number(value);
+  }
+  if (actual !== settings.maxContext) return false;
+  // Older pilot receipts have no settings object; their command is the evidence.
+  // New receipts must agree with it, even when their fingerprint matches.
+  return !Object.hasOwn(metadata.settings || {}, "maxContext") || metadata.settings.maxContext === actual;
+}
+
 function pilotSettingsMatch(metadata, engineVersion, modelHash, settings) {
   if (metadata.engine !== "whisper.cpp" || metadata.engineVersion !== engineVersion ||
     metadata.modelSha256 !== modelHash || metadata.language !== "en" || metadata.speakerDiarization !== false) return false;
@@ -155,6 +179,7 @@ function pilotSettingsMatch(metadata, engineVersion, modelHash, settings) {
   if (!flags.has("--threads") && settings.threads !== SETTINGS.threads) return false;
   const values = { "--model": null, "--file": null, "--output-file": null,
     "--language": "en", "--threads": String(settings.threads), "--processors": "1", "--beam-size": "5", "--best-of": "5" };
+  if (settings.maxContext !== undefined) values["--max-context"] = String(settings.maxContext);
   const switches = new Set(["--no-fallback", "--output-json-full", "--output-srt", "--output-vtt", "--output-txt", "--print-progress"]);
   if (!flags.has("--no-fallback") || !flags.has("--language")) return false;
   for (let index = 1; index < args.length; index++) {
@@ -171,6 +196,7 @@ async function validReceipt(filename, item, runtime) {
   if (!await exists(filename)) return null;
   const metadata = await readJson(filename);
   if (metadata.status !== "succeeded" || metadata.entryId !== item.entry.id || metadata.sourceSha256 !== item.sourceHash) return null;
+  if (!maxContextMatches(metadata, runtime.settings)) return null;
   const matches = metadata.runFingerprint === item.fingerprint || pilotSettingsMatch(metadata, runtime.engineVersion, runtime.modelHash, runtime.settings);
   if (!matches || !metadata.outputs?.length) return null;
   for (const output of metadata.outputs) {
@@ -197,7 +223,8 @@ export async function createPlan(options) {
   if (!engineVersion) throw new Error("Could not establish the local whisper.cpp version");
   const modelHash = await sha256(options.model);
   const runtime = { engineVersion, modelHash, mediaRoot: options.mediaRoot,
-    settings: { ...SETTINGS, threads: options.threads ?? SETTINGS.threads } };
+    settings: { ...SETTINGS, threads: options.threads ?? SETTINGS.threads,
+      ...(options.maxContext !== undefined ? { maxContext: options.maxContext } : {}) } };
   const state = await exists(options.state) ? await readJson(options.state) : { schemaVersion: 1, jobs: {} };
   if (state.schemaVersion !== 1 || !state.jobs || Array.isArray(state.jobs)) throw new Error("Unrecognised private queue state");
   const entries = eligibleEntries(await loadEntries(options.repo), options.since, options.until, options.order);
@@ -330,6 +357,7 @@ async function processItem(options, item, runtime, directories) {
   const output = path.join(directories.raw, "whisper");
   const args = ["--model", options.model, "--file", wav, "--language", "en", "--threads", String(runtime.settings.threads), "--processors", "1",
     "--beam-size", "5", "--best-of", "5", "--no-fallback", "--output-json-full", "--output-srt", "--output-vtt", "--output-txt", "--print-progress", "--output-file", output];
+  if (runtime.settings.maxContext !== undefined) args.push("--max-context", String(runtime.settings.maxContext));
   let reported = -1;
   await command(options.engine, args, { stdoutFile: path.join(directories.raw, "engine.stdout.log"),
     stderrFile: path.join(directories.raw, "engine.log"), onLine(line) {
@@ -426,6 +454,7 @@ const HELP = `Usage: node scripts/transcribe-interviews.mjs [options]
   --until YYYY-MM-DD  Inclusive end (default: 2026-11-16)
   --order ORDER       oldest (default) or newest; scheduling only
   --threads N         Recognition CPU threads (default: 4)
+  --max-context N     Limit past-text context tokens (non-negative; omitted: engine default)
   --model PATH        Local Whisper GGML model (default: media-root/working/models/ggml-large-v3-turbo-q5_0.bin)
   --engine PATH       Local whisper-cli executable (default: whisper-cli)
   --ffmpeg PATH       Local ffmpeg executable (default: ffmpeg)
