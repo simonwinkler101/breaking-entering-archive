@@ -1,63 +1,45 @@
-# Editing the archive at /admin/
+# Editing the Breaking and Entering archive
 
-A guide for Lauren and Simon. Everything here happens in the browser at
-`https://breaking-entering-archive.netlify.app/admin/` — no Terminal, no
-GitHub website.
+Open [the editor](https://breaking-entering-archive.netlify.app/admin/) and choose **Login with GitHub**.
 
-## The normal flow
+An administrator must configure GitHub authentication for the Netlify site once. Each editor also needs a GitHub account with write access to `simonwinkler101/breaking-entering-archive`.
 
-1. **Open the entry** you want to change and edit the text.
-2. **Save draft** (top bar). Nothing is public yet — this quietly creates a
-   working copy behind the scenes.
-3. **Preview**: from the Workflow screen, open your draft and use the preview
-   link once the automatic build finishes (usually one to two minutes).
-4. **Publish**. When the small build check is green, choose
-   **Publish → Publish now**. The site rebuilds and your change appears in
-   production a minute or so later.
+If the sign-in popup returns **Not Found**, complete the one-time authentication setup under [Enable the editor](../README.md#enable-the-editor). Keep the client secret in Netlify’s provider form, outside repository files and chat.
 
-If Publish is refused, the build check probably hasn't finished — wait a
-minute and try again. If it still refuses, the build found a real problem;
-leave the draft in place and ask for help rather than forcing anything.
+## Editing an interview
 
-## Correcting a draft
+Under **Archive entries**, open the artist and interview you want to change.
 
-Drafts live under **Workflow** in the top bar. Open the draft, edit again,
-and Save draft — it updates the same working copy. You can keep refining a
-draft as long as you like before publishing.
+- **Summary** is the short description of the entry, separate from the transcript introduction.
+- **Transcript** contains the complete reading copy as plain text. Its first paragraph is the transcript introduction. Keep a blank line after that introduction and between speaker turns. Start each turn with the speaker’s name and a colon, for example `Lauren:`, followed by their words. Do not add Markdown formatting or HTML. Keep private review notes, uncertainty markers and music annotations out of this field.
+- **Presented by** changes presenter metadata used by search. It does not change speaker names or other wording inside the Transcript. Correct those separately wherever they appear.
+- **Pull quote** is optional. Use an exact quotation from the transcript and enter its speaker separately.
+- **Alternate artist names** supplies additional search spellings without displaying them on the page.
 
-## Abandoning a draft
+Leaving Transcript empty removes the reading section and its **Read** link. If the entry has a pull quote, remove that too before clearing the transcript.
 
-In the Workflow screen, drag the draft back or open it and choose
-**Delete unpublished entry**. This discards only the draft; the published
-site is untouched.
+Other editable fields include the artist, entry title, display date, duration, subjects, source labels and related entries. Keep the artist field to the artist’s name. The permanent ID is managed behind the editor; changing an artist or title does not change its address. Change format, sort date, year, source links and access only when correcting the corresponding facts. Hosted audio accepts a permanent HTTPS file address; recordings stay outside the website repository.
 
-## Fixing a published mistake
+Adding and deleting whole archive entries is disabled in this editor.
 
-There is no "undo" button, but fixing is the same as any edit: open the
-entry, correct the text, Save draft, Publish. The previous version remains
-safely in the site's history if it ever needs to be recovered.
+## Editing the site introduction and links
 
-## Fields to edit freely
+Under **Site settings → Text and layout**, edit the credit line, wordmark, homepage introduction, archive line, search prompt and footer. This also contains the site title, description and public address used by search engines. Change the public address only as part of connecting the custom domain.
 
-Summary, transcript, pull quote, display date, duration, presenters,
-subjects, alternate artist names and source labels are all ordinary text —
-edit them whenever needed.
+Under **Site settings → Projects and pages**, edit the Lauren Taylor + Simon Winkler popup and its separate `/about/` page: title, introduction, group headings, link names and addresses. The introduction appears on the separate page; the popup displays the title and grouped links. Keep link names plain, without arrows or icons. Spotify links are excluded.
 
-The **Artist** field is what the index shows, so keep it to the artist's
-name. Older or alternative wordings belong under **Alternate artist names**,
-where search still finds them.
+Some interface labels, including **Read**, **Listen** and the format filters, are defined in the code rather than these settings.
 
-## Fields not to alter casually
+## Saving and publishing
 
-- **ID** — never change after publishing; it is the entry's permanent
-  address (`/archive/<id>/`) and changing it breaks shared links.
-- **Format** — changes whether the entry appears under Interviews, Live or
-  Mixes.
-- **Sort date** — controls ordering; use `YYYY-MM-DD`.
-- **Links (Primary link, Sources)** — must remain complete `https://`
-  addresses.
-- **Access** — reflects real availability; only change it when availability
-  actually changed.
+Use **Save draft** to preserve an edit without changing the public site. A draft can still trigger a preview build. Open it again under **Workflow** to continue editing; another save updates the same draft.
 
-Adding or deleting whole entries is deliberately switched off in the CMS for
-now — ask for that to be done deliberately when needed.
+For the current batched releases, leave completed drafts unpublished so they can be combined into one release. The CMS does not combine multiple entries automatically. Publishing one entry merges that entry’s change and normally triggers a separate production deployment.
+
+When an individual release is intended, check the draft’s external preview if available and confirm that the build checks have passed before using **Publish → Publish now**. The editor has no inline page preview.
+
+Moving a draft between Workflow columns changes its status; it does not discard the edit. To abandon it, use the action for deleting the unpublished draft, if available. This removes the draft rather than the existing published entry. Verify that the draft has disappeared and the public version remains unchanged.
+
+If saving or publishing fails, leave the draft in place and keep the error message. Possible causes include incomplete authentication, repository permissions, pending or failed build checks, branch rules or a conflict with another edit. Do not assume that every refusal is a build failure.
+
+To correct something already published, edit it and save a new draft. Earlier versions remain in Git history for recovery.
