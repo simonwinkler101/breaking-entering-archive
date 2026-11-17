@@ -25,5 +25,9 @@
       "duration": "47:23",
       "status": "Confirmed RRR archive page"
     }
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/1448-mikey-young-breaking-and-entering-f2618c6d38ae.mp3",
+    "type": "audio/mpeg"
+  }
 }
