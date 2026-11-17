@@ -13,12 +13,12 @@ Under **Archive entries**, open the artist and interview you want to change.
 - **Summary** is the short description of the entry, separate from the transcript introduction.
 - **Transcript** contains the complete reading copy as plain text. Its first paragraph is the transcript introduction. Keep a blank line after that introduction and between speaker turns. Start each turn with the speaker’s name and a colon, for example `Lauren:`, followed by their words. Do not add Markdown formatting or HTML. Keep private review notes, uncertainty markers and music annotations out of this field.
 - **Presented by** changes presenter metadata used by search. It does not change speaker names or other wording inside the Transcript. Correct those separately wherever they appear.
-- **Pull quote** is optional. Use an exact quotation from the transcript and enter its speaker separately.
+- **Pull quote** is optional. When adding one, complete both the exact quotation and its speaker. Leave both blank to omit it.
 - **Alternate artist names** supplies additional search spellings without displaying them on the page.
 
 Leaving Transcript empty removes the reading section and its **Read** link. If the entry has a pull quote, remove that too before clearing the transcript.
 
-Other editable fields include the artist, entry title, display date, duration, subjects, source labels and related entries. Keep the artist field to the artist’s name. The permanent ID is managed behind the editor; changing an artist or title does not change its address. Change format, sort date, year, source links and access only when correcting the corresponding facts. Hosted audio accepts a permanent HTTPS file address; recordings stay outside the website repository.
+Other editable fields include the artist, entry title, display date, duration, subjects, source labels and related entries. Keep the artist field to the artist’s name. The permanent ID is managed behind the editor; changing an artist or title does not change its address. Change format, sort date, year, source links and access only when correcting the corresponding facts. When adding hosted audio, complete both its permanent HTTPS address and audio type; recordings stay outside the website repository.
 
 Adding and deleting whole archive entries is disabled in this editor.
 
@@ -32,7 +32,7 @@ Some interface labels, including **Read**, **Listen** and the format filters, ar
 
 ## Saving and publishing
 
-Use **Save draft** to preserve an edit without changing the public site. A draft can still trigger a preview build. Open it again under **Workflow** to continue editing; another save updates the same draft.
+Use **Save** to preserve an edit as a draft without changing the public site. A draft can still trigger a preview build. Open it again under **Workflow** to continue editing; another save updates the same draft.
 
 For the current batched releases, leave completed drafts unpublished so they can be combined into one release. The CMS does not combine multiple entries automatically. Publishing one entry merges that entry’s change and normally triggers a separate production deployment.
 
