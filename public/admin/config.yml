@@ -7,8 +7,8 @@ backend:
   preview_context: netlify/breaking-entering-archive/deploy-preview
 
 publish_mode: editorial_workflow
-site_url: https://breaking-entering-archive.netlify.app
-display_url: https://breaking-entering-archive.netlify.app
+site_url: https://breakingandentering.com.au
+display_url: https://breakingandentering.com.au
 
 media_folder: public/uploads
 public_folder: /uploads
