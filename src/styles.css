@@ -373,6 +373,16 @@ button {
   flex-wrap: wrap;
 }
 
+/* The Acknowledgement of Country is a statement, so it is set in ink at a
+   readable measure. The two links keep the grey and sit beside it, or below
+   it where there is no room. */
+.foot p {
+  flex: 1 1 100%;
+  max-width: 38em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
 /* Pointer states ---------------------------------------------------------- */
 
 /* Touch gets a brief orange press instead of the browser's highlight box. */
