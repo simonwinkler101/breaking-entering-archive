@@ -94,11 +94,13 @@ Alternate names can be added to any entry in `/admin/` without displaying them p
 
 The canonical site address is `https://breakingandentering.com.au`. It is editable under **Site settings → Text and layout → Search metadata**; change it only if the domain changes, then rebuild.
 
-To register the site with Google:
+Google Search Console holds the URL-prefix property `https://breakingandentering.com.au/`, in Simon's Google account. Its ownership is verified by the meta tag built from the Google verification code in the same settings (`googleSiteVerification`); keep the code in place, because removing it removes the verification. No DNS record is involved. With the code published:
 
-1. Create a Domain property for `breakingandentering.com.au` in Google Search Console and complete Google's DNS verification.
-2. Submit `https://breakingandentering.com.au/sitemap.xml`.
-3. Inspect the homepage and two or three entry URLs, then request indexing.
+1. Press **Verify** for the property in Search Console, choosing the HTML tag method.
+2. Submit `https://breakingandentering.com.au/sitemap.xml` under **Sitemaps**.
+3. Optionally inspect the homepage and two or three entry URLs, then request indexing.
+
+A Domain property, which also covers `www` and `http`, would instead need a TXT record in the domain's DNS at Netlify.
 
 There is also an optional Google verification-code field in the CMS if meta-tag verification is preferred. DNS verification is normally cleaner for a full domain.
 
