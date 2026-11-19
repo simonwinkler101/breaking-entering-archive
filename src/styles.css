@@ -130,8 +130,11 @@ button {
 
 /* Masthead ---------------------------------------------------------------- */
 
-/* The title page: the credit and title at the top, the statement at the
-   foot, just above the search row, with the free space between them. */
+/* The title page: the credit at the top, the statement at the foot, just
+   above the search row, and the title between them. The free space is shared
+   by three equal margins, one above the title and two below it, so the title
+   sits a third of the way down: lower on a tall screen, and barely moved on a
+   short one. Each gap keeps at least one unit. */
 .masthead {
   container-type: inline-size;
   display: flex;
@@ -142,6 +145,7 @@ button {
 }
 
 .credit {
+  margin-bottom: var(--unit);
   font-size: var(--small);
 }
 
@@ -149,7 +153,7 @@ button {
    "Breaking and Entering" at 1px in Geist 500 with this tracking, plus a
    little room. Narrow screens set it on two lines and fit "Breaking and". */
 .title {
-  margin: var(--unit) 0;
+  margin: auto 0;
   font-size: calc((100vw - 2 * var(--edge)) / 9.62);
   font-size: calc(100cqi / 9.62);
   font-weight: 500;
@@ -165,6 +169,7 @@ button {
 .intro {
   max-width: 25em;
   margin: auto 0 0 var(--index);
+  padding-top: var(--unit);
   font-size: var(--large);
   line-height: 1.16;
   letter-spacing: -0.015em;
