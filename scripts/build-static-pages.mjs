@@ -161,6 +161,11 @@ const relatedEntriesFor = (selected) =>
     .slice(0, 3)
     .map(({ entry }) => entry);
 
+// One plain image, the title in the site's own type, accompanies every shared
+// link (public/share.png, 1200 by 630).
+const shareImage = `${siteUrl}/share.png`;
+const shareImageAlt = settings.metadata.title.replace(/\s+Archive$/i, "");
+
 const headTags = ({ title, description, url, entry }) => {
   const verification = settings.metadata.googleSiteVerification?.trim();
   const published = entry?.dateKey
@@ -176,10 +181,16 @@ const headTags = ({ title, description, url, entry }) => {
     <meta property="og:title" content="${escapeHtml(title)}" />
     <meta property="og:description" content="${escapeHtml(description)}" />
     <meta property="og:url" content="${escapeHtml(url)}" />
+    <meta property="og:image" content="${escapeHtml(shareImage)}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="${escapeHtml(shareImageAlt)}" />
     ${published}
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(title)}" />
     <meta name="twitter:description" content="${escapeHtml(description)}" />
+    <meta name="twitter:image" content="${escapeHtml(shareImage)}" />
+    <meta name="twitter:image:alt" content="${escapeHtml(shareImageAlt)}" />
     ${verificationTag}`;
 };
 
@@ -357,6 +368,34 @@ const subscriberArchiveCredit = (entry) => entry.access === "RRR subscriber"
   ? `<p class="audio-credit">From Triple R’s subscriber audio archive. <a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">View on Triple R</a>.</p>`
   : "";
 
+// A YouTube video sits on the entry's page, as a recording's player does. It
+// does not start by itself, and the browser fetches it only as it nears the
+// screen. The source link under it is the way to YouTube.
+const videoId = (entry) => (entry.audio ? "" : (display(entry).youtubeId ?? ""));
+
+const videoBlock = (entry) => {
+  const id = videoId(entry);
+  if (!id) return "";
+  return `
+    <section class="entry-section" id="watch" aria-labelledby="video-label">
+      <h2 class="entry-label" id="video-label">Watch</h2>
+      <div class="video-player">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(id)}?playsinline=1&amp;rel=0" title="${escapeHtml(`Video: ${display(entry).name}`)}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+        </div>
+        <p class="audio-credit">Source: <a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.source)}</a></p>
+      </div>
+    </section>`;
+};
+
+// The top row's word leads to the entry's player: Listen or Watch. An entry
+// with neither links to its source.
+const primaryAction = (entry) => {
+  if (entry.audio) return '<a href="#listen">Listen</a>';
+  if (videoId(entry)) return '<a href="#watch">Watch</a>';
+  return `<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}</a>`;
+};
+
 const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscriber audio archive" : "");
 
 const sourcesBlock = (entry) => {
@@ -449,13 +488,14 @@ const entryDocument = (entry) => {
   <main class="site entry-page">
     <header class="entry-top">
       <a href="/">${escapeHtml(settings.metadata.title.replace(/\s+Archive$/i, ""))}</a>
-      <nav class="entry-nav" aria-label="This entry">${entry.audio ? '<a href="#listen">Listen</a>' : `<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}</a>`}${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</nav>
+      <nav class="entry-nav" aria-label="This entry">${primaryAction(entry)}${hasTranscript(entry) ? `<a href="#transcript">Read</a>` : ""}</nav>
     </header>
     <article class="entry" data-kind="${escapeHtml(entry.kind)}">
       <h1 class="entry-name">${escapeHtml(name)}</h1>
       ${displayTitle ? `<p class="entry-title">${escapeHtml(displayTitle)}</p>` : ""}
       ${aboutBlock(entry, duration)}
       ${audioBlock(entry)}
+      ${videoBlock(entry)}
       ${pullQuoteBlock(entry)}
       ${transcriptBlock(entry)}
       ${sourcesBlock(entry)}

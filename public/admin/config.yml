@@ -198,5 +198,5 @@ collections:
             name: footer
             widget: object
             fields:
-              - { label: Footer text, name: text, widget: string }
+              - { label: Acknowledgement of Country, name: text, widget: text, hint: "Shown at the foot of every page." }
               - { label: Back-to-top label, name: backToTopLabel, widget: string }

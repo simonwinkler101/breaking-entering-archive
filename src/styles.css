@@ -9,8 +9,9 @@
   and everything aligns to the page edge or the index column.
 
   One colour, an on-air orange, marks what is selected or live: the chosen
-  format, the open entry, the recording that is playing and the moment of a
-  press. Nothing else is coloured.
+  format, the open entry, the recording that is playing, and the link or
+  control that is under the pointer or being pressed. Nothing else is
+  coloured.
 */
 
 :root {
@@ -130,8 +131,11 @@ button {
 
 /* Masthead ---------------------------------------------------------------- */
 
-/* The title page: the credit and title at the top, the statement at the
-   foot, just above the search row, with the free space between them. */
+/* The title page: the credit at the top, the statement at the foot, just
+   above the search row, and the title between them. The free space is shared
+   by three equal margins, one above the title and two below it, so the title
+   sits a third of the way down: lower on a tall screen, and barely moved on a
+   short one. Each gap keeps at least one unit. */
 .masthead {
   container-type: inline-size;
   display: flex;
@@ -142,6 +146,7 @@ button {
 }
 
 .credit {
+  margin-bottom: var(--unit);
   font-size: var(--small);
 }
 
@@ -149,7 +154,7 @@ button {
    "Breaking and Entering" at 1px in Geist 500 with this tracking, plus a
    little room. Narrow screens set it on two lines and fit "Breaking and". */
 .title {
-  margin: var(--unit) 0;
+  margin: auto 0;
   font-size: calc((100vw - 2 * var(--edge)) / 9.62);
   font-size: calc(100cqi / 9.62);
   font-weight: 500;
@@ -165,6 +170,7 @@ button {
 .intro {
   max-width: 25em;
   margin: auto 0 0 var(--index);
+  padding-top: var(--unit);
   font-size: var(--large);
   line-height: 1.16;
   letter-spacing: -0.015em;
@@ -242,9 +248,9 @@ button {
   color: var(--signal);
 }
 
-.formats button,
-.row-name,
-.audio-toggle {
+/* Every link and control eases into and out of a change of colour. */
+a,
+button {
   transition: color 0.15s ease;
 }
 
@@ -368,6 +374,16 @@ button {
   flex-wrap: wrap;
 }
 
+/* The Acknowledgement of Country is a statement, so it is set in ink at a
+   readable measure. The two links keep the grey and sit beside it, or below
+   it where there is no room. */
+.foot p {
+  flex: 1 1 100%;
+  max-width: 38em;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
 /* Pointer states ---------------------------------------------------------- */
 
 /* Touch gets a brief orange press instead of the browser's highlight box. */
@@ -421,10 +437,11 @@ button:active {
     display: block;
   }
 
-  .clear:hover,
-  .formats button:not([aria-pressed="true"]):hover,
-  .foot a:hover {
-    color: var(--ink);
+  /* Under the pointer, a link or control takes the signal colour, as it
+     does for the moment of a press. The title keeps its ink. The selector
+     is specific enough to win over the greys and inks set elsewhere. */
+  :is(a, button):hover:not(.title a) {
+    color: var(--signal);
   }
 
 }
@@ -827,6 +844,43 @@ button:active {
 @media print {
   .audio-player,
   .entry-section:has(> .audio-player) {
+    display: none;
+  }
+}
+
+/* In-place video ---------------------------------------------------------- */
+
+/* An entry whose source is a YouTube video shows it where it is, as soon as
+   the entry opens, the way a recording's player is there. The frame is the
+   width of the text column and keeps the shape of the screen. It is the one
+   picture on the page, and it is YouTube's own: nothing plays until its play
+   button is pressed. */
+.video-player {
+  display: block;
+  min-width: 0;
+}
+
+.detail .video-player {
+  margin-top: 0.9em;
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 38em;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media print {
+  .video-player,
+  .entry-section:has(> .video-player) {
     display: none;
   }
 }

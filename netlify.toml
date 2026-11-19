@@ -12,6 +12,16 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# The project's original Netlify address forwards to the archive's own
+# domain, path for path. Deploy previews have other hostnames and are not
+# affected. The editor's sign-in names this project through Netlify's API and
+# does not load pages from the old address.
+[[redirects]]
+  from = "https://breaking-entering-archive.netlify.app/*"
+  to = "https://breakingandentering.com.au/:splat"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -48,8 +48,9 @@ type ArchiveEntry = {
   relatedIds?: string[];
   access: ArchiveAccess;
   sources: ArchiveSource[];
-  // Derived at build time by scripts/build-content.mjs.
-  display: { name: string; title: string; duration: string };
+  // Derived at build time by scripts/build-content.mjs. youtubeId is set when
+  // the entry's link is a YouTube video and it has no hosted recording.
+  display: { name: string; title: string; duration: string; youtubeId?: string };
 };
 
 // Entries arrive sorted newest first, with undated entries last.
@@ -129,6 +130,8 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
     }
   };
 
+  const videoId = entry.display.youtubeId;
+
   return (
     <div className="detail" id={id}>
       {entry.display.title && <p className="detail-title">{entry.display.title}</p>}
@@ -158,22 +161,48 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
           </a>
         </p>
       )}
-      <p className="detail-actions">
-        {entry.audio ? (
-          <a href="#listen">Listen</a>
-        ) : (
-          <a href={entry.href} target="_blank" rel="noreferrer">{actionLabel(entry)}</a>
-        )}
-        {hasTranscript(entry) && (
-          <a
-            href={`${entryPath(entry)}#transcript`}
-            onClick={leaveForPermanentPage}
-            aria-label={`Read the ${entry.display.name} transcript`}
-          >
-            Read
-          </a>
-        )}
-      </p>
+      {/* A YouTube video is there as soon as the entry opens, as a recording's
+          player is. It does not start by itself, and closing the entry
+          removes it. The source link under it is the way to YouTube. */}
+      {videoId && (
+        <div className="video-player" id="watch">
+          <div className="video-frame">
+            <iframe
+              key={videoId}
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`}
+              title={`Video: ${entry.display.name}`}
+              allow="encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+            />
+          </div>
+          <p className="audio-credit">
+            Source:{" "}
+            <a href={entry.href} target="_blank" rel="noreferrer">
+              {entry.source}
+            </a>
+          </p>
+        </div>
+      )}
+      {(!videoId || hasTranscript(entry)) && (
+        <p className="detail-actions">
+          {entry.audio ? (
+            <a href="#listen">Listen</a>
+          ) : videoId ? null : (
+            <a href={entry.href} target="_blank" rel="noreferrer">{actionLabel(entry)}</a>
+          )}
+          {hasTranscript(entry) && (
+            <a
+              href={`${entryPath(entry)}#transcript`}
+              onClick={leaveForPermanentPage}
+              aria-label={`Read the ${entry.display.name} transcript`}
+            >
+              Read
+            </a>
+          )}
+        </p>
+      )}
     </div>
   );
 }

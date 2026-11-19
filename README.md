@@ -19,9 +19,9 @@ Each entry has a permanent page in the form `/archive/entry-id/`. In the index, 
 
 ## Design
 
-One typeface (Geist, self-hosted from `@fontsource-variable/geist`), black on white with one grey, and three sizes: the title, sized in CSS to fill the page width; a large size for names and the statement; and a small size for everything else. Vertical gaps are multiples of one spacing unit (`--unit`, one large line), and everything aligns to the page edge or the index column. There are no rules, boxes or menus.
+One typeface (Geist, self-hosted from `@fontsource-variable/geist`), black on white with one grey, and three sizes: the title, sized in CSS to fill the page width; a large size for names and the statement; and a small size for everything else. Vertical gaps are multiples of one spacing unit (`--unit`, one large line), and everything aligns to the page edge or the index column. There are no rules, boxes or menus. One colour, an on-air orange, marks what is selected or live: the chosen format, the open entry, a playing recording, and the link or control under the pointer or being pressed.
 
-The first screen is a title page: the credit, the title and the statement. A row of four small words sits at its foot (Search, then Interviews, Live and Mixes) and pins to the top as the list scrolls. Search and the three words lead into the list: clicking either scrolls to where the list begins, and Search also puts the cursor in place. The list is newest first, grouped by year, and an address with a format (`/#live`) opens straight into it.
+The first screen is a title page: the credit at the top, the statement at the foot, and the title between them, a third of the way down the free space. A row of four small words sits at its foot (Search, then Interviews, Live and Mixes) and pins to the top as the list scrolls. Search and the three words lead into the list: clicking either scrolls to where the list begins, and Search also puts the cursor in place. The list is newest first, grouped by year, and an address with a format (`/#live`) opens straight into it.
 
 Most source titles repeat the artist and the program name, so `scripts/build-content.mjs` derives a display name, a shorter display title and a readable duration for each entry at build time. Special programs and the program's own mixes show their title as the name. The stored titles are unchanged and still searchable.
 
@@ -46,7 +46,7 @@ This project uses Decap CMS's direct GitHub backend. Each editor needs push acce
 
 1. In [GitHub OAuth Apps](https://github.com/settings/developers), register an application named **Breaking and Entering Archive Editor**. Use `https://breaking-entering-archive.netlify.app` as its homepage and `https://api.netlify.com/auth/done` as its redirect URI. Generate its client secret and keep it private.
 2. In Netlify, open **Project configuration → Security → OAuth → Authentication providers**, choose **Install provider**, select **GitHub**, and enter the client ID and secret there. Do not put either secret or access tokens in repository files, transcripts or chat.
-3. Visit `https://breaking-entering-archive.netlify.app/admin/` and sign in with GitHub. The configured scope is `public_repo`, because this repository is public. Each editor needs GitHub write access to the archive repository; registration alone does not give that access.
+3. Visit `https://breakingandentering.com.au/admin/` and sign in with GitHub. The configured scope is `public_repo`, because this repository is public. Each editor needs GitHub write access to the archive repository; registration alone does not give that access.
 
 If the authentication popup returns **Not Found**, check that the GitHub provider
 has been installed for this Netlify project. The configuration explicitly uses
@@ -72,6 +72,8 @@ npm run dev
 - `scripts/build-content.mjs` — validation and build-time content compilation
 - `scripts/build-static-pages.mjs` — permanent entry pages and search-engine files
 
+An entry with a hosted recording plays it in place ([`docs/audio-player.md`](docs/audio-player.md)). An entry whose link is a YouTube video shows that video in place as soon as it is opened; nothing plays until its play button is pressed ([`docs/video-player.md`](docs/video-player.md)).
+
 Interview acquisition, private transcription, editing and human review follow
 [`docs/transcription-workflow.md`](docs/transcription-workflow.md). The reading
 version preserves the guest's meaning, voice, facts and qualifications while
@@ -90,16 +92,22 @@ Alternate names can be added to any entry in `/admin/` without displaying them p
 
 ## Search-engine setup
 
-The canonical site address is editable under **Site settings → Text and layout → Search metadata**. It currently points to the Netlify address. Change it to `https://breakingandentering.com.au` immediately before the custom domain becomes the primary Netlify domain, then rebuild.
+The canonical site address is `https://breakingandentering.com.au`. It is editable under **Site settings → Text and layout → Search metadata**; change it only if the domain changes, then rebuild.
 
-After the custom domain is live:
+Google Search Console holds the URL-prefix property `https://breakingandentering.com.au/`, in Simon's Google account. Its ownership is verified by the meta tag built from the Google verification code in the same settings (`googleSiteVerification`); keep the code in place, because removing it removes the verification. No DNS record is involved. With the code published:
 
-1. Create a Domain property for `breakingandentering.com.au` in Google Search Console and complete Google's DNS verification.
-2. Submit `https://breakingandentering.com.au/sitemap.xml`.
-3. Inspect the homepage and two or three entry URLs, then request indexing.
+1. Press **Verify** for the property in Search Console, choosing the HTML tag method.
+2. Submit `https://breakingandentering.com.au/sitemap.xml` under **Sitemaps**.
+3. Optionally inspect the homepage and two or three entry URLs, then request indexing.
+
+A Domain property, which also covers `www` and `http`, would instead need a TXT record in the domain's DNS at Netlify.
 
 There is also an optional Google verification-code field in the CMS if meta-tag verification is preferred. DNS verification is normally cleaner for a full domain.
 
 ## Custom domain
 
-Once `breakingandentering.com.au` is purchased, add it under **Domain management → Production domains** in Netlify and follow the DNS instructions shown there.
+`breakingandentering.com.au` is the primary domain, with its DNS at Netlify. The project's original address, `breaking-entering-archive.netlify.app`, forwards to it path for path (`netlify.toml`). Deploy previews keep their own `deploy-preview-N--breaking-entering-archive.netlify.app` addresses. The editor's sign-in still names the project by its Netlify address (`site_domain` in `public/admin/config.yml`); that is an identifier for Netlify's sign-in service, not a page address, and should stay.
+
+## Icon and share image
+
+`public/favicon.svg`, `public/favicon.ico` and `public/apple-touch-icon.png` are the signal-colour dot. `public/share.png` (1200 by 630) is the title in Geist 500 on white, set as on a phone's title page; every page names it as its share image. Redraw it if the wordmark or the credit changes.
