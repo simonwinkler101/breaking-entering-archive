@@ -4,7 +4,7 @@ A quiet, searchable index of Breaking and Entering interviews, guest mixes, live
 
 ## What is public
 
-The website builds from the 170 records in `content/archive/`. Weekly Breaking and Entering broadcasts are deliberately kept out of the public build and search index; the 475 source records are preserved separately in `content/private/broadcast-archive.json` for a future, independent archive.
+The website builds from the 171 records in `content/archive/`. Weekly Breaking and Entering broadcasts are deliberately kept out of the public build and search index; the 475 source records are preserved separately in `content/private/broadcast-archive.json` for a future, independent archive.
 
 ## Editing the archive
 

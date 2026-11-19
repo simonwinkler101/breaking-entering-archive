@@ -1,0 +1,35 @@
+{
+  "id": "hercules-and-love-affair-2026",
+  "artist": "Hercules & Love Affair",
+  "title": "Andy Butler + Guest Mix",
+  "kind": "Guest mix",
+  "date": "19 November 2026",
+  "dateKey": "2026-11-19",
+  "year": 2026,
+  "duration": "1:23:49",
+  "presenters": "Lauren Taylor",
+  "source": "Triple R segment",
+  "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-hercules-love-affairs-andy-butler-guest-mix",
+  "summary": "Andy Butler of Hercules & Love Affair, back in Australia after 14 years, discusses breaking out of New York's underground with 'Blind', exploring darker techno and industrial sounds across five studio albums, and touring his latest release, Danseur. He then plays a guest mix drawn from his record collection.",
+  "tags": [
+    "guest mix",
+    "interview",
+    "dj culture",
+    "dance music",
+    "new york"
+  ],
+  "access": "Public",
+  "sources": [
+    {
+      "id": "src-rrr-segment-breaking-and-entering-hercules-love-affairs-andy-butler-guest-mix",
+      "label": "Triple R segment",
+      "href": "https://www.rrr.org.au/on-demand/segments/breaking-and-entering-hercules-love-affairs-andy-butler-guest-mix",
+      "access": "Public",
+      "duration": "1:23:49",
+      "status": "Confirmed RRR segment page"
+    }
+  ],
+  "aliases": [
+    "Andy Butler"
+  ]
+}
