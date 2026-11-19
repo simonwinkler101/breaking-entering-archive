@@ -9,8 +9,9 @@
   and everything aligns to the page edge or the index column.
 
   One colour, an on-air orange, marks what is selected or live: the chosen
-  format, the open entry, the recording that is playing and the moment of a
-  press. Nothing else is coloured.
+  format, the open entry, the recording that is playing, and the link or
+  control that is under the pointer or being pressed. Nothing else is
+  coloured.
 */
 
 :root {
@@ -247,9 +248,9 @@ button {
   color: var(--signal);
 }
 
-.formats button,
-.row-name,
-.audio-toggle {
+/* Every link and control eases into and out of a change of colour. */
+a,
+button {
   transition: color 0.15s ease;
 }
 
@@ -436,10 +437,11 @@ button:active {
     display: block;
   }
 
-  .clear:hover,
-  .formats button:not([aria-pressed="true"]):hover,
-  .foot a:hover {
-    color: var(--ink);
+  /* Under the pointer, a link or control takes the signal colour, as it
+     does for the moment of a press. The title keeps its ink. The selector
+     is specific enough to win over the greys and inks set elsewhere. */
+  :is(a, button):hover:not(.title a) {
+    color: var(--signal);
   }
 
 }
