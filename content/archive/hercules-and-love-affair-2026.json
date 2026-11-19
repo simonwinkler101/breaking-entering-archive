@@ -31,5 +31,9 @@
   ],
   "aliases": [
     "Andy Butler"
-  ]
+  ],
+  "audio": {
+    "url": "https://breaking-entering-audio.simon-winkler.workers.dev/hercules-and-love-affair-2026-ab1171fb065e.m4a",
+    "type": "audio/mp4"
+  }
 }
