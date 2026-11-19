@@ -9,8 +9,8 @@
   and everything aligns to the page edge or the index column.
 
   One colour, an on-air orange, marks what is selected or live: the chosen
-  format, the open entry, the recording that is playing and the moment of a
-  press. Nothing else is coloured.
+  format, the open entry, the recording that is playing, the video that is
+  open and the moment of a press. Nothing else is coloured.
 */
 
 :root {
@@ -249,7 +249,9 @@ button {
 
 .formats button,
 .row-name,
-.audio-toggle {
+.audio-toggle,
+.video-toggle,
+.entry-nav a {
   transition: color 0.15s ease;
 }
 
@@ -836,6 +838,51 @@ button:active {
   }
 }
 
+/* In-place video ---------------------------------------------------------- */
+
+/* An entry whose source is a YouTube video plays where it is. The word that
+   opens it is an ordinary link until public/video-player.js arrives. The
+   frame is the width of the text column and keeps the shape of the screen;
+   nothing loads from YouTube until the word is pressed. */
+.video-player {
+  display: block;
+  min-width: 0;
+  scroll-margin-top: calc(var(--bar) + var(--unit) * 0.5);
+  scroll-margin-bottom: var(--edge);
+}
+
+.detail .video-player {
+  margin-top: 0.9em;
+}
+
+/* Open, the word takes the signal colour, as an open entry's name does. */
+.video-player[data-open] .video-toggle,
+.entry-nav a[aria-expanded="true"] {
+  color: var(--signal);
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 38em;
+  margin-top: 0.9em;
+  aspect-ratio: 16 / 9;
+  background: var(--ink);
+}
+
+.video-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media print {
+  .video-player,
+  .entry-section:has(> .video-player) {
+    display: none;
+  }
+}
+
 /* Projects and pages ----------------------------------------------------- */
 
 .project-links li + li {
@@ -946,6 +993,7 @@ button:active {
   .credit a,
   .entry-top a,
   .detail-actions a,
+  .video-toggle,
   .audio-credit a,
   .sources a,
   .project-links a,

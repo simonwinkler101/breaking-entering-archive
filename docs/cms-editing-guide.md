@@ -1,6 +1,6 @@
 # Editing the Breaking and Entering archive
 
-Open [the editor](https://breaking-entering-archive.netlify.app/admin/) and choose **Login with GitHub**.
+Open [the editor](https://breakingandentering.com.au/admin/) and choose **Login with GitHub**.
 
 An administrator must configure GitHub authentication for the Netlify site once. Each editor also needs a GitHub account with write access to `simonwinkler101/breaking-entering-archive`.
 

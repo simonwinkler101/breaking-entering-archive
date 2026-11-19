@@ -48,8 +48,9 @@ type ArchiveEntry = {
   relatedIds?: string[];
   access: ArchiveAccess;
   sources: ArchiveSource[];
-  // Derived at build time by scripts/build-content.mjs.
-  display: { name: string; title: string; duration: string };
+  // Derived at build time by scripts/build-content.mjs. youtubeId is set when
+  // the entry's link is a YouTube video and it has no hosted recording.
+  display: { name: string; title: string; duration: string; youtubeId?: string };
 };
 
 // Entries arrive sorted newest first, with undated entries last.
@@ -129,6 +130,8 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
     }
   };
 
+  const videoId = entry.display.youtubeId;
+
   return (
     <div className="detail" id={id}>
       {entry.display.title && <p className="detail-title">{entry.display.title}</p>}
@@ -158,22 +161,31 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
           </a>
         </p>
       )}
-      <p className="detail-actions">
-        {entry.audio ? (
-          <a href="#listen">Listen</a>
-        ) : (
-          <a href={entry.href} target="_blank" rel="noreferrer">{actionLabel(entry)}</a>
-        )}
-        {hasTranscript(entry) && (
-          <a
-            href={`${entryPath(entry)}#transcript`}
-            onClick={leaveForPermanentPage}
-            aria-label={`Read the ${entry.display.name} transcript`}
-          >
-            Read
-          </a>
-        )}
-      </p>
+      {/* A YouTube video plays in place. "Watch" is still a link to YouTube
+          until public/video-player.js makes it open the video below it. */}
+      {videoId && createElement(
+        "archive-video",
+        { class: "video-player", id: "watch", "data-video-id": videoId, "data-title": entry.display.name, "data-source": entry.source, key: videoId },
+        <a href={entry.href} target="_blank" rel="noreferrer">Watch</a>,
+      )}
+      {(!videoId || hasTranscript(entry)) && (
+        <p className="detail-actions">
+          {entry.audio ? (
+            <a href="#listen">Listen</a>
+          ) : videoId ? null : (
+            <a href={entry.href} target="_blank" rel="noreferrer">{actionLabel(entry)}</a>
+          )}
+          {hasTranscript(entry) && (
+            <a
+              href={`${entryPath(entry)}#transcript`}
+              onClick={leaveForPermanentPage}
+              aria-label={`Read the ${entry.display.name} transcript`}
+            >
+              Read
+            </a>
+          )}
+        </p>
+      )}
     </div>
   );
 }
