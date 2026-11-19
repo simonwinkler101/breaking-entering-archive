@@ -19,7 +19,7 @@ Each entry has a permanent page in the form `/archive/entry-id/`. In the index, 
 
 ## Design
 
-One typeface (Geist, self-hosted from `@fontsource-variable/geist`), black on white with one grey, and three sizes: the title, sized in CSS to fill the page width; a large size for names and the statement; and a small size for everything else. Vertical gaps are multiples of one spacing unit (`--unit`, one large line), and everything aligns to the page edge or the index column. There are no rules, boxes or menus. One colour, an on-air orange, marks what is selected or live: the chosen format, the open entry, a playing recording, an open video and the moment of a press.
+One typeface (Geist, self-hosted from `@fontsource-variable/geist`), black on white with one grey, and three sizes: the title, sized in CSS to fill the page width; a large size for names and the statement; and a small size for everything else. Vertical gaps are multiples of one spacing unit (`--unit`, one large line), and everything aligns to the page edge or the index column. There are no rules, boxes or menus. One colour, an on-air orange, marks what is selected or live: the chosen format, the open entry, a playing recording and the moment of a press.
 
 The first screen is a title page: the credit at the top, the statement at the foot, and the title between them, a third of the way down the free space. A row of four small words sits at its foot (Search, then Interviews, Live and Mixes) and pins to the top as the list scrolls. Search and the three words lead into the list: clicking either scrolls to where the list begins, and Search also puts the cursor in place. The list is newest first, grouped by year, and an address with a format (`/#live`) opens straight into it.
 
@@ -72,7 +72,7 @@ npm run dev
 - `scripts/build-content.mjs` — validation and build-time content compilation
 - `scripts/build-static-pages.mjs` — permanent entry pages and search-engine files
 
-An entry with a hosted recording plays it in place ([`docs/audio-player.md`](docs/audio-player.md)). An entry whose link is a YouTube video plays that in place, loaded only when someone presses Watch ([`docs/video-player.md`](docs/video-player.md)).
+An entry with a hosted recording plays it in place ([`docs/audio-player.md`](docs/audio-player.md)). An entry whose link is a YouTube video shows that video in place as soon as it is opened; nothing plays until its play button is pressed ([`docs/video-player.md`](docs/video-player.md)).
 
 Interview acquisition, private transcription, editing and human review follow
 [`docs/transcription-workflow.md`](docs/transcription-workflow.md). The reading

@@ -161,12 +161,29 @@ function EntryDetail({ entry, id }: { entry: ArchiveEntry; id: string }) {
           </a>
         </p>
       )}
-      {/* A YouTube video plays in place. "Watch" is still a link to YouTube
-          until public/video-player.js makes it open the video below it. */}
-      {videoId && createElement(
-        "archive-video",
-        { class: "video-player", id: "watch", "data-video-id": videoId, "data-title": entry.display.name, "data-source": entry.source, key: videoId },
-        <a href={entry.href} target="_blank" rel="noreferrer">Watch</a>,
+      {/* A YouTube video is there as soon as the entry opens, as a recording's
+          player is. It does not start by itself, and closing the entry
+          removes it. The source link under it is the way to YouTube. */}
+      {videoId && (
+        <div className="video-player" id="watch">
+          <div className="video-frame">
+            <iframe
+              key={videoId}
+              src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`}
+              title={`Video: ${entry.display.name}`}
+              allow="encrypted-media; picture-in-picture; fullscreen"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
+              loading="lazy"
+            />
+          </div>
+          <p className="audio-credit">
+            Source:{" "}
+            <a href={entry.href} target="_blank" rel="noreferrer">
+              {entry.source}
+            </a>
+          </p>
+        </div>
       )}
       {(!videoId || hasTranscript(entry)) && (
         <p className="detail-actions">

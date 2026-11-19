@@ -368,28 +368,32 @@ const subscriberArchiveCredit = (entry) => entry.access === "RRR subscriber"
   ? `<p class="audio-credit">From Triple R’s subscriber audio archive. <a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">View on Triple R</a>.</p>`
   : "";
 
-// A YouTube video plays in place (public/video-player.js). Without the script
-// both words are ordinary links to the video on YouTube.
+// A YouTube video sits on the entry's page, as a recording's player does. It
+// does not start by itself, and the browser fetches it only as it nears the
+// screen. The source link under it is the way to YouTube.
 const videoId = (entry) => (entry.audio ? "" : (display(entry).youtubeId ?? ""));
 
 const videoBlock = (entry) => {
   const id = videoId(entry);
   if (!id) return "";
   return `
-    <section class="entry-section" aria-labelledby="video-label">
+    <section class="entry-section" id="watch" aria-labelledby="video-label">
       <h2 class="entry-label" id="video-label">Watch</h2>
-      <archive-video class="video-player" id="watch" data-video-id="${escapeHtml(id)}" data-title="${escapeHtml(display(entry).name)}" data-source="${escapeHtml(entry.source)}">
-        <a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">Play</a>
-      </archive-video>
+      <div class="video-player">
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(id)}?playsinline=1&amp;rel=0" title="${escapeHtml(`Video: ${display(entry).name}`)}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+        </div>
+        <p class="audio-credit">Source: <a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(entry.source)}</a></p>
+      </div>
     </section>`;
 };
 
+// The top row's word leads to the entry's player: Listen or Watch. An entry
+// with neither links to its source.
 const primaryAction = (entry) => {
   if (entry.audio) return '<a href="#listen">Listen</a>';
-  const link = `href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer"`;
-  return videoId(entry)
-    ? `<a ${link} data-video-toggle aria-controls="watch">Watch</a>`
-    : `<a ${link}>${actionLabel(entry)}</a>`;
+  if (videoId(entry)) return '<a href="#watch">Watch</a>';
+  return `<a href="${escapeHtml(entry.href)}" target="_blank" rel="noopener noreferrer">${actionLabel(entry)}</a>`;
 };
 
 const accessNote = (access) => (access === "RRR subscriber" ? "Triple R subscriber audio archive" : "");
@@ -547,7 +551,7 @@ const aboutContent = `
   </main>`;
 const aboutBase = baseIndex
   .replace(/\s*<script\s+type="module"[^>]*>[\s\S]*?<\/script>/gi, "")
-  .replace(/\s*<script\b[^>]*src="\/(?:audio|video)-player\.js"[^>]*><\/script>/gi, "");
+  .replace(/\s*<script\b[^>]*src="\/audio-player\.js"[^>]*><\/script>/gi, "");
 const aboutDocument = decorateDocument(
   aboutBase.replace('<div id="root"></div>', `<div id="root">${aboutContent}</div>`),
   {

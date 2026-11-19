@@ -170,8 +170,9 @@ const formatDuration = (value = "") => {
   return rest ? `${hours} hr ${rest} min` : `${hours} hr`;
 };
 
-// An entry whose primary link is a YouTube video plays in place
-// (public/video-player.js). Anything else stays an ordinary link.
+// An entry whose primary link is a YouTube video shows it in place (the frame
+// is written by src/App.tsx and scripts/build-static-pages.mjs). Anything else
+// stays an ordinary link.
 const youtubeId = (href = "") => {
   let url;
   try {
